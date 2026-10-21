@@ -29,7 +29,7 @@ for (const [i, s] of item.scenes.entries()) {
     for (const [j, part] of s.parts.entries()) {
       let d = 1.4;
       // higher/lower: 3-second countdown after the question, then the answer is revealed and spoken
-      if (part.reveal) { s.revealAt = t + 2.3; t = s.revealAt + 0.15; }
+      if (part.reveal) { s.revealAt = t + 2.1; t = s.revealAt + 0.15; }
       if (useVoice) {
         const f = path.join(work, `v${i}-${j}.mp3`);
         try { d = tts(part.say, f); clips.push({ f, i, at: t }); } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); useVoice = false; clips.length = 0; }
@@ -46,7 +46,7 @@ for (const [i, s] of item.scenes.entries()) {
   }
   const base = { hook: 3.2, rank: 11, winner: 4, race: 18, map: 11, stat: 8, clues: 10, countdown: 4, answer: 3, cta: 3.5, spin: 10.3, hl: 7, cupmatch: 7, cupresult: 5, cupchampion: 5 }[s.type] || 4;
   // tight hooks: the scene ends right after the voice (the first 3 seconds decide if people stay)
-  durs.push(s.tight ? Math.max(s.min || 0, 1.8, vd ? vd + 0.45 : 0) : Math.max(s.min || 0, base, vd ? vd + 0.9 : 0));
+  durs.push(s.type === 'hl' ? Math.max(s.min || 0, vd + 0.35) : s.tight ? Math.max(s.min || 0, 1.8, vd ? vd + 0.45 : 0) : Math.max(s.min || 0, base, vd ? vd + 0.9 : 0));
 }
 const total = durs.reduce((a, b) => a + b, 0);
 console.log('Scenes:', durs.map(d => d.toFixed(1)).join(' + '), '=', total.toFixed(1), 's');
@@ -160,7 +160,7 @@ function sfxEvents(item, durs, starts) {
     if (s.type === 'answer') { add(t0 + 0.12 * d, 'hit', 1); add(t0 + 0.3 * d, 'ding', 0.5); }
     if (s.type === 'winner') add(t0 + 0.05 * d, 'hit', 1);
     if (s.type === 'spin') { const per = 7 / FPS; for (let j = 0; j * per < d - 0.05; j++) add(t0 + j * per, 'tick', 0.45); }
-    if (s.type === 'hl') { const rv = s.revealAt || 4.5; for (let j = 3; j >= 1; j--) add(t0 + rv - j * 0.8, j % 2 ? 'clock' : 'clock2', 0.9); add(t0 + rv, 'hit', 1); add(t0 + rv + 0.1, 'ding', 0.5); }
+    if (s.type === 'hl') { const rv = s.revealAt || 4.5; for (let j = 3; j >= 1; j--) add(t0 + rv - j * 0.7, j % 2 ? 'clock' : 'clock2', 0.9); add(t0 + rv, 'hit', 1); add(t0 + rv + 0.1, 'ding', 0.5); }
     if (s.type === 'cupmatch') { add(t0 + 0.3, 'hit', 0.9); s.rows.forEach((_, j) => add(t0 + (0.08 + j * 0.12) * d, 'pop', 0.7)); }
     if (s.type === 'cupresult') { add(t0 + 0.1 * d, 'roll', 0.6); add(t0 + 0.45 * d, 'hit', 1); }
     if (s.type === 'cupchampion') { add(t0 + 0.05, 'boom', 1); add(t0 + 0.3 * d, 'ding', 0.7); }

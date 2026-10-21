@@ -373,7 +373,7 @@ const builders = {
       const win = va > vb ? 'a' : 'b';
       const C2 = iso => ({ flag: cs.get(iso).flag, name: cs.get(iso).name });
       rounds.push({ stat: q.stat, n: rounds.length + 1, q: q.q, a: { ...C2(a), text: show(va, st.fmt) }, b: { ...C2(b), text: show(vb, st.fmt) }, win,
-        parts: [{ say: `Round ${rounds.length + 1}. ${q.say}?` }, { say: (() => {
+        parts: [{ say: `${rounds.length === 0 ? 'Round one. ' : ''}${q.say}?` }, { say: (() => {
           const [w, wv, l, lv] = win === 'a' ? [a, va, b, vb] : [b, vb, a, va], r = wv / lv;
           // winner with its unit, loser just the number ("Norway: 40 years, against 21")
           const num = v => { const w = speak(v, st.fmt).replace(/^about /, '').split(' '); return /^(thousand|million|billion|trillion)$/.test(w[1]) ? w.slice(0, 2).join(' ') : w[0]; };
