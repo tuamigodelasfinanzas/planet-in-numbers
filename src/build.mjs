@@ -213,11 +213,11 @@ const builders = {
     const values = {}; rows.forEach((r, i) => { values[r.iso3] = 1 - i / (rows.length - 1); });
     const pick = r => ({ flag: r.flag, name: r.name, text: show(r.value, t.fmt) });
     const top = rows.slice(0, 3).map(pick), bottom = rows.slice(-3).reverse().map(pick);
-    const mapGap = gapWords(rows[0].value, rows.at(-1).value, t.fmt);
+    const mapGap = gapWords(rows[0].value, rows.at(-1).value, t.fmt), mapEH = everyday(t, rows[0].value), mapEL = everyday(t, rows.at(-1).value);
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'calm', title: `World map: ${t.title.toLowerCase()}`, rank: fullRank(rows, t.fmt), metricName: t.say,
       scenes: [
-        { type: 'hook', kicker: 'WORLD MAP · ' + year, title: `${t.hook.replace(/\s*\p{Extended_Pictographic}.*$/u, '')} 🗺️`, sub: mapGap ? `One country: ${mapGap.show} another 😳` : 'Find your country 👀', say: mapGap ? `One country has ${mapGap.say} the ${t.say} of another. Find yours.` : `${sentence(t.hook)} Find your country.`, tight: true },
+        { type: 'hook', kicker: 'WORLD MAP · ' + year, title: `${t.hook.replace(/\s*\p{Extended_Pictographic}.*$/u, '')} 🗺️`, sub: mapEH && mapEL ? `${mapEH.show} vs ${mapEL.show} 😳` : mapGap ? `One country: ${mapGap.show} another 😳` : 'Find your country 👀', say: mapEH && mapEL ? `In one country: ${mapEH.say}. In another: ${mapEL.say}. Find yours.` : mapGap ? `One country has ${mapGap.say} more ${t.say} than another. Find yours.` : `${sentence(t.hook)} Find your country.`, tight: true },
         { type: 'map', title: t.metric, year, values, legend: [show(rows.at(-1).value, t.fmt), show(rows[0].value, t.fmt)], top, bottom, min: 12, say: `The highest is ${rows[0].name}, with ${speak(rows[0].value, t.fmt)}. The lowest is ${rows.at(-1).name}, with ${speak(rows.at(-1).value, t.fmt)}. Pause, and find your country.` },
         cta('Find YOUR country on the map 👀'),
       ],
