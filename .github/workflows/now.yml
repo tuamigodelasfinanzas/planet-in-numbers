@@ -27,7 +27,7 @@ jobs:
     needs: read
     uses: ./.github/workflows/publish.yml
     with:
-      slot: A
+      slot: C
       series: ${{ needs.read.outputs.series }}
       episode: ${{ needs.read.outputs.episode }}
       dry_run: "false"
