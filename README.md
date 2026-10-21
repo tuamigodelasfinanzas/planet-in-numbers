@@ -17,7 +17,7 @@ the Make webhook, which publishes on Instagram and Facebook. Reels also go to Te
 | guess | reel | Quiz: guess the country from 4 clues |
 | stop | reel | Game "Stop the video": 44 country cards flash by (each one stays 7 frames, so any pause shows a full card) |
 | hl | reel | Game "Higher or Lower": 6 rounds, 3-second countdown, viewers comment their score /6 |
-| cup | reel | Game "World Cup of countries": 8 countries, QF → SF → final; votes counted from the comments of the previous match (tools/cup-votes.mjs). **Built but not scheduled** — add "cup" to content/plan.json to start it |
+| cup | reel | Game "World Cup of countries": 8 countries, QF → SF → final; votes counted from the comments of the previous match (tools/cup-votes.mjs). Scheduled on Saturdays at 18:00 (one match per week) |
 | top20 | carousel | Full Top 20 (7 slides) |
 | versus | carousel | Country vs country, 5 rounds |
 | week | carousel | The week in numbers |

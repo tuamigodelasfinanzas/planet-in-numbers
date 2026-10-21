@@ -1,5 +1,5 @@
 {
-  "_info": "Weekly calendar (Madrid time). Slot A = 06:00, B = 11:00, C = 18:00. Edit here to change what goes out each day; Make only says which slot it is.",
+  "_info": "Weekly calendar (Madrid time). Slot A = 06:00, B = 11:00, C = 18:00 (Mon, Wed, Fri, Sat). Edit here to change what goes out each day; Make only says which slot it is.",
   "mon": {
     "A": "top10",
     "C": "stop"
@@ -21,11 +21,12 @@
     "C": "stop"
   },
   "sat": {
-    "B": "guess"
+    "B": "guess",
+    "C": "cup"
   },
   "sun": {
     "A": "stat",
     "B": "week"
   },
-  "_games": "Games: stop = 'Stop the video', hl = 'Higher or Lower'. The 'cup' series (World Cup of countries) is built but NOT scheduled yet: add \"cup\" to a slot to start it."
+  "_games": "Games: stop = 'Stop the video', hl = 'Higher or Lower', cup = 'World Cup of countries' (Saturday 18:00, one match per week; votes = comments on the previous match)."
 }
