@@ -91,6 +91,7 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER: ${{ secrets.IG_USER_ID }}
+          MAKE_HOOK: ${{ secrets.MAKE_WEBHOOK_URL }}
         run: |
           cp site/state/used.json state-dry.json 2>/dev/null || echo '{}' > state-dry.json
           # a test never changes the real tournament: votes go to a copy

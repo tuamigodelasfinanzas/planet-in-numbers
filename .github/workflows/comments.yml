@@ -36,6 +36,7 @@ jobs:
         env:
           IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER: ${{ secrets.IG_USER_ID }}
+          MAKE_HOOK: ${{ secrets.MAKE_WEBHOOK_URL }}
           SITE: site
           # a push (manual test) never posts replies
           DRY: ${{ github.event_name == 'push' && 'true' || inputs.dry_run }}
