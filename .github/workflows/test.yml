@@ -1,0 +1,20 @@
+name: Test (no publish)
+
+# Changing .github/test-request runs a preview: it builds and renders the series written in that file,
+# uploads it and sends it to Telegram, but never publishes on Instagram or Facebook.
+on:
+  push:
+    branches: [main]
+    paths: ['.github/test-request']
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  test:
+    uses: ./.github/workflows/publish.yml
+    with:
+      series: top10
+      dry_run: "true"
+    secrets: inherit

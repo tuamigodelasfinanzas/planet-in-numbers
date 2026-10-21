@@ -3,6 +3,12 @@ name: Publish post
 # Make launches this 3 times a day with the slot (A 06:00, B 11:00, C 18:00, Madrid time).
 # content/plan.json decides which series goes out in each slot.
 on:
+  workflow_call:
+    inputs:
+      slot: { type: string, default: "" }
+      series: { type: string, default: "" }
+      episode: { type: string, default: "" }
+      dry_run: { type: string, default: "true" }
   workflow_dispatch:
     inputs:
       slot:
