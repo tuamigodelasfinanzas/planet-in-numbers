@@ -6,6 +6,10 @@
   {
    "id": "gdp-pc",
    "at": "2026-10-21T09:49:51.760Z"
+  },
+  {
+   "id": "happiness",
+   "at": "2026-10-21T15:57:29.990Z"
   }
  ],
  "_log": [
@@ -21,6 +25,16 @@
     "text": "$131,592",
     "label": "Richest countries per person"
    }
+  },
+  {
+   "at": "2026-10-21T15:57:29.990Z",
+   "id": "stat-happiness",
+   "kind": "reel",
+   "title": "The life satisfaction gap",
+   "fact": null
   }
+ ],
+ "stat": [
+  "happiness"
  ]
 }
