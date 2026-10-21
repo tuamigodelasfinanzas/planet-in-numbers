@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths: ['.github/check-request']
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -13,4 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node tools/check-owid.mjs $(cat .github/check-request)
+      - run: node tools/check-owid.mjs $(cat .github/check-request) | sed 's/^::notice:://' > check-result.txt; cat check-result.txt
+      - name: Save the report (branch "checks")
+        run: |
+          git config --global user.name "pin-bot"; git config --global user.email "pin-bot@users.noreply.github.com"
+          mkdir r && cp check-result.txt r/ && cd r && git init -q -b checks && git add -A && git commit -q -m "check" \
+            && git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" checks
