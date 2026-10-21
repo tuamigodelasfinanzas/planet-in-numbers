@@ -1,0 +1,10 @@
+{
+  "_info": "Weekly calendar (Madrid time). Slot A = 06:00, B = 11:00, C = 18:00. Edit here to change what goes out each day; Make only says which slot it is.",
+  "mon": { "A": "top10", "C": "guess" },
+  "tue": { "A": "dollar100", "B": "top20" },
+  "wed": { "A": "race", "C": "stat" },
+  "thu": { "A": "map", "B": "versus" },
+  "fri": { "A": "top10", "C": "guess" },
+  "sat": { "B": "guess" },
+  "sun": { "A": "race", "B": "week" }
+}

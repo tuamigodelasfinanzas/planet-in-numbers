@@ -1,0 +1,295 @@
+{
+ "versus": [
+  [
+   "USA",
+   "CHN"
+  ],
+  [
+   "IND",
+   "CHN"
+  ],
+  [
+   "DEU",
+   "FRA"
+  ],
+  [
+   "ESP",
+   "ITA"
+  ],
+  [
+   "GBR",
+   "FRA"
+  ],
+  [
+   "JPN",
+   "KOR"
+  ],
+  [
+   "BRA",
+   "ARG"
+  ],
+  [
+   "MEX",
+   "USA"
+  ],
+  [
+   "NOR",
+   "SWE"
+  ],
+  [
+   "CAN",
+   "AUS"
+  ],
+  [
+   "IND",
+   "PAK"
+  ],
+  [
+   "NGA",
+   "ZAF"
+  ],
+  [
+   "EGY",
+   "TUR"
+  ],
+  [
+   "IDN",
+   "PHL"
+  ],
+  [
+   "VNM",
+   "THA"
+  ],
+  [
+   "POL",
+   "UKR"
+  ],
+  [
+   "PRT",
+   "ESP"
+  ],
+  [
+   "CHE",
+   "AUT"
+  ],
+  [
+   "NLD",
+   "BEL"
+  ],
+  [
+   "SAU",
+   "ARE"
+  ],
+  [
+   "COL",
+   "PER"
+  ],
+  [
+   "CHL",
+   "ARG"
+  ],
+  [
+   "GRC",
+   "TUR"
+  ],
+  [
+   "IRL",
+   "GBR"
+  ],
+  [
+   "RUS",
+   "USA"
+  ],
+  [
+   "AUS",
+   "NZL"
+  ],
+  [
+   "DNK",
+   "FIN"
+  ],
+  [
+   "MAR",
+   "DZA"
+  ],
+  [
+   "KEN",
+   "ETH"
+  ],
+  [
+   "BGD",
+   "PAK"
+  ]
+ ],
+ "versusMetrics": [
+  {
+   "code": "NY.GDP.PCAP.CD",
+   "fmt": "usd",
+   "label": "Income per person",
+   "better": "high"
+  },
+  {
+   "code": "SP.DYN.LE00.IN",
+   "fmt": "years",
+   "label": "Life expectancy",
+   "better": "high"
+  },
+  {
+   "code": "SP.POP.TOTL",
+   "fmt": "num_big",
+   "label": "Population",
+   "better": null
+  },
+  {
+   "code": "IT.NET.USER.ZS",
+   "fmt": "pct",
+   "label": "People online",
+   "better": "high"
+  },
+  {
+   "code": "SL.UEM.TOTL.ZS",
+   "fmt": "pct",
+   "label": "Unemployment",
+   "better": "low"
+  }
+ ],
+ "quiz": [
+  "USA",
+  "CAN",
+  "MEX",
+  "BRA",
+  "ARG",
+  "CHL",
+  "COL",
+  "PER",
+  "CUB",
+  "GBR",
+  "IRL",
+  "FRA",
+  "DEU",
+  "ESP",
+  "PRT",
+  "ITA",
+  "NLD",
+  "BEL",
+  "CHE",
+  "AUT",
+  "SWE",
+  "NOR",
+  "FIN",
+  "DNK",
+  "POL",
+  "UKR",
+  "GRC",
+  "TUR",
+  "RUS",
+  "EGY",
+  "MAR",
+  "NGA",
+  "KEN",
+  "ETH",
+  "ZAF",
+  "GHA",
+  "SAU",
+  "ARE",
+  "ISR",
+  "IRN",
+  "IND",
+  "PAK",
+  "BGD",
+  "CHN",
+  "JPN",
+  "KOR",
+  "IDN",
+  "PHL",
+  "VNM",
+  "THA",
+  "MYS",
+  "SGP",
+  "AUS",
+  "NZL",
+  "HUN",
+  "CZE",
+  "ROU",
+  "ISL",
+  "QAT",
+  "LUX"
+ ],
+ "quizClues": [
+  {
+   "code": "SP.POP.TOTL",
+   "fmt": "num_big",
+   "label": "Population"
+  },
+  {
+   "code": "NY.GDP.PCAP.CD",
+   "fmt": "usd",
+   "label": "Income per person"
+  },
+  {
+   "code": "SP.DYN.LE00.IN",
+   "fmt": "years",
+   "label": "Life expectancy"
+  },
+  {
+   "code": "SP.URB.TOTL.IN.ZS",
+   "fmt": "pct",
+   "label": "Living in cities"
+  },
+  {
+   "code": "SP.DYN.TFRT.IN",
+   "fmt": "dec1",
+   "label": "Children per woman"
+  }
+ ],
+ "dollarRegions": [
+  {
+   "id": "world-most",
+   "title": "Where $100 goes the furthest",
+   "region": null,
+   "dir": "desc"
+  },
+  {
+   "id": "world-least",
+   "title": "Where $100 disappears the fastest",
+   "region": null,
+   "dir": "asc"
+  },
+  {
+   "id": "europe",
+   "title": "How far $100 goes in Europe",
+   "region": "Europe",
+   "dir": "desc"
+  },
+  {
+   "id": "latam",
+   "title": "How far $100 goes in Latin America",
+   "region": "Latin America",
+   "dir": "desc"
+  },
+  {
+   "id": "asia",
+   "title": "How far $100 goes in Asia",
+   "region": "East Asia",
+   "dir": "desc"
+  },
+  {
+   "id": "africa",
+   "title": "How far $100 goes in Africa",
+   "region": "Sub-Saharan",
+   "dir": "desc"
+  },
+  {
+   "id": "mideast",
+   "title": "How far $100 goes in the Middle East",
+   "region": "Middle East",
+   "dir": "desc"
+  },
+  {
+   "id": "europe-least",
+   "title": "Most expensive countries in Europe",
+   "region": "Europe",
+   "dir": "asc"
+  }
+ ]
+}

@@ -1,0 +1,179 @@
+name: Publish post
+
+# Make launches this 3 times a day with the slot (A 06:00, B 11:00, C 18:00, Madrid time).
+# content/plan.json decides which series goes out in each slot.
+on:
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Slot: A, B or C (uses content/plan.json for today)"
+        required: false
+        default: ""
+      series:
+        description: "Optional: force a series (top10, top20, dollar100, race, map, stat, guess, versus, week)"
+        required: false
+        default: ""
+      episode:
+        description: "Optional: force a topic/country/pair (e.g. life, ESP, USA-CHN)"
+        required: false
+        default: ""
+      dry_run:
+        description: "true = generate and upload, but do NOT publish (sends it to Telegram as a preview)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      DRY: ${{ inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: What goes out now
+        id: what
+        run: |
+          SERIES="${{ inputs.series }}"
+          [ -n "$SERIES" ] || SERIES=$(node src/plan.mjs "${{ inputs.slot }}")
+          if [ -z "$SERIES" ]; then echo "::notice::Nothing planned for slot '${{ inputs.slot }}' today"; echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          # the story goes out with the first post of the day
+          FIRST=$(node -e 'const p=require("./content/plan.json");const wd=new Intl.DateTimeFormat("en-US",{weekday:"short",timeZone:"Europe/Madrid"}).format(new Date()).toLowerCase();console.log(Object.keys(p[wd]||{}).sort()[0]||"")')
+          echo "series=$SERIES" >> "$GITHUB_OUTPUT"
+          echo "story=$([ "${{ inputs.slot }}" = "$FIRST" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "::notice::Slot ${{ inputs.slot }} → $SERIES"
+
+      - uses: actions/setup-node@v4
+        if: steps.what.outputs.skip != 'true'
+        with:
+          node-version: 22
+
+      - name: Install
+        if: steps.what.outputs.skip != 'true'
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
+          pip install -q edge-tts
+
+      - name: Get site branch (media + memory of what was published)
+        if: steps.what.outputs.skip != 'true'
+        run: |
+          git config --global user.name "pin-bot"; git config --global user.email "pin-bot@users.noreply.github.com"
+          REMOTE="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code --heads "$REMOTE" gh-pages >/dev/null 2>&1; then git clone -q --depth 1 --branch gh-pages "$REMOTE" site
+          else mkdir site && cd site && git init -q -b gh-pages && git remote add origin "$REMOTE" && touch .nojekyll && cd ..; fi
+          mkdir -p site/state site/media
+          # turn on GitHub Pages the first time (serves the media to Instagram)
+          curl -sS -o /dev/null -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages" -d '{"source":{"branch":"gh-pages","path":"/"}}' || true
+
+      - name: Build content with real data (World Bank)
+        if: steps.what.outputs.skip != 'true'
+        run: node src/build.mjs "${{ steps.what.outputs.series }}" item.json site/state/used.json "${{ inputs.episode }}"
+
+      - name: Render
+        if: steps.what.outputs.skip != 'true'
+        id: render
+        run: |
+          set -euo pipefail
+          KIND=$(jq -r .kind item.json); ID=$(jq -r .id item.json)
+          DIR="$(TZ=Europe/Madrid date +%F)-${ID}-${GITHUB_RUN_ID}"
+          mkdir -p "site/media/$DIR"
+          if [ "$KIND" = reel ]; then
+            node src/render-reel.mjs item.json out/reel.mp4
+            cp out/reel.mp4 out/reel.jpg "site/media/$DIR/"
+            COVER=out/reel.jpg
+          else
+            node src/render-carousel.mjs item.json out/slides
+            [ "$(ls out/slides/*.jpg | wc -l)" = 7 ] || { echo "::error::Carousel must have 7 slides"; exit 1; }
+            cp out/slides/*.jpg "site/media/$DIR/"
+            COVER=out/slides/01.jpg
+          fi
+          jq -r .caption item.json > "site/media/$DIR/caption.txt"
+          cp item.json "site/media/$DIR/item.json"
+          echo "kind=$KIND" >> "$GITHUB_OUTPUT"; echo "dir=$DIR" >> "$GITHUB_OUTPUT"; echo "cover=$COVER" >> "$GITHUB_OUTPUT"
+
+      - name: Upload media to GitHub Pages
+        if: steps.what.outputs.skip != 'true'
+        id: up
+        run: |
+          set -euo pipefail
+          [ "$DRY" = "true" ] || node src/state.mjs site/state/used.json item.json
+          # keep only the 40 most recent posts
+          ls -1dt site/media/*/ | tail -n +41 | xargs -r rm -rf
+          cd site && git add -A && git commit -q -m "Post ${{ steps.render.outputs.dir }}"
+          for i in 1 2 3 4 5; do git push -q origin gh-pages && break || { git pull -q --rebase origin gh-pages; sleep 3; }; done
+          BASE="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media/${{ steps.render.outputs.dir }}"
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
+          F=$([ "${{ steps.render.outputs.kind }}" = reel ] && echo reel.mp4 || echo 07.jpg)
+          for i in $(seq 1 120); do
+            CODE=$(curl -s -o /dev/null -w '%{http_code}' -I "$BASE/$F" || true); echo "try $i: HTTP $CODE"
+            [ "$CODE" = 200 ] && exit 0; sleep 15
+          done
+          echo "::error::Media not online in time ($BASE/$F)"; exit 1
+
+      - name: Publish (Make → Instagram + Facebook)
+        if: steps.what.outputs.skip != 'true' && inputs.dry_run != 'true'
+        run: |
+          BASE="${{ steps.up.outputs.base }}"
+          if [ "${{ steps.render.outputs.kind }}" = reel ]; then
+            jq -n --arg url "$BASE/reel.mp4" --rawfile caption item.json --arg title "$(jq -r .title item.json)" --argjson cover "$(jq -r '.cover_ms // 0' item.json)" \
+              '{status:"reel", video_url:$url, caption:($caption|fromjson|.caption), title:$title, cover_ms:$cover}'
+          else
+            jq -n --arg base "$BASE" --rawfile caption item.json --arg title "$(jq -r .title item.json)" \
+              '{status:"carousel", caption:($caption|fromjson|.caption), title:$title, images:[range(1;8) | "\($base)/0\(.).jpg"]}'
+          fi > payload.json
+          cat payload.json | jq 'del(.caption)'
+          [ -n "$MAKE_WEBHOOK_URL" ] || { echo "::error::Missing secret MAKE_WEBHOOK_URL"; exit 1; }
+          curl -sS --fail -X POST -H 'Content-Type: application/json' --data @payload.json "$MAKE_WEBHOOK_URL"
+
+      - name: Send to Telegram (for TikTok / preview)
+        if: steps.what.outputs.skip != 'true'
+        continue-on-error: true
+        run: |
+          if [ "${{ steps.render.outputs.kind }}" = reel ]; then node src/telegram.mjs item.json out/reel.mp4; else node src/telegram.mjs item.json out/slides; fi
+
+      - name: Daily story
+        if: steps.what.outputs.skip != 'true' && inputs.dry_run != 'true' && steps.what.outputs.story == 'true'
+        continue-on-error: true
+        env:
+          IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER: ${{ secrets.IG_USER_ID }}
+        run: |
+          set -uo pipefail
+          LINK=""
+          if [ -n "${IG_TOKEN:-}" ] && [ -n "${IG_USER:-}" ]; then
+            case "$IG_TOKEN" in IG*) API="https://graph.instagram.com/v21.0";; *) API="https://graph.facebook.com/v21.0";; esac
+            START=$(date -u +%s)
+            for i in $(seq 1 30); do
+              LINK=$(curl -sS "$API/$IG_USER/media?fields=permalink,timestamp&limit=3&access_token=$IG_TOKEN" | jq -r --argjson s "$((START-900))" '[.data[]? | select((.timestamp|sub("\\+0000$";"Z")|fromdate) > $s)][0].permalink // empty')
+              [ -n "$LINK" ] && break; echo "waiting for the post ($i)"; sleep 20
+            done
+            LINK="${LINK#https://}"; LINK="${LINK#www.}"; LINK="${LINK%/}"
+          fi
+          node src/render-story.mjs item.json "${{ steps.render.outputs.cover }}" out/story.png "$LINK"
+          D="site/media/${{ steps.render.outputs.dir }}"
+          cp out/story.png "$D/"; [ -f out/story.mp4 ] && cp out/story.mp4 "$D/"
+          (cd site && git add -A && git commit -q -m "Story" && for i in 1 2 3; do git push -q origin gh-pages && break || { git pull -q --rebase origin gh-pages; sleep 3; }; done)
+          export IMAGE_URL="${{ steps.up.outputs.base }}/story.png" VIDEO_URL=""
+          [ -f out/story.mp4 ] && VIDEO_URL="${{ steps.up.outputs.base }}/story.mp4"
+          for i in $(seq 1 60); do [ "$(curl -s -o /dev/null -w '%{http_code}' -I "$IMAGE_URL")" = 200 ] && break; sleep 15; done
+          bash tools/ig-story.sh
+
+      - name: Tell Make if it failed
+        if: failure() && inputs.dry_run != 'true'
+        run: |
+          [ -n "$MAKE_WEBHOOK_URL" ] && curl -sS -X POST -H 'Content-Type: application/json' \
+            -d '{"status":"error","run_url":"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' "$MAKE_WEBHOOK_URL" || true
