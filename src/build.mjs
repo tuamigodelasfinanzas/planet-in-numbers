@@ -375,7 +375,9 @@ const builders = {
       rounds.push({ stat: q.stat, n: rounds.length + 1, q: q.q, a: { ...C2(a), text: show(va, st.fmt) }, b: { ...C2(b), text: show(vb, st.fmt) }, win,
         parts: [{ say: `Round ${rounds.length + 1}. ${q.say}?` }, { say: (() => {
           const [w, wv, l, lv] = win === 'a' ? [a, va, b, vb] : [b, vb, a, va], r = wv / lv;
-          return `${r < 1.12 ? 'So close! ' : r >= 1.6 ? 'Easy one. ' : ''}${cs.get(w).name}: ${speak(wv, st.fmt)}. ${cs.get(l).name}: ${speak(lv, st.fmt)}.`;
+          // winner with its unit, loser just the number ("Norway: 40 years, against 21")
+          const num = v => { const w = speak(v, st.fmt).replace(/^about /, '').split(' '); return /^(thousand|million|billion|trillion)$/.test(w[1]) ? w.slice(0, 2).join(' ') : w[0]; };
+          return `${r < 1.12 ? 'So close! ' : r >= 1.6 ? 'Easy one. ' : ''}${cs.get(w).name}: ${speak(wv, st.fmt)}, against ${num(lv)}.`;
         })(), reveal: true }] });
       void low;
     }
@@ -386,7 +388,7 @@ const builders = {
       scenes: [
         { type: 'hook', kicker: `HIGHER OR LOWER · ${N} ROUNDS`, title: 'Higher or lower? Country edition ⬆️⬇️', sub: `Keep score. Comment your result /${N}`, say: `${N} rounds. Each one harder. Keep score!`, min: 2.2, tight: true },
         ...rounds.map(r => ({ type: 'hl', ...r, total: N })),
-        { ...cta(`What was YOUR score?`), sub: `Comment your result out of ${N} 👇`, say: `So, what was your score out of ${N}? Comment it, and follow for the next round!` },
+        { ...cta(`What was YOUR score?`), sub: `Comment your result out of ${N} 👇`, say: `What was your score out of ${N}? Comment it!` },
       ],
       caption: `Higher or lower? Country edition ⬆️⬇️\n\n${N} rounds, each one harder. How many did you get right?\n\nComment your score /${N} 👇\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#higherorlower #quiz #geography #countries #theplanetinnumbers`,
     };
