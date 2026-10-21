@@ -1,0 +1,26 @@
+{
+ "top10": [
+  "gdp-pc"
+ ],
+ "_topics": [
+  {
+   "id": "gdp-pc",
+   "at": "2026-10-21T09:49:51.760Z"
+  }
+ ],
+ "_log": [
+  {
+   "at": "2026-10-21T09:49:51.760Z",
+   "id": "top10-gdp-pc",
+   "kind": "reel",
+   "title": "Richest countries per person",
+   "fact": {
+    "topic": "gdp-pc",
+    "flag": "🇮🇪",
+    "name": "Ireland",
+    "text": "$131,592",
+    "label": "Richest countries per person"
+   }
+  }
+ ]
+}
