@@ -40,6 +40,15 @@ jobs:
           [ -n "${IG_TOKEN:-}" ] && [ -n "${IG_USER:-}" ] || { echo "::error::Missing IG_ACCESS_TOKEN or IG_USER_ID"; exit 1; }
           IG_TOKEN=$(printf %s "$IG_TOKEN" | tr -d "[:space:]\"'")
           case "$IG_TOKEN" in IG*) API="https://graph.instagram.com/v21.0";; *) API="https://graph.facebook.com/v21.0";; esac
+          # diagnosis: token type and which Instagram accounts it can reach (no secrets printed)
+          echo "Token type: $(case "$IG_TOKEN" in IG*) echo 'Instagram login (IG...)';; EAA*) echo 'Facebook (EAA...)';; *) echo 'unknown';; esac)"
+          ME=$(curl -sS "$API/me?fields=id,name,username,user_id&access_token=$IG_TOKEN"); echo "me: $(echo "$ME" | jq -c '{name,username,error:.error.message}')"
+          if [ "$API" = "https://graph.facebook.com/v21.0" ]; then
+            curl -sS "$API/me/accounts?fields=name,instagram_business_account{id,username}&access_token=$IG_TOKEN" | jq -r '.data[]? | "page: \(.name) -> ig: \(.instagram_business_account.username // "none") \(.instagram_business_account.id // "")"'
+            curl -sS "$API/debug_token?input_token=$IG_TOKEN&access_token=$IG_TOKEN" | jq -r '"scopes: \(.data.scopes // [] | join(","))", "expires: \(.data.expires_at // "?")", "granular: \(.data.granular_scopes // [] | map(.scope + "=" + ((.target_ids // []) | length | tostring)) | join(" "))"'
+          else
+            IGID=$(echo "$ME" | jq -r '.user_id // .id // empty'); echo "This token's own IG id differs from the secret? $( [ "$IGID" = "$IG_USER" ] && echo no || echo yes)"; IG_USER="$IGID"
+          fi
           CHECK=$(curl -sS "$API/$IG_USER?fields=username&access_token=$IG_TOKEN")
           echo "$CHECK" | jq -e .username >/dev/null || { echo "::error::The token cannot access this Instagram account: $(echo "$CHECK" | jq -c '.error.message // .' )"; exit 1; }
           echo "::notice::Token OK for @$(echo "$CHECK" | jq -r .username)"
