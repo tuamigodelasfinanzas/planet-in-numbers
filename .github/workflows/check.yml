@@ -16,8 +16,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: |
-          if [ "$(head -1 .github/check-request)" = "audit" ]; then node tools/audit-topics.mjs > check-result.txt 2>&1 || true
+      - env:
+          IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          if [ "$(head -1 .github/check-request)" = "platforms" ]; then node tools/platforms-check.mjs > check-result.txt 2>&1 || true
+          elif [ "$(head -1 .github/check-request)" = "audit" ]; then node tools/audit-topics.mjs > check-result.txt 2>&1 || true
           else node tools/check-owid.mjs $(cat .github/check-request) | sed 's/^::notice:://' > check-result.txt; fi
           cat check-result.txt
       - name: Save the report (branch "checks")
