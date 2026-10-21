@@ -21,7 +21,21 @@ const durs = [], clips = [];
 let useVoice = voiceOn();
 for (const [i, s] of item.scenes.entries()) {
   let vd = 0;
-  if (useVoice && s.say) {
+  if (s.parts) {
+    // voice in pieces, each one synced with the row it names (cue = seconds from scene start)
+    let t = 0.35; s.cues = {};
+    for (const [j, part] of s.parts.entries()) {
+      let d = 1.4;
+      if (useVoice) {
+        const f = path.join(work, `v${i}-${j}.mp3`);
+        try { d = tts(part.say, f); clips.push({ f, i, at: t }); } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); useVoice = false; clips.length = 0; }
+      }
+      if (part.row != null) s.cues[part.row] = Math.max(0, t - 0.15);
+      t += d + 0.3;
+    }
+    s.cues.rest = t;            // the remaining rows enter after the last named one
+    vd = t + 1.6 + 0.12 * Math.max(0, (s.rows?.length || 0) - Object.keys(s.cues).length + 1);
+  } else if (useVoice && s.say) {
     const f = path.join(work, `v${i}.mp3`);
     try { vd = tts(s.say, f); clips.push({ f, i }); } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); useVoice = false; clips.length = 0; }
   }
@@ -68,7 +82,7 @@ const args = ['-y', '-v', 'error', '-i', path.join(work, 'video.mp4'), '-stream_
 clips.forEach(c => args.push('-i', c.f));
 let filter;
 if (clips.length) {
-  const parts = clips.map((c, j) => `[${j + 2}:a]adelay=${Math.round((starts[c.i] + 0.35) * 1000)}:all=1,volume=1.6[s${j}]`);
+  const parts = clips.map((c, j) => `[${j + 2}:a]adelay=${Math.round((starts[c.i] + (c.at ?? 0.35)) * 1000)}:all=1,volume=1.6[s${j}]`);
   parts.push(`${clips.map((_, j) => `[s${j}]`).join('')}amix=inputs=${clips.length}:normalize=0,asplit=2[v][k]`);
   parts.push(`[1:a]volume=0.42,afade=t=in:st=0:d=0.4,afade=t=out:st=${Math.max(0, total - 1.6)}:d=1.6[m]`);
   parts.push('[m][k]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=400[md]');

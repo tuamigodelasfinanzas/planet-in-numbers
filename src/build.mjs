@@ -52,9 +52,12 @@ const builders = {
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'upbeat', title: t.title,
       scenes: [
-        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: t.metric, say: `${t.hook.replace(/[^\p{L}\p{N}\s',.-]/gu, '').trim()}. Number one will surprise you.` },
-        { type: 'rank', title: t.title, metric: `${t.metric} · ${year}`, rows, min: 9, say: `Counting down by ${t.say}. Number three is ${c.name}. Number two, ${b.name}.` },
-        { type: 'winner', flag: a.flag, name: a.name, text: a.text, label: t.metric, say: `And number one is ${a.name}, with ${speak(a.value, t.fmt)}.` },
+        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: t.metric, say: `${t.hook.replace(/[^\p{L}\p{N}\s',.-]/gu, '').trim()}. Let's see who's on top.` },
+        { type: 'rank', title: t.title, metric: `${t.metric} · ${year}`, rows, min: 9, parts: [
+          { say: `Number one is ${a.name}, with ${speak(a.value, t.fmt)}.`, row: 0 },
+          { say: `Number two, ${b.name}.`, row: 1 },
+          { say: `And number three, ${c.name}.`, row: 2 },
+        ] },
         cta(),
       ],
       caption: `${t.hook}\n\n🥇 ${a.flag} ${a.name}: ${a.text}\n🥈 ${b.flag} ${b.name}: ${b.text}\n🥉 ${c.flag} ${c.name}: ${c.text}\n\nWhere does your country rank? Tell us in the comments 👇\n\n${SRC(year)}\n\n${TAGS}`,
@@ -92,8 +95,11 @@ const builders = {
       kind: 'reel', series, episode: ep.id, music: 'upbeat', title: ep.title,
       scenes: [
         { type: 'hook', kicker: '$100 = ?', title: `${ep.title} 💵`, sub: 'What $100 really buys, compared with the US', say: `${ep.title}. Here is what one hundred dollars is really worth.` },
-        { type: 'rank', title: ep.title, metric: `Value of $100 in local prices · ${year}`, rows: out, min: 9, say: ep.dir === 'asc' ? `In these countries, prices are so high that one hundred dollars feels like less. In ${b.name}, it is worth about ${Math.round(b.value)} dollars.` : `Thanks to lower prices, your money stretches further here. In ${b.name}, one hundred dollars feels like ${Math.round(b.value)}.` },
-        { type: 'winner', flag: a.flag, name: a.name, text: '$' + Math.round(a.value), label: '$100 feels like…', say: `And in ${a.name}, one hundred dollars feels like ${Math.round(a.value)} dollars.` },
+        { type: 'rank', title: ep.title, metric: `Value of $100 in local prices · ${year}`, rows: out, min: 9, parts: [
+          { say: `Number one is ${a.name}: there, one hundred dollars feels like ${Math.round(a.value)}.`, row: 0 },
+          { say: `Number two, ${b.name}, with ${Math.round(b.value)}.`, row: 1 },
+          { say: `And number three, ${out[2].name}.`, row: 2 },
+        ] },
         cta('Where would YOU take your $100?'),
       ],
       caption: `${ep.title} 💵\n\nWith local prices, $100 feels like:\n🥇 ${a.flag} ${a.name}: ${a.text}\n🥈 ${b.flag} ${b.name}: ${b.text}\n\n(Based on the World Bank price level ratio: PPP conversion factor vs. market exchange rate.)\n\nWhere would you spend your $100? 👇\n\n${SRC(year)}\n\n#travel #money #costofliving #worldrankings #theplanetinnumbers`,
@@ -260,7 +266,7 @@ const item = await builders[series]();
 item.id = `${series}-${item.episode}`.replace(/[^a-zA-Z0-9-]/g, '-');
 // one-line fact for the weekly recap
 if (item.kind === 'reel') {
-  const w = item.scenes.find(s => s.type === 'winner');
+  const w = item.scenes.find(s => s.type === 'winner') || item.scenes.find(s => s.type === 'rank')?.rows?.[0];
   if (w) item.fact = { topic: item.topic, flag: w.flag, name: w.name, text: w.text, label: item.title };
 }
 fs.writeFileSync(outFile, JSON.stringify(item, null, 1));

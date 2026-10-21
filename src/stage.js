@@ -58,13 +58,20 @@
     S.el.innerHTML = header(s) + `<div class="list" style="position:absolute;left:${X0 - 20}px;right:${1080 - X1}px;top:${top}px;height:${h * n}px"></div>`;
     const list = S.el.querySelector('.list');
     const rows = s.rows.map((r, i) => { const e = $(rowHTML(r, h)); e.style.top = `${i * h}px`; list.append(e); return { e, bar: e.querySelector('.bar'), r }; });
+    // top -> bottom: rows named by the voice appear on their cue, the rest follow quickly in order
+    const cues = s.cues || {}, rest = cues.rest ?? 1.2;
+    let k = 0;
+    const startOf = rows.map((_, i) => (cues[i] != null ? cues[i] : rest + 0.12 * (k++)));
     S.draw = () => {
-      // countdown: #10 appears first, #1 last
       rows.forEach(({ e, bar, r }, i) => {
-        const order = n - 1 - i, a = 0.04 + order * (0.8 / n);
-        const q = ease(seg(S.local, a, a + 0.12));
+        const t0 = startOf[i];
+        const q = ease(seg(S.t, t0, t0 + 0.35));
         e.style.opacity = q; e.style.transform = `translateX(${(1 - q) * -60}px)`;
-        bar.style.width = `${ease(seg(S.local, a + 0.02, a + 0.2)) * r.v * 100}%`;
+        bar.style.width = `${ease(seg(S.t, t0 + 0.05, t0 + 0.6)) * r.v * 100}%`;
+        // the row being named gets a short glow
+        const named = cues[i] != null && S.t >= t0 && S.t < t0 + 1.6;
+        e.style.filter = named ? 'brightness(1.25)' : 'none';
+        e.children[2].firstElementChild.style.boxShadow = named ? `0 0 0 3px ${C.accent}` : 'none';
       });
     };
   }
