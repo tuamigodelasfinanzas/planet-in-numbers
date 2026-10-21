@@ -1,24 +1,28 @@
-name: YouTube only (manual)
+name: Repost (manual)
 
-# Changing .github/youtube-request sends one already-published reel (folder name in the file) to YouTube only.
+# Changing .github/youtube-request re-sends an already-rendered reel without rendering again.
+# Line 1 = media folder; line 2 = where: "youtube" (only YouTube, default) or "igfb" (only Instagram + Facebook).
 on:
   push:
     branches: [main]
     paths: ['.github/youtube-request']
 
 jobs:
-  yt:
+  repost:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Send to Make (YouTube only)
+      - name: Send to Make
         env:
           MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
         run: |
-          D=$(head -1 .github/youtube-request | tr -d '[:space:]')
+          D=$(sed -n 1p .github/youtube-request | tr -d '[:space:]')
+          T=$(sed -n 2p .github/youtube-request | tr -d '[:space:]'); case "$T" in igfb) ;; *) T=youtube;; esac
           BASE="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media/$D"
           curl -sSf "$BASE/item.json" -o item.json
-          jq -n --arg url "$BASE/reel.mp4" --slurpfile it item.json '{status:"youtube", video_url:$url, caption:$it[0].caption, title:$it[0].title}' > payload.json
+          curl -sSfI "$BASE/reel.mp4" >/dev/null
+          jq -n --arg st "$T" --arg url "$BASE/reel.mp4" --slurpfile it item.json \
+            '{status:$st, video_url:$url, caption:$it[0].caption, title:$it[0].title, cover_ms:($it[0].cover_ms // 0)}' > payload.json
           jq 'del(.caption)' payload.json
           curl -sS --fail -X POST -H 'Content-Type: application/json' --data @payload.json "$MAKE_WEBHOOK_URL"
