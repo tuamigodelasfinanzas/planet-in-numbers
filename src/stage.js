@@ -259,8 +259,8 @@
     const ca = q('.ca'), cb = q('.cb'), va = q('.va'), vb = q('.vb'), oa = q('.oka'), ob = q('.okb'), cd = q('.cd'), arc = q('.arc');
     S.draw = () => {
       const left = rv - S.t;
-      if (left > 0 && left <= 3) { cd.textContent = Math.ceil(left); arc.setAttribute('stroke-dashoffset', String(327 * (1 - left / 3))); }
-      else { cd.textContent = 'VS'; arc.setAttribute('stroke-dashoffset', left > 3 ? '0' : '327'); }
+      if (left > 0 && left <= 2.4) { cd.textContent = Math.ceil(left / 0.8); arc.setAttribute('stroke-dashoffset', String(327 * (1 - left / 2.4))); }
+      else { cd.textContent = 'VS'; arc.setAttribute('stroke-dashoffset', left > 2.4 ? '0' : '327'); }
       const on = S.t >= rv;
       va.textContent = on ? s.a.text : '?'; vb.textContent = on ? s.b.text : '?';
       const p = ease(seg(S.t, rv, rv + 0.35));

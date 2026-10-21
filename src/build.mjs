@@ -333,13 +333,13 @@ const builders = {
     };
   },
 
-  // ⬆️⬇️ Higher or Lower: 6 rounds, each harder than the last
+  // ⬆️⬇️ Higher or Lower: 5 rounds, each harder than the last
   async hl() {
     const cs = await countries();
     const known = CAT.quiz.filter(i => cs.has(i));
     const seed = hashStr('hl' + new Date().toISOString().slice(0, 10) + (forced || ''));
     const qs = shuffle(G.hl, seed);
-    const bands = [[1.6, 3], [1.4, 2], [1.25, 1.6], [1.15, 1.35], [1.08, 1.2], [1.03, 1.1]];
+    const bands = [[1.6, 3], [1.3, 1.8], [1.18, 1.4], [1.08, 1.22], [1.03, 1.12]];
     const rounds = [], usedC = new Set();
     let qi = 0;
     for (const [i, [lo, hi]] of bands.entries()) {
@@ -361,7 +361,7 @@ const builders = {
       const win = va > vb ? 'a' : 'b';
       const C2 = iso => ({ flag: cs.get(iso).flag, name: cs.get(iso).name });
       rounds.push({ stat: q.stat, n: rounds.length + 1, q: q.q, a: { ...C2(a), text: show(va, st.fmt) }, b: { ...C2(b), text: show(vb, st.fmt) }, win,
-        parts: [{ say: `Round ${rounds.length + 1}. ${q.say}: ${cs.get(a).name}, or ${cs.get(b).name}?` }, { say: `${cs.get(win === 'a' ? a : b).name}! ${speak(win === 'a' ? va : vb, st.fmt)}.`, reveal: true }] });
+        parts: [{ say: `Round ${rounds.length + 1}. ${q.say}?` }, { say: `${cs.get(win === 'a' ? a : b).name}! ${speak(win === 'a' ? va : vb, st.fmt)}.`, reveal: true }] });
       void low;
     }
     if (rounds.length < 5) throw new Error('Not enough Higher or Lower rounds');

@@ -88,14 +88,14 @@ export function replyFor({ text, username, id }, item, countries) {
     if (isos.length) return pick(es ? [`${u} ¡Ese no estaba en las cartas! 😅 Vuelve a probar 🎰`] : [`${u} That one wasn't in the deck this time 😅 Try again! 🎰`], id);
   }
 
-  // ⬆️⬇️ Higher or Lower: they post a score "4/6"
+  // ⬆️⬇️ Higher or Lower: they post a score "4/5"
   if (item?.series === 'hl') {
-    const m = text.match(/\b([0-6])\s*(?:\/|of|de|out of)\s*6\b/i);
+    const m = text.match(/\b([0-5])\s*(?:\/|of|de|out of)\s*5\b/i);
     if (m) {
       const n = Number(m[1]);
-      if (n === 6) return pick(es ? [`${u} ¡6/6! 🏆 Perfecto. Eres un genio de los datos.`, `🔥 ${u} ¡Pleno! 6 de 6.`] : [`${u} 6/6! 🏆 Perfect score. Data genius.`, `🔥 ${u} A perfect 6/6! Respect.`], id);
-      if (n >= 4) return pick(es ? [`${u} ¡${n}/6! 👏 Muy bien. ¿A por el 6 la próxima?`] : [`${u} ${n}/6! 👏 Great score. Going for 6 next time?`, `${u} Solid ${n}/6 💪`], id);
-      return pick(es ? [`${u} ${n}/6 😅 ¡Estaban difíciles! La próxima ronda es tuya.`] : [`${u} ${n}/6 😅 Those were tricky! Next round is yours.`, `${u} ${n}/6, the data is sneaky 😄 Try the next one!`], id);
+      if (n === 5) return pick(es ? [`${u} ¡5/5! 🏆 Perfecto. Eres un genio de los datos.`, `🔥 ${u} ¡Pleno! 5 de 5.`] : [`${u} 5/5! 🏆 Perfect score. Data genius.`, `🔥 ${u} A perfect 5/5! Respect.`], id);
+      if (n >= 3) return pick(es ? [`${u} ¡${n}/5! 👏 Muy bien. ¿A por el 5 la próxima?`] : [`${u} ${n}/5! 👏 Great score. Going for 5/5 next time?`, `${u} Solid ${n}/5 💪`], id);
+      return pick(es ? [`${u} ${n}/5 😅 ¡Estaban difíciles! La próxima ronda es tuya.`] : [`${u} ${n}/5 😅 Those were tricky! Next round is yours.`, `${u} ${n}/5, the data is sneaky 😄 Try the next one!`], id);
     }
   }
 

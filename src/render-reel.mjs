@@ -29,7 +29,7 @@ for (const [i, s] of item.scenes.entries()) {
     for (const [j, part] of s.parts.entries()) {
       let d = 1.4;
       // higher/lower: 3-second countdown after the question, then the answer is revealed and spoken
-      if (part.reveal) { s.revealAt = t + 2.9; t = s.revealAt + 0.15; }
+      if (part.reveal) { s.revealAt = t + 2.3; t = s.revealAt + 0.15; }
       if (useVoice) {
         const f = path.join(work, `v${i}-${j}.mp3`);
         try { d = tts(part.say, f); clips.push({ f, i, at: t }); } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); useVoice = false; clips.length = 0; }
@@ -159,7 +159,7 @@ function sfxEvents(item, durs, starts) {
     if (s.type === 'answer') { add(t0 + 0.12 * d, 'hit', 1); add(t0 + 0.3 * d, 'ding', 0.5); }
     if (s.type === 'winner') add(t0 + 0.05 * d, 'hit', 1);
     if (s.type === 'spin') { const per = 7 / FPS; for (let j = 0; j * per < d - 0.05; j++) add(t0 + j * per, 'tick', 0.45); }
-    if (s.type === 'hl') { const rv = s.revealAt || 4.5; for (let j = 3; j >= 1; j--) add(t0 + rv - j, j % 2 ? 'clock' : 'clock2', 0.9); add(t0 + rv, 'hit', 1); add(t0 + rv + 0.1, 'ding', 0.5); }
+    if (s.type === 'hl') { const rv = s.revealAt || 4.5; for (let j = 3; j >= 1; j--) add(t0 + rv - j * 0.8, j % 2 ? 'clock' : 'clock2', 0.9); add(t0 + rv, 'hit', 1); add(t0 + rv + 0.1, 'ding', 0.5); }
     if (s.type === 'cupmatch') { add(t0 + 0.3, 'hit', 0.9); s.rows.forEach((_, j) => add(t0 + (0.08 + j * 0.12) * d, 'pop', 0.7)); }
     if (s.type === 'cupresult') { add(t0 + 0.1 * d, 'roll', 0.6); add(t0 + 0.45 * d, 'hit', 1); }
     if (s.type === 'cupchampion') { add(t0 + 0.05, 'boom', 1); add(t0 + 0.3 * d, 'ding', 0.7); }
