@@ -454,7 +454,9 @@ const builders = {
 };
 
 if (!builders[series]) { console.error('Unknown series: ' + series + '. Options: ' + Object.keys(builders).join(', ')); process.exit(2); }
-const item = await builders[series]();
+let item;
+try { item = await builders[series](); }
+catch (e) { console.log(`::error::Build ${series} failed: ${String(e.stack || e).split('\n').slice(0, 3).join(' | ')}`); process.exit(1); }
 item.id = `${series}-${item.episode}`.replace(/[^a-zA-Z0-9-]/g, '-');
 // one-line fact for the weekly recap
 if (item.kind === 'reel') {
