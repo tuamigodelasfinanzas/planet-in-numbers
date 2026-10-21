@@ -9,8 +9,15 @@ export const RATE = '+4%';
 export const voiceOn = () => String(process.env.PIN_VOZ ?? 'true') !== 'false';
 export const probe = f => Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim());
 
+// country names that take "the" when spoken ("number one is the United States")
+const THE = ['United States', 'United Kingdom', 'Netherlands', 'Philippines', 'United Arab Emirates', 'Czech Republic', 'Dominican Republic', 'Central African Republic', 'Bahamas', 'Gambia', 'Maldives', 'Solomon Islands', 'Marshall Islands', 'Comoros'];
+export function articles(t) {
+  let s = String(t ?? '');
+  for (const n of THE) s = s.replace(new RegExp(`(^|[^\\w])(?<!the )(?<!The )${n}`, 'g'), (m, pre) => `${pre}${/^[\s]*$|[.!?:]\s*$/.test(pre) && !pre.trim() ? 'the' : 'the'} ${n}`);
+  return s.replace(/\bthe the\b/gi, 'the').replace(/(^|[.!?…]\s+)the /g, (m, p) => `${p}The `);
+}
 export function clean(t) {
-  return String(t ?? '')
+  return articles(String(t ?? ''))
     .replace(/\p{Extended_Pictographic}|\u{FE0F}|\u{200D}/gu, '')
     .replace(/\$(\d)/g, '$1 dollars ').replace(/(\d)\s?%/g, '$1 percent').replace(/×/g, ' times')
     .replace(/\bvs\b/gi, 'versus').replace(/\s+/g, ' ').trim();

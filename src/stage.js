@@ -30,7 +30,7 @@
     S.el.innerHTML = `<div class="bg" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y1 - 440}px;height:440px;opacity:.6">${bars}</div>
       <div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 40}px;display:flex;flex-direction:column;gap:40px">
       <div class="k" style="align-self:flex-start;background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 34px;font-size:40px;font-weight:700;letter-spacing:.06em">${esc(s.kicker)}</div>
-      <div class="t" style="font-size:${s.title.length > 42 ? 92 : 108}px;line-height:1.04;font-weight:700;color:${C.text};letter-spacing:-.02em;transform-origin:left center">${esc(s.title).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`)}</div>
+      <div class="t" style="font-size:${s.title.length > 42 ? 92 : 108}px;line-height:1.04;font-weight:700;color:${C.text};letter-spacing:-.02em;transform-origin:left center">${esc(s.title).replace(/\s+(?=\p{Extended_Pictographic})/gu, '\u00a0').replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM};white-space:nowrap">$1</span>`)}</div>
       <div class="u" style="align-self:flex-start;font-size:44px;line-height:1.25;color:${C.text};font-weight:700;background:${C.card};border-left:8px solid ${C.accent};border-radius:12px;padding:14px 22px">${esc(s.sub).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`)}</div></div>`;
     const [k, t, u] = ['.k', '.t', '.u'].map(q => S.el.querySelector(q));
     const hb = [...S.el.querySelectorAll('.hb')];

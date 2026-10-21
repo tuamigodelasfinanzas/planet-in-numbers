@@ -155,8 +155,8 @@ const builders = {
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'epic', title: `${t.title}: ${y0} vs ${y1}`,
       scenes: [
-        { type: 'hook', kicker: `${y0} → ${y1}`, title: t.raceOnly ? t.hook : `${t.title}: then vs now`, sub: 'Watch who takes the lead 🏁', say: `${t.title}, from ${y0} to today. Watch how the world changed.` },
-        { type: 'race', title: t.title, metric: t.metric, fmt: t.fmt, years, bars, min: Math.min(24, Math.max(16, years.length * 0.2)), say: `In ${y0}, number one was ${first.name}. ${same ? `Decades later, ${last.name} is still on top.` : `But everything changed. By ${y1}, ${last.name} took the lead.`}` },
+        { type: 'hook', kicker: `${y0} → ${y1}`, title: t.raceOnly ? t.hook : `${t.title}: then vs now`, sub: 'Watch who takes the lead 🏁', say: t.raceOnly ? `${t.hook.replace(/[^\p{L}\p{N}\s',.?!-]/gu, '').trim().replace(/([^.?!])$/, '$1.')} Watch how the world changed.` : `${t.title}, from ${y0} to today. Watch how the world changed.` },
+        { type: 'race', title: t.title, metric: t.metric, fmt: t.fmt, years, bars, min: Math.min(21, Math.max(16, years.length * 0.17)), say: `In ${y0}, number one was ${first.name}. ${same ? `Decades later, ${last.name} is still on top.` : `But everything changed. By ${y1}, ${last.name} took the lead.`}` },
         cta('Did YOUR country go up or down?'),
       ],
       caption: `${t.title}: ${y0} vs ${y1} 📈\n\n🕰️ ${y0}: ${first.flag} ${first.name} was number one.\n🏁 ${y1}: ${last.flag} ${last.name} ${same ? 'is still on top' : 'leads the ranking'}.\n\nDid your country go up or down? 👇\n\n📊 Source: World Bank open data, ${y0}–${y1}.\n\n${TAGS}`,

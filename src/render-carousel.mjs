@@ -11,7 +11,7 @@ const item = JSON.parse(fs.readFileSync(itemFile, 'utf8'));
 if (item.slides.length !== 7) throw new Error(`A carousel must have exactly 7 slides (has ${item.slides.length})`);
 fs.mkdirSync(outDir, { recursive: true });
 const EM = `font-family:${EMOJI}`;
-const emo = s => esc(s).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`);
+const emo = s => esc(s).replace(/\s+(?=\p{Extended_Pictographic})/gu, '\u00a0').replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`);
 const W = 1080, H = 1350, P = 80;
 
 const frame = (inner, i) => `
