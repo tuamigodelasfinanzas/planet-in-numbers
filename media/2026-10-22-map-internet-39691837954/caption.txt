@@ -1,0 +1,10 @@
+The world by share of people online 🗺️
+
+⬆️ Highest: 🇧🇭 Bahrain (100%), 🇰🇼 Kuwait (100%), 🇸🇦 Saudi Arabia (100%)
+⬇️ Lowest: 🇧🇮 Burundi (8.6%), 🇺🇬 Uganda (8.9%), 🇹🇩 Chad (13%)
+
+Can you find your country? 👇
+
+📊 Source: World Bank open data, latest available (2025). Countries with 1M+ people.
+
+#maps #worldmap #geography #dataviz #theplanetinnumbers
