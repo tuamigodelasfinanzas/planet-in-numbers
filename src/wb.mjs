@@ -55,8 +55,20 @@ export async function countries() {
 }
 
 // Most recent non-empty value per country (not older than maxAge years)
+// The World Bank archived PA.NUS.PPPC.RF (price level ratio). Same number, rebuilt from two live indicators:
+// PPP conversion factor for private consumption / official exchange rate (same country, same year).
+const DERIVED = {
+  'PA.NUS.PPPC.RF': async () => {
+    const get = async c => { const [, d] = await getJSON(`${API}/country/all/indicator/${c}?format=json&per_page=20000&mrnev=1`); return new Map((d || []).filter(x => x.value != null).map(x => [x.countryiso3code, { year: Number(x.date), value: x.value }])); };
+    const ppp = await get('PA.NUS.PRVT.PP'), fx = await get('PA.NUS.FCRF');
+    const out = [];
+    for (const [iso, p] of ppp) { const f = fx.get(iso); if (f && f.year === p.year && f.value > 0) out.push({ iso3: iso, year: p.year, value: p.value / f.value }); }
+    return out;
+  },
+};
+
 export async function latest(code, maxAge = 8) {
-  const rows = await cached(code, async () => {
+  const rows = await cached(code, DERIVED[code] ? DERIVED[code] : async () => {
     const [, data] = await getJSON(`${API}/country/all/indicator/${code}?format=json&per_page=20000&mrnev=1`);
     return (data || []).filter(d => d.value != null).map(d => ({ iso3: d.countryiso3code, year: Number(d.date), value: d.value }));
   });
