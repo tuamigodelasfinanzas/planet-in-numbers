@@ -1,0 +1,49 @@
+name: Weekly report
+
+on:
+  schedule:
+    - cron: "41 7 * * 1"   # Mondays ~09:41 Madrid
+  push:
+    branches: [main]
+    paths: ['.github/report-request']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Site data
+        run: |
+          git config --global user.name "pin-bot"; git config --global user.email "pin-bot@users.noreply.github.com"
+          git clone -q --depth 1 --filter=blob:none --sparse --branch gh-pages "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" site
+          cd site && git sparse-checkout set --no-cone '/media/*/item.json' '/state/*'
+      - name: Report
+        env:
+          IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER: ${{ secrets.IG_USER_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SITE: site
+          # manual tests don't overwrite the followers history
+          DRY: ${{ github.event_name == 'push' && 'true' || 'false' }}
+        run: node tools/report.mjs
+      - name: Keep followers history
+        if: github.event_name != 'push'
+        run: |
+          cd site && git add -A state && { git commit -q -m "Followers history" || exit 0; }
+          for i in 1 2 3; do git push -q origin gh-pages && break || { git pull -q --rebase origin gh-pages; sleep 3; }; done

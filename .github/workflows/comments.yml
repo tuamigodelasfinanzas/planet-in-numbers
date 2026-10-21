@@ -1,0 +1,42 @@
+name: Reply to comments
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/comments-test']
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "true = only shows what it would reply"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: comments
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Posts data (only the small item.json files)
+        run: |
+          git clone -q --depth 1 --filter=blob:none --sparse --branch gh-pages "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" site
+          cd site && git sparse-checkout set --no-cone '/media/*/item.json'
+      - name: Reply
+        env:
+          IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER: ${{ secrets.IG_USER_ID }}
+          SITE: site
+          # a push (manual test) never posts replies
+          DRY: ${{ github.event_name == 'push' && 'true' || inputs.dry_run }}
+        run: node tools/comments.mjs
