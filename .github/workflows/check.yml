@@ -20,6 +20,7 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: |
           if [ "$(head -1 .github/check-request)" = "platforms" ]; then node tools/platforms-check.mjs > check-result.txt 2>&1 || true
+          elif [ "$(head -1 .github/check-request | cut -d' ' -f1)" = "wb" ]; then node tools/check-wb.mjs $(head -1 .github/check-request | cut -d' ' -f2-) > check-result.txt 2>&1 || true
           elif [ "$(head -1 .github/check-request)" = "audit" ]; then node tools/audit-topics.mjs > check-result.txt 2>&1 || true
           else node tools/check-owid.mjs $(cat .github/check-request) | sed 's/^::notice:://' > check-result.txt; fi
           cat check-result.txt
