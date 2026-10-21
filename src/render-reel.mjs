@@ -23,7 +23,9 @@ for (const [i, s] of item.scenes.entries()) {
   let vd = 0;
   if (s.parts) {
     // voice in pieces, each one synced with the row it names (cue = seconds from scene start)
-    let t = 0.35; s.cues = {};
+    // countdown: the unnamed rows enter first (bottom -> top, 0.35 s each), then the voice names the last ones
+    const unnamed = (s.rows?.length || 0) - s.parts.filter(x => x.row != null).length;
+    let t = s.order === 'countdown' ? 0.4 + 0.35 * unnamed + 0.5 : 0.35; s.cues = {};
     for (const [j, part] of s.parts.entries()) {
       let d = 1.4;
       if (useVoice) {
@@ -34,7 +36,7 @@ for (const [i, s] of item.scenes.entries()) {
       t += d + 0.3;
     }
     s.cues.rest = t;            // the remaining rows enter after the last named one
-    vd = t + 1.6 + 0.12 * Math.max(0, (s.rows?.length || 0) - Object.keys(s.cues).length + 1);
+    vd = s.order === 'countdown' ? t + 1.2 : t + 1.6 + 0.12 * Math.max(0, (s.rows?.length || 0) - Object.keys(s.cues).length + 1);
   } else if (useVoice && s.say) {
     const f = path.join(work, `v${i}.mp3`);
     try { vd = tts(s.say, f); clips.push({ f, i }); } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); useVoice = false; clips.length = 0; }

@@ -52,11 +52,11 @@ const builders = {
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'upbeat', title: t.title,
       scenes: [
-        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: t.metric, say: `${t.hook.replace(/[^\p{L}\p{N}\s',.-]/gu, '').trim()}. Let's see who's on top.` },
-        { type: 'rank', title: t.title, metric: `${t.metric} · ${year}`, rows, min: 9, parts: [
-          { say: `Number one is ${a.name}, with ${speak(a.value, t.fmt)}.`, row: 0 },
-          { say: `Number two, ${b.name}.`, row: 1 },
-          { say: `And number three, ${c.name}.`, row: 2 },
+        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: t.metric, say: `${t.hook.replace(/[^\p{L}\p{N}\s',.-]/gu, '').trim()}. Stay until number one.` },
+        { type: 'rank', title: t.title, metric: `${t.metric} · ${year}`, rows, min: 9, order: 'countdown', parts: [
+          { say: `Number three: ${c.name}.`, row: 2 },
+          { say: `Number two: ${b.name}.`, row: 1 },
+          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}!`, row: 0 },
         ] },
         cta(),
       ],
@@ -95,10 +95,10 @@ const builders = {
       kind: 'reel', series, episode: ep.id, music: 'upbeat', title: ep.title,
       scenes: [
         { type: 'hook', kicker: '$100 = ?', title: `${ep.title} 💵`, sub: 'What $100 really buys, compared with the US', say: `${ep.title}. Here is what one hundred dollars is really worth.` },
-        { type: 'rank', title: ep.title, metric: `Value of $100 in local prices · ${year}`, rows: out, min: 9, parts: [
-          { say: `Number one is ${a.name}: there, one hundred dollars feels like ${Math.round(a.value)}.`, row: 0 },
-          { say: `Number two, ${b.name}, with ${Math.round(b.value)}.`, row: 1 },
-          { say: `And number three, ${out[2].name}.`, row: 2 },
+        { type: 'rank', title: ep.title, metric: `Value of $100 in local prices · ${year}`, rows: out, min: 9, order: 'countdown', parts: [
+          { say: `Number three: ${out[2].name}.`, row: 2 },
+          { say: `Number two: ${b.name}, where it feels like ${Math.round(b.value)}.`, row: 1 },
+          { say: `And number one is… ${a.name}: there, one hundred dollars feels like ${Math.round(a.value)}!`, row: 0 },
         ] },
         cta('Where would YOU take your $100?'),
       ],

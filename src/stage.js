@@ -61,7 +61,12 @@
     // top -> bottom: rows named by the voice appear on their cue, the rest follow quickly in order
     const cues = s.cues || {}, rest = cues.rest ?? 1.2;
     let k = 0;
-    const startOf = rows.map((_, i) => (cues[i] != null ? cues[i] : rest + 0.12 * (k++)));
+    const countdown = s.order === 'countdown';
+    // countdown: unnamed rows enter from the bottom up first; otherwise they follow the named ones top -> bottom
+    const startOf = countdown
+      ? rows.map((_, i) => (cues[i] != null ? cues[i] : 0.4 + 0.35 * (rows.length - 1 - i)))
+      : rows.map((_, i) => (cues[i] != null ? cues[i] : rest + 0.12 * (k++)));
+    if (!Object.keys(cues).length && countdown) rows.forEach((_, i) => { startOf[i] = 0.4 + 0.6 * (rows.length - 1 - i); });
     S.draw = () => {
       rows.forEach(({ e, bar, r }, i) => {
         const t0 = startOf[i];
