@@ -38,7 +38,7 @@ for (const [i, s] of item.scenes.entries()) {
       t += d + 0.3;
     }
     s.cues.rest = t;
-    if (s.type === 'hl') vd = t + 0.6; else            // the remaining rows enter after the last named one
+    if (s.type === 'hl') vd = t + 0.1; else            // the remaining rows enter after the last named one
     vd = s.order === 'countdown' ? t + 1.2 : t + 1.6 + 0.12 * Math.max(0, (s.rows?.length || 0) - Object.keys(s.cues).length + 1);
   } else if (useVoice && s.say) {
     const f = path.join(work, `v${i}.mp3`);
