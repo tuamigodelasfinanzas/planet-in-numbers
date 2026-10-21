@@ -29,4 +29,11 @@ for (const code of codes) {
     fs.writeFileSync(path.join(dir, `${code}_${t.race}_${to}.json`), JSON.stringify(h));
   }
 }
+const owid = JSON.parse(fs.readFileSync(new URL('../content/topics-owid.json', import.meta.url)));
+for (const t of owid) {
+  const f = path.join(dir, `owid-${t.slug}.csv`); if (fs.existsSync(f)) continue;
+  const lines = ['Entity,Code,Year,Value'];
+  for (const c of cs) { let x = 1 + rnd() * 100; for (let y = (t.race || 2015); y <= 2024; y++) { x *= 1 + (rnd() - 0.4) * 0.08; lines.push(`"${c.name}",${c.iso3},${y},${x.toFixed(2)}`); } }
+  fs.writeFileSync(f, lines.join('\n'));
+}
 console.log('fixture ready in', dir, cs.length, 'countries');

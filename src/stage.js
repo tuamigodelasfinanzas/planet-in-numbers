@@ -24,15 +24,24 @@
   // ---------- builders + per-frame drawers ----------
   function BUILD_hook(S) {
     const s = S.s;
-    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 60}px;display:flex;flex-direction:column;gap:44px">
+    // background in motion from the very first frame: bars of a ranking racing in (the brand's visual language)
+    const W = [0.92, 0.74, 0.83, 0.58, 0.66, 0.47, 0.39];
+    const bars = W.map((w, i) => `<div class="hb" style="position:absolute;left:0;top:${i * 64}px;height:44px;width:${w * 100}%;border-radius:22px;background:${i === 0 ? C.accent : C.card};transform-origin:left center;transform:scaleX(0)"></div>`).join('');
+    S.el.innerHTML = `<div class="bg" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y1 - 440}px;height:440px;opacity:.6">${bars}</div>
+      <div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 40}px;display:flex;flex-direction:column;gap:40px">
       <div class="k" style="align-self:flex-start;background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 34px;font-size:40px;font-weight:700;letter-spacing:.06em">${esc(s.kicker)}</div>
-      <div class="t" style="font-size:${s.title.length > 42 ? 96 : 112}px;line-height:1.04;font-weight:700;color:${C.text};letter-spacing:-.02em">${esc(s.title).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`)}</div>
-      <div class="u" style="font-size:44px;line-height:1.3;color:${C.muted};font-weight:500">${esc(s.sub)}</div></div>
-      <div class="g" style="position:absolute;left:560px;top:1080px;width:620px;height:620px;opacity:.16">${D.logoBig}</div>`;
-    const [k, t, u] = ['.k', '.t', '.u'].map(q => S.el.querySelector(q)), g = S.el.querySelector('.g');
-    S.draw = p => {
-      [k, t, u].forEach((e, j) => { const q = j < 2 ? 1 : ease(seg(S.local, 0.1, 0.4)); e.style.opacity = q; e.style.transform = `translateY(${(1 - q) * 50}px)`; });
-      g.style.transform = `rotate(${S.local * 6}deg) scale(${1 + p * 0.05})`;
+      <div class="t" style="font-size:${s.title.length > 42 ? 92 : 108}px;line-height:1.04;font-weight:700;color:${C.text};letter-spacing:-.02em;transform-origin:left center">${esc(s.title).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`)}</div>
+      <div class="u" style="align-self:flex-start;font-size:44px;line-height:1.25;color:${C.text};font-weight:700;background:${C.card};border-left:8px solid ${C.accent};border-radius:12px;padding:14px 22px">${esc(s.sub).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`)}</div></div>`;
+    const [k, t, u] = ['.k', '.t', '.u'].map(q => S.el.querySelector(q));
+    const hb = [...S.el.querySelectorAll('.hb')];
+    S.draw = () => {
+      // title readable at frame 0 (cover + scrollers), with a short "punch" in
+      const p = ease(seg(S.t, 0, 0.35));
+      t.style.transform = `scale(${1.08 - 0.08 * p})`;
+      k.style.transform = `translateX(${(1 - p) * -30}px)`;
+      const q = ease(seg(S.t, 0.35, 0.8)); u.style.opacity = q; u.style.transform = `translateY(${(1 - q) * 30}px)`;
+      // bars keep moving the whole scene (no static frame)
+      hb.forEach((b, i) => { const g = ease(seg(S.t, 0.05 + i * 0.12, 0.7 + i * 0.12)); const wob = 1 + 0.03 * Math.sin(S.t * 3 + i); b.style.transform = `scaleX(${g * wob})`; });
     };
   }
 

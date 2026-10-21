@@ -86,3 +86,27 @@ export async function bigCountries(minPop = 1e6) {
   const pop = await latest('SP.POP.TOTL', 10);
   return new Set(pop.filter(p => p.value >= minPop).map(p => p.iso3));
 }
+
+// ---- one entry point for both sources (World Bank indicator code or Our World in Data chart) ----
+import { owidRows } from './owid.mjs';
+
+export async function latestOf(topic, maxAge = topic.maxAge || 8) {
+  if (topic.src !== 'owid') return latest(topic.code, maxAge);
+  const cs = await countries();
+  const minYear = new Date().getUTCFullYear() - maxAge;
+  const best = new Map();
+  for (const r of await owidRows(topic)) if (cs.has(r.iso3) && (!best.has(r.iso3) || r.year > best.get(r.iso3).year)) best.set(r.iso3, r);
+  return [...best.values()].filter(r => r.year >= minYear).map(r => ({ ...cs.get(r.iso3), value: r.value, year: r.year }));
+}
+
+export async function historyOf(topic, from, to) {
+  if (topic.src !== 'owid') return history(topic.code, from, to);
+  const cs = await countries();
+  const out = new Map();
+  for (const r of await owidRows(topic)) {
+    if (!cs.has(r.iso3) || r.year < from || r.year > to) continue;
+    if (!out.has(r.iso3)) out.set(r.iso3, {});
+    out.get(r.iso3)[r.year] = r.value;
+  }
+  return out;
+}

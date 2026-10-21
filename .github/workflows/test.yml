@@ -1,7 +1,7 @@
 name: Test (no publish)
 
-# Changing .github/test-request runs a preview: it builds and renders the series written in that file,
-# uploads it and sends it to Telegram, but never publishes on Instagram or Facebook.
+# Changing .github/test-request runs a preview: first line = series, second line = optional topic/country/pair.
+# It builds and renders with real data, uploads it and sends it to Telegram, but never publishes.
 on:
   push:
     branches: [main]
@@ -12,9 +12,23 @@ permissions:
   pages: write
 
 jobs:
+  read:
+    runs-on: ubuntu-latest
+    outputs:
+      series: ${{ steps.r.outputs.series }}
+      episode: ${{ steps.r.outputs.episode }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: r
+        run: |
+          S=$(sed -n 1p .github/test-request | tr -d '[:space:]'); case "$S" in top10|top20|dollar100|race|map|stat|guess|versus|week) ;; *) S=top10;; esac
+          echo "series=$S" >> "$GITHUB_OUTPUT"
+          echo "episode=$(sed -n 2p .github/test-request | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
   test:
+    needs: read
     uses: ./.github/workflows/publish.yml
     with:
-      series: top10
+      series: ${{ needs.read.outputs.series }}
+      episode: ${{ needs.read.outputs.episode }}
       dry_run: "true"
     secrets: inherit

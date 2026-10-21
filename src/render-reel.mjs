@@ -80,18 +80,23 @@ await b.close();
 // 3) audio: music (ducked under the voice) + voice clips at the start of each scene
 const music = pickMusic(item.music);
 const starts = []; let acc = 0; for (const d of durs) { starts.push(acc); acc += d; }
+// sound effects, synced with what happens on screen -> one track (sfx.wav)
+const sfxFile = renderSfx(sfxEvents(item, durs, starts), total);
 const args = ['-y', '-v', 'error', '-i', path.join(work, 'video.mp4'), '-stream_loop', '-1', '-i', music];
 clips.forEach(c => args.push('-i', c.f));
+const sfxIdx = 2 + clips.length;
+if (sfxFile) args.push('-i', sfxFile);
+const SFX = sfxFile ? `[${sfxIdx}:a]volume=0.75[x];` : '';
 let filter;
 if (clips.length) {
   const parts = clips.map((c, j) => `[${j + 2}:a]adelay=${Math.round((starts[c.i] + (c.at ?? 0.35)) * 1000)}:all=1,volume=1.6[s${j}]`);
   parts.push(`${clips.map((_, j) => `[s${j}]`).join('')}amix=inputs=${clips.length}:normalize=0,asplit=2[v][k]`);
   parts.push(`[1:a]volume=0.42,afade=t=in:st=0:d=0.4,afade=t=out:st=${Math.max(0, total - 1.6)}:d=1.6[m]`);
   parts.push('[m][k]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=400[md]');
-  parts.push('[md][v]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-15:TP=-1.5:LRA=11,aresample=48000[a]');
-  filter = parts.join(';');
+  parts.push(sfxFile ? `[md][v][x]amix=inputs=3:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]` : '[md][v]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]');
+  filter = SFX + parts.join(';');
 } else {
-  filter = `[1:a]volume=0.8,afade=t=in:st=0:d=0.4,afade=t=out:st=${Math.max(0, total - 1.6)}:d=1.6,loudnorm=I=-15:TP=-1.5,aresample=48000[a]`;
+  filter = SFX + `[1:a]volume=0.8,afade=t=in:st=0:d=0.4,afade=t=out:st=${Math.max(0, total - 1.6)}:d=1.6[m];` + (sfxFile ? '[m][x]amix=inputs=2:duration=first:normalize=0,' : '[m]') + 'loudnorm=I=-14:TP=-1.5,aresample=48000[a]';
 }
 fs.mkdirSync(path.dirname(path.resolve(outFile)), { recursive: true });
 execFileSync('ffmpeg', [...args, '-filter_complex', filter, '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-ar', '48000', '-ac', '2', '-t', total.toFixed(2), '-movflags', '+faststart', outFile], { stdio: 'inherit' });
@@ -124,3 +129,53 @@ function showFn(f) {
   };
 }
 void show;
+
+// ---------- sound effects ----------
+// Times follow the same formulas the animation uses (src/stage.js), so every sound lands on its moment.
+function sfxEvents(item, durs, starts) {
+  const ev = [], add = (t, k, vol = 1) => { if (t >= 0) ev.push({ t, k, vol }); };
+  item.scenes.forEach((s, i) => {
+    const t0 = starts[i], d = durs[i];
+    if (i === 0) add(0.02, 'boom', 0.9); else add(t0 - 0.22, 'whoosh', 0.6);
+    if (s.type === 'rank') {
+      const n = s.rows.length, cues = s.cues || {};
+      if (s.order === 'countdown') {
+        for (let r = n - 1; r >= 0; r--) if (cues[r] == null) add(t0 + 0.4 + 0.35 * (n - 1 - r), 'tick', 0.8);
+        for (const [r, c] of Object.entries(cues)) {
+          if (r === 'rest') continue;
+          if (Number(r) === 0) { add(t0 + c - 1.45, 'roll', 0.7); add(t0 + c, 'hit', 1); } else add(t0 + c, 'pop', 0.9);
+        }
+        if (!Object.keys(cues).length) for (let r = n - 1; r >= 0; r--) add(t0 + 0.4 + 0.6 * (n - 1 - r), r === 0 ? 'hit' : 'tick', 0.8);
+      } else {
+        for (let r = 0; r < n; r++) add(t0 + (cues[r] ?? (cues.rest ?? 1.2) + 0.12 * r), cues[r] != null ? 'pop' : 'tick', 0.7);
+      }
+    }
+    if (s.type === 'stat') { add(t0 + 0.03 * d, 'pop', 0.8); add(t0 + 0.33 * d, 'pop', 0.8); add(t0 + 0.55 * d - 1.45, 'roll', 0.6); add(t0 + 0.56 * d, 'hit', 1); }
+    if (s.type === 'clues') s.clues.forEach((_, j) => add(t0 + (0.03 + j * (0.85 / s.clues.length)) * d, 'pop', 0.85));
+    if (s.type === 'countdown') for (let j = 0; j < 3; j++) add(t0 + j * d / 3, j % 2 ? 'clock2' : 'clock', 1);
+    if (s.type === 'answer') { add(t0 + 0.12 * d, 'hit', 1); add(t0 + 0.3 * d, 'ding', 0.5); }
+    if (s.type === 'winner') add(t0 + 0.05 * d, 'hit', 1);
+    if (s.type === 'map') { add(t0 + 0.45 * d, 'pop', 0.7); add(t0 + 0.57 * d, 'pop', 0.7); }
+    if (s.type === 'race') {
+      // a soft pop each time the leader changes (max one per second), a hit when the race reaches today
+      const Y = s.years, lead = Y.map(y => s.bars.filter(b => b.values[y] != null).sort((a, b) => b.values[y] - a.values[y])[0]?.iso3);
+      let last = -9;
+      for (let k = 1; k < Y.length; k++) if (lead[k] !== lead[k - 1]) {
+        const t = t0 + (0.03 + (k / (Y.length - 1)) * 0.87) * d;
+        if (t - last >= 1) { add(t, 'pop', 0.8); last = t; }
+      }
+      add(t0 + 0.9 * d, 'hit', 0.8);
+    }
+  });
+  return ev;
+}
+function renderSfx(ev, total) {
+  if (!ev.length) return null;
+  const dir = path.join(ROOT, 'assets/sfx'), out = path.join(work, 'sfx.wav');
+  const a = ['-y', '-v', 'error', '-f', 'lavfi', '-t', total.toFixed(2), '-i', 'anullsrc=r=48000:cl=stereo'];
+  ev.forEach(e => a.push('-i', path.join(dir, e.k + '.wav')));
+  const f = ev.map((e, j) => `[${j + 1}:a]adelay=${Math.round(e.t * 1000)}:all=1,volume=${e.vol}[e${j}]`);
+  f.push(`[0:a]${ev.map((_, j) => `[e${j}]`).join('')}amix=inputs=${ev.length + 1}:duration=first:normalize=0[o]`);
+  execFileSync('ffmpeg', [...a, '-filter_complex', f.join(';'), '-map', '[o]', out]);
+  return out;
+}

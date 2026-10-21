@@ -22,6 +22,20 @@ export function show(v, fmt) {
     case 'dec1': return nf(1).format(v);
     case 'per100': return nf(0).format(v);
     case 'density': return nf(0).format(v) + '/km²';
+    case 'litres': return nf(1).format(v) + ' L';
+    case 'kg': return nf(0).format(v) + ' kg';
+    case 'cm': return nf(1).format(v) + ' cm';
+    case 'kcal': return nf(0).format(v) + ' kcal';
+    case 'hours': return nf(0).format(v) + ' h';
+    case 'score10': return nf(2).format(v) + '/10';
+    case 'score100': return nf(0).format(v) + '/100';
+    case 'dec3': return nf(3).format(v);
+    case 'tonnes': { const b = big(v); return (b.s ? nf(dBig(b.n)).format(b.n) + b.s : nf(0).format(v)) + ' t'; }
+    case 'tco2': return nf(1).format(v) + ' t';
+    case 'kwh': return nf(0).format(v) + ' kWh';
+    case 'mm': return nf(0).format(v) + ' mm';
+    case 'usd_day': return '$' + nf(v < 10 ? 2 : 1).format(v) + '/day';
+    case 'per100k': return nf(1).format(v);
     default: return nf(1).format(v);
   }
 }
@@ -37,6 +51,20 @@ export function speak(v, fmt) {
     case 'dec1': return nf(1).format(v);
     case 'per100': return `${nf(0).format(v)} per hundred people`;
     case 'density': return `${nf(0).format(v)} people per square kilometer`;
+    case 'litres': return `${nf(1).format(v)} liters of pure alcohol per person`;
+    case 'kg': return `${nf(0).format(v)} kilos per person a year`;
+    case 'cm': return `${nf(1).format(v)} centimeters`;
+    case 'kcal': return `${nf(0).format(v)} calories a day`;
+    case 'hours': return `${nf(0).format(v)} hours a year`;
+    case 'score10': return `${nf(1).format(v)} out of ten`;
+    case 'score100': return `${nf(0).format(v)} out of a hundred`;
+    case 'dec3': return nf(3).format(v);
+    case 'tonnes': { const b = big(v); return `${b.w ? nf(1).format(b.n) + ' ' + b.w : nf(0).format(v)} tonnes`; }
+    case 'tco2': return `${nf(1).format(v)} tonnes of CO2 per person`;
+    case 'kwh': return `${nf(0).format(v)} kilowatt hours per person`;
+    case 'mm': return `${nf(0).format(v)} millimeters of rain a year`;
+    case 'usd_day': return `${nf(v < 10 ? 2 : 0).format(v)} dollars a day`;
+    case 'per100k': return `${nf(1).format(v)} per hundred thousand people`;
     default: return nf(1).format(v);
   }
 }
