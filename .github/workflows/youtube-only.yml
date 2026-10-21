@@ -1,7 +1,7 @@
 name: Repost (manual)
 
 # Changing .github/youtube-request re-sends an already-rendered reel without rendering again.
-# Line 1 = media folder; line 2 = where: "youtube" (only YouTube, default) or "igfb" (only Instagram + Facebook).
+# Line 1 = media folder; line 2 = where: "youtube" (default), "igfb" (Instagram + Facebook) or "all".
 on:
   push:
     branches: [main]
@@ -18,7 +18,7 @@ jobs:
           MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
         run: |
           D=$(sed -n 1p .github/youtube-request | tr -d '[:space:]')
-          T=$(sed -n 2p .github/youtube-request | tr -d '[:space:]'); case "$T" in igfb) ;; *) T=youtube;; esac
+          T=$(sed -n 2p .github/youtube-request | tr -d '[:space:]'); case "$T" in igfb) ;; all) T=reel;; *) T=youtube;; esac
           BASE="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media/$D"
           curl -sSf "$BASE/item.json" -o item.json
           curl -sSfI "$BASE/reel.mp4" >/dev/null
