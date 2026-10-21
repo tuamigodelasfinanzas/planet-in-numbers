@@ -1,0 +1,57 @@
+name: Story only (manual)
+
+# Changing .github/story-request publishes a story announcing the most recent post (no new post).
+on:
+  push:
+    branches: [main]
+    paths: ['.github/story-request']
+
+permissions:
+  contents: write
+
+jobs:
+  story:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER: ${{ secrets.IG_USER_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
+      - name: Latest post
+        id: last
+        run: |
+          git config --global user.name "pin-bot"; git config --global user.email "pin-bot@users.noreply.github.com"
+          git clone -q --depth 1 --branch gh-pages "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" site
+          D=$(ls -1d site/media/*/ | sort | tail -1); D=${D%/}
+          echo "dir=$(basename "$D")" >> "$GITHUB_OUTPUT"
+          cp "$D/item.json" item.json
+          if [ -f "$D/reel.jpg" ]; then echo "cover=$D/reel.jpg" >> "$GITHUB_OUTPUT"; else echo "cover=$D/01.jpg" >> "$GITHUB_OUTPUT"; fi
+      - name: Story
+        run: |
+          set -uo pipefail
+          [ -n "${IG_TOKEN:-}" ] && [ -n "${IG_USER:-}" ] || { echo "::error::Missing IG_ACCESS_TOKEN or IG_USER_ID"; exit 1; }
+          IG_TOKEN=$(printf %s "$IG_TOKEN" | tr -d "[:space:]\"'")
+          case "$IG_TOKEN" in IG*) API="https://graph.instagram.com/v21.0";; *) API="https://graph.facebook.com/v21.0";; esac
+          CHECK=$(curl -sS "$API/$IG_USER?fields=username&access_token=$IG_TOKEN")
+          echo "$CHECK" | jq -e .username >/dev/null || { echo "::error::The token cannot access this Instagram account: $(echo "$CHECK" | jq -c '.error.message // .' )"; exit 1; }
+          echo "::notice::Token OK for @$(echo "$CHECK" | jq -r .username)"
+          LINK=$(curl -sS "$API/$IG_USER/media?fields=permalink&limit=1&access_token=$IG_TOKEN" | jq -r '.data[0].permalink // empty')
+          LINK="${LINK#https://}"; LINK="${LINK#www.}"; LINK="${LINK%/}"
+          node src/render-story.mjs item.json "${{ steps.last.outputs.cover }}" story.png "$LINK"
+          D="site/media/${{ steps.last.outputs.dir }}"
+          cp story.png "$D/story.png"; [ -f story.mp4 ] && cp story.mp4 "$D/story.mp4"
+          (cd site && git add -A && git commit -q -m "Story" && git push -q origin gh-pages)
+          BASE="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/media/${{ steps.last.outputs.dir }}"
+          export IMAGE_URL="$BASE/story.png" VIDEO_URL="" IG_TOKEN IG_USER
+          [ -f story.mp4 ] && VIDEO_URL="$BASE/story.mp4"
+          for i in $(seq 1 60); do [ "$(curl -s -o /dev/null -w '%{http_code}' -I "${VIDEO_URL:-$IMAGE_URL}")" = 200 ] && break; sleep 15; done
+          bash tools/ig-story.sh 2>&1 | tee story.log
+          grep -q "Story published" story.log || exit 1
