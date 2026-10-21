@@ -14,6 +14,36 @@ for (let i = 0, j = 0; i < T_OWID.length || j < T_WB.length;) {
   if (i < T_OWID.length) TOPICS.push(T_OWID[i++]);
   if (j < T_WB.length) TOPICS.push(T_WB[j++]);
 }
+
+const G = JSON.parse(fs.readFileSync(new URL('../content/games.json', import.meta.url)));
+const hashStr = s => [...String(s)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+function shuffle(arr, seed) {
+  const a = [...arr]; let x = seed || 1;
+  for (let i = a.length - 1; i > 0; i--) { x = (x * 1103515245 + 12345) >>> 0; const j = x % (i + 1); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+// one statistic as Map(iso3 -> value) + label + format (game stat or any topic id)
+async function statMap(id) {
+  const g = G.stats[id];
+  if (g && g.code) {
+    const rows = fresh((await latest(g.code)).filter(r => r.value > 0), {});
+    return { label: g.label, fmt: g.fmt, map: new Map(rows.map(r => [r.iso3, g.invert100 ? 100 / r.value : r.value])) };
+  }
+  const t = TOPICS.find(x => x.id === id) || (() => { throw new Error('Unknown stat ' + id); })();
+  const rows = fresh(await latestOf(t), t);
+  return { label: g?.label || t.metric, fmt: g?.fmt || t.fmt, map: new Map(rows.map(r => [r.iso3, r.value])) };
+}
+function finishCup(cup, th, scenes, m) {
+  const mt = scenes.find(s => s.type === 'cupmatch');
+  return {
+    kind: 'reel', series: 'cup', episode: `${cup.theme}-${cup.round}-${cup.i}`.replace(/\s/g, ''), music: 'epic',
+    title: m ? `${th.title}: ${mt.a.name} vs ${mt.b.name}` : `${th.title}: the champion`,
+    cupState: cup, cupMatch: m ? [m.a, m.b] : null, scenes,
+    caption: m
+      ? `🏆 ${th.title} · ${cup.round}\n\n${mt.a.flag} ${mt.a.name} vs ${mt.b.name} ${mt.b.flag}\n\n${th.question}\nVote in the comments with the flag 👇 (one vote per person)\n\nResults in the next video. Follow so you don't miss it!\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#worldcupofcountries #countries #vote #geography #theplanetinnumbers`
+      : `🏆 ${th.title}: we have a champion!\n\nYou voted, the world decided. What should the next tournament be? 👇\n\n#worldcupofcountries #countries #theplanetinnumbers`,
+  };
+}
 const CAT = JSON.parse(fs.readFileSync(new URL('../content/catalog.json', import.meta.url)));
 const [series, outFile = 'item.json', stateFile = '', forced = ''] = process.argv.slice(2);
 const state = (() => { try { return JSON.parse(fs.readFileSync(stateFile, 'utf8')); } catch { return {}; } })();
@@ -279,6 +309,130 @@ const builders = {
       kind: 'carousel', series, episode: today.toISOString().slice(0, 10), title: 'The week in numbers', slides,
       caption: `The week in numbers 🌍\n\n${facts.slice(0, 5).map(f => `${f.flag} ${f.label}: ${f.name} (${f.text})`).join('\n')}\n\nWhich one surprised you most? 👇\n\n📊 Source: World Bank open data.\n\n${TAGS}`,
     };
+  },
+
+  // 🎰 Stop the video: cards flash by; wherever you pause is "your" country (real stats on every card)
+  async stop() {
+    const th = forced ? G.stop.find(x => x.id === forced) : pickNext(G.stop, usedOf(series));
+    const stats = [];
+    for (const id of th.stats) stats.push({ id, ...(await statMap(id)) });
+    const cs = await countries(), big = await bigCountries(3e6);
+    let pool = [...big].filter(iso => cs.get(iso)?.flag && !cs.get(iso).flag.startsWith('🏳') && stats.every(st => st.map.has(iso)));
+    // a fair mix: shuffle with a daily seed, 44 cards (~10 s), never two neighbours from the same region
+    const seed = hashStr(th.id + new Date().toISOString().slice(0, 10));
+    pool = shuffle(pool, seed).slice(0, 44);
+    const cards = pool.map(iso => ({ iso3: iso, flag: cs.get(iso).flag, name: cs.get(iso).name, stats: stats.map(st => ({ label: st.label, text: show(st.map.get(iso), st.fmt) })) }));
+    return {
+      kind: 'reel', series, episode: th.id, music: 'quiz', title: th.title, cards: cards.map(c => [c.iso3, c.stats.map(x => x.text).join(' · ')]),
+      scenes: [
+        { type: 'hook', kicker: 'STOP THE VIDEO', title: th.hook, sub: 'Pause anytime. No cheating 👀', say: `${th.say} Ready? Three, two, one… go!`, min: 4.2 },
+        { type: 'spin', title: th.title, cards, min: 10.3 },
+        { ...cta(th.cta.replace(' 👇', '') + ' Comment YOUR country'), line: th.cta.replace(' 👇', ''), sub: 'Comment the country you landed on 👇', say: 'Where did you land? Comment your country, and try again!' },
+      ],
+      caption: `${th.hook}\n\nPause the video and that's your country 🛑\n${stats.map(st => `• ${st.label}`).join('\n')} — real data on every card.\n\nComment where you landed 👇 (and how many tries it took 😅)\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#stopthevideo #geography #countries #game #theplanetinnumbers`,
+    };
+  },
+
+  // ⬆️⬇️ Higher or Lower: 6 rounds, each harder than the last
+  async hl() {
+    const cs = await countries();
+    const known = CAT.quiz.filter(i => cs.has(i));
+    const seed = hashStr('hl' + new Date().toISOString().slice(0, 10) + (forced || ''));
+    const qs = shuffle(G.hl, seed);
+    const bands = [[1.6, 3], [1.4, 2], [1.25, 1.6], [1.15, 1.35], [1.08, 1.2], [1.03, 1.1]];
+    const rounds = [], usedC = new Set();
+    let qi = 0;
+    for (const [i, [lo, hi]] of bands.entries()) {
+      let found = null;
+      for (let tries = 0; tries < qs.length && !found; tries++, qi++) {
+        const q = qs[qi % qs.length]; if (rounds.some(r => r.stat === q.stat)) continue;
+        const st = await statMap(q.stat);
+        const cands = shuffle(known.filter(iso => st.map.has(iso) && !usedC.has(iso)), seed + i * 97 + tries);
+        outer: for (const a of cands) for (const b of cands) {
+          if (a === b) continue;
+          const va = st.map.get(a), vb = st.map.get(b), r = Math.max(va, vb) / Math.min(va, vb);
+          if (r >= lo && r <= hi) { found = { q, st, a, b, va, vb }; break outer; }
+        }
+      }
+      if (!found) continue;
+      const { q, st, a, b, va, vb } = found;
+      usedC.add(a); usedC.add(b);
+      const low = q.stat === 'corruption' ? false : false;   // "less corrupt" = higher score: same rule
+      const win = va > vb ? 'a' : 'b';
+      const C2 = iso => ({ flag: cs.get(iso).flag, name: cs.get(iso).name });
+      rounds.push({ stat: q.stat, n: rounds.length + 1, q: q.q, a: { ...C2(a), text: show(va, st.fmt) }, b: { ...C2(b), text: show(vb, st.fmt) }, win,
+        parts: [{ say: `Round ${rounds.length + 1}. ${q.say}: ${cs.get(a).name}, or ${cs.get(b).name}?` }, { say: `${cs.get(win === 'a' ? a : b).name}! ${speak(win === 'a' ? va : vb, st.fmt)}.`, reveal: true }] });
+      void low;
+    }
+    if (rounds.length < 5) throw new Error('Not enough Higher or Lower rounds');
+    const N = rounds.length;
+    return {
+      kind: 'reel', series, episode: new Date().toISOString().slice(0, 10), music: 'quiz', title: 'Higher or Lower: countries', rounds: rounds.map(r => ({ q: r.q, a: r.a.name, b: r.b.name, win: r.win })),
+      scenes: [
+        { type: 'hook', kicker: `HIGHER OR LOWER · ${N} ROUNDS`, title: 'Higher or lower? Country edition ⬆️⬇️', sub: `Keep score. Comment your result /${N}`, say: `Higher or lower, country edition. ${N} rounds. Keep score!`, min: 3.6 },
+        ...rounds.map(r => ({ type: 'hl', ...r, total: N })),
+        { ...cta(`What was YOUR score?`), sub: `Comment your result out of ${N} 👇`, say: `So, what was your score out of ${N}? Comment it, and follow for the next round!` },
+      ],
+      caption: `Higher or lower? Country edition ⬆️⬇️\n\n${N} rounds, each one harder. How many did you get right?\n\nComment your score /${N} 👇\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#higherorlower #quiz #geography #countries #theplanetinnumbers`,
+    };
+  },
+
+  // 🏆 World Cup of countries: one match per video, the audience votes in the comments (not in the calendar yet)
+  // Flow per video: 1) close the previous match (votes counted by tools/cup-votes.mjs → state.cupVotes;
+  // tie or no votes → the data decides)  2) show its result  3) next match, or the champion.
+  async cup() {
+    const cs = await countries();
+    let cup = state.cup && !state.cup.done ? structuredClone(state.cup) : null;
+    if (!cup) {
+      const th0 = forced ? G.cup.find(x => x.id === forced) : pickNext(G.cup, usedOf(series));
+      const c = th0.countries;
+      cup = { theme: th0.id, round: 'QUARTER-FINAL', matches: [[c[0], c[7]], [c[3], c[4]], [c[1], c[6]], [c[2], c[5]]].map(([x, y]) => ({ a: x, b: y })), i: 0, pending: null, history: [] };
+    }
+    const th = G.cup.find(x => x.id === cup.theme);
+    const stats = []; for (const id of th.stats) stats.push({ id, ...(await statMap(id)) });
+    const C2 = iso => ({ iso3: iso, flag: cs.get(iso).flag, name: cs.get(iso).name });
+    const scenes = [];
+
+    // 1-2) close the pending match and show its result
+    if (cup.pending != null) {
+      const m = cup.matches[cup.pending];
+      const v = state.cupVotes || {}, va = v[m.a] || 0, vb = v[m.b] || 0;
+      let w = va === vb ? null : (va > vb ? m.a : m.b), how = 'votes';
+      if (!w) {
+        const sc = iso => stats.reduce((t, st) => t + (st.map.get(iso) || 0) / (Math.max(st.map.get(m.a) || 0, st.map.get(m.b) || 0) || 1), 0);
+        w = sc(m.a) >= sc(m.b) ? m.a : m.b; how = 'data';
+      }
+      Object.assign(m, { winner: w, votes: [va, vb], how, round: cup.round });
+      cup.pending = null;
+      const tot = va + vb, pct = tot ? Math.round((w === m.a ? va : vb) / tot * 100) : null;
+      scenes.push({ type: 'cupresult', round: cup.round, a: { ...C2(m.a), v: va }, b: { ...C2(m.b), v: vb }, winner: w, how, pct, min: 4.5,
+        say: `Last match. ${cs.get(w).name} wins${how === 'votes' ? `, with ${pct} percent of your votes` : '. No clear vote, so the data decided'}!` });
+    }
+    // 3) next round when this one is complete
+    if (cup.i >= cup.matches.length && cup.matches.every(m => m.winner)) {
+      cup.history.push(...cup.matches);
+      const ws = cup.matches.map(m => m.winner);
+      if (ws.length === 1) {
+        cup.done = true;
+        const champ = C2(ws[0]);
+        scenes.push({ type: 'cupchampion', title: th.title, ...champ, min: 5, say: `And the champion is… ${champ.name}! You decided.` });
+        scenes.unshift({ type: 'hook', kicker: `🏆 ${th.title.toUpperCase()}`, title: 'And the champion is…', sub: 'You voted. The world decided.', say: `${th.title}. The final result is in!`, min: 3 });
+        scenes.push({ ...cta('Which tournament next?'), sub: 'Tell us in the comments 👇', say: 'What should the next tournament be? Tell us in the comments!' });
+        return finishCup(cup, th, scenes, null);
+      }
+      cup.round = ws.length === 4 ? 'SEMI-FINAL' : 'FINAL';
+      cup.matches = []; for (let k = 0; k < ws.length; k += 2) cup.matches.push({ a: ws[k], b: ws[k + 1] });
+      cup.i = 0;
+    }
+    const m = cup.matches[cup.i];
+    const rows = stats.map(st => { const va = st.map.get(m.a), vb = st.map.get(m.b); return { label: st.label, a: va == null ? '–' : show(va, st.fmt), b: vb == null ? '–' : show(vb, st.fmt) }; });
+    const rn = cup.round === 'FINAL' ? 'The final' : cup.round === 'SEMI-FINAL' ? 'Semi final' : 'Quarter final';
+    scenes.unshift({ type: 'hook', kicker: `🏆 ${th.title.toUpperCase()}`, title: `${C2(m.a).name} vs ${C2(m.b).name}`, sub: `${cup.round}${cup.matches.length > 1 ? ` · MATCH ${cup.i + 1}/${cup.matches.length}` : ''} · YOU decide`, say: `${th.title}. ${rn}: ${cs.get(m.a).name} versus ${cs.get(m.b).name}. You decide!`, min: 3.6 });
+    scenes.push({ type: 'cupmatch', round: cup.round, question: th.question, a: C2(m.a), b: C2(m.b), rows, min: 8, say: `${th.question} Vote in the comments with the flag.` });
+    scenes.push({ ...cta('Vote in the comments!'), sub: `${C2(m.a).flag} or ${C2(m.b).flag}? Results in the next video`, say: 'Results in the next video. Follow so you don\'t miss it!' });
+    cup.pending = cup.i;
+    cup.i++;
+    return finishCup(cup, th, scenes, m);
   },
 };
 

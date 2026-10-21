@@ -85,9 +85,22 @@ jobs:
           curl -sS -o /dev/null -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${{ github.repository }}/pages" -d '{"source":{"branch":"gh-pages","path":"/"}}' || true
 
+      - name: Count World Cup votes (only for the cup series)
+        if: steps.what.outputs.skip != 'true' && steps.what.outputs.series == 'cup'
+        continue-on-error: true
+        env:
+          IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER: ${{ secrets.IG_USER_ID }}
+        run: |
+          cp site/state/used.json state-dry.json 2>/dev/null || echo '{}' > state-dry.json
+          # a test never changes the real tournament: votes go to a copy
+          if [ "$DRY" = "true" ]; then node tools/cup-votes.mjs state-dry.json; else node tools/cup-votes.mjs site/state/used.json; fi
+
       - name: Build content with real data (World Bank)
         if: steps.what.outputs.skip != 'true'
-        run: node src/build.mjs "${{ steps.what.outputs.series }}" item.json site/state/used.json "${{ inputs.episode }}"
+        run: |
+          STATE=site/state/used.json; [ "$DRY" = "true" ] && [ -f state-dry.json ] && STATE=state-dry.json
+          node src/build.mjs "${{ steps.what.outputs.series }}" item.json "$STATE" "${{ inputs.episode }}"
 
       - name: Render
         if: steps.what.outputs.skip != 'true'

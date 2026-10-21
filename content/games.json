@@ -1,0 +1,47 @@
+{
+ "stats": {
+  "gdp-pc": { "label": "Income per person", "fmt": "usd" },
+  "happiness": { "label": "Happiness", "fmt": "score10" },
+  "life": { "label": "Life expectancy", "fmt": "years" },
+  "work-hours": { "label": "Work hours a year", "fmt": "hours" },
+  "unemployment": { "label": "Unemployment", "fmt": "pct" },
+  "calories": { "label": "Calories a day", "fmt": "kcal" },
+  "meat": { "label": "Meat a year", "fmt": "kg" },
+  "fruit": { "label": "Fruit a year", "fmt": "kg" },
+  "beer": { "label": "Beer a year", "fmt": "lbeer" },
+  "rain": { "label": "Rain a year", "fmt": "mm" },
+  "tourists": { "label": "Tourists a year", "fmt": "num_big" },
+  "dollar": { "label": "$100 feels like", "fmt": "usd", "code": "PA.NUS.PPPC.RF", "invert100": true }
+ },
+ "stop": [
+  { "id": "live", "title": "Where will you live?", "hook": "Stop the video to see where you'll live 🏠", "say": "Stop the video to see where you will live.", "stats": ["gdp-pc", "happiness", "life"], "cta": "Where did you land? 👇" },
+  { "id": "retire", "title": "Where will you retire?", "hook": "Stop the video: this is where you retire 🏖️", "say": "Stop the video. This is where you retire.", "stats": ["dollar", "happiness", "life"], "cta": "Happy with your retirement? 👇" },
+  { "id": "work", "title": "Where will you work?", "hook": "Stop the video: this is where you'll work 💼", "say": "Stop the video. This is where you will work.", "stats": ["work-hours", "gdp-pc", "unemployment"], "cta": "Good job or bad luck? 👇" },
+  { "id": "eat", "title": "How will you eat?", "hook": "Stop the video: this is how you'll eat 🍽️", "say": "Stop the video. This is how you will eat.", "stats": ["calories", "meat", "fruit"], "cta": "Hungry yet? 👇" },
+  { "id": "party", "title": "Where will you party?", "hook": "Stop the video: this is where you party 🍻", "say": "Stop the video. This is where you party.", "stats": ["beer", "tourists", "happiness"], "cta": "Did you land a good party? 👇" },
+  { "id": "trip", "title": "Your next trip", "hook": "Stop the video: this is your next trip ✈️", "say": "Stop the video. This is your next trip.", "stats": ["tourists", "dollar", "rain"], "cta": "Packing already? 👇" }
+ ],
+ "hl": [
+  { "stat": "life", "q": "Who lives longer?", "say": "Who lives longer" },
+  { "stat": "gdp-pc", "q": "Who earns more per person?", "say": "Who earns more per person" },
+  { "stat": "pop", "q": "Which has more people?", "say": "Which has more people" },
+  { "stat": "happiness", "q": "Which country is happier?", "say": "Which country is happier" },
+  { "stat": "meat", "q": "Who eats more meat?", "say": "Who eats more meat" },
+  { "stat": "tourists", "q": "Which gets more tourists?", "say": "Which gets more tourists" },
+  { "stat": "height-men", "q": "Where are men taller?", "say": "Where are men taller" },
+  { "stat": "work-hours", "q": "Who works more hours?", "say": "Who works more hours" },
+  { "stat": "beer", "q": "Who drinks more beer?", "say": "Who drinks more beer" },
+  { "stat": "co2", "q": "Who emits more CO₂ per person?", "say": "Who emits more CO2 per person" },
+  { "stat": "internet", "q": "Where are more people online?", "say": "Where are more people online" },
+  { "stat": "median-age", "q": "Which country is older?", "say": "Which country is older, by median age" },
+  { "stat": "obesity", "q": "Which has more obesity?", "say": "Which has more obesity" },
+  { "stat": "fruit", "q": "Who eats more fruit?", "say": "Who eats more fruit" },
+  { "stat": "rain", "q": "Where does it rain more?", "say": "Where does it rain more" },
+  { "stat": "corruption", "q": "Which is less corrupt?", "say": "Which is less corrupt" }
+ ],
+ "cup": [
+  { "id": "live", "title": "Best country to live in", "question": "Which country would you rather live in?", "countries": ["NOR", "CHE", "DNK", "JPN", "CAN", "AUS", "ESP", "NLD"], "stats": ["happiness", "life", "gdp-pc", "work-hours"] },
+  { "id": "travel", "title": "Best country to visit", "question": "Which country would you rather visit?", "countries": ["ITA", "JPN", "MEX", "FRA", "THA", "ESP", "GRC", "BRA"], "stats": ["tourists", "dollar", "rain", "happiness"] },
+  { "id": "food", "title": "Best food country", "question": "Which country has the better food?", "countries": ["ITA", "JPN", "MEX", "FRA", "IND", "ESP", "TUR", "THA"], "stats": ["calories", "fruit", "meat", "happiness"] }
+ ]
+}

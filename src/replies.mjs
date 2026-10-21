@@ -79,6 +79,32 @@ export function replyFor({ text, username, id }, item, countries) {
       : [`So close, ${u}! 👀 It was ${C(ans)}. Next quiz is yours!`, `Good guess, ${u} 😄 The answer was ${C(ans)}.`, `Not this time, ${u}! It was ${C(ans)} 🌍`], id);
   }
 
+  // 🎰 Stop the video: they say where they landed → give that card's stats
+  if (item?.series === 'stop') {
+    const card = isos.map(i => (item.cards || []).find(c => c[0] === i)).find(Boolean);
+    if (card) return pick(es
+      ? [`${u} ¡Te tocó ${C(card[0])}! 📊 ${card[1]}. ¿Te quedas o vuelves a intentarlo? 🎰`, `${u} ${C(card[0])} 👀 ${card[1]}. ¡Nada mal!`]
+      : [`${u} You landed on ${C(card[0])}! 📊 ${card[1]}. Staying or trying again? 🎰`, `${u} ${C(card[0])} 👀 ${card[1]}. Not bad at all!`, `${u} ${C(card[0])} it is! ${card[1]} 🌍`], id);
+    if (isos.length) return pick(es ? [`${u} ¡Ese no estaba en las cartas! 😅 Vuelve a probar 🎰`] : [`${u} That one wasn't in the deck this time 😅 Try again! 🎰`], id);
+  }
+
+  // ⬆️⬇️ Higher or Lower: they post a score "4/6"
+  if (item?.series === 'hl') {
+    const m = text.match(/\b([0-6])\s*(?:\/|of|de|out of)\s*6\b/i);
+    if (m) {
+      const n = Number(m[1]);
+      if (n === 6) return pick(es ? [`${u} ¡6/6! 🏆 Perfecto. Eres un genio de los datos.`, `🔥 ${u} ¡Pleno! 6 de 6.`] : [`${u} 6/6! 🏆 Perfect score. Data genius.`, `🔥 ${u} A perfect 6/6! Respect.`], id);
+      if (n >= 4) return pick(es ? [`${u} ¡${n}/6! 👏 Muy bien. ¿A por el 6 la próxima?`] : [`${u} ${n}/6! 👏 Great score. Going for 6 next time?`, `${u} Solid ${n}/6 💪`], id);
+      return pick(es ? [`${u} ${n}/6 😅 ¡Estaban difíciles! La próxima ronda es tuya.`] : [`${u} ${n}/6 😅 Those were tricky! Next round is yours.`, `${u} ${n}/6, the data is sneaky 😄 Try the next one!`], id);
+    }
+  }
+
+  // 🏆 World Cup: acknowledge the vote
+  if (item?.series === 'cup' && item.cupMatch) {
+    const v = isos.find(i => item.cupMatch.includes(i));
+    if (v) return pick(es ? [`${u} ¡Voto para ${C(v)} registrado! 🗳️ Resultado en el próximo vídeo.`] : [`${u} Vote for ${C(v)} counted! 🗳️ Results in the next video.`, `${u} ${C(v)} gets your vote 🗳️ Stay tuned!`], id);
+  }
+
   // rankings: tell them where their country stands
   if (item?.rank && isos.length) {
     const iso = isos[0], row = item.rank.find(r => r[0] === iso), total = item.rank.length;

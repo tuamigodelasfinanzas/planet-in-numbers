@@ -9,5 +9,6 @@ st[it.series] = st[it.series].slice(-60);
 if (it.topic) { (st._topics ||= []).push({ id: it.topic, at }); st._topics = st._topics.slice(-40); }
 (st._log ||= []).push({ at, id: it.id, kind: it.kind, title: it.title, fact: it.fact || null });
 st._log = st._log.slice(-60);
+if (it.cupState) { st.cup = it.cupState; st.cupPost = it.caption.split('\n')[0]; delete st.cupVotes; }
 fs.writeFileSync(stateFile, JSON.stringify(st, null, 1));
 console.log('state updated:', it.id);

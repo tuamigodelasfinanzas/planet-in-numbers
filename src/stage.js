@@ -214,7 +214,103 @@
     S.draw = () => parts.forEach((e, j) => { const q = ease(seg(S.local, j * 0.1, 0.3 + j * 0.1)); e.style.opacity = q; e.style.transform = `translateY(${(1 - q) * 40}px)`; });
   }
 
-  var BUILD = { hook: BUILD_hook, rank: BUILD_rank, winner: BUILD_winner, race: BUILD_race, map: BUILD_map, stat: BUILD_stat, clues: BUILD_clues, countdown: BUILD_countdown, answer: BUILD_answer, cta: BUILD_cta };
+  // ---------- games ----------
+  const emo = (t) => esc(t).replace(/\s+(?=\p{Extended_Pictographic})/gu, ' ').replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`);
+  function BUILD_spin(S) {
+    // hard cuts between cards (no in-between frames): wherever the viewer pauses, a full card is on screen
+    const s = S.s, per = 7 / (D.fps || 30);
+    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 10}px;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center">
+      <div class="stop" style="background:#E5484D;color:#fff;border-radius:999px;padding:14px 44px;font-size:52px;font-weight:700;letter-spacing:.06em">⏸ STOP NOW!</div>
+      <div style="font-size:54px;font-weight:700;color:${C.muted}">${esc(s.title)}</div></div>
+      <div class="card" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 230}px;bottom:${1920 - Y1}px;background:${C.card};border-radius:44px;border:6px solid ${C.accent};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:40px">
+        <div class="fl" style="font-size:250px;line-height:1;${EM}"></div>
+        <div class="nm" style="font-size:80px;line-height:1.05;font-weight:700;text-align:center"></div>
+        <div class="st" style="width:100%;display:flex;flex-direction:column;gap:14px;margin-top:10px"></div></div>`;
+    const fl = S.el.querySelector('.fl'), nm = S.el.querySelector('.nm'), st = S.el.querySelector('.st'), stop = S.el.querySelector('.stop');
+    let last = -1;
+    S.draw = () => {
+      const i = Math.min(s.cards.length - 1, Math.floor(S.t / per + 1e-6));
+      if (i !== last) {
+        const c = s.cards[i]; last = i;
+        fl.textContent = c.flag; nm.textContent = c.name; nm.style.fontSize = c.name.length > 16 ? '62px' : '80px';
+        st.innerHTML = c.stats.map(x => `<div style="display:flex;justify-content:space-between;align-items:center;background:${C.bg};border-radius:20px;padding:18px 26px">
+          <span style="font-size:36px;color:${C.muted};font-weight:500">${esc(x.label)}</span><span style="font-size:46px;font-weight:700;color:${C.accent}">${esc(x.text)}</span></div>`).join('');
+      }
+      stop.style.transform = `scale(${1 + 0.05 * Math.sin(S.t * 10)})`;
+    };
+  }
+
+  function BUILD_hl(S) {
+    const s = S.s, rv = s.revealAt || 4.5;
+    const card = (x, k) => `<div class="c${k}" style="display:flex;align-items:center;gap:30px;background:${C.card};border-radius:36px;padding:30px 34px;border:6px solid transparent">
+      <div style="font-size:150px;line-height:1;${EM}">${x.flag}</div>
+      <div style="flex:1;min-width:0"><div style="font-size:${x.name.length > 14 ? 50 : 62}px;font-weight:700;line-height:1.05">${esc(x.name)}</div>
+      <div class="v${k}" style="font-size:66px;font-weight:700;color:${C.accent};margin-top:8px">?</div></div>
+      <div class="ok${k}" style="font-size:90px;opacity:0">✅</div></div>`;
+    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 10}px;bottom:${1920 - Y1}px;display:flex;flex-direction:column;justify-content:center;gap:30px">
+      <div style="align-self:flex-start;background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 32px;font-size:36px;font-weight:700;letter-spacing:.06em">ROUND ${s.n}/${s.total}</div>
+      <div style="font-size:76px;line-height:1.05;font-weight:700">${emo(s.q)}</div>
+      ${card(s.a, 'a')}
+      <div style="height:120px;display:flex;align-items:center;justify-content:center;position:relative">
+        <svg width="120" height="120" viewBox="0 0 120 120" style="position:absolute"><circle cx="60" cy="60" r="52" fill="none" stroke="${C.line}" stroke-width="10"/><circle class="arc" cx="60" cy="60" r="52" fill="none" stroke="${C.accent}" stroke-width="10" stroke-linecap="round" transform="rotate(-90 60 60)" stroke-dasharray="327" stroke-dashoffset="0"/></svg>
+        <div class="cd" style="position:relative;font-size:64px;font-weight:700">VS</div></div>
+      ${card(s.b, 'b')}</div>`;
+    const q = k => S.el.querySelector(k);
+    const ca = q('.ca'), cb = q('.cb'), va = q('.va'), vb = q('.vb'), oa = q('.oka'), ob = q('.okb'), cd = q('.cd'), arc = q('.arc');
+    S.draw = () => {
+      const left = rv - S.t;
+      if (left > 0 && left <= 3) { cd.textContent = Math.ceil(left); arc.setAttribute('stroke-dashoffset', String(327 * (1 - left / 3))); }
+      else { cd.textContent = 'VS'; arc.setAttribute('stroke-dashoffset', left > 3 ? '0' : '327'); }
+      const on = S.t >= rv;
+      va.textContent = on ? s.a.text : '?'; vb.textContent = on ? s.b.text : '?';
+      const p = ease(seg(S.t, rv, rv + 0.35));
+      const w = s.win === 'a' ? [ca, oa] : [cb, ob], l = s.win === 'a' ? cb : ca;
+      w[0].style.borderColor = on ? C.accent : 'transparent'; w[0].style.transform = `scale(${1 + 0.04 * p})`; w[1].style.opacity = p;
+      l.style.opacity = on ? 1 - 0.45 * p : 1;
+      [ca, cb].forEach((c, i) => { const e = ease(seg(S.t, 0.05 + i * 0.12, 0.4 + i * 0.12)); if (!on) c.style.transform = `translateX(${(1 - e) * (i ? 120 : -120)}px)`; });
+    };
+  }
+
+  function vsHead(s) {
+    return `<div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="font-size:150px;line-height:1;${EM}">${s.a.flag}</div><div style="font-size:${s.a.name.length > 12 ? 40 : 50}px;font-weight:700;text-align:center">${esc(s.a.name)}</div></div>
+      <div style="font-size:70px;font-weight:700;color:${C.accent}">VS</div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px"><div style="font-size:150px;line-height:1;${EM}">${s.b.flag}</div><div style="font-size:${s.b.name.length > 12 ? 40 : 50}px;font-weight:700;text-align:center">${esc(s.b.name)}</div></div></div>`;
+  }
+  function BUILD_cupmatch(S) {
+    const s = S.s;
+    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 10}px;bottom:${1920 - Y1}px;display:flex;flex-direction:column;justify-content:center;gap:26px">
+      <div style="align-self:center;background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 32px;font-size:36px;font-weight:700;letter-spacing:.06em">🏆 ${esc(s.round)}</div>
+      ${vsHead(s)}
+      <div class="rows" style="display:flex;flex-direction:column;gap:16px;margin-top:10px">${s.rows.map(r => `<div class="r" style="display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;background:${C.card};border-radius:24px;padding:24px 26px">
+        <div style="font-size:48px;font-weight:700;color:${C.text}">${esc(r.a)}</div><div style="font-size:32px;line-height:1.1;color:${C.muted};text-align:center;font-weight:500">${esc(r.label)}</div><div style="font-size:48px;font-weight:700;text-align:right">${esc(r.b)}</div></div>`).join('')}</div>
+      <div class="vote" style="text-align:center;font-size:52px;font-weight:700;margin-top:10px">Vote: comment <span style="${EM}">${s.a.flag}</span> or <span style="${EM}">${s.b.flag}</span></div></div>`;
+    const rs = [...S.el.querySelectorAll('.r')], vote = S.el.querySelector('.vote');
+    S.draw = () => { rs.forEach((r, i) => { const p = ease(seg(S.local, 0.08 + i * 0.12, 0.25 + i * 0.12)); r.style.opacity = p; r.style.transform = `translateY(${(1 - p) * 30}px)`; }); const v = ease(seg(S.local, 0.65, 0.8)); vote.style.opacity = v; vote.style.transform = `scale(${0.9 + 0.1 * v + 0.03 * Math.sin(S.t * 6) * v})`; };
+  }
+  function BUILD_cupresult(S) {
+    const s = S.s, tot = s.a.v + s.b.v, pa = tot ? s.a.v / tot : 0.5;
+    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 10}px;bottom:${1920 - Y1}px;display:flex;flex-direction:column;justify-content:center;gap:34px">
+      <div style="align-self:center;font-size:46px;font-weight:700;color:${C.accent};letter-spacing:.08em">LAST MATCH · RESULT</div>
+      ${vsHead(s)}
+      ${tot ? `<div style="height:70px;border-radius:35px;overflow:hidden;display:flex;background:${C.line}"><div class="ba" style="width:0;background:${s.winner === s.a.iso3 ? C.accent : C.bar}"></div><div class="bb" style="width:0;margin-left:auto;background:${s.winner === s.b.iso3 ? C.accent : C.bar}"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:44px;font-weight:700"><span>${Math.round(pa * 100)}% · ${s.a.v}</span><span>${s.b.v} · ${Math.round((1 - pa) * 100)}%</span></div>` : ''}
+      <div class="w" style="text-align:center;font-size:66px;font-weight:700">${esc((s.winner === s.a.iso3 ? s.a : s.b).name)} advances ✅</div>
+      <div style="text-align:center;font-size:32px;color:${C.muted}">${s.how === 'votes' ? `${tot} votes from your comments` : 'No clear vote, so the data decided'}</div></div>`;
+    const ba = S.el.querySelector('.ba'), bb = S.el.querySelector('.bb'), w = S.el.querySelector('.w');
+    S.draw = () => { const p = ease(seg(S.local, 0.1, 0.5)); if (ba) { ba.style.width = `${pa * 100 * p}%`; bb.style.width = `${(1 - pa) * 100 * p}%`; } const q = ease(seg(S.local, 0.45, 0.65)); w.style.opacity = q; w.style.transform = `scale(${0.8 + 0.2 * q})`; };
+  }
+  function BUILD_cupchampion(S) {
+    const s = S.s;
+    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0}px;bottom:${1920 - Y1}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;text-align:center">
+      <div class="t" style="font-size:200px;line-height:1;${EM}">🏆</div><div style="font-size:48px;font-weight:700;color:${C.accent};letter-spacing:.08em">CHAMPION</div>
+      <div class="f" style="font-size:280px;line-height:1;${EM}">${s.flag}</div><div style="font-size:96px;font-weight:700">${esc(s.name)}</div>
+      <div style="font-size:40px;color:${C.muted}">${esc(s.title)} · decided by you</div></div>`;
+    const t = S.el.querySelector('.t'), f = S.el.querySelector('.f');
+    S.draw = () => { const p = ease(seg(S.local, 0.05, 0.3)); f.style.transform = `scale(${0.3 + 0.7 * p})`; f.style.opacity = p; t.style.transform = `translateY(${Math.sin(S.t * 3) * 8}px)`; };
+  }
+
+  var BUILD = { hook: BUILD_hook, rank: BUILD_rank, winner: BUILD_winner, race: BUILD_race, map: BUILD_map, stat: BUILD_stat, clues: BUILD_clues, countdown: BUILD_countdown, answer: BUILD_answer, cta: BUILD_cta, spin: BUILD_spin, hl: BUILD_hl, cupmatch: BUILD_cupmatch, cupresult: BUILD_cupresult, cupchampion: BUILD_cupchampion };
 
   // ---------- timeline ----------
   const scenes = item.scenes.map((s, i) => {
@@ -232,9 +328,9 @@
       if (k !== i) { S.el.style.display = 'none'; return; }
       S.el.style.display = 'block';
       S.dur = D.durs[k]; S.t = t - starts[k]; S.local = clamp(S.t / S.dur);
-      const fin = k === 0 ? 1 : ease(seg(S.t, 0, 0.3)), fout = k === scenes.length - 1 ? 1 : 1 - seg(S.t, S.dur - 0.22, S.dur);
+      const fin = (k === 0 || S.s.type === 'spin') ? 1 : ease(seg(S.t, 0, 0.3)), fout = k === scenes.length - 1 ? 1 : 1 - seg(S.t, S.dur - 0.22, S.dur);
       S.el.style.opacity = Math.min(fin, fout);
-      S.el.style.transform = `scale(${1 + 0.025 * S.local})`;
+      S.el.style.transform = S.s.type === 'spin' ? 'none' : `scale(${1 + 0.025 * S.local})`;
       S.draw && S.draw(S.local);
     });
     prog.firstElementChild.style.width = `${clamp(t / D.total) * 100}%`;
