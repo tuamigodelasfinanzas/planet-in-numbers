@@ -110,7 +110,7 @@ const builders = {
           { say: 'Top three. Comment your guess for number one!' },
           { say: `Number three: ${c.name}.`, row: 2 },
           { say: `Number two: ${b.name}.`, row: 1 },
-          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}${e1 ? `. That's ${e1.say}` : ''}!`, row: 0 },
+          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}${e1 ? `${t.fmt === 'usd' ? ' a year' : ''}. That's ${e1.say}` : ''}!`, row: 0 },
         ] },
         cta(),
       ],

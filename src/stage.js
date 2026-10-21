@@ -39,7 +39,7 @@
       const p = ease(seg(S.t, 0, 0.35));
       t.style.transform = `scale(${1.08 - 0.08 * p})`;
       k.style.transform = `translateX(${(1 - p) * -30}px)`;
-      const q = ease(seg(S.t, 0.35, 0.8)); u.style.opacity = q; u.style.transform = `translateY(${(1 - q) * 30}px)`;
+      u.style.opacity = 1; u.style.transform = `scale(${1.06 - 0.06 * p})`; // the claim is readable from frame 0 too
       // bars keep moving the whole scene (no static frame)
       hb.forEach((b, i) => { const g = ease(seg(S.t, 0.05 + i * 0.12, 0.7 + i * 0.12)); const wob = 1 + 0.03 * Math.sin(S.t * 3 + i); b.style.transform = `scaleX(${g * wob})`; });
     };
