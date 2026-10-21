@@ -1,0 +1,39 @@
+name: Channel intro
+
+# Changing .github/intro-request renders the channel intro and sends it to Telegram (it is not published).
+on:
+  push:
+    branches: [main]
+    paths: ['.github/intro-request']
+
+permissions:
+  contents: write
+
+jobs:
+  intro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
+          pip install -q edge-tts
+      - name: Render
+        run: node tools/intro/render-intro.mjs out/intro.mp4
+      - name: Save (gh-pages) and send to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          git config --global user.name "pin-bot"; git config --global user.email "pin-bot@users.noreply.github.com"
+          git clone -q --depth 1 --branch gh-pages "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" site
+          mkdir -p site/intro && cp out/intro.mp4 out/intro.jpg site/intro/
+          (cd site && git add -A && git commit -q -m "Channel intro" && git push -q origin gh-pages)
+          if [ -n "$TELEGRAM_BOT_TOKEN" ]; then
+            curl -sS -F chat_id="$TELEGRAM_CHAT_ID" -F supports_streaming=true -F caption="🌍 Intro del canal Planet in Numbers (para fijar en Instagram, TikTok y YouTube)" -F video=@out/intro.mp4 "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendVideo" | jq -r '.ok'
+          fi
