@@ -45,7 +45,8 @@ for (const [i, s] of item.scenes.entries()) {
     try { vd = tts(s.say, f); clips.push({ f, i }); } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); useVoice = false; clips.length = 0; }
   }
   const base = { hook: 3.2, rank: 11, winner: 4, race: 18, map: 11, stat: 8, clues: 10, countdown: 4, answer: 3, cta: 3.5, spin: 10.3, hl: 7, cupmatch: 7, cupresult: 5, cupchampion: 5 }[s.type] || 4;
-  durs.push(Math.max(s.min || 0, base, vd ? vd + 0.9 : 0));
+  // tight hooks: the scene ends right after the voice (the first 3 seconds decide if people stay)
+  durs.push(s.tight ? Math.max(s.min || 0, 1.8, vd ? vd + 0.45 : 0) : Math.max(s.min || 0, base, vd ? vd + 0.9 : 0));
 }
 const total = durs.reduce((a, b) => a + b, 0);
 console.log('Scenes:', durs.map(d => d.toFixed(1)).join(' + '), '=', total.toFixed(1), 's');

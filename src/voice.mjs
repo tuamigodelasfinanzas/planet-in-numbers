@@ -5,7 +5,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 export const VOICE = process.env.PIN_VOICE || 'en-US-AndrewNeural';
-export const RATE = '+4%';
+export const RATE = '+12%';
 export const voiceOn = () => String(process.env.PIN_VOZ ?? 'true') !== 'false';
 export const probe = f => Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim());
 

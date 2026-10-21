@@ -248,7 +248,8 @@
       <div class="v${k}" style="font-size:66px;font-weight:700;color:${C.accent};margin-top:8px">?</div></div>
       <div class="ok${k}" style="font-size:90px;opacity:0">✅</div></div>`;
     S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 10}px;bottom:${1920 - Y1}px;display:flex;flex-direction:column;justify-content:center;gap:30px">
-      <div style="align-self:flex-start;background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 32px;font-size:36px;font-weight:700;letter-spacing:.06em">ROUND ${s.n}/${s.total}</div>
+      <div style="display:flex;align-items:center;justify-content:space-between"><div style="background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 32px;font-size:36px;font-weight:700;letter-spacing:.06em">ROUND ${s.n}/${s.total}</div>
+        <div style="display:flex;gap:12px;align-items:center"><span style="font-size:30px;color:${C.muted};font-weight:500;margin-right:6px">keep score</span>${Array.from({ length: s.total }, (_, i) => `<div style="width:26px;height:26px;border-radius:50%;background:${i < s.n - 1 ? C.good : i === s.n - 1 ? C.accent : C.line}"></div>`).join('')}</div></div>
       <div style="font-size:76px;line-height:1.05;font-weight:700">${emo(s.q)}</div>
       ${card(s.a, 'a')}
       <div style="height:120px;display:flex;align-items:center;justify-content:center;position:relative">

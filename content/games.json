@@ -56,7 +56,7 @@
    "id": "live",
    "title": "Where will you live?",
    "hook": "Stop the video to see where you'll live 🏠",
-   "say": "Stop the video to see where you will live.",
+   "say": "Stop the video. That's where you'll live.",
    "stats": [
     "gdp-pc",
     "happiness",

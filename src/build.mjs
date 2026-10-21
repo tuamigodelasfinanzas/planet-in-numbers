@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { latest, countries, bigCountries, latestOf, historyOf } from './wb.mjs';
 import { show, speak, pickNext } from './fmt.mjs';
 import { HANDLE } from './brand.mjs';
+import { everyday, gapWords, sentence, top10Claim, NO_RATIO } from './hooks.mjs';
 
 const T_WB = JSON.parse(fs.readFileSync(new URL('../content/topics.json', import.meta.url)));
 const T_OWID = JSON.parse(fs.readFileSync(new URL('../content/topics-owid.json', import.meta.url)));
@@ -89,7 +90,8 @@ const barScale = (top, dir) => {
 };
 const rowOut = (r, i, fmt, sc) => ({ rank: i + 1, name: r.name, flag: r.flag, iso3: r.iso3, value: r.value, text: show(r.value, fmt), v: sc(r.value) });
 
-const cta = (line = 'Where does YOUR country rank?') => ({ type: 'cta', line, sub: `Follow ${HANDLE} for a new ranking every day`, say: `${line.replace('YOUR', 'your')} Tell me in the comments, and follow for more.` });
+const RANK_SAY = "Comment your country, and I'll tell you its rank.";
+const cta = (line = 'Where does YOUR country rank?', say = RANK_SAY, sub = "Comment your country 👇 I'll reply with its rank") => ({ type: 'cta', line, sub, say });
 
 const builders = {
   // 🎬 Top 10 ranking (countdown)
@@ -99,18 +101,20 @@ const builders = {
     const sc = barScale(top, t.dir);
     const rows = top.map((r, i) => rowOut(r, i, t.fmt, sc));
     const [a, b, c] = rows;
+    const claim = top10Claim(t, a, rows[9]), e1 = everyday(t, a.value);
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'upbeat', title: t.title, rank: fullRank(all, t.fmt), metricName: t.say,
       scenes: [
-        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: 'Is your country on this list? 👀', say: `${t.hook.replace(/[^\p{L}\p{N}\s',.?!-]/gu, '').trim().replace(/([^.?!])$/, '$1.')} Stay until number one.` },
+        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: claim.show, say: `${sentence(t.hook)} ${claim.say}`, tight: true },
         { type: 'rank', title: t.title, metric: `${t.metric} · ${YL(t, year)}`, rows, min: 9, order: 'countdown', parts: [
+          { say: 'Top three. Comment your guess for number one!' },
           { say: `Number three: ${c.name}.`, row: 2 },
           { say: `Number two: ${b.name}.`, row: 1 },
-          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}!`, row: 0 },
+          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}${e1 ? `. That's ${e1.say}` : ''}!`, row: 0 },
         ] },
         cta(),
       ],
-      caption: `${t.hook}\n\n🥇 ${a.flag} ${a.name}: ${a.text}\n🥈 ${b.flag} ${b.name}: ${b.text}\n🥉 ${c.flag} ${c.name}: ${c.text}\n\nWhere does your country rank? Tell us in the comments 👇\n\n${SRC(year, t)}\n\n${TAGS}`,
+      caption: `${t.hook}\n\n🥇 ??? → watch until the end 👀\n🥈 ${b.flag} ${b.name}: ${b.text}\n🥉 ${c.flag} ${c.name}: ${c.text}\n\nGuess number one in the comments 👇 Comment your country and we'll tell you its rank.\n\n${SRC(year, t)}\n\n${TAGS}`,
     };
   },
 
@@ -125,7 +129,7 @@ const builders = {
     slides.push({ type: 'end', title: 'Is your country on the list?', sub: 'Save this post and share it with someone who should see it', note: SRC(year, t).replace('📊 ', '') });
     return {
       kind: 'carousel', series, episode: t.id, topic: t.id, title: t.title, slides, rank: fullRank(all, t.fmt), metricName: t.say,
-      caption: `${t.title}: the full Top 20 🌍\n\n🥇 ${rows[0].flag} ${rows[0].name}: ${rows[0].text}\n\nSwipe to see all 20 ➡️ Is your country on the list?\n\n💾 Save it for later.\n\n${SRC(year, t)}\n\n${TAGS}`,
+      caption: `${t.title}: the full Top 20 🌍\n\nWho's number one? Swipe to the end ➡️ Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n${SRC(year, t)}\n\n${TAGS}`,
     };
   },
 
@@ -144,15 +148,16 @@ const builders = {
     return {
       kind: 'reel', series, episode: ep.id, music: 'upbeat', title: ep.title,
       scenes: [
-        { type: 'hook', kicker: '$100 = ?', title: `${ep.title} 💵`, sub: 'Number one will surprise you 👀', say: `${ep.title}. Here is what one hundred dollars is really worth.` },
+        { type: 'hook', kicker: '$100 = ?', title: `${ep.title} 💵`, sub: `Somewhere, $100 feels like $${Math.round(a.value)} 😳`, say: `${ep.dir === 'asc' ? `In one of these countries, one hundred dollars feels like just ${Math.round(a.value)}.` : `In one of these countries, one hundred dollars feels like ${Math.round(a.value)}.`} Guess where.`, tight: true },
         { type: 'rank', title: ep.title, metric: `Value of $100 in local prices · ${year}`, rows: out, min: 9, order: 'countdown', parts: [
+          { say: 'Top three. Comment where you think it is!' },
           { say: `Number three: ${out[2].name}.`, row: 2 },
           { say: `Number two: ${b.name}, where it feels like ${Math.round(b.value)}.`, row: 1 },
           { say: `And number one is… ${a.name}: there, one hundred dollars feels like ${Math.round(a.value)}!`, row: 0 },
         ] },
-        cta('Where would YOU take your $100?'),
+        cta('Where would YOU take your $100?', "Where would you take your hundred dollars? Comment your country, and I'll tell you what it's worth there.", 'Comment your country 👇 I\'ll reply with its value'),
       ],
-      caption: `${ep.title} 💵\n\nWith local prices, $100 feels like:\n🥇 ${a.flag} ${a.name}: ${a.text}\n🥈 ${b.flag} ${b.name}: ${b.text}\n\n(Based on the World Bank price level ratio: PPP conversion factor vs. market exchange rate.)\n\nWhere would you spend your $100? 👇\n\n${SRC(year)}\n\n#travel #money #costofliving #worldrankings #theplanetinnumbers`,
+      caption: `${ep.title} 💵\n\nWith local prices, $100 feels like:\n🥇 ??? → ${a.text} (watch until the end 👀)\n🥈 ${b.flag} ${b.name}: ${b.text}\n\n(Based on the World Bank price level ratio: PPP conversion factor vs. market exchange rate.)\n\nWhere would you spend your $100? 👇\n\n${SRC(year)}\n\n#travel #money #costofliving #worldrankings #theplanetinnumbers`,
       rank: fullRank(rows, 'usd').map(r => [r[0], r[1], '$' + Math.round(rows[r[1] - 1].value)]), metricName: 'what $100 feels like',
     };
   },
@@ -182,12 +187,16 @@ const builders = {
     const first = [...bars].sort((a, b) => (b.values[y0] ?? -1) - (a.values[y0] ?? -1))[0];
     const last = [...bars].sort((a, b) => (b.values[y1] ?? -1) - (a.values[y1] ?? -1))[0];
     const same = first.iso3 === last.iso3;
+    const rankNow = [...bars].filter(b => b.values[y1] != null).sort((a, b) => b.values[y1] - a.values[y1]).findIndex(b => b.iso3 === first.iso3) + 1;
+    const raceHook = same ? `${first.name} has been number one since ${y0}. Can anyone catch it?`
+      : rankNow === 0 || rankNow > 10 ? `In ${y0}, ${first.name} was number one. Today it's not even in the top ten.`
+      : `In ${y0}, ${first.name} was number one. Watch who takes its place.`;
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'epic', title: `${t.title}: ${y0} vs ${y1}`,
       scenes: [
-        { type: 'hook', kicker: `${y0} → ${y1}`, title: t.raceOnly ? t.hook : `${t.title}: then vs now`, sub: 'Watch who takes the lead 🏁', say: t.raceOnly ? `${t.hook.replace(/[^\p{L}\p{N}\s',.?!-]/gu, '').trim().replace(/([^.?!])$/, '$1.')} Watch how the world changed.` : `${t.title}, from ${y0} to today. Watch how the world changed.` },
+        { type: 'hook', kicker: `${y0} → ${y1}`, title: t.raceOnly ? t.hook : `${t.title}: then vs now`, sub: 'Watch who takes the lead 🏁', say: raceHook, tight: true },
         { type: 'race', title: t.title, metric: t.metric, fmt: t.fmt, years, bars, min: Math.min(21, Math.max(16, years.length * 0.17)), say: `In ${y0}, number one was ${first.name}. ${same ? `Decades later, ${last.name} is still on top.` : `But everything changed. By ${y1}, ${last.name} took the lead.`}` },
-        cta('Did YOUR country go up or down?'),
+        cta('Did YOUR country go up or down?', 'Did your country go up, or down? Comment it!', 'Comment your country 👇'),
       ],
       caption: `${t.title}: ${y0} vs ${y1} 📈\n\n🕰️ ${y0}: ${first.flag} ${first.name} was number one.\n🏁 ${y1}: ${last.flag} ${last.name} ${same ? 'is still on top' : 'leads the ranking'}.\n\nDid your country go up or down? 👇\n\n📊 Source: World Bank open data, ${y0}–${y1}.\n\n${TAGS}`,
     };
@@ -204,11 +213,12 @@ const builders = {
     const values = {}; rows.forEach((r, i) => { values[r.iso3] = 1 - i / (rows.length - 1); });
     const pick = r => ({ flag: r.flag, name: r.name, text: show(r.value, t.fmt) });
     const top = rows.slice(0, 3).map(pick), bottom = rows.slice(-3).reverse().map(pick);
+    const mapGap = gapWords(rows[0].value, rows.at(-1).value, t.fmt);
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'calm', title: `World map: ${t.title.toLowerCase()}`, rank: fullRank(rows, t.fmt), metricName: t.say,
       scenes: [
-        { type: 'hook', kicker: 'WORLD MAP · ' + year, title: `${t.hook.replace(/\s*\p{Extended_Pictographic}.*$/u, '')} 🗺️`, sub: 'Find your country 👀', say: `This is the world, colored by ${t.say}.` },
-        { type: 'map', title: t.metric, year, values, legend: [show(rows.at(-1).value, t.fmt), show(rows[0].value, t.fmt)], top, bottom, min: 12, say: `The highest is ${rows[0].name}, with ${speak(rows[0].value, t.fmt)}. The lowest is ${rows.at(-1).name}, with ${speak(rows.at(-1).value, t.fmt)}. Look how different the world is.` },
+        { type: 'hook', kicker: 'WORLD MAP · ' + year, title: `${t.hook.replace(/\s*\p{Extended_Pictographic}.*$/u, '')} 🗺️`, sub: mapGap ? `One country: ${mapGap.show} another 😳` : 'Find your country 👀', say: mapGap ? `One country has ${mapGap.say} the ${t.say} of another. Find yours.` : `${sentence(t.hook)} Find your country.`, tight: true },
+        { type: 'map', title: t.metric, year, values, legend: [show(rows.at(-1).value, t.fmt), show(rows[0].value, t.fmt)], top, bottom, min: 12, say: `The highest is ${rows[0].name}, with ${speak(rows[0].value, t.fmt)}. The lowest is ${rows.at(-1).name}, with ${speak(rows.at(-1).value, t.fmt)}. Pause, and find your country.` },
         cta('Find YOUR country on the map 👀'),
       ],
       caption: `The world by ${t.say} 🗺️\n\n⬆️ Highest: ${top.map(x => `${x.flag} ${x.name} (${x.text})`).join(', ')}\n⬇️ Lowest: ${bottom.map(x => `${x.flag} ${x.name} (${x.text})`).join(', ')}\n\nCan you find your country? 👇\n\n${SRC(year, t)}\n\n#maps #worldmap #geography #dataviz #theplanetinnumbers`,
@@ -220,15 +230,16 @@ const builders = {
     const t = pickTopic(x => !x.raceOnly && !x.id.endsWith('-low') && x.dir === 'desc');
     const { rows, year } = await ranking(t, 10);
     const hi = rows[0], lo = rows.at(-1);
-    const ratio = hi.value / lo.value;
+    const ratio = NO_RATIO.has(t.fmt) ? 1 : hi.value / lo.value;
     const gap = ratio >= 2 ? `${Math.round(ratio)}×` : show(hi.value - lo.value, t.fmt);
+    const eHi = everyday(t, hi.value), eLo = everyday(t, lo.value);
     const gapSay = ratio >= 2 ? `${Math.round(ratio)} times more` : `${speak(hi.value - lo.value, t.fmt)} more`;
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'tense', title: `The ${t.say} gap`, rank: fullRank(rows, t.fmt), metricName: t.say,
       scenes: [
-        { type: 'hook', kicker: 'ONE NUMBER', title: `The world's biggest gap in ${t.say} 🤯`, sub: 'Wait for the final number', say: `This number shows how unequal the world really is.` },
-        { type: 'stat', a: { flag: hi.flag, name: hi.name, text: show(hi.value, t.fmt) }, b: { flag: lo.flag, name: lo.name, text: show(lo.value, t.fmt) }, label: `${t.metric} · ${year}`, gap, min: 8, say: `In ${hi.name}, ${t.say} is ${speak(hi.value, t.fmt)}. In ${lo.name}, it's just ${speak(lo.value, t.fmt)}. That's ${gapSay}.` },
-        cta('Did you expect THIS gap?'),
+        { type: 'hook', kicker: 'ONE NUMBER', title: ratio >= 2 ? `${Math.round(ratio)}× more ${t.say}. Same planet. 🤯` : `The world's biggest gap in ${t.say} 🤯`, sub: 'Guess the two countries 👇', say: ratio >= 2 ? `${Math.round(ratio)} times more ${t.say}. Same planet.` : `The biggest gap in ${t.say} on Earth. Guess the two countries.`, tight: true },
+        { type: 'stat', a: { flag: hi.flag, name: hi.name, text: show(hi.value, t.fmt) }, b: { flag: lo.flag, name: lo.name, text: show(lo.value, t.fmt) }, label: `${t.metric} · ${year}`, gap, min: 8, say: `In ${hi.name}, ${t.say} is ${speak(hi.value, t.fmt)}${eHi ? `, that's ${eHi.say}` : ''}. In ${lo.name}, it's just ${speak(lo.value, t.fmt)}${eLo ? `, ${eLo.say}` : ''}. That's ${gapSay}.` },
+        cta('Where is YOUR country?', RANK_SAY),
       ],
       caption: `The biggest gap in ${t.say} on Earth 🤯\n\n${hi.flag} ${hi.name}: ${show(hi.value, t.fmt)}\n${lo.flag} ${lo.name}: ${show(lo.value, t.fmt)}\n\nThat's ${gap === `${Math.round(ratio)}×` ? `${Math.round(ratio)} times more` : `${gap} more`}. Did you expect it? 👇\n\n${SRC(year, t)}\n\n${TAGS}`,
     };
@@ -246,16 +257,17 @@ const builders = {
       if (rows[0]) clues.push({ label: k.label, text: show(rows[0].value, k.fmt), say: `${k.label}: ${speak(rows[0].value, k.fmt)}.` });
       if (clues.length === 3) break;
     }
+    clues.reverse(); // hardest first: the easy clue (population) comes last, so people stay until the end
     const region = c.region.replace(/,.*$/, '').replace(' & ', ' and ');
     clues.push({ label: 'Region', text: c.region.replace(/,.*$/, ''), say: `And it's in ${region}.` });
     return {
       kind: 'reel', series, episode: iso, music: 'quiz', title: 'Guess the country',
       scenes: [
-        { type: 'hook', kicker: 'QUIZ', title: 'Guess the country 🌍❓', sub: '4 clues. Guess before the answer 👇', say: 'Can you guess this country with just four clues?' },
+        { type: 'hook', kicker: 'QUIZ', title: 'Guess the country 🌍❓', sub: 'Each clue is easier. How many do you need? 👇', say: 'Four clues, each one easier. How many do you need?', tight: true },
         { type: 'clues', clues, min: 10, say: clues.map(x => x.say).join(' ') },
         { type: 'countdown', text: 'Comment your guess 👇', min: 4, say: 'Write your answer in the comments. Three, two, one.' },
         { type: 'answer', flag: c.flag, name: c.name, min: 3, say: `It's ${c.name}! Did you get it right?` },
-        { ...cta('Follow for a new quiz every week'), say: 'Follow for more quizzes.' },
+        cta('How many clues did YOU need?', 'How many clues did you need? Comment it!', 'Comment 1, 2, 3 or 4 👇'),
       ],
       caption: `Guess the country 🌍❓\n\n${clues.map((x, i) => `${i + 1}️⃣ ${x.label}: ${x.text}`).join('\n')}\n\nComment your guess BEFORE the answer 👇 (no cheating!)\n\n📊 Source: World Bank open data.\n\n#quiz #geography #guessthecountry #trivia #theplanetinnumbers`,
     };
@@ -325,9 +337,9 @@ const builders = {
     return {
       kind: 'reel', series, episode: th.id, music: 'quiz', title: th.title, cards: cards.map(c => [c.iso3, c.stats.map(x => x.text).join(' · ')]),
       scenes: [
-        { type: 'hook', kicker: 'STOP THE VIDEO', title: th.hook, sub: 'Pause anytime. No cheating 👀', say: `${th.say} Ready? Three, two, one… go!`, min: 4.2 },
+        { type: 'hook', kicker: 'STOP THE VIDEO', title: th.hook, sub: 'Pause anytime. No cheating 👀', say: th.say, min: 2.2, tight: true },
         { type: 'spin', title: th.title, cards, min: 10.3 },
-        { ...cta(th.cta.replace(' 👇', '') + ' Comment YOUR country'), line: th.cta.replace(' 👇', ''), sub: 'Comment the country you landed on 👇', say: 'Where did you land? Comment your country, and try again!' },
+        { ...cta(th.cta.replace(' 👇', '') + ' Comment YOUR country'), line: th.cta.replace(' 👇', ''), sub: 'Comment the country you landed on 👇', say: 'Where did you land? Comment it, and try again!' },
       ],
       caption: `${th.hook}\n\nPause the video and that's your country 🛑\n${stats.map(st => `• ${st.label}`).join('\n')} — real data on every card.\n\nComment where you landed 👇 (and how many tries it took 😅)\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#stopthevideo #geography #countries #game #theplanetinnumbers`,
     };
@@ -361,7 +373,10 @@ const builders = {
       const win = va > vb ? 'a' : 'b';
       const C2 = iso => ({ flag: cs.get(iso).flag, name: cs.get(iso).name });
       rounds.push({ stat: q.stat, n: rounds.length + 1, q: q.q, a: { ...C2(a), text: show(va, st.fmt) }, b: { ...C2(b), text: show(vb, st.fmt) }, win,
-        parts: [{ say: `Round ${rounds.length + 1}. ${q.say}?` }, { say: `${cs.get(win === 'a' ? a : b).name}! ${speak(win === 'a' ? va : vb, st.fmt)}.`, reveal: true }] });
+        parts: [{ say: `Round ${rounds.length + 1}. ${q.say}?` }, { say: (() => {
+          const [w, wv, l, lv] = win === 'a' ? [a, va, b, vb] : [b, vb, a, va], r = wv / lv;
+          return `${r < 1.12 ? 'So close! ' : r >= 1.6 ? 'Easy one. ' : ''}${cs.get(w).name}: ${speak(wv, st.fmt)}. ${cs.get(l).name}: ${speak(lv, st.fmt)}.`;
+        })(), reveal: true }] });
       void low;
     }
     if (rounds.length < 5) throw new Error('Not enough Higher or Lower rounds');
@@ -369,7 +384,7 @@ const builders = {
     return {
       kind: 'reel', series, episode: new Date().toISOString().slice(0, 10), music: 'quiz', title: 'Higher or Lower: countries', rounds: rounds.map(r => ({ q: r.q, a: r.a.name, b: r.b.name, win: r.win })),
       scenes: [
-        { type: 'hook', kicker: `HIGHER OR LOWER · ${N} ROUNDS`, title: 'Higher or lower? Country edition ⬆️⬇️', sub: `Keep score. Comment your result /${N}`, say: `Higher or lower, country edition. ${N} rounds. Keep score!`, min: 3.6 },
+        { type: 'hook', kicker: `HIGHER OR LOWER · ${N} ROUNDS`, title: 'Higher or lower? Country edition ⬆️⬇️', sub: `Keep score. Comment your result /${N}`, say: `${N} rounds. Each one harder. Keep score!`, min: 2.2, tight: true },
         ...rounds.map(r => ({ type: 'hl', ...r, total: N })),
         { ...cta(`What was YOUR score?`), sub: `Comment your result out of ${N} 👇`, say: `So, what was your score out of ${N}? Comment it, and follow for the next round!` },
       ],
