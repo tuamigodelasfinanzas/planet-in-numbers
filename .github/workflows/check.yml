@@ -1,0 +1,16 @@
+name: Check data sources
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/check-request']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node tools/check-owid.mjs $(cat .github/check-request)
