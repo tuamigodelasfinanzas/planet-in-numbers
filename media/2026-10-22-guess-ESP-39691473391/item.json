@@ -1,0 +1,66 @@
+{
+ "kind": "reel",
+ "series": "guess",
+ "episode": "ESP",
+ "music": "quiz",
+ "title": "Guess the country",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "QUIZ",
+   "title": "Guess the country 🌍❓",
+   "sub": "Each clue is easier. How many do you need? 👇",
+   "say": "Four clues, each one easier. How many do you need?",
+   "tight": true
+  },
+  {
+   "type": "clues",
+   "clues": [
+    {
+     "label": "Life expectancy",
+     "text": "83.9 yrs",
+     "say": "Life expectancy: 84 years."
+    },
+    {
+     "label": "Income per person",
+     "text": "$38,627",
+     "say": "Income per person: 38,600 dollars."
+    },
+    {
+     "label": "Population",
+     "text": "49.4M",
+     "say": "Population: 49.4 million."
+    },
+    {
+     "label": "Region",
+     "text": "Europe & Central Asia",
+     "say": "And it's in Europe and Central Asia."
+    }
+   ],
+   "min": 10,
+   "say": "Life expectancy: 84 years. Income per person: 38,600 dollars. Population: 49.4 million. And it's in Europe and Central Asia."
+  },
+  {
+   "type": "countdown",
+   "text": "Comment your guess 👇",
+   "min": 4,
+   "say": "Write your answer in the comments. Three, two, one."
+  },
+  {
+   "type": "answer",
+   "flag": "🇪🇸",
+   "name": "Spain",
+   "min": 3,
+   "say": "It's Spain! Did you get it right?"
+  },
+  {
+   "type": "cta",
+   "line": "How many clues did YOU need?",
+   "sub": "Comment 1, 2, 3 or 4 👇",
+   "say": "How many clues did you need? Comment it!"
+  }
+ ],
+ "caption": "Guess the country 🌍❓\n\n1️⃣ Life expectancy: 83.9 yrs\n2️⃣ Income per person: $38,627\n3️⃣ Population: 49.4M\n4️⃣ Region: Europe & Central Asia\n\nComment your guess BEFORE the answer 👇 (no cheating!)\n\n📊 Source: World Bank open data.\n\n#quiz #geography #guessthecountry #trivia #theplanetinnumbers",
+ "id": "guess-ESP",
+ "cover_ms": 2200
+}
