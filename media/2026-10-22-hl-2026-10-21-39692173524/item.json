@@ -1,0 +1,214 @@
+{
+ "kind": "reel",
+ "series": "hl",
+ "episode": "2026-10-21",
+ "music": "quiz",
+ "title": "Higher or Lower: countries",
+ "rounds": [
+  {
+   "q": "Who earns more per person?",
+   "a": "Hungary",
+   "b": "Australia",
+   "win": "b"
+  },
+  {
+   "q": "Where does it rain more?",
+   "a": "Vietnam",
+   "b": "Philippines",
+   "win": "b"
+  },
+  {
+   "q": "Who emits more CO₂ per person?",
+   "a": "Türkiye",
+   "b": "United Kingdom",
+   "win": "a"
+  },
+  {
+   "q": "Who drinks more beer?",
+   "a": "Sweden",
+   "b": "Russia",
+   "win": "b"
+  },
+  {
+   "q": "Which country is happier?",
+   "a": "France",
+   "b": "Peru",
+   "win": "a"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "HIGHER OR LOWER · 5 ROUNDS",
+   "title": "Higher or lower? Country edition ⬆️⬇️",
+   "sub": "Keep score. Comment your result /5",
+   "say": "5 rounds. Each one harder. Keep score!",
+   "min": 2.2,
+   "tight": true
+  },
+  {
+   "type": "hl",
+   "stat": "gdp-pc",
+   "n": 1,
+   "q": "Who earns more per person?",
+   "a": {
+    "flag": "🇭🇺",
+    "name": "Hungary",
+    "text": "$25,907"
+   },
+   "b": {
+    "flag": "🇦🇺",
+    "name": "Australia",
+    "text": "$65,130"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Round 1. Who earns more per person?"
+    },
+    {
+     "say": "Easy one. Australia: 65,100 dollars, against 25,900.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 11.728000000000002
+   },
+   "revealAt": 5.038
+  },
+  {
+   "type": "hl",
+   "stat": "rain",
+   "n": 2,
+   "q": "Where does it rain more?",
+   "a": {
+    "flag": "🇻🇳",
+    "name": "Vietnam",
+    "text": "2,377 mm"
+   },
+   "b": {
+    "flag": "🇵🇭",
+    "name": "Philippines",
+    "text": "3,683 mm"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Round 2. Where does it rain more?"
+    },
+    {
+     "say": "Philippines: 3,683 millimeters of rain a year, against 2,377.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 12.424
+   },
+   "revealAt": 4.894
+  },
+  {
+   "type": "hl",
+   "stat": "co2",
+   "n": 3,
+   "q": "Who emits more CO₂ per person?",
+   "a": {
+    "flag": "🇹🇷",
+    "name": "Türkiye",
+    "text": "5.9 t"
+   },
+   "b": {
+    "flag": "🇬🇧",
+    "name": "United Kingdom",
+    "text": "4.5 t"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Round 3. Who emits more CO2 per person?"
+    },
+    {
+     "say": "Türkiye: 5.9 tonnes of CO2 per person, against 4.5.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 11.392
+   },
+   "revealAt": 5.805999999999999
+  },
+  {
+   "type": "hl",
+   "stat": "beer",
+   "n": 4,
+   "q": "Who drinks more beer?",
+   "a": {
+    "flag": "🇸🇪",
+    "name": "Sweden",
+    "text": "55 L"
+   },
+   "b": {
+    "flag": "🇷🇺",
+    "name": "Russia",
+    "text": "61 L"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Round 4. Who drinks more beer?"
+    },
+    {
+     "say": "So close! Russia: about 61 liters of beer per adult, against 55.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 10.696
+   },
+   "revealAt": 4.965999999999999
+  },
+  {
+   "type": "hl",
+   "stat": "happiness",
+   "n": 5,
+   "q": "Which country is happier?",
+   "a": {
+    "flag": "🇫🇷",
+    "name": "France",
+    "text": "6.59/10"
+   },
+   "b": {
+    "flag": "🇵🇪",
+    "name": "Peru",
+    "text": "5.97/10"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Round 5. Which country is happier?"
+    },
+    {
+     "say": "So close! France: 6.6 out of ten, against 6.0.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 10.408
+   },
+   "revealAt": 5.278
+  },
+  {
+   "type": "cta",
+   "line": "What was YOUR score?",
+   "sub": "Comment your result out of 5 👇",
+   "say": "What was your score out of 5? Comment it!"
+  }
+ ],
+ "caption": "Higher or lower? Country edition ⬆️⬇️\n\n5 rounds, each one harder. How many did you get right?\n\nComment your score /5 👇\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#higherorlower #quiz #geography #countries #theplanetinnumbers",
+ "id": "hl-2026-10-21",
+ "cover_ms": 2200
+}
