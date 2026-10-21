@@ -16,7 +16,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node tools/check-owid.mjs $(cat .github/check-request) | sed 's/^::notice:://' > check-result.txt; cat check-result.txt
+      - run: |
+          if [ "$(head -1 .github/check-request)" = "audit" ]; then node tools/audit-topics.mjs > check-result.txt 2>&1 || true
+          else node tools/check-owid.mjs $(cat .github/check-request) | sed 's/^::notice:://' > check-result.txt; fi
+          cat check-result.txt
       - name: Save the report (branch "checks")
         run: |
           git config --global user.name "pin-bot"; git config --global user.email "pin-bot@users.noreply.github.com"

@@ -64,7 +64,7 @@ const builders = {
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'upbeat', title: t.title, rank: fullRank(all, t.fmt), metricName: t.say,
       scenes: [
-        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: 'Is your country on this list? 👀', say: `${t.hook.replace(/[^\p{L}\p{N}\s',.-]/gu, '').trim()}. Stay until number one.` },
+        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: 'Is your country on this list? 👀', say: `${t.hook.replace(/[^\p{L}\p{N}\s',.?!-]/gu, '').trim().replace(/([^.?!])$/, '$1.')} Stay until number one.` },
         { type: 'rank', title: t.title, metric: `${t.metric} · ${YL(t, year)}`, rows, min: 9, order: 'countdown', parts: [
           { say: `Number three: ${c.name}.`, row: 2 },
           { say: `Number two: ${b.name}.`, row: 1 },

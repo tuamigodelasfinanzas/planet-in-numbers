@@ -23,6 +23,8 @@ export function show(v, fmt) {
     case 'per100': return nf(0).format(v);
     case 'density': return nf(0).format(v) + '/km²';
     case 'litres': return nf(1).format(v) + ' L';
+    case 'lbeer': return nf(0).format(Math.round(v)) + ' L';
+    case 'lspirit': return nf(1).format(v) + ' L';
     case 'kg': return nf(0).format(v) + ' kg';
     case 'cm': return nf(1).format(v) + ' cm';
     case 'kcal': return nf(0).format(v) + ' kcal';
@@ -52,6 +54,8 @@ export function speak(v, fmt) {
     case 'per100': return `${nf(0).format(v)} per hundred people`;
     case 'density': return `${nf(0).format(v)} people per square kilometer`;
     case 'litres': return `${nf(1).format(v)} liters of pure alcohol per person`;
+    case 'lbeer': return `about ${nf(0).format(Math.round(v))} liters of beer per adult`;
+    case 'lspirit': return `about ${nf(1).format(v)} liters of spirits per adult`;
     case 'kg': return `${nf(0).format(v)} kilos per person a year`;
     case 'cm': return `${nf(1).format(v)} centimeters`;
     case 'kcal': return `${nf(0).format(v)} calories a day`;
