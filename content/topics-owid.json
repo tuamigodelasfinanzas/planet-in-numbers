@@ -365,10 +365,10 @@
   "slug": "air-passengers-carried",
   "dir": "desc",
   "fmt": "num_big",
-  "title": "Countries that fly the most",
-  "metric": "Air passengers carried per year",
-  "say": "air passengers",
-  "hook": "The countries that fly the most ✈️",
+  "title": "Busiest national airlines",
+  "metric": "Passengers carried by the country's airlines",
+  "say": "air passengers carried by its airlines",
+  "hook": "The countries whose airlines fly the most people ✈️",
   "via": "World Bank"
  },
  {
@@ -495,7 +495,8 @@
   "say": "median income per day",
   "hook": "How much does a typical person live on per day? 💵",
   "maxAge": 10,
-  "via": "World Bank PIP"
+  "via": "World Bank PIP",
+  "window": 8
  },
  {
   "id": "median-income-low",
@@ -508,7 +509,8 @@
   "say": "median income per day",
   "hook": "Where a typical person lives on just a few dollars a day",
   "maxAge": 10,
-  "via": "World Bank PIP"
+  "via": "World Bank PIP",
+  "window": 8
  },
  {
   "id": "women-work",

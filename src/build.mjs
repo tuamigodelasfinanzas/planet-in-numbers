@@ -35,9 +35,17 @@ function pickTopic(filter) {
   return pickNext(fresh.length ? fresh : cands, usedOf(series));
 }
 
+// only compare countries measured in (about) the same years: within `window` years of the newest data
+function fresh(rows, topic) {
+  if (topic.yearLabel || !rows.length) return rows;
+  const maxY = Math.max(...rows.map(r => r.year));
+  return rows.filter(r => r.year >= maxY - (topic.window ?? 3));
+}
+
 async function ranking(topic, n) {
   const big = topic.minPop === 0 ? null : await bigCountries(1e6);
   let rows = (await latestOf(topic)).filter(r => !big || big.has(r.iso3));
+  rows = fresh(rows, topic);
   if (rows.length < n + 5) throw new Error(`Not enough data for ${topic.id} (${rows.length})`);
   rows.sort((a, b) => (topic.dir === 'asc' ? a.value - b.value : b.value - a.value));
   const top = rows.slice(0, n);
@@ -95,7 +103,7 @@ const builders = {
   async dollar100() {
     const ep = forced ? CAT.dollarRegions.find(r => r.id === forced) : pickNext(CAT.dollarRegions, usedOf(series));
     const big = await bigCountries(1e6);
-    let rows = (await latest('PA.NUS.PPPC.RF')).filter(r => big.has(r.iso3) && r.value > 0);
+    let rows = fresh((await latest('PA.NUS.PPPC.RF')).filter(r => big.has(r.iso3) && r.value > 0), {});
     if (ep.region) rows = rows.filter(r => r.region.startsWith(ep.region));
     rows = rows.map(r => ({ ...r, value: 100 / r.value }));
     rows.sort((a, b) => (ep.dir === 'asc' ? a.value - b.value : b.value - a.value));
@@ -159,7 +167,7 @@ const builders = {
   async map() {
     const t = pickTopic(x => x.map && x.dir === 'desc');
     const big = await bigCountries(1e6);
-    const rows = (await latestOf(t)).filter(r => big.has(r.iso3));
+    const rows = fresh((await latestOf(t)).filter(r => big.has(r.iso3)), t);
     rows.sort((a, b) => b.value - a.value);
     const year = Math.max(...rows.map(r => r.year));
     // color by rank (quantiles), so outliers don't wash out the map

@@ -11,12 +11,13 @@ let bad = 0;
 for (const t of topics) {
   try {
     let rows = (await latestOf(t)).filter(r => t.minPop === 0 || big.has(r.iso3));
+    if (!t.yearLabel) { const my = Math.max(...rows.map(r => r.year)); rows = rows.filter(r => r.year >= my - (t.window ?? 3)); }
     rows.sort((a, b) => (t.dir === 'asc' ? a.value - b.value : b.value - a.value));
     const years = rows.map(r => r.year), maxY = Math.max(...years), minTop = Math.min(...rows.slice(0, 10).map(r => r.year));
     const issues = [];
     if (rows.length < 40) issues.push(`only ${rows.length} countries`);
     if (NOW - maxY > 4 && !t.yearLabel) issues.push(`old data (${maxY})`);
-    if (maxY - minTop > 3) issues.push(`top 10 mixes years ${minTop}-${maxY}`);
+    if (maxY - minTop > (t.window ?? 3)) issues.push(`top 10 mixes years ${minTop}-${maxY}`);
     if (rows.slice(0, 10).some(r => !Number.isFinite(r.value))) issues.push('bad values');
     if (issues.length) bad++;
     const fmt = r => `${r.name} ${show(r.value, t.fmt)}`;
