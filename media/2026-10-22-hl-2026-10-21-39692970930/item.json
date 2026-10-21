@@ -1,0 +1,214 @@
+{
+ "kind": "reel",
+ "series": "hl",
+ "episode": "2026-10-21",
+ "music": "quiz",
+ "title": "Higher or Lower: countries",
+ "rounds": [
+  {
+   "q": "Who earns more per person?",
+   "a": "Indonesia",
+   "b": "Bangladesh",
+   "win": "a"
+  },
+  {
+   "q": "Where does it rain more?",
+   "a": "Canada",
+   "b": "Ghana",
+   "win": "b"
+  },
+  {
+   "q": "Which is less corrupt?",
+   "a": "Colombia",
+   "b": "Poland",
+   "win": "b"
+  },
+  {
+   "q": "Which country is older?",
+   "a": "Peru",
+   "b": "Singapore",
+   "win": "b"
+  },
+  {
+   "q": "Who drinks more beer?",
+   "a": "Mexico",
+   "b": "Hungary",
+   "win": "a"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "HIGHER OR LOWER · 5 ROUNDS",
+   "title": "Higher or lower? Country edition ⬆️⬇️",
+   "sub": "Keep score. Comment your result /5",
+   "say": "5 rounds. Each one harder. Keep score!",
+   "min": 2.2,
+   "tight": true
+  },
+  {
+   "type": "hl",
+   "stat": "gdp-pc",
+   "n": 1,
+   "q": "Who earns more per person?",
+   "a": {
+    "flag": "🇮🇩",
+    "name": "Indonesia",
+    "text": "$5,060"
+   },
+   "b": {
+    "flag": "🇧🇩",
+    "name": "Bangladesh",
+    "text": "$2,597"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Round one. Who earns more per person?"
+    },
+    {
+     "say": "Easy one. Indonesia: 5,060 dollars, against 2,597.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 11.384
+   },
+   "revealAt": 4.838
+  },
+  {
+   "type": "hl",
+   "stat": "rain",
+   "n": 2,
+   "q": "Where does it rain more?",
+   "a": {
+    "flag": "🇨🇦",
+    "name": "Canada",
+    "text": "670 mm"
+   },
+   "b": {
+    "flag": "🇬🇭",
+    "name": "Ghana",
+    "text": "876 mm"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Where does it rain more?"
+    },
+    {
+     "say": "Ghana: 876 millimeters of rain a year, against 670.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 10.208
+   },
+   "revealAt": 4.622
+  },
+  {
+   "type": "hl",
+   "stat": "corruption",
+   "n": 3,
+   "q": "Which is less corrupt?",
+   "a": {
+    "flag": "🇨🇴",
+    "name": "Colombia",
+    "text": "39/100"
+   },
+   "b": {
+    "flag": "🇵🇱",
+    "name": "Poland",
+    "text": "53/100"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Which is less corrupt?"
+    },
+    {
+     "say": "Poland: 53 out of a hundred, against 39.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 8.48
+   },
+   "revealAt": 4.622
+  },
+  {
+   "type": "hl",
+   "stat": "median-age",
+   "n": 4,
+   "q": "Which country is older?",
+   "a": {
+    "flag": "🇵🇪",
+    "name": "Peru",
+    "text": "29.5 yrs"
+   },
+   "b": {
+    "flag": "🇸🇬",
+    "name": "Singapore",
+    "text": "35.1 yrs"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Which country is older, by median age?"
+    },
+    {
+     "say": "Singapore: 35 years, against 29.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 8.696
+   },
+   "revealAt": 5.1739999999999995
+  },
+  {
+   "type": "hl",
+   "stat": "beer",
+   "n": 5,
+   "q": "Who drinks more beer?",
+   "a": {
+    "flag": "🇲🇽",
+    "name": "Mexico",
+    "text": "91 L"
+   },
+   "b": {
+    "flag": "🇭🇺",
+    "name": "Hungary",
+    "text": "82 L"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Who drinks more beer?"
+    },
+    {
+     "say": "So close! Mexico: about 91 liters of beer per adult, against 82.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 10.352
+   },
+   "revealAt": 4.622
+  },
+  {
+   "type": "cta",
+   "line": "What was YOUR score?",
+   "sub": "Comment your result out of 5 👇",
+   "say": "What was your score out of 5? Comment it!"
+  }
+ ],
+ "caption": "Higher or lower? Country edition ⬆️⬇️\n\n5 rounds, each one harder. How many did you get right?\n\nComment your score /5 👇\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#higherorlower #quiz #geography #countries #theplanetinnumbers",
+ "id": "hl-2026-10-21",
+ "cover_ms": 2200
+}
