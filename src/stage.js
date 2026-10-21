@@ -11,19 +11,20 @@
   const EM = `font-family:${D.emoji}`;
 
   // Safe area for reels (Instagram covers the top ~200 px and the bottom ~380 px)
-  const X0 = 80, X1 = 1000, Y0 = 250, Y1 = 1520;
+  // Instagram covers: top ~220 px (header), bottom ~420 px (caption, account), right ~140 px from y≈1000 (buttons)
+  const X0 = 80, X1 = 920, Y0 = 350, Y1 = 1440;
 
   // persistent chrome: brand chip + progress bar
-  const chrome = $(`<div style="position:absolute;left:${X0}px;top:150px;right:80px;display:flex;align-items:center;gap:16px;z-index:5">
+  const chrome = $(`<div style="position:absolute;left:${X0}px;top:242px;right:${1080 - X1}px;display:flex;align-items:center;gap:16px;z-index:5">
     <div style="width:64px;height:64px">${D.logo}</div>
     <div style="font-size:32px;font-weight:700;color:${C.text};letter-spacing:.01em">Planet in Numbers</div></div>`);
-  const prog = $(`<div style="position:absolute;left:${X0}px;right:80px;top:232px;height:6px;border-radius:3px;background:${C.line};z-index:5"><div style="height:100%;width:0;border-radius:3px;background:${C.accent}"></div></div>`);
+  const prog = $(`<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:322px;height:6px;border-radius:3px;background:${C.line};z-index:5"><div style="height:100%;width:0;border-radius:3px;background:${C.accent}"></div></div>`);
   stage.append(chrome, prog);
 
   // ---------- builders + per-frame drawers ----------
   function BUILD_hook(S) {
     const s = S.s;
-    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 120}px;display:flex;flex-direction:column;gap:44px">
+    S.el.innerHTML = `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 60}px;display:flex;flex-direction:column;gap:44px">
       <div class="k" style="align-self:flex-start;background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 34px;font-size:40px;font-weight:700;letter-spacing:.06em">${esc(s.kicker)}</div>
       <div class="t" style="font-size:${s.title.length > 42 ? 96 : 112}px;line-height:1.04;font-weight:700;color:${C.text};letter-spacing:-.02em">${esc(s.title).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="${EM}">$1</span>`)}</div>
       <div class="u" style="font-size:44px;line-height:1.3;color:${C.muted};font-weight:500">${esc(s.sub)}</div></div>
@@ -47,13 +48,13 @@
   }
 
   function header(s) {
-    return `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 50}px">
-      <div style="font-size:60px;line-height:1.08;font-weight:700;color:${C.text};letter-spacing:-.01em">${esc(s.title)}</div>
+    return `<div style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 30}px">
+      <div style="font-size:${s.title.length > 28 ? 48 : 60}px;line-height:1.08;font-weight:700;color:${C.text};letter-spacing:-.01em">${esc(s.title)}</div>
       <div style="font-size:32px;color:${C.muted};margin-top:14px;font-weight:500">${esc(s.metric)}</div></div>`;
   }
 
   function BUILD_rank(S) {
-    const s = S.s, n = s.rows.length, top = Y0 + 300, h = Math.min(104, (Y1 - top) / n);
+    const s = S.s, n = s.rows.length, top = Y0 + 215, h = Math.min(100, (Y1 - top) / n);
     S.el.innerHTML = header(s) + `<div class="list" style="position:absolute;left:${X0 - 20}px;right:${1080 - X1}px;top:${top}px;height:${h * n}px"></div>`;
     const list = S.el.querySelector('.list');
     const rows = s.rows.map((r, i) => { const e = $(rowHTML(r, h)); e.style.top = `${i * h}px`; list.append(e); return { e, bar: e.querySelector('.bar'), r }; });
@@ -81,9 +82,9 @@
   }
 
   function BUILD_race(S) {
-    const s = S.s, N = 10, top = Y0 + 300, h = (Y1 - 180 - top) / N;
+    const s = S.s, N = 10, top = Y0 + 200, h = (Y1 - 150 - top) / N;
     S.el.innerHTML = header(s) + `<div class="list" style="position:absolute;left:${X0 - 20}px;right:${1080 - X1}px;top:${top}px;height:${h * N}px"></div>
-      <div class="yr" style="position:absolute;right:${1080 - X1}px;top:${Y1 - 170}px;font-size:170px;line-height:1;font-weight:700;color:${C.accent};opacity:.95"></div>`;
+      <div class="yr" style="position:absolute;right:${1080 - X1}px;top:${Y1 - 140}px;font-size:140px;line-height:1;font-weight:700;color:${C.accent};opacity:.95"></div>`;
     const list = S.el.querySelector('.list'), yr = S.el.querySelector('.yr');
     const Y = s.years, fmt = D.fmtFn(s.fmt);
     const bars = s.bars.map(b => { const e = $(rowHTML({ rank: '', flag: b.flag, name: b.name, text: '' }, h)); list.append(e); return { b, e, bar: e.querySelector('.bar'), val: e.querySelector('.val'), num: e.firstElementChild }; });
@@ -121,9 +122,9 @@
       <div style="font-size:30px;font-weight:700;color:${col};letter-spacing:.06em">${title}</div>
       ${arr.map(x => `<div style="display:flex;align-items:center;gap:14px"><span style="font-size:46px;${EM}">${x.flag}</span><div style="min-width:0"><div style="font-size:32px;font-weight:700;color:${C.text};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x.name)}</div><div style="font-size:30px;color:${C.muted}">${esc(x.text)}</div></div></div>`).join('')}</div>`;
     S.el.innerHTML = header({ title: s.title, metric: String(s.year) }) +
-      `<div style="position:absolute;left:30px;right:30px;top:${Y0 + 260}px">${D.mapSVG}</div>
-       <div class="lg" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 820}px">${legend}</div>
-       <div class="ls" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 900}px;display:flex;gap:24px">${list('HIGHEST', s.top, C.accent)}${list('LOWEST', s.bottom, C.bar)}</div>`;
+      `<div style="position:absolute;left:${X0 - 20}px;right:${1080 - X1 - 20}px;top:${Y0 + 190}px">${D.mapSVG}</div>
+       <div class="lg" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 660}px">${legend}</div>
+       <div class="ls" style="position:absolute;left:${X0}px;right:${1080 - X1}px;top:${Y0 + 730}px;display:flex;gap:24px">${list('HIGHEST', s.top, C.accent)}${list('LOWEST', s.bottom, C.bar)}</div>`;
     const paths = [...S.el.querySelectorAll('path[data-t]')];
     const lg = S.el.querySelector('.lg'), ls = [...S.el.querySelectorAll('.lst')];
     S.draw = () => {

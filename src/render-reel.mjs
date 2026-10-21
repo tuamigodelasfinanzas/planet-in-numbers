@@ -34,8 +34,8 @@ console.log('Scenes:', durs.map(d => d.toFixed(1)).join(' + '), '=', total.toFix
 // 2) frames
 const data = {
   item, durs, total, colors: C, handle: HANDLE, emoji: EMOJI_FONT,
-  logo: logo(64), logoBig: logo(330), valW: 230,
-  mapSVG: item.scenes.some(s => s.type === 'map') ? await mapSVG(item.scenes.find(s => s.type === 'map').values) : '',
+  logo: logo(64), logoBig: logo(330), valW: 200,
+  mapSVG: item.scenes.some(s => s.type === 'map') ? await mapSVG(item.scenes.find(s => s.type === 'map').values, 880) : '',
   mapLow: MAP.low, mapMid: MAP.mid, mapNone: MAP.none,
 };
 const b = await browser();
