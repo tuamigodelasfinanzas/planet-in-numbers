@@ -1,0 +1,34 @@
+name: Publish now (manual)
+
+# Changing .github/publish-request publishes one post right away (series and episode written in the file:
+# first line = series, second line = optional topic/country/pair).
+on:
+  push:
+    branches: [main]
+    paths: ['.github/publish-request']
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    outputs:
+      series: ${{ steps.r.outputs.series }}
+      episode: ${{ steps.r.outputs.episode }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: r
+        run: |
+          echo "series=$(sed -n 1p .github/publish-request | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
+          echo "episode=$(sed -n 2p .github/publish-request | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
+  publish:
+    needs: read
+    uses: ./.github/workflows/publish.yml
+    with:
+      slot: A
+      series: ${{ needs.read.outputs.series }}
+      episode: ${{ needs.read.outputs.episode }}
+      dry_run: "false"
+    secrets: inherit
