@@ -154,15 +154,24 @@ jobs:
 
       - name: Publish (Make → Instagram + Facebook)
         if: steps.what.outputs.skip != 'true' && inputs.dry_run != 'true'
+        env:
+          IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER: ${{ secrets.IG_USER_ID }}
         run: |
           BASE="${{ steps.up.outputs.base }}"
           if [ "${{ steps.render.outputs.kind }}" = reel ]; then
             jq -n --arg url "$BASE/reel.mp4" --rawfile caption item.json --arg title "$(jq -r .title item.json)" --argjson cover "$(jq -r '.cover_ms // 0' item.json)" \
               '{status:"reel", video_url:$url, caption:($caption|fromjson|.caption), title:$title, cover_ms:$cover}'
           else
-            jq -n --arg base "$BASE" --rawfile caption item.json --arg title "$(jq -r .title item.json)" \
-              --argjson vids "$([ -d out/cvids ] && echo true || echo false)" \
-              '{status:"carousel", caption:($caption|fromjson|.caption), title:$title, images:[range(1;8) | "\($base)/0\(.).jpg"], videos:(if $vids then [range(1;8) | "\($base)/c0\(.).mp4"] else [] end)}'
+            # Instagram with music: video slides published from here (waits until Instagram has processed each video).
+            # If it fails, Make publishes the photo carousel instead.
+            IGDONE=false
+            if [ -d out/cvids ]; then
+              jq -r .caption item.json > caption.txt
+              IG_TOKEN="$IG_TOKEN" IG_USER="$IG_USER" node tools/ig-carousel.mjs caption.txt $(for i in 1 2 3 4 5 6 7; do echo "$BASE/c0$i.mp4"; done) && IGDONE=true || echo "::warning::Carousel with music failed: Make will publish the photo carousel"
+            fi
+            jq -n --arg base "$BASE" --rawfile caption item.json --arg title "$(jq -r .title item.json)" --argjson igdone "$IGDONE" \
+              '{status:"carousel", ig_done:$igdone, caption:($caption|fromjson|.caption), title:$title, images:[range(1;8) | "\($base)/0\(.).jpg"], videos:[]}'
           fi > payload.json
           cat payload.json | jq 'del(.caption)'
           [ -n "$MAKE_WEBHOOK_URL" ] || { echo "::error::Missing secret MAKE_WEBHOOK_URL"; exit 1; }
