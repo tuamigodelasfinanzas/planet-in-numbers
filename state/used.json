@@ -10,6 +10,10 @@
   {
    "id": "happiness",
    "at": "2026-10-21T15:57:29.990Z"
+  },
+  {
+   "id": "alcohol",
+   "at": "2026-10-22T03:53:57.723Z"
   }
  ],
  "_log": [
@@ -32,9 +36,19 @@
    "kind": "reel",
    "title": "The life satisfaction gap",
    "fact": null
+  },
+  {
+   "at": "2026-10-22T03:53:57.723Z",
+   "id": "map-alcohol",
+   "kind": "reel",
+   "title": "World map: countries that drink the most",
+   "fact": null
   }
  ],
  "stat": [
   "happiness"
+ ],
+ "map": [
+  "alcohol"
  ]
 }
