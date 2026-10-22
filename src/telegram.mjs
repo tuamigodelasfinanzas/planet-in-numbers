@@ -9,9 +9,10 @@ if (!TOKEN || !CHAT) { console.log('::warning::No TELEGRAM_BOT_TOKEN / TELEGRAM_
 const item = JSON.parse(fs.readFileSync(itemFile, 'utf8'));
 
 // TikTok text: short, first lines of the caption + 4 hashtags
-const lines = item.caption.split('\n').filter(l => l.trim() && !/^(📊|#)/.test(l.trim()));
+const cap = (!fs.statSync(media).isDirectory() && item.videoCaption) || item.caption;
+const lines = cap.split('\n').filter(l => l.trim() && !/^(📊|#)/.test(l.trim()));
 let text = lines.slice(0, 4).join('\n');
-const tags = [...new Set(item.caption.match(/#[\p{L}\p{N}_]+/gu) || [])].slice(0, 3);
+const tags = [...new Set(cap.match(/#[\p{L}\p{N}_]+/gu) || [])].slice(0, 3);
 text = `${text}\n\n${[...tags, '#fyp'].join(' ')}`;
 
 const api = (m, body) => fetch(`https://api.telegram.org/bot${TOKEN}/${m}`, { method: 'POST', body }).then(r => r.json()).then(j => { if (!j.ok) throw new Error(`${m}: ${j.description}`); return j; });

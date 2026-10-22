@@ -20,7 +20,7 @@ const frame = (inner, i) => `
     <div style="margin-left:auto;font-size:26px;font-weight:700;color:${C.muted}">${i + 1}/7</div></div>
   <div style="position:absolute;left:${P}px;right:${P}px;top:150px;bottom:150px;display:flex;flex-direction:column;justify-content:center">${inner}</div>
   <div style="position:absolute;left:${P}px;right:${P}px;bottom:56px;display:flex;align-items:center;justify-content:space-between;font-size:26px;color:${C.muted};font-weight:500">
-    <div>${esc(HANDLE)}</div>${i < 6 ? `<div style="color:${C.accent};font-weight:700">Swipe ➜</div>` : `<div>Save · Share · Follow</div>`}</div>
+    <div>${esc(HANDLE)}</div>${i < 6 ? (process.env.PIN_NOSWIPE ? '' : `<div style="color:${C.accent};font-weight:700">Swipe ➜</div>`) : `<div>${process.env.PIN_NOSWIPE ? 'Follow for more' : 'Save · Share · Follow'}</div>`}</div>
   <div style="position:absolute;left:0;bottom:0;height:8px;width:${((i + 1) / 7) * 100}%;background:${C.accent}"></div>`;
 
 const listRow = (r) => `<div style="display:flex;align-items:center;gap:22px;height:180px;border-bottom:2px solid ${C.line}">
@@ -52,7 +52,7 @@ const R = {
     <div style="background:${C.accent};color:${C.bg};border-radius:999px;padding:12px 32px;font-size:34px;font-weight:700;letter-spacing:.06em">COUNTRY VS COUNTRY</div>
     <div style="display:flex;align-items:center;gap:40px;margin-top:30px"><div style="font-size:230px;line-height:1;${EM}">${s.a.flag}</div><div style="font-size:80px;font-weight:700;color:${C.accent}">VS</div><div style="font-size:230px;line-height:1;${EM}">${s.b.flag}</div></div>
     <div style="font-size:${(s.a.name + s.b.name).length > 22 ? 78 : 96}px;line-height:1.05;font-weight:700">${esc(s.a.name)}<br><span style="color:${C.muted};font-size:.6em">vs</span><br>${esc(s.b.name)}</div>
-    <div style="font-size:40px;color:${C.muted};font-weight:500">5 numbers. One winner. Swipe ➜</div></div>`,
+    <div style="font-size:40px;color:${C.muted};font-weight:500">5 numbers. One winner.${process.env.PIN_NOSWIPE ? '' : ' Swipe ➜'}</div></div>`,
   'vs-metric': (s) => `<div style="font-size:34px;font-weight:700;color:${C.accent};letter-spacing:.06em">ROUND ${s.n} OF 5</div>
     <div style="font-size:84px;font-weight:700;line-height:1.05;margin:14px 0 40px">${esc(s.label)}</div>
     <div style="display:flex;gap:40px">${bars(s.a, s.win === 'a' ? C.accent : C.bar)}${bars(s.b, s.win === 'b' ? C.accent : C.bar)}</div>

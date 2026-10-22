@@ -120,6 +120,10 @@ jobs:
             [ "$(ls out/slides/*.jpg | wc -l)" = 7 ] || { echo "::error::Carousel must have 7 slides"; exit 1; }
             cp out/slides/*.jpg "site/media/$DIR/"
             COVER=out/slides/01.jpg
+            # the same carousel as a vertical video, for YouTube Shorts and TikTok (no "swipe" hints)
+            if PIN_NOSWIPE=1 node src/render-carousel.mjs item.json out/vslides && node src/render-slideshow.mjs item.json out/vslides out/reel.mp4; then
+              cp out/reel.mp4 "site/media/$DIR/"
+            else echo "::warning::Video version of the carousel failed: carousel only"; rm -f out/reel.mp4; fi
           fi
           jq -r .caption item.json > "site/media/$DIR/caption.txt"
           cp item.json "site/media/$DIR/item.json"
@@ -158,12 +162,19 @@ jobs:
           cat payload.json | jq 'del(.caption)'
           [ -n "$MAKE_WEBHOOK_URL" ] || { echo "::error::Missing secret MAKE_WEBHOOK_URL"; exit 1; }
           curl -sS --fail -X POST -H 'Content-Type: application/json' --data @payload.json "$MAKE_WEBHOOK_URL"
+          # carousel → its video version goes to YouTube Shorts only (Instagram/Facebook already got the carousel)
+          if [ "${{ steps.render.outputs.kind }}" != reel ] && [ -f out/reel.mp4 ]; then
+            sleep 20
+            jq -n --arg url "$BASE/reel.mp4" --rawfile item item.json --arg title "$(jq -r .title item.json)" \
+              '{status:"youtube", video_url:$url, caption:($item|fromjson|(.videoCaption // .caption)), title:$title, cover_ms:0}' > payload-yt.json
+            curl -sS --fail -X POST -H 'Content-Type: application/json' --data @payload-yt.json "$MAKE_WEBHOOK_URL" || echo "::warning::YouTube version not sent"
+          fi
 
       - name: Send to Telegram (for TikTok / preview)
         if: steps.what.outputs.skip != 'true'
         continue-on-error: true
         run: |
-          if [ "${{ steps.render.outputs.kind }}" = reel ]; then node src/telegram.mjs item.json out/reel.mp4; else node src/telegram.mjs item.json out/slides; fi
+          if [ -f out/reel.mp4 ]; then node src/telegram.mjs item.json out/reel.mp4; else node src/telegram.mjs item.json out/slides; fi
 
       - name: Daily story
         if: steps.what.outputs.skip != 'true' && inputs.dry_run != 'true' && steps.what.outputs.story == 'true'
