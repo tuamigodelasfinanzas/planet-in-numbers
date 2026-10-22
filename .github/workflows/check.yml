@@ -18,6 +18,7 @@ jobs:
         with: { node-version: 22 }
       - env:
           IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER: ${{ secrets.IG_USER_ID }}
         run: |
           if [ "$(head -1 .github/check-request)" = "platforms" ]; then node tools/platforms-check.mjs > check-result.txt 2>&1 || true
           elif [ "$(head -1 .github/check-request | cut -d' ' -f1)" = "wb" ]; then node tools/check-wb.mjs $(head -1 .github/check-request | cut -d' ' -f2-) > check-result.txt 2>&1 || true

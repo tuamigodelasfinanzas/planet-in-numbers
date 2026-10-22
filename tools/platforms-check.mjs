@@ -19,3 +19,11 @@ if (token.startsWith('EAA')) {
   }
 }
 console.log(out.join('\n'));
+
+// latest Instagram posts and, for carousels, the type of each slide
+if (process.env.IG_USER && token) {
+  const API = token.startsWith('IG') ? 'https://graph.instagram.com/v21.0' : 'https://graph.facebook.com/v21.0';
+  const m = await j(`${API}/${process.env.IG_USER}/media?fields=id,media_type,timestamp,caption,children{media_type}&limit=3&access_token=${token}`);
+  for (const p of m.data || []) console.log(`IG ${p.timestamp} ${p.media_type} ${(p.children?.data || []).map(c => c.media_type).join(',')} · ${String(p.caption || '').split('\n')[0]}`);
+  if (m.error) console.log('IG error: ' + m.error.message);
+}
