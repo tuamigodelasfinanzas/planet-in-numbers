@@ -1,0 +1,942 @@
+{
+ "kind": "carousel",
+ "series": "top20",
+ "episode": "happiness-low",
+ "topic": "happiness-low",
+ "title": "Unhappiest countries on Earth",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "FULL RANKING · TOP 20",
+   "title": "Unhappiest countries on Earth",
+   "sub": "Life satisfaction (0–10) · 2025",
+   "flags": [
+    "🇦🇫",
+    "🇸🇱",
+    "🇲🇼"
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Unhappiest countries on Earth",
+   "range": "#1–4",
+   "rows": [
+    {
+     "rank": 1,
+     "name": "Afghanistan",
+     "flag": "🇦🇫",
+     "iso3": "AFG",
+     "value": 1.446,
+     "text": "1.45/10",
+     "v": 1
+    },
+    {
+     "rank": 2,
+     "name": "Sierra Leone",
+     "flag": "🇸🇱",
+     "iso3": "SLE",
+     "value": 3.251,
+     "text": "3.25/10",
+     "v": 0.4848242255482074
+    },
+    {
+     "rank": 3,
+     "name": "Malawi",
+     "flag": "🇲🇼",
+     "iso3": "MWI",
+     "value": 3.284,
+     "text": "3.28/10",
+     "v": 0.4754054994778977
+    },
+    {
+     "rank": 4,
+     "name": "Zimbabwe",
+     "flag": "🇿🇼",
+     "iso3": "ZWE",
+     "value": 3.346,
+     "text": "3.35/10",
+     "v": 0.45770971110337616
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Unhappiest countries on Earth",
+   "range": "#5–8",
+   "rows": [
+    {
+     "rank": 5,
+     "name": "Botswana",
+     "flag": "🇧🇼",
+     "iso3": "BWA",
+     "value": 3.464,
+     "text": "3.46/10",
+     "v": 0.4240306300034806
+    },
+    {
+     "rank": 6,
+     "name": "Yemen",
+     "flag": "🇾🇪",
+     "iso3": "YEM",
+     "value": 3.532,
+     "text": "3.53/10",
+     "v": 0.40462234597981195
+    },
+    {
+     "rank": 7,
+     "name": "Lebanon",
+     "flag": "🇱🇧",
+     "iso3": "LBN",
+     "value": 3.723,
+     "text": "3.72/10",
+     "v": 0.3501079011486251
+    },
+    {
+     "rank": 8,
+     "name": "DR Congo",
+     "flag": "🇨🇩",
+     "iso3": "COD",
+     "value": 3.761,
+     "text": "3.76/10",
+     "v": 0.3392620953706926
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Unhappiest countries on Earth",
+   "range": "#9–12",
+   "rows": [
+    {
+     "rank": 9,
+     "name": "Egypt",
+     "flag": "🇪🇬",
+     "iso3": "EGY",
+     "value": 3.862,
+     "text": "3.86/10",
+     "v": 0.31043508527671415
+    },
+    {
+     "rank": 10,
+     "name": "Tanzania",
+     "flag": "🇹🇿",
+     "iso3": "TZA",
+     "value": 3.902,
+     "text": "3.90/10",
+     "v": 0.2990184476157326
+    },
+    {
+     "rank": 11,
+     "name": "Eswatini",
+     "flag": "🇸🇿",
+     "iso3": "SWZ",
+     "value": 3.909,
+     "text": "3.91/10",
+     "v": 0.2970205360250609
+    },
+    {
+     "rank": 12,
+     "name": "Ethiopia",
+     "flag": "🇪🇹",
+     "iso3": "ETH",
+     "value": 3.985,
+     "text": "3.99/10",
+     "v": 0.275328924469196
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Unhappiest countries on Earth",
+   "range": "#13–16",
+   "rows": [
+    {
+     "rank": 13,
+     "name": "Sri Lanka",
+     "flag": "🇱🇰",
+     "iso3": "LKA",
+     "value": 4.013,
+     "text": "4.01/10",
+     "v": 0.26733727810650887
+    },
+    {
+     "rank": 14,
+     "name": "Zambia",
+     "flag": "🇿🇲",
+     "iso3": "ZMB",
+     "value": 4.106,
+     "text": "4.11/10",
+     "v": 0.2407935955447268
+    },
+    {
+     "rank": 15,
+     "name": "Madagascar",
+     "flag": "🇲🇬",
+     "iso3": "MDG",
+     "value": 4.174,
+     "text": "4.17/10",
+     "v": 0.221385311521058
+    },
+    {
+     "rank": 16,
+     "name": "Togo",
+     "flag": "🇹🇬",
+     "iso3": "TGO",
+     "value": 4.277,
+     "text": "4.28/10",
+     "v": 0.19198746954403056
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Unhappiest countries on Earth",
+   "range": "#17–20",
+   "rows": [
+    {
+     "rank": 17,
+     "name": "Liberia",
+     "flag": "🇱🇷",
+     "iso3": "LBR",
+     "value": 4.28,
+     "text": "4.28/10",
+     "v": 0.19113122171945693
+    },
+    {
+     "rank": 18,
+     "name": "Myanmar",
+     "flag": "🇲🇲",
+     "iso3": "MMR",
+     "value": 4.287,
+     "text": "4.29/10",
+     "v": 0.18913331012878523
+    },
+    {
+     "rank": 19,
+     "name": "Gambia",
+     "flag": "🇬🇲",
+     "iso3": "GMB",
+     "value": 4.306,
+     "text": "4.31/10",
+     "v": 0.18371040723981896
+    },
+    {
+     "rank": 20,
+     "name": "Bangladesh",
+     "flag": "🇧🇩",
+     "iso3": "BGD",
+     "value": 4.319,
+     "text": "4.32/10",
+     "v": 0.18
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "Is your country on the list?",
+   "sub": "Save this post and share it with someone who should see it",
+   "note": "Source: Our World in Data (World Happiness Report), latest available (2025). Countries with 1M+ people."
+  }
+ ],
+ "rank": [
+  [
+   "AFG",
+   1,
+   "1.45/10"
+  ],
+  [
+   "SLE",
+   2,
+   "3.25/10"
+  ],
+  [
+   "MWI",
+   3,
+   "3.28/10"
+  ],
+  [
+   "ZWE",
+   4,
+   "3.35/10"
+  ],
+  [
+   "BWA",
+   5,
+   "3.46/10"
+  ],
+  [
+   "YEM",
+   6,
+   "3.53/10"
+  ],
+  [
+   "LBN",
+   7,
+   "3.72/10"
+  ],
+  [
+   "COD",
+   8,
+   "3.76/10"
+  ],
+  [
+   "EGY",
+   9,
+   "3.86/10"
+  ],
+  [
+   "TZA",
+   10,
+   "3.90/10"
+  ],
+  [
+   "SWZ",
+   11,
+   "3.91/10"
+  ],
+  [
+   "ETH",
+   12,
+   "3.99/10"
+  ],
+  [
+   "LKA",
+   13,
+   "4.01/10"
+  ],
+  [
+   "ZMB",
+   14,
+   "4.11/10"
+  ],
+  [
+   "MDG",
+   15,
+   "4.17/10"
+  ],
+  [
+   "TGO",
+   16,
+   "4.28/10"
+  ],
+  [
+   "LBR",
+   17,
+   "4.28/10"
+  ],
+  [
+   "MMR",
+   18,
+   "4.29/10"
+  ],
+  [
+   "GMB",
+   19,
+   "4.31/10"
+  ],
+  [
+   "BGD",
+   20,
+   "4.32/10"
+  ],
+  [
+   "LSO",
+   21,
+   "4.38/10"
+  ],
+  [
+   "TCD",
+   22,
+   "4.39/10"
+  ],
+  [
+   "BEN",
+   23,
+   "4.39/10"
+  ],
+  [
+   "BFA",
+   24,
+   "4.46/10"
+  ],
+  [
+   "COG",
+   25,
+   "4.46/10"
+  ],
+  [
+   "KHM",
+   26,
+   "4.46/10"
+  ],
+  [
+   "MRT",
+   27,
+   "4.47/10"
+  ],
+  [
+   "JOR",
+   28,
+   "4.48/10"
+  ],
+  [
+   "UGA",
+   29,
+   "4.49/10"
+  ],
+  [
+   "SOM",
+   30,
+   "4.51/10"
+  ],
+  [
+   "IND",
+   31,
+   "4.54/10"
+  ],
+  [
+   "GHA",
+   32,
+   "4.55/10"
+  ],
+  [
+   "MLI",
+   33,
+   "4.59/10"
+  ],
+  [
+   "GIN",
+   34,
+   "4.61/10"
+  ],
+  [
+   "MAR",
+   35,
+   "4.65/10"
+  ],
+  [
+   "UKR",
+   36,
+   "4.66/10"
+  ],
+  [
+   "KEN",
+   37,
+   "4.67/10"
+  ],
+  [
+   "PSE",
+   38,
+   "4.69/10"
+  ],
+  [
+   "NAM",
+   39,
+   "4.78/10"
+  ],
+  [
+   "SEN",
+   40,
+   "4.79/10"
+  ],
+  [
+   "NGA",
+   41,
+   "4.79/10"
+  ],
+  [
+   "TUN",
+   42,
+   "4.80/10"
+  ],
+  [
+   "PAK",
+   43,
+   "4.87/10"
+  ],
+  [
+   "NER",
+   44,
+   "4.94/10"
+  ],
+  [
+   "AZE",
+   45,
+   "4.99/10"
+  ],
+  [
+   "ZAF",
+   46,
+   "5.01/10"
+  ],
+  [
+   "CMR",
+   47,
+   "5.08/10"
+  ],
+  [
+   "NPL",
+   48,
+   "5.15/10"
+  ],
+  [
+   "CIV",
+   49,
+   "5.15/10"
+  ],
+  [
+   "IRN",
+   50,
+   "5.15/10"
+  ],
+  [
+   "GAB",
+   51,
+   "5.17/10"
+  ],
+  [
+   "IRQ",
+   52,
+   "5.21/10"
+  ],
+  [
+   "TUR",
+   53,
+   "5.30/10"
+  ],
+  [
+   "MOZ",
+   54,
+   "5.34/10"
+  ],
+  [
+   "LAO",
+   55,
+   "5.52/10"
+  ],
+  [
+   "GEO",
+   56,
+   "5.52/10"
+  ],
+  [
+   "HKG",
+   57,
+   "5.57/10"
+  ],
+  [
+   "ARM",
+   58,
+   "5.58/10"
+  ],
+  [
+   "TJK",
+   59,
+   "5.59/10"
+  ],
+  [
+   "IDN",
+   60,
+   "5.62/10"
+  ],
+  [
+   "ALB",
+   61,
+   "5.66/10"
+  ],
+  [
+   "GRC",
+   62,
+   "5.70/10"
+  ],
+  [
+   "BGR",
+   63,
+   "5.70/10"
+  ],
+  [
+   "DZA",
+   64,
+   "5.71/10"
+  ],
+  [
+   "MKD",
+   65,
+   "5.72/10"
+  ],
+  [
+   "LBY",
+   66,
+   "5.73/10"
+  ],
+  [
+   "VEN",
+   67,
+   "5.76/10"
+  ],
+  [
+   "RUS",
+   68,
+   "5.83/10"
+  ],
+  [
+   "BOL",
+   69,
+   "5.84/10"
+  ],
+  [
+   "MDA",
+   70,
+   "5.85/10"
+  ],
+  [
+   "TTO",
+   71,
+   "5.91/10"
+  ],
+  [
+   "MNG",
+   72,
+   "5.94/10"
+  ],
+  [
+   "HUN",
+   73,
+   "5.94/10"
+  ],
+  [
+   "MUS",
+   74,
+   "5.94/10"
+  ],
+  [
+   "PER",
+   75,
+   "5.97/10"
+  ],
+  [
+   "MYS",
+   76,
+   "6.01/10"
+  ],
+  [
+   "HRV",
+   77,
+   "6.01/10"
+  ],
+  [
+   "PRT",
+   78,
+   "6.03/10"
+  ],
+  [
+   "COL",
+   79,
+   "6.04/10"
+  ],
+  [
+   "KOR",
+   80,
+   "6.04/10"
+  ],
+  [
+   "KGZ",
+   81,
+   "6.05/10"
+  ],
+  [
+   "CHN",
+   82,
+   "6.07/10"
+  ],
+  [
+   "DOM",
+   83,
+   "6.09/10"
+  ],
+  [
+   "HND",
+   84,
+   "6.10/10"
+  ],
+  [
+   "CYP",
+   85,
+   "6.13/10"
+  ],
+  [
+   "JPN",
+   86,
+   "6.13/10"
+  ],
+  [
+   "ECU",
+   87,
+   "6.14/10"
+  ],
+  [
+   "OMN",
+   88,
+   "6.20/10"
+  ],
+  [
+   "PRY",
+   89,
+   "6.20/10"
+  ],
+  [
+   "PHL",
+   90,
+   "6.21/10"
+  ],
+  [
+   "BHR",
+   91,
+   "6.25/10"
+  ],
+  [
+   "SVK",
+   92,
+   "6.26/10"
+  ],
+  [
+   "UZB",
+   93,
+   "6.28/10"
+  ],
+  [
+   "THA",
+   94,
+   "6.30/10"
+  ],
+  [
+   "NIC",
+   95,
+   "6.30/10"
+  ],
+  [
+   "CHL",
+   96,
+   "6.30/10"
+  ],
+  [
+   "JAM",
+   97,
+   "6.31/10"
+  ],
+  [
+   "LVA",
+   98,
+   "6.37/10"
+  ],
+  [
+   "BIH",
+   99,
+   "6.38/10"
+  ],
+  [
+   "EST",
+   100,
+   "6.41/10"
+  ],
+  [
+   "VNM",
+   101,
+   "6.43/10"
+  ],
+  [
+   "ARG",
+   102,
+   "6.43/10"
+  ],
+  [
+   "GTM",
+   103,
+   "6.53/10"
+  ],
+  [
+   "ESP",
+   104,
+   "6.54/10"
+  ],
+  [
+   "KWT",
+   105,
+   "6.54/10"
+  ],
+  [
+   "PAN",
+   106,
+   "6.55/10"
+  ],
+  [
+   "ITA",
+   107,
+   "6.57/10"
+  ],
+  [
+   "SLV",
+   108,
+   "6.58/10"
+  ],
+  [
+   "SGP",
+   109,
+   "6.59/10"
+  ],
+  [
+   "FRA",
+   110,
+   "6.59/10"
+  ],
+  [
+   "ROU",
+   111,
+   "6.63/10"
+  ],
+  [
+   "KAZ",
+   112,
+   "6.63/10"
+  ],
+  [
+   "BRA",
+   113,
+   "6.63/10"
+  ],
+  [
+   "URY",
+   114,
+   "6.64/10"
+  ],
+  [
+   "SRB",
+   115,
+   "6.69/10"
+  ],
+  [
+   "GBR",
+   116,
+   "6.69/10"
+  ],
+  [
+   "LTU",
+   117,
+   "6.70/10"
+  ],
+  [
+   "CAN",
+   118,
+   "6.74/10"
+  ],
+  [
+   "POL",
+   119,
+   "6.77/10"
+  ],
+  [
+   "USA",
+   120,
+   "6.82/10"
+  ],
+  [
+   "SAU",
+   121,
+   "6.82/10"
+  ],
+  [
+   "CZE",
+   122,
+   "6.82/10"
+  ],
+  [
+   "ARE",
+   123,
+   "6.82/10"
+  ],
+  [
+   "AUT",
+   124,
+   "6.85/10"
+  ],
+  [
+   "SVN",
+   125,
+   "6.87/10"
+  ],
+  [
+   "DEU",
+   126,
+   "6.88/10"
+  ],
+  [
+   "AUS",
+   127,
+   "6.92/10"
+  ],
+  [
+   "BEL",
+   128,
+   "6.93/10"
+  ],
+  [
+   "IRL",
+   129,
+   "6.93/10"
+  ],
+  [
+   "MEX",
+   130,
+   "6.97/10"
+  ],
+  [
+   "NZL",
+   131,
+   "7.00/10"
+  ],
+  [
+   "CHE",
+   132,
+   "7.02/10"
+  ],
+  [
+   "ISR",
+   133,
+   "7.19/10"
+  ],
+  [
+   "NLD",
+   134,
+   "7.22/10"
+  ],
+  [
+   "NOR",
+   135,
+   "7.24/10"
+  ],
+  [
+   "SWE",
+   136,
+   "7.26/10"
+  ],
+  [
+   "CRI",
+   137,
+   "7.44/10"
+  ],
+  [
+   "DNK",
+   138,
+   "7.54/10"
+  ],
+  [
+   "FIN",
+   139,
+   "7.76/10"
+  ]
+ ],
+ "metricName": "life satisfaction",
+ "caption": "Unhappiest countries on Earth: the full Top 20 🌍\n\nWho's number one? Swipe to the end ➡️ Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n📊 Source: Our World in Data (World Happiness Report), latest available (2025). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "top20-happiness-low",
+ "videoCaption": "Unhappiest countries on Earth: the full Top 20 🌍\n\nWho's number one? Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n📊 Source: Our World in Data (World Happiness Report), latest available (2025). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers"
+}
