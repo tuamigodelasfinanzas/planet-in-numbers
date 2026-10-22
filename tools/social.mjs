@@ -42,7 +42,7 @@ export async function youtube(hookUrl) {
   if (!hookUrl) return { error: 'no Make webhook' };
   const api = async (method, url, query = {}, body) => {
     const r = await fetch(hookUrl, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ status: 'yt_api', method, url, query: new URLSearchParams(query).toString(), body_json: body ? JSON.stringify(body) : '' }) });
-    const t = await r.text(); let j; try { j = JSON.parse(t); } catch { throw new Error(`Make answered: ${t.slice(0, 120)}`); }
+    const t = await r.text(); let j; try { j = JSON.parse(t); } catch { throw new Error(`Make answered HTTP ${r.status} to ${url}: ${t.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200)}`); }
     if (j.error) throw new Error(j.error.message || JSON.stringify(j.error)); return j;
   };
   let channel;
