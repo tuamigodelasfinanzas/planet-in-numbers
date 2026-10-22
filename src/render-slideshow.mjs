@@ -7,7 +7,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { C } from './brand.mjs';
 import { browser, pageHTML } from './assets.mjs';
 import { tts, voiceOn } from './voice.mjs';
-import { sentence } from './hooks.mjs';
+import { slideVoices } from './carousel-voice.mjs';
 
 const [itemFile, slidesDir, outFile = 'out/reel.mp4'] = process.argv.slice(2);
 const item = JSON.parse(fs.readFileSync(itemFile, 'utf8'));
@@ -18,30 +18,14 @@ fs.rmSync(work, { recursive: true, force: true }); fs.mkdirSync(work, { recursiv
 const files = fs.readdirSync(slidesDir).filter(f => f.endsWith('.jpg')).sort();
 if (files.length < 3) throw new Error('Not enough slides');
 
-// ---------- what the voice says ----------
-const noEmoji = s => String(s).replace(/\p{Extended_Pictographic}|\u{FE0F}|[\u{1F1E6}-\u{1F1FF}]/gu, '').replace(/\s+/g, ' ').trim();
-const first = item.slides?.[0] || {}, last = item.slides?.at(-1) || {};
-let hook, outro;
-if (item.series === 'versus') {
-  hook = `${first.a?.name} versus ${first.b?.name}. Five rounds. Who wins?`;
-  outro = `${noEmoji(last.verdict || '')}. Which one would you pick? Comment it!`;
-} else if (item.series === 'week') {
-  hook = 'The week in numbers. Five facts from this week.';
-  outro = 'Which one surprised you most? Comment it!';
-} else {
-  hook = `${sentence(noEmoji(item.title))} The full top 20. Is your country here?`;
-  outro = "Comment your country, and I'll tell you its rank.";
-}
-
-const clips = [];
-let dHook = 2.2, dOut = 2.4;
+// ---------- what the voice says: one line per slide, in the order things appear ----------
+const lines = slideVoices(item);
+const clips = [], vd = files.map(() => 0);
 if (voiceOn()) {
-  try {
-    dHook = tts(hook, path.join(work, 'v0.mp3')); clips.push({ f: path.join(work, 'v0.mp3'), slide: 0 });
-    dOut = tts(outro, path.join(work, 'v1.mp3')); clips.push({ f: path.join(work, 'v1.mp3'), slide: files.length - 1 });
-  } catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); clips.length = 0; }
+  try { lines.forEach((l, i) => { if (!l) return; const f = path.join(work, `v${i}.mp3`); vd[i] = tts(l, f); clips.push({ f, slide: i }); }); }
+  catch (e) { console.warn('::warning::voice-over failed, video without voice: ' + e.message); clips.length = 0; vd.fill(0); }
 }
-const durs = files.map((_, i) => (i === 0 ? Math.max(2.6, dHook + 0.6) : i === files.length - 1 ? Math.max(3.2, dOut + 0.9) : 3.0));
+const durs = files.map((_, i) => Math.max(i === 0 ? 2.6 : 3.0, vd[i] ? vd[i] + 0.7 : 0));
 const starts = []; { let a = 0; for (const d of durs) { starts.push(a); a += d; } }
 const total = durs.reduce((a, b) => a + b, 0);
 console.log('Slides:', durs.map(d => d.toFixed(1)).join(' + '), '=', total.toFixed(1), 's');

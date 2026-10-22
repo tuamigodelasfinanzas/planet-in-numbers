@@ -120,6 +120,10 @@ jobs:
             [ "$(ls out/slides/*.jpg | wc -l)" = 7 ] || { echo "::error::Carousel must have 7 slides"; exit 1; }
             cp out/slides/*.jpg "site/media/$DIR/"
             COVER=out/slides/01.jpg
+            # Instagram: each slide as a short video with music + voice (the API can't add music to photos)
+            if node src/render-slide-videos.mjs item.json out/slides out/cvids; then
+              for f in out/cvids/*.mp4; do cp "$f" "site/media/$DIR/c$(basename "$f")"; done
+            else echo "::warning::Slide videos failed: photo carousel"; rm -rf out/cvids; fi
             # the same carousel as a vertical video, for YouTube Shorts and TikTok (no "swipe" hints)
             if PIN_NOSWIPE=1 node src/render-carousel.mjs item.json out/vslides && node src/render-slideshow.mjs item.json out/vslides out/reel.mp4; then
               cp out/reel.mp4 "site/media/$DIR/"
@@ -157,7 +161,8 @@ jobs:
               '{status:"reel", video_url:$url, caption:($caption|fromjson|.caption), title:$title, cover_ms:$cover}'
           else
             jq -n --arg base "$BASE" --rawfile caption item.json --arg title "$(jq -r .title item.json)" \
-              '{status:"carousel", caption:($caption|fromjson|.caption), title:$title, images:[range(1;8) | "\($base)/0\(.).jpg"]}'
+              --argjson vids "$([ -d out/cvids ] && echo true || echo false)" \
+              '{status:"carousel", caption:($caption|fromjson|.caption), title:$title, images:[range(1;8) | "\($base)/0\(.).jpg"], videos:(if $vids then [range(1;8) | "\($base)/c0\(.).mp4"] else [] end)}'
           fi > payload.json
           cat payload.json | jq 'del(.caption)'
           [ -n "$MAKE_WEBHOOK_URL" ] || { echo "::error::Missing secret MAKE_WEBHOOK_URL"; exit 1; }

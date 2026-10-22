@@ -124,12 +124,13 @@ const builders = {
     const { rows: all, top, year } = await ranking(t, 20);
     const sc = barScale(top, t.dir);
     const rows = top.map((r, i) => rowOut(r, i, t.fmt, sc));
-    const slides = [{ type: 'cover', kicker: 'FULL RANKING · TOP 20', title: t.title, sub: `${t.metric} · ${YL(t, year)}`, flags: rows.slice(0, 3).map(r => r.flag) }];
-    for (let i = 0; i < 5; i++) slides.push({ type: 'list', title: t.title, range: `#${i * 4 + 1}–${i * 4 + 4}`, rows: rows.slice(i * 4, i * 4 + 4) });
+    // countdown: #20 first, #1 on the last list slide (the cover doesn't spoil the podium)
+    const slides = [{ type: 'cover', kicker: 'TOP 20 · COUNTDOWN', title: t.title, sub: `${t.metric} · ${YL(t, year)}`, flags: ['❓', '❓', '❓'] }];
+    for (let i = 4; i >= 0; i--) slides.push({ type: 'list', title: t.title, range: `#${i * 4 + 4} → #${i * 4 + 1}`, rows: rows.slice(i * 4, i * 4 + 4).reverse() });
     slides.push({ type: 'end', title: 'Is your country on the list?', sub: 'Save this post and share it with someone who should see it', note: SRC(year, t).replace('📊 ', '') });
     return {
       kind: 'carousel', series, episode: t.id, topic: t.id, title: t.title, slides, rank: fullRank(all, t.fmt), metricName: t.say,
-      caption: `${t.title}: the full Top 20 🌍\n\nWho's number one? Swipe to the end ➡️ Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n${SRC(year, t)}\n\n${TAGS}`,
+      caption: `${t.title}: the full Top 20 🌍\n\nCounting down from 20 to number one. Swipe to the end ➡️ Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n${SRC(year, t)}\n\n${TAGS}`,
     };
   },
 
