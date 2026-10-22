@@ -1,0 +1,126 @@
+{
+ "kind": "carousel",
+ "series": "versus",
+ "episode": "USA-CHN",
+ "title": "United States vs China",
+ "slides": [
+  {
+   "type": "vs-cover",
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States"
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China"
+   }
+  },
+  {
+   "type": "vs-metric",
+   "n": 1,
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States",
+    "text": "$90,027",
+    "v": 1
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China",
+    "text": "$13,862",
+    "v": 0.1539765259613801
+   },
+   "label": "Income per person",
+   "win": "a"
+  },
+  {
+   "type": "vs-metric",
+   "n": 2,
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States",
+    "text": "78.9 yrs",
+    "v": 1
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China",
+    "text": "78.0 yrs",
+    "v": 0.9889309012212092
+   },
+   "label": "Life expectancy",
+   "win": "a"
+  },
+  {
+   "type": "vs-metric",
+   "n": 3,
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States",
+    "text": "342M",
+    "v": 0.24298912401312397
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China",
+    "text": "1.4B",
+    "v": 1
+   },
+   "label": "Population",
+   "win": null
+  },
+  {
+   "type": "vs-metric",
+   "n": 4,
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States",
+    "text": "95%",
+    "v": 1
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China",
+    "text": "92%",
+    "v": 0.9673283592106631
+   },
+   "label": "People online",
+   "win": "a"
+  },
+  {
+   "type": "vs-metric",
+   "n": 5,
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States",
+    "text": "4.2%",
+    "v": 0.9096424702058505
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China",
+    "text": "4.6%",
+    "v": 1
+   },
+   "label": "Unemployment",
+   "win": "a"
+  },
+  {
+   "type": "vs-end",
+   "a": {
+    "flag": "🇺🇸",
+    "name": "United States",
+    "score": 4
+   },
+   "b": {
+    "flag": "🇨🇳",
+    "name": "China",
+    "score": 0
+   },
+   "verdict": "🇺🇸 United States wins",
+   "note": "Population is not scored. Source: World Bank open data (latest available, 2025)."
+  }
+ ],
+ "caption": "🇺🇸 United States vs China 🇨🇳: who wins in numbers? 🥊\n\n• Income per person: $90,027 vs $13,862\n• Life expectancy: 78.9 yrs vs 78.0 yrs\n• Population: 342M vs 1.4B\n• People online: 95% vs 92%\n• Unemployment: 4.2% vs 4.6%\n\nSwipe to see the verdict ➡️ Which country would you pick? 👇\n\n📊 Source: World Bank open data (latest available, 2025).\n\n#versus #countries #worldrankings #dataviz #theplanetinnumbers",
+ "id": "versus-USA-CHN"
+}

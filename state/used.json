@@ -43,6 +43,13 @@
    "kind": "reel",
    "title": "World map: countries that drink the most",
    "fact": null
+  },
+  {
+   "at": "2026-10-22T08:56:41.042Z",
+   "id": "versus-USA-CHN",
+   "kind": "carousel",
+   "title": "United States vs China",
+   "fact": null
   }
  ],
  "stat": [
@@ -50,5 +57,8 @@
  ],
  "map": [
   "alcohol"
+ ],
+ "versus": [
+  "USA-CHN"
  ]
 }
