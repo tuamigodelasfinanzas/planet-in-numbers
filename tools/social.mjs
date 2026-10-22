@@ -45,13 +45,22 @@ export async function youtube(hookUrl) {
     const t = await r.text(); let j; try { j = JSON.parse(t); } catch { throw new Error(`Make answered HTTP ${r.status} to ${url}: ${t.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200)}`); }
     if (j.error) throw new Error(j.error.message || JSON.stringify(j.error)); return j;
   };
-  let channel;
-  try { channel = (await api('GET', '/v3/channels', { part: 'id', mine: 'true' })).items?.[0]?.id; } catch (e) { return { error: e.message.slice(0, 160) }; }
+  let channel, uploads;
+  try { const ch = (await api('GET', '/v3/channels', { part: 'id,contentDetails', mine: 'true' })).items?.[0]; channel = ch?.id; uploads = ch?.contentDetails?.relatedPlaylists?.uploads; } catch (e) { return { error: e.message.slice(0, 160) }; }
   if (!channel) return { error: 'YouTube channel not found' };
   let threads = null;
   const loadThreads = async () => {
     if (threads) return threads;
-    threads = (await api('GET', '/v3/commentThreads', { part: 'snippet,replies', allThreadsRelatedToChannelId: channel, maxResults: '100', order: 'time', textFormat: 'plainText' })).items || [];
+    try {
+      threads = (await api('GET', '/v3/commentThreads', { part: 'snippet,replies', allThreadsRelatedToChannelId: channel, maxResults: '100', order: 'time', textFormat: 'plainText' })).items || [];
+    } catch {
+      // the channel-wide call fails when the channel is set as "made for kids": read the latest videos one by one
+      threads = [];
+      const vids = uploads ? ((await api('GET', '/v3/playlistItems', { part: 'contentDetails', playlistId: uploads, maxResults: '10' })).items || []).map(x => x.contentDetails.videoId) : [];
+      for (const v of vids) {
+        try { threads.push(...((await api('GET', '/v3/commentThreads', { part: 'snippet,replies', videoId: v, maxResults: '100', order: 'time', textFormat: 'plainText' })).items || [])); } catch {}
+      }
+    }
     return threads;
   };
   return {
