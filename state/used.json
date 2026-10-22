@@ -14,6 +14,10 @@
   {
    "id": "alcohol",
    "at": "2026-10-22T03:53:57.723Z"
+  },
+  {
+   "id": "gdp-pc",
+   "at": "2026-10-22T11:04:44.669Z"
   }
  ],
  "_log": [
@@ -50,6 +54,13 @@
    "kind": "carousel",
    "title": "United States vs China",
    "fact": null
+  },
+  {
+   "at": "2026-10-22T11:04:44.669Z",
+   "id": "top20-gdp-pc",
+   "kind": "carousel",
+   "title": "Richest countries per person",
+   "fact": null
   }
  ],
  "stat": [
@@ -60,5 +71,8 @@
  ],
  "versus": [
   "USA-CHN"
+ ],
+ "top20": [
+  "gdp-pc"
  ]
 }
