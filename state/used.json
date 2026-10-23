@@ -79,6 +79,13 @@
     "text": "1.45/10",
     "label": "Unhappiest countries on Earth"
    }
+  },
+  {
+   "at": "2026-10-23T16:01:43.458Z",
+   "id": "stop-live",
+   "kind": "reel",
+   "title": "Where will you live?",
+   "fact": null
   }
  ],
  "stat": [
@@ -92,5 +99,8 @@
  ],
  "top20": [
   "gdp-pc"
+ ],
+ "stop": [
+  "live"
  ]
 }

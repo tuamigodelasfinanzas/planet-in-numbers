@@ -1,0 +1,1048 @@
+{
+ "kind": "reel",
+ "series": "stop",
+ "episode": "live",
+ "music": "quiz",
+ "title": "Where will you live?",
+ "cards": [
+  [
+   "AUT",
+   "$62,930 · 6.85/10 · 82.0 yrs"
+  ],
+  [
+   "VEN",
+   "$3,495 · 5.76/10 · 72.7 yrs"
+  ],
+  [
+   "ZAF",
+   "$6,598 · 5.01/10 · 66.3 yrs"
+  ],
+  [
+   "PRT",
+   "$32,082 · 6.03/10 · 82.4 yrs"
+  ],
+  [
+   "BIH",
+   "$10,382 · 6.38/10 · 78.0 yrs"
+  ],
+  [
+   "NIC",
+   "$3,173 · 6.30/10 · 75.1 yrs"
+  ],
+  [
+   "COG",
+   "$2,515 · 4.46/10 · 66.0 yrs"
+  ],
+  [
+   "KHM",
+   "$2,872 · 4.46/10 · 70.8 yrs"
+  ],
+  [
+   "CAN",
+   "$55,698 · 6.74/10 · 82.1 yrs"
+  ],
+  [
+   "COL",
+   "$8,562 · 6.04/10 · 77.9 yrs"
+  ],
+  [
+   "USA",
+   "$90,027 · 6.82/10 · 78.9 yrs"
+  ],
+  [
+   "MRT",
+   "$2,198 · 4.47/10 · 68.7 yrs"
+  ],
+  [
+   "ARE",
+   "$50,274 · 6.82/10 · 83.1 yrs"
+  ],
+  [
+   "ETH",
+   "$933 · 3.99/10 · 67.6 yrs"
+  ],
+  [
+   "MLI",
+   "$1,193 · 4.59/10 · 60.7 yrs"
+  ],
+  [
+   "ESP",
+   "$38,627 · 6.54/10 · 83.9 yrs"
+  ],
+  [
+   "GBR",
+   "$57,602 · 6.69/10 · 81.4 yrs"
+  ],
+  [
+   "KGZ",
+   "$3,081 · 6.05/10 · 72.4 yrs"
+  ],
+  [
+   "LBR",
+   "$915 · 4.28/10 · 62.3 yrs"
+  ],
+  [
+   "FRA",
+   "$48,986 · 6.59/10 · 83.0 yrs"
+  ],
+  [
+   "CZE",
+   "$35,917 · 6.82/10 · 80.0 yrs"
+  ],
+  [
+   "CIV",
+   "$3,050 · 5.15/10 · 62.1 yrs"
+  ],
+  [
+   "BFA",
+   "$1,148 · 4.46/10 · 61.3 yrs"
+  ],
+  [
+   "VNM",
+   "$5,066 · 6.43/10 · 74.7 yrs"
+  ],
+  [
+   "HKG",
+   "$56,983 · 5.57/10 · 85.4 yrs"
+  ],
+  [
+   "BOL",
+   "$5,148 · 5.84/10 · 68.7 yrs"
+  ],
+  [
+   "BGR",
+   "$20,328 · 5.70/10 · 75.8 yrs"
+  ],
+  [
+   "DEU",
+   "$60,496 · 6.88/10 · 80.8 yrs"
+  ],
+  [
+   "DOM",
+   "$11,059 · 6.09/10 · 73.9 yrs"
+  ],
+  [
+   "IND",
+   "$2,702 · 4.54/10 · 72.2 yrs"
+  ],
+  [
+   "ECU",
+   "$7,125 · 6.14/10 · 77.6 yrs"
+  ],
+  [
+   "GRC",
+   "$26,948 · 5.70/10 · 81.8 yrs"
+  ],
+  [
+   "BGD",
+   "$2,597 · 4.32/10 · 74.9 yrs"
+  ],
+  [
+   "FIN",
+   "$56,149 · 7.76/10 · 82.3 yrs"
+  ],
+  [
+   "JOR",
+   "$5,348 · 4.48/10 · 78.0 yrs"
+  ],
+  [
+   "OMN",
+   "$19,947 · 6.20/10 · 80.2 yrs"
+  ],
+  [
+   "MNG",
+   "$7,108 · 5.94/10 · 72.4 yrs"
+  ],
+  [
+   "GHA",
+   "$3,257 · 4.55/10 · 65.7 yrs"
+  ],
+  [
+   "PAK",
+   "$1,596 · 4.87/10 · 67.8 yrs"
+  ],
+  [
+   "IRN",
+   "$3,924 · 5.15/10 · 77.9 yrs"
+  ],
+  [
+   "ARM",
+   "$9,474 · 5.58/10 · 78.3 yrs"
+  ],
+  [
+   "DNK",
+   "$76,970 · 7.54/10 · 82.3 yrs"
+  ],
+  [
+   "DZA",
+   "$6,051 · 5.71/10 · 76.5 yrs"
+  ],
+  [
+   "BRA",
+   "$10,713 · 6.63/10 · 76.0 yrs"
+  ]
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "STOP THE VIDEO",
+   "title": "Stop the video to see where you'll live 🏠",
+   "sub": "Pause anytime. No cheating 👀",
+   "say": "Stop the video. That's where you'll live.",
+   "min": 2.2,
+   "tight": true
+  },
+  {
+   "type": "spin",
+   "title": "Where will you live?",
+   "cards": [
+    {
+     "iso3": "AUT",
+     "flag": "🇦🇹",
+     "name": "Austria",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$62,930"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.85/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "VEN",
+     "flag": "🇻🇪",
+     "name": "Venezuela",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$3,495"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.76/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "72.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ZAF",
+     "flag": "🇿🇦",
+     "name": "South Africa",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$6,598"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.01/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "66.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "PRT",
+     "flag": "🇵🇹",
+     "name": "Portugal",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$32,082"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.03/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BIH",
+     "flag": "🇧🇦",
+     "name": "Bosnia & Herzegovina",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$10,382"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.38/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "NIC",
+     "flag": "🇳🇮",
+     "name": "Nicaragua",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$3,173"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.30/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "75.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "COG",
+     "flag": "🇨🇬",
+     "name": "Congo",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$2,515"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.46/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "66.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "KHM",
+     "flag": "🇰🇭",
+     "name": "Cambodia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$2,872"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.46/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "70.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "CAN",
+     "flag": "🇨🇦",
+     "name": "Canada",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$55,698"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.74/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "COL",
+     "flag": "🇨🇴",
+     "name": "Colombia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$8,562"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.04/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "77.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "USA",
+     "flag": "🇺🇸",
+     "name": "United States",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$90,027"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.82/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "MRT",
+     "flag": "🇲🇷",
+     "name": "Mauritania",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$2,198"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.47/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "68.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ARE",
+     "flag": "🇦🇪",
+     "name": "United Arab Emirates",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$50,274"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.82/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ETH",
+     "flag": "🇪🇹",
+     "name": "Ethiopia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$933"
+      },
+      {
+       "label": "Happiness",
+       "text": "3.99/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "67.6 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "MLI",
+     "flag": "🇲🇱",
+     "name": "Mali",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$1,193"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.59/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "60.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ESP",
+     "flag": "🇪🇸",
+     "name": "Spain",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$38,627"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.54/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "GBR",
+     "flag": "🇬🇧",
+     "name": "United Kingdom",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$57,602"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.69/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "81.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "KGZ",
+     "flag": "🇰🇬",
+     "name": "Kyrgyzstan",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$3,081"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.05/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "72.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "LBR",
+     "flag": "🇱🇷",
+     "name": "Liberia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$915"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.28/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "62.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "FRA",
+     "flag": "🇫🇷",
+     "name": "France",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$48,986"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.59/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "CZE",
+     "flag": "🇨🇿",
+     "name": "Czechia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$35,917"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.82/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "80.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "CIV",
+     "flag": "🇨🇮",
+     "name": "Côte d'Ivoire",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$3,050"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.15/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "62.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BFA",
+     "flag": "🇧🇫",
+     "name": "Burkina Faso",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$1,148"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.46/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "61.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "VNM",
+     "flag": "🇻🇳",
+     "name": "Vietnam",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$5,066"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.43/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "74.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "HKG",
+     "flag": "🇭🇰",
+     "name": "Hong Kong",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$56,983"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.57/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "85.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BOL",
+     "flag": "🇧🇴",
+     "name": "Bolivia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$5,148"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.84/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "68.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BGR",
+     "flag": "🇧🇬",
+     "name": "Bulgaria",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$20,328"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.70/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "75.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "DEU",
+     "flag": "🇩🇪",
+     "name": "Germany",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$60,496"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.88/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "80.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "DOM",
+     "flag": "🇩🇴",
+     "name": "Dominican Republic",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$11,059"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.09/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "73.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "IND",
+     "flag": "🇮🇳",
+     "name": "India",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$2,702"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.54/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "72.2 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ECU",
+     "flag": "🇪🇨",
+     "name": "Ecuador",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$7,125"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.14/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "77.6 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "GRC",
+     "flag": "🇬🇷",
+     "name": "Greece",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$26,948"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.70/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "81.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BGD",
+     "flag": "🇧🇩",
+     "name": "Bangladesh",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$2,597"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.32/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "74.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "FIN",
+     "flag": "🇫🇮",
+     "name": "Finland",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$56,149"
+      },
+      {
+       "label": "Happiness",
+       "text": "7.76/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "JOR",
+     "flag": "🇯🇴",
+     "name": "Jordan",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$5,348"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.48/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "OMN",
+     "flag": "🇴🇲",
+     "name": "Oman",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$19,947"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.20/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "80.2 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "MNG",
+     "flag": "🇲🇳",
+     "name": "Mongolia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$7,108"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.94/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "72.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "GHA",
+     "flag": "🇬🇭",
+     "name": "Ghana",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$3,257"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.55/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "65.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "PAK",
+     "flag": "🇵🇰",
+     "name": "Pakistan",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$1,596"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.87/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "67.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "IRN",
+     "flag": "🇮🇷",
+     "name": "Iran",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$3,924"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.15/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "77.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ARM",
+     "flag": "🇦🇲",
+     "name": "Armenia",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$9,474"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.58/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "DNK",
+     "flag": "🇩🇰",
+     "name": "Denmark",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$76,970"
+      },
+      {
+       "label": "Happiness",
+       "text": "7.54/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "DZA",
+     "flag": "🇩🇿",
+     "name": "Algeria",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$6,051"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.71/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "76.5 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BRA",
+     "flag": "🇧🇷",
+     "name": "Brazil",
+     "stats": [
+      {
+       "label": "Income per person",
+       "text": "$10,713"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.63/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "76.0 yrs"
+      }
+     ]
+    }
+   ],
+   "min": 10.3
+  },
+  {
+   "type": "cta",
+   "line": "Where did you land?",
+   "sub": "Comment the country you landed on 👇",
+   "say": "Where did you land? Comment it, and try again!"
+  }
+ ],
+ "caption": "Stop the video to see where you'll live 🏠\n\nPause the video and that's your country 🛑\n• Income per person\n• Happiness\n• Life expectancy — real data on every card.\n\nComment where you landed 👇 (and how many tries it took 😅)\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#stopthevideo #geography #countries #game #theplanetinnumbers",
+ "id": "stop-live",
+ "cover_ms": 1922
+}
