@@ -1,6 +1,7 @@
 {
  "top10": [
-  "gdp-pc"
+  "gdp-pc",
+  "happiness-low"
  ],
  "_topics": [
   {
@@ -18,6 +19,10 @@
   {
    "id": "gdp-pc",
    "at": "2026-10-22T11:04:44.669Z"
+  },
+  {
+   "id": "happiness-low",
+   "at": "2026-10-23T03:53:52.405Z"
   }
  ],
  "_log": [
@@ -61,6 +66,19 @@
    "kind": "carousel",
    "title": "Richest countries per person",
    "fact": null
+  },
+  {
+   "at": "2026-10-23T03:53:52.405Z",
+   "id": "top10-happiness-low",
+   "kind": "reel",
+   "title": "Unhappiest countries on Earth",
+   "fact": {
+    "topic": "happiness-low",
+    "flag": "🇦🇫",
+    "name": "Afghanistan",
+    "text": "1.45/10",
+    "label": "Unhappiest countries on Earth"
+   }
   }
  ],
  "stat": [
