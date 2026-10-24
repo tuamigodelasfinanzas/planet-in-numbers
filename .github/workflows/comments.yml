@@ -4,8 +4,9 @@ on:
   push:
     branches: [main]
     paths: ['.github/comments-test']
-  schedule:
-    - cron: "7,22,37,52 * * * *"
+  # Automatic replies DISABLED at the user's request (24 Oct 2026). To turn them back on, restore:
+  # schedule:
+  #   - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
     inputs:
       dry_run:
