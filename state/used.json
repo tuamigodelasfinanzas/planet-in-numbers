@@ -93,6 +93,13 @@
    "kind": "reel",
    "title": "Guess the country",
    "fact": null
+  },
+  {
+   "at": "2026-10-24T15:53:39.764Z",
+   "id": "cup-live-QUARTER-FINAL-1",
+   "kind": "reel",
+   "title": "Best country to live in: Norway vs Netherlands",
+   "fact": null
   }
  ],
  "stat": [
@@ -112,5 +119,31 @@
  ],
  "guess": [
   "USA"
- ]
+ ],
+ "cup": {
+  "theme": "live",
+  "round": "QUARTER-FINAL",
+  "matches": [
+   {
+    "a": "NOR",
+    "b": "NLD"
+   },
+   {
+    "a": "JPN",
+    "b": "CAN"
+   },
+   {
+    "a": "CHE",
+    "b": "ESP"
+   },
+   {
+    "a": "DNK",
+    "b": "AUS"
+   }
+  ],
+  "i": 1,
+  "pending": 0,
+  "history": []
+ },
+ "cupPost": "🏆 Best country to live in · QUARTER-FINAL"
 }

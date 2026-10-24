@@ -1,0 +1,94 @@
+{
+ "kind": "reel",
+ "series": "cup",
+ "episode": "live-QUARTER-FINAL-1",
+ "music": "epic",
+ "title": "Best country to live in: Norway vs Netherlands",
+ "cupState": {
+  "theme": "live",
+  "round": "QUARTER-FINAL",
+  "matches": [
+   {
+    "a": "NOR",
+    "b": "NLD"
+   },
+   {
+    "a": "JPN",
+    "b": "CAN"
+   },
+   {
+    "a": "CHE",
+    "b": "ESP"
+   },
+   {
+    "a": "DNK",
+    "b": "AUS"
+   }
+  ],
+  "i": 1,
+  "pending": 0,
+  "history": []
+ },
+ "cupMatch": [
+  "NOR",
+  "NLD"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "🏆 BEST COUNTRY TO LIVE IN",
+   "title": "Norway vs Netherlands",
+   "sub": "QUARTER-FINAL · MATCH 1/4 · YOU decide",
+   "say": "Best country to live in. Quarter final: Norway versus Netherlands. You decide!",
+   "min": 3.6
+  },
+  {
+   "type": "cupmatch",
+   "round": "QUARTER-FINAL",
+   "question": "Which country would you rather live in?",
+   "a": {
+    "iso3": "NOR",
+    "flag": "🇳🇴",
+    "name": "Norway"
+   },
+   "b": {
+    "iso3": "NLD",
+    "flag": "🇳🇱",
+    "name": "Netherlands"
+   },
+   "rows": [
+    {
+     "label": "Happiness",
+     "a": "7.24/10",
+     "b": "7.22/10"
+    },
+    {
+     "label": "Life expectancy",
+     "a": "83.2 yrs",
+     "b": "82.0 yrs"
+    },
+    {
+     "label": "Income per person",
+     "a": "$94,594",
+     "b": "$73,684"
+    },
+    {
+     "label": "Work hours a year",
+     "a": "1,412 h",
+     "b": "1,439 h"
+    }
+   ],
+   "min": 8,
+   "say": "Which country would you rather live in? Vote in the comments with the flag."
+  },
+  {
+   "type": "cta",
+   "line": "Vote in the comments!",
+   "sub": "🇳🇴 or 🇳🇱? Results in the next video",
+   "say": "Results in the next video. Follow so you don't miss it!"
+  }
+ ],
+ "caption": "🏆 Best country to live in · QUARTER-FINAL\n\n🇳🇴 Norway vs Netherlands 🇳🇱\n\nWhich country would you rather live in?\nVote in the comments with the flag 👇 (one vote per person)\n\nResults in the next video. Follow so you don't miss it!\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#worldcupofcountries #countries #vote #geography #theplanetinnumbers",
+ "id": "cup-live-QUARTER-FINAL-1",
+ "cover_ms": 2200
+}
