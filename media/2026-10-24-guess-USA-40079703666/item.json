@@ -1,0 +1,66 @@
+{
+ "kind": "reel",
+ "series": "guess",
+ "episode": "USA",
+ "music": "quiz",
+ "title": "Guess the country",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "QUIZ",
+   "title": "Guess the country 🌍❓",
+   "sub": "Each clue is easier. How many do you need? 👇",
+   "say": "Four clues, each one easier. How many do you need?",
+   "tight": true
+  },
+  {
+   "type": "clues",
+   "clues": [
+    {
+     "label": "Life expectancy",
+     "text": "78.9 yrs",
+     "say": "Life expectancy: 79 years."
+    },
+    {
+     "label": "Income per person",
+     "text": "$90,027",
+     "say": "Income per person: 90,000 dollars."
+    },
+    {
+     "label": "Population",
+     "text": "342M",
+     "say": "Population: 341.8 million."
+    },
+    {
+     "label": "Region",
+     "text": "North America",
+     "say": "And it's in North America."
+    }
+   ],
+   "min": 10,
+   "say": "Life expectancy: 79 years. Income per person: 90,000 dollars. Population: 341.8 million. And it's in North America."
+  },
+  {
+   "type": "countdown",
+   "text": "Comment your guess 👇",
+   "min": 4,
+   "say": "Write your answer in the comments. Three, two, one."
+  },
+  {
+   "type": "answer",
+   "flag": "🇺🇸",
+   "name": "United States",
+   "min": 3,
+   "say": "It's United States! Did you get it right?"
+  },
+  {
+   "type": "cta",
+   "line": "How many clues did YOU need?",
+   "sub": "Comment 1, 2, 3 or 4 👇",
+   "say": "How many clues did you need? Comment it!"
+  }
+ ],
+ "caption": "Guess the country 🌍❓\n\n1️⃣ Life expectancy: 78.9 yrs\n2️⃣ Income per person: $90,027\n3️⃣ Population: 342M\n4️⃣ Region: North America\n\nComment your guess BEFORE the answer 👇 (no cheating!)\n\n📊 Source: World Bank open data.\n\n#quiz #geography #guessthecountry #trivia #theplanetinnumbers",
+ "id": "guess-USA",
+ "cover_ms": 2200
+}

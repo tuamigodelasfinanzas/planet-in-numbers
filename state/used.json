@@ -86,6 +86,13 @@
    "kind": "reel",
    "title": "Where will you live?",
    "fact": null
+  },
+  {
+   "at": "2026-10-24T08:54:01.306Z",
+   "id": "guess-USA",
+   "kind": "reel",
+   "title": "Guess the country",
+   "fact": null
   }
  ],
  "stat": [
@@ -102,5 +109,8 @@
  ],
  "stop": [
   "live"
+ ],
+ "guess": [
+  "USA"
  ]
 }
