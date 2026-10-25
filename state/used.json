@@ -111,6 +111,13 @@
    "kind": "reel",
    "title": "The beer consumption gap",
    "fact": null
+  },
+  {
+   "at": "2026-10-25T09:54:35.650Z",
+   "id": "week-2026-10-25",
+   "kind": "carousel",
+   "title": "The week in numbers",
+   "fact": null
   }
  ],
  "stat": [
@@ -157,5 +164,8 @@
   "pending": 0,
   "history": []
  },
- "cupPost": "🏆 Best country to live in · QUARTER-FINAL"
+ "cupPost": "🏆 Best country to live in · QUARTER-FINAL",
+ "week": [
+  "2026-10-25"
+ ]
 }

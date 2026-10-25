@@ -1,0 +1,76 @@
+{
+ "kind": "carousel",
+ "series": "week",
+ "episode": "2026-10-25",
+ "title": "The week in numbers",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "WEEKLY RECAP",
+   "title": "The week in numbers",
+   "sub": "October 25, 2026",
+   "flags": [
+    "🇮🇪",
+    "🇦🇫",
+    "🇫🇮"
+   ]
+  },
+  {
+   "type": "fact",
+   "n": 1,
+   "topic": "gdp-pc",
+   "flag": "🇮🇪",
+   "name": "Ireland",
+   "text": "$131,592",
+   "label": "Richest countries per person"
+  },
+  {
+   "type": "fact",
+   "n": 2,
+   "topic": "happiness-low",
+   "flag": "🇦🇫",
+   "name": "Afghanistan",
+   "text": "1.45/10",
+   "label": "Unhappiest countries on Earth"
+  },
+  {
+   "type": "fact",
+   "n": 3,
+   "topic": "happiness",
+   "flag": "🇫🇮",
+   "name": "Finland",
+   "text": "7.76/10",
+   "label": "Happiest countries on Earth",
+   "year": 2025
+  },
+  {
+   "type": "fact",
+   "n": 4,
+   "topic": "alcohol",
+   "flag": "🇷🇴",
+   "name": "Romania",
+   "text": "16.8 L",
+   "label": "Countries that drink the most",
+   "year": 2020
+  },
+  {
+   "type": "fact",
+   "n": 5,
+   "topic": "beer",
+   "flag": "🇨🇿",
+   "name": "Czechia",
+   "text": "137 L",
+   "label": "Biggest beer drinkers",
+   "year": 2022
+  },
+  {
+   "type": "end",
+   "title": "Which number surprised you most?",
+   "sub": "Tell us in the comments and follow for daily rankings",
+   "note": "Source: World Bank open data (latest available)."
+  }
+ ],
+ "caption": "The week in numbers 🌍\n\n🇮🇪 Richest countries per person: Ireland ($131,592)\n🇦🇫 Unhappiest countries on Earth: Afghanistan (1.45/10)\n🇫🇮 Happiest countries on Earth: Finland (7.76/10)\n🇷🇴 Countries that drink the most: Romania (16.8 L)\n🇨🇿 Biggest beer drinkers: Czechia (137 L)\n\nWhich one surprised you most? 👇\n\n📊 Source: World Bank open data.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "week-2026-10-25",
+ "videoCaption": "The week in numbers 🌍\n\n🇮🇪 Richest countries per person: Ireland ($131,592)\n🇦🇫 Unhappiest countries on Earth: Afghanistan (1.45/10)\n🇫🇮 Happiest countries on Earth: Finland (7.76/10)\n🇷🇴 Countries that drink the most: Romania (16.8 L)\n🇨🇿 Biggest beer drinkers: Czechia (137 L)\n\nWhich one surprised you most? 👇\n\n📊 Source: World Bank open data.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers"
+}
