@@ -23,6 +23,10 @@
   {
    "id": "happiness-low",
    "at": "2026-10-23T03:53:52.405Z"
+  },
+  {
+   "id": "beer",
+   "at": "2026-10-25T04:53:53.341Z"
   }
  ],
  "_log": [
@@ -100,10 +104,18 @@
    "kind": "reel",
    "title": "Best country to live in: Norway vs Netherlands",
    "fact": null
+  },
+  {
+   "at": "2026-10-25T04:53:53.341Z",
+   "id": "stat-beer",
+   "kind": "reel",
+   "title": "The beer consumption gap",
+   "fact": null
   }
  ],
  "stat": [
-  "happiness"
+  "happiness",
+  "beer"
  ],
  "map": [
   "alcohol"

@@ -1,0 +1,817 @@
+{
+ "kind": "reel",
+ "series": "stat",
+ "episode": "beer",
+ "topic": "beer",
+ "music": "tense",
+ "title": "The beer consumption gap",
+ "rank": [
+  [
+   "CZE",
+   1,
+   "137 L"
+  ],
+  [
+   "NAM",
+   2,
+   "134 L"
+  ],
+  [
+   "AUT",
+   3,
+   "128 L"
+  ],
+  [
+   "GAB",
+   4,
+   "124 L"
+  ],
+  [
+   "POL",
+   5,
+   "109 L"
+  ],
+  [
+   "PAN",
+   6,
+   "107 L"
+  ],
+  [
+   "HRV",
+   7,
+   "107 L"
+  ],
+  [
+   "KHM",
+   8,
+   "104 L"
+  ],
+  [
+   "BRA",
+   9,
+   "101 L"
+  ],
+  [
+   "COG",
+   10,
+   "100 L"
+  ],
+  [
+   "ROU",
+   11,
+   "99 L"
+  ],
+  [
+   "DEU",
+   12,
+   "97 L"
+  ],
+  [
+   "ESP",
+   13,
+   "95 L"
+  ],
+  [
+   "SVN",
+   14,
+   "94 L"
+  ],
+  [
+   "BGR",
+   15,
+   "94 L"
+  ],
+  [
+   "IRL",
+   16,
+   "92 L"
+  ],
+  [
+   "MEX",
+   17,
+   "91 L"
+  ],
+  [
+   "EST",
+   18,
+   "88 L"
+  ],
+  [
+   "LVA",
+   19,
+   "87 L"
+  ],
+  [
+   "BIH",
+   20,
+   "84 L"
+  ],
+  [
+   "LTU",
+   21,
+   "84 L"
+  ],
+  [
+   "HUN",
+   22,
+   "82 L"
+  ],
+  [
+   "LAO",
+   23,
+   "78 L"
+  ],
+  [
+   "NLD",
+   24,
+   "78 L"
+  ],
+  [
+   "BEL",
+   25,
+   "78 L"
+  ],
+  [
+   "USA",
+   26,
+   "77 L"
+  ],
+  [
+   "SRB",
+   27,
+   "74 L"
+  ],
+  [
+   "ZAF",
+   28,
+   "73 L"
+  ],
+  [
+   "GBR",
+   29,
+   "71 L"
+  ],
+  [
+   "DNK",
+   30,
+   "70 L"
+  ],
+  [
+   "FIN",
+   31,
+   "70 L"
+  ],
+  [
+   "CHL",
+   32,
+   "70 L"
+  ],
+  [
+   "VNM",
+   33,
+   "69 L"
+  ],
+  [
+   "PRY",
+   34,
+   "69 L"
+  ],
+  [
+   "PRT",
+   35,
+   "68 L"
+  ],
+  [
+   "GNQ",
+   36,
+   "68 L"
+  ],
+  [
+   "ARG",
+   37,
+   "66 L"
+  ],
+  [
+   "AUS",
+   38,
+   "66 L"
+  ],
+  [
+   "BWA",
+   39,
+   "64 L"
+  ],
+  [
+   "NZL",
+   40,
+   "63 L"
+  ],
+  [
+   "CAN",
+   41,
+   "62 L"
+  ],
+  [
+   "RUS",
+   42,
+   "61 L"
+  ],
+  [
+   "CHE",
+   43,
+   "61 L"
+  ],
+  [
+   "COL",
+   44,
+   "58 L"
+  ],
+  [
+   "SVK",
+   45,
+   "57 L"
+  ],
+  [
+   "PER",
+   46,
+   "56 L"
+  ],
+  [
+   "SWE",
+   47,
+   "55 L"
+  ],
+  [
+   "NOR",
+   48,
+   "55 L"
+  ],
+  [
+   "FRA",
+   49,
+   "53 L"
+  ],
+  [
+   "KAZ",
+   50,
+   "53 L"
+  ],
+  [
+   "CRI",
+   51,
+   "49 L"
+  ],
+  [
+   "CMR",
+   52,
+   "49 L"
+  ],
+  [
+   "MUS",
+   53,
+   "47 L"
+  ],
+  [
+   "BLR",
+   54,
+   "46 L"
+  ],
+  [
+   "SWZ",
+   55,
+   "46 L"
+  ],
+  [
+   "DOM",
+   56,
+   "45 L"
+  ],
+  [
+   "MNG",
+   57,
+   "44 L"
+  ],
+  [
+   "UKR",
+   58,
+   "44 L"
+  ],
+  [
+   "ITA",
+   59,
+   "44 L"
+  ],
+  [
+   "GEO",
+   60,
+   "43 L"
+  ],
+  [
+   "BOL",
+   61,
+   "43 L"
+  ],
+  [
+   "MKD",
+   62,
+   "42 L"
+  ],
+  [
+   "GRC",
+   63,
+   "42 L"
+  ],
+  [
+   "LSO",
+   64,
+   "41 L"
+  ],
+  [
+   "TTO",
+   65,
+   "41 L"
+  ],
+  [
+   "THA",
+   66,
+   "40 L"
+  ],
+  [
+   "CYP",
+   67,
+   "39 L"
+  ],
+  [
+   "BDI",
+   68,
+   "38 L"
+  ],
+  [
+   "ECU",
+   69,
+   "38 L"
+  ],
+  [
+   "ALB",
+   70,
+   "37 L"
+  ],
+  [
+   "MDA",
+   71,
+   "37 L"
+  ],
+  [
+   "URY",
+   72,
+   "37 L"
+  ],
+  [
+   "AGO",
+   73,
+   "36 L"
+  ],
+  [
+   "RWA",
+   74,
+   "34 L"
+  ],
+  [
+   "CUB",
+   75,
+   "34 L"
+  ],
+  [
+   "KOR",
+   76,
+   "33 L"
+  ],
+  [
+   "HND",
+   77,
+   "30 L"
+  ],
+  [
+   "BFA",
+   78,
+   "30 L"
+  ],
+  [
+   "SLV",
+   79,
+   "30 L"
+  ],
+  [
+   "NIC",
+   80,
+   "27 L"
+  ],
+  [
+   "JAM",
+   81,
+   "26 L"
+  ],
+  [
+   "SGP",
+   82,
+   "25 L"
+  ],
+  [
+   "ISR",
+   83,
+   "25 L"
+  ],
+  [
+   "CHN",
+   84,
+   "24 L"
+  ],
+  [
+   "JPN",
+   85,
+   "24 L"
+  ],
+  [
+   "ZMB",
+   86,
+   "24 L"
+  ],
+  [
+   "MOZ",
+   87,
+   "22 L"
+  ],
+  [
+   "ARM",
+   88,
+   "22 L"
+  ],
+  [
+   "ETH",
+   89,
+   "21 L"
+  ],
+  [
+   "PHL",
+   90,
+   "20 L"
+  ],
+  [
+   "CIV",
+   91,
+   "20 L"
+  ],
+  [
+   "ZWE",
+   92,
+   "19 L"
+  ],
+  [
+   "GTM",
+   93,
+   "18 L"
+  ],
+  [
+   "TUN",
+   94,
+   "18 L"
+  ],
+  [
+   "VEN",
+   95,
+   "17 L"
+  ],
+  [
+   "BEN",
+   96,
+   "17 L"
+  ],
+  [
+   "KEN",
+   97,
+   "17 L"
+  ],
+  [
+   "GNB",
+   98,
+   "16 L"
+  ],
+  [
+   "TUR",
+   99,
+   "15 L"
+  ],
+  [
+   "UGA",
+   100,
+   "14 L"
+  ],
+  [
+   "TZA",
+   101,
+   "14 L"
+  ],
+  [
+   "TGO",
+   102,
+   "13 L"
+  ],
+  [
+   "NGA",
+   103,
+   "12 L"
+  ],
+  [
+   "TKM",
+   104,
+   "12 L"
+  ],
+  [
+   "KGZ",
+   105,
+   "11 L"
+  ],
+  [
+   "BHR",
+   106,
+   "11 L"
+  ],
+  [
+   "GHA",
+   107,
+   "10 L"
+  ],
+  [
+   "MYS",
+   108,
+   "10 L"
+  ],
+  [
+   "LKA",
+   109,
+   "10 L"
+  ],
+  [
+   "ARE",
+   110,
+   "10 L"
+  ],
+  [
+   "CAF",
+   111,
+   "10 L"
+  ],
+  [
+   "LBN",
+   112,
+   "9 L"
+  ],
+  [
+   "COD",
+   113,
+   "9 L"
+  ],
+  [
+   "MMR",
+   114,
+   "9 L"
+  ],
+  [
+   "PNG",
+   115,
+   "8 L"
+  ],
+  [
+   "MDG",
+   116,
+   "8 L"
+  ],
+  [
+   "ERI",
+   117,
+   "8 L"
+  ],
+  [
+   "HTI",
+   118,
+   "8 L"
+  ],
+  [
+   "QAT",
+   119,
+   "7 L"
+  ],
+  [
+   "NPL",
+   120,
+   "7 L"
+  ],
+  [
+   "AZE",
+   121,
+   "6 L"
+  ],
+  [
+   "TCD",
+   122,
+   "6 L"
+  ],
+  [
+   "TJK",
+   123,
+   "6 L"
+  ],
+  [
+   "GIN",
+   124,
+   "6 L"
+  ],
+  [
+   "LBR",
+   125,
+   "6 L"
+  ],
+  [
+   "SLE",
+   126,
+   "5 L"
+  ],
+  [
+   "DZA",
+   127,
+   "5 L"
+  ],
+  [
+   "IND",
+   128,
+   "4 L"
+  ],
+  [
+   "UZB",
+   129,
+   "4 L"
+  ],
+  [
+   "OMN",
+   130,
+   "3 L"
+  ],
+  [
+   "SEN",
+   131,
+   "3 L"
+  ],
+  [
+   "MAR",
+   132,
+   "3 L"
+  ],
+  [
+   "PRK",
+   133,
+   "3 L"
+  ],
+  [
+   "MWI",
+   134,
+   "3 L"
+  ],
+  [
+   "IRQ",
+   135,
+   "2 L"
+  ],
+  [
+   "MLI",
+   136,
+   "2 L"
+  ],
+  [
+   "TLS",
+   137,
+   "2 L"
+  ],
+  [
+   "JOR",
+   138,
+   "1 L"
+  ],
+  [
+   "DJI",
+   139,
+   "1 L"
+  ],
+  [
+   "IDN",
+   140,
+   "1 L"
+  ],
+  [
+   "EGY",
+   141,
+   "1 L"
+  ],
+  [
+   "NER",
+   142,
+   "1 L"
+  ],
+  [
+   "GMB",
+   143,
+   "0 L"
+  ],
+  [
+   "SYR",
+   144,
+   "0 L"
+  ],
+  [
+   "PAK",
+   145,
+   "0 L"
+  ],
+  [
+   "BGD",
+   146,
+   "0 L"
+  ],
+  [
+   "AFG",
+   147,
+   "0 L"
+  ],
+  [
+   "IRN",
+   148,
+   "0 L"
+  ],
+  [
+   "KWT",
+   149,
+   "0 L"
+  ],
+  [
+   "LBY",
+   150,
+   "0 L"
+  ],
+  [
+   "MRT",
+   151,
+   "0 L"
+  ],
+  [
+   "SOM",
+   152,
+   "0 L"
+  ],
+  [
+   "SDN",
+   153,
+   "0 L"
+  ],
+  [
+   "YEM",
+   154,
+   "0 L"
+  ]
+ ],
+ "metricName": "beer consumption",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "ONE NUMBER",
+   "title": "Infinity× more beer consumption. Same planet. 🤯",
+   "sub": "Guess the two countries 👇",
+   "say": "Infinity times more beer consumption. Same planet.",
+   "tight": true
+  },
+  {
+   "type": "stat",
+   "a": {
+    "flag": "🇨🇿",
+    "name": "Czechia",
+    "text": "137 L"
+   },
+   "b": {
+    "flag": "🇾🇪",
+    "name": "Yemen",
+    "text": "0 L"
+   },
+   "label": "Beer per adult per year (≈5% ABV) · 2022",
+   "gap": "Infinity×",
+   "min": 8,
+   "say": "In Czechia, beer consumption is about 137 liters of beer per adult, that's 8 cans of beer a week. In Yemen, it's just about 0 liters of beer per adult, less than one can of beer a week. That's Infinity times more."
+  },
+  {
+   "type": "cta",
+   "line": "Where is YOUR country?",
+   "sub": "Comment your country 👇 I'll reply with its rank",
+   "say": "Comment your country, and I'll tell you its rank."
+  }
+ ],
+ "caption": "The biggest gap in beer consumption on Earth 🤯\n\n🇨🇿 Czechia: 137 L\n🇾🇪 Yemen: 0 L\n\nThat's Infinity times more. Did you expect it? 👇\n\n📊 Source: Our World in Data (WHO), latest available (2022). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "stat-beer",
+ "cover_ms": 2200
+}
