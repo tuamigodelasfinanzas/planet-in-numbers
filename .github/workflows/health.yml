@@ -1,0 +1,25 @@
+name: Health check
+
+# Every morning: checks this repo's Instagram token (valid, expiry, reaches the account) and sends it to Telegram.
+# Read-only: it never renders or publishes. Make, Pages and failed runs of all three channels are checked from
+# resumen-bolsa-reel (salud.yml). The logic lives in zero-understands/.github/workflows/health.yml.
+on:
+  schedule:
+    - cron: "52 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  health:
+    uses: tuamigodelasfinanzas/zero-understands/.github/workflows/health.yml@main
+    with:
+      label: Planet in Numbers
+      ig_check: true
+    secrets:
+      IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER: ${{ secrets.IG_USER_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
