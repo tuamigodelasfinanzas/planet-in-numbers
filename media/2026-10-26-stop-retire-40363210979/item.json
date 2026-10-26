@@ -1,0 +1,1048 @@
+{
+ "kind": "reel",
+ "series": "stop",
+ "episode": "retire",
+ "music": "quiz",
+ "title": "Where will you retire?",
+ "cards": [
+  [
+   "BIH",
+   "$226 · 6.38/10 · 78.0 yrs"
+  ],
+  [
+   "AUT",
+   "$118 · 6.85/10 · 82.0 yrs"
+  ],
+  [
+   "UZB",
+   "$352 · 6.28/10 · 72.5 yrs"
+  ],
+  [
+   "URY",
+   "$138 · 6.64/10 · 78.3 yrs"
+  ],
+  [
+   "CMR",
+   "$278 · 5.08/10 · 64.0 yrs"
+  ],
+  [
+   "ECU",
+   "$226 · 6.14/10 · 77.6 yrs"
+  ],
+  [
+   "USA",
+   "$100 · 6.82/10 · 78.9 yrs"
+  ],
+  [
+   "FRA",
+   "$121 · 6.59/10 · 83.0 yrs"
+  ],
+  [
+   "JOR",
+   "$223 · 4.48/10 · 78.0 yrs"
+  ],
+  [
+   "PRT",
+   "$154 · 6.03/10 · 82.4 yrs"
+  ],
+  [
+   "BEN",
+   "$297 · 4.39/10 · 61.0 yrs"
+  ],
+  [
+   "UKR",
+   "$351 · 4.66/10 · 74.7 yrs"
+  ],
+  [
+   "GRC",
+   "$153 · 5.70/10 · 81.8 yrs"
+  ],
+  [
+   "PRY",
+   "$262 · 6.20/10 · 74.0 yrs"
+  ],
+  [
+   "MAR",
+   "$236 · 4.65/10 · 75.5 yrs"
+  ],
+  [
+   "KOR",
+   "$162 · 6.04/10 · 83.6 yrs"
+  ],
+  [
+   "KHM",
+   "$273 · 4.46/10 · 70.8 yrs"
+  ],
+  [
+   "COG",
+   "$252 · 4.46/10 · 66.0 yrs"
+  ],
+  [
+   "NGA",
+   "$477 · 4.79/10 · 54.6 yrs"
+  ],
+  [
+   "RUS",
+   "$272 · 5.83/10 · 73.4 yrs"
+  ],
+  [
+   "BRA",
+   "$216 · 6.63/10 · 76.0 yrs"
+  ],
+  [
+   "ITA",
+   "$137 · 6.57/10 · 84.0 yrs"
+  ],
+  [
+   "NOR",
+   "$104 · 7.24/10 · 83.2 yrs"
+  ],
+  [
+   "SLV",
+   "$213 · 6.58/10 · 72.3 yrs"
+  ],
+  [
+   "MEX",
+   "$170 · 6.97/10 · 75.3 yrs"
+  ],
+  [
+   "CIV",
+   "$255 · 5.15/10 · 62.1 yrs"
+  ],
+  [
+   "ARM",
+   "$244 · 5.58/10 · 78.3 yrs"
+  ],
+  [
+   "TGO",
+   "$266 · 4.28/10 · 62.9 yrs"
+  ],
+  [
+   "KAZ",
+   "$273 · 6.63/10 · 74.5 yrs"
+  ],
+  [
+   "HND",
+   "$206 · 6.10/10 · 73.0 yrs"
+  ],
+  [
+   "MDG",
+   "$344 · 4.17/10 · 63.8 yrs"
+  ],
+  [
+   "SEN",
+   "$257 · 4.79/10 · 68.9 yrs"
+  ],
+  [
+   "BEL",
+   "$115 · 6.93/10 · 82.3 yrs"
+  ],
+  [
+   "IDN",
+   "$325 · 5.62/10 · 71.3 yrs"
+  ],
+  [
+   "JPN",
+   "$145 · 6.13/10 · 84.0 yrs"
+  ],
+  [
+   "LBN",
+   "$153 · 3.72/10 · 77.9 yrs"
+  ],
+  [
+   "SWE",
+   "$110 · 7.26/10 · 84.1 yrs"
+  ],
+  [
+   "PAN",
+   "$201 · 6.55/10 · 79.8 yrs"
+  ],
+  [
+   "DEU",
+   "$123 · 6.88/10 · 80.8 yrs"
+  ],
+  [
+   "LBY",
+   "$296 · 5.73/10 · 71.1 yrs"
+  ],
+  [
+   "KEN",
+   "$287 · 4.67/10 · 63.8 yrs"
+  ],
+  [
+   "CHE",
+   "$78.0 · 7.02/10 · 84.4 yrs"
+  ],
+  [
+   "LAO",
+   "$348 · 5.52/10 · 69.2 yrs"
+  ],
+  [
+   "ESP",
+   "$146 · 6.54/10 · 83.9 yrs"
+  ]
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "STOP THE VIDEO",
+   "title": "Stop the video: this is where you retire 🏖️",
+   "sub": "Pause anytime. No cheating 👀",
+   "say": "Stop the video. This is where you retire.",
+   "min": 2.2,
+   "tight": true
+  },
+  {
+   "type": "spin",
+   "title": "Where will you retire?",
+   "cards": [
+    {
+     "iso3": "BIH",
+     "flag": "🇧🇦",
+     "name": "Bosnia & Herzegovina",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$226"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.38/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "AUT",
+     "flag": "🇦🇹",
+     "name": "Austria",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$118"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.85/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "UZB",
+     "flag": "🇺🇿",
+     "name": "Uzbekistan",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$352"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.28/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "72.5 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "URY",
+     "flag": "🇺🇾",
+     "name": "Uruguay",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$138"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.64/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "CMR",
+     "flag": "🇨🇲",
+     "name": "Cameroon",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$278"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.08/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "64.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ECU",
+     "flag": "🇪🇨",
+     "name": "Ecuador",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$226"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.14/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "77.6 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "USA",
+     "flag": "🇺🇸",
+     "name": "United States",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$100"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.82/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "FRA",
+     "flag": "🇫🇷",
+     "name": "France",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$121"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.59/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "JOR",
+     "flag": "🇯🇴",
+     "name": "Jordan",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$223"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.48/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "PRT",
+     "flag": "🇵🇹",
+     "name": "Portugal",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$154"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.03/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BEN",
+     "flag": "🇧🇯",
+     "name": "Benin",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$297"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.39/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "61.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "UKR",
+     "flag": "🇺🇦",
+     "name": "Ukraine",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$351"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.66/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "74.7 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "GRC",
+     "flag": "🇬🇷",
+     "name": "Greece",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$153"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.70/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "81.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "PRY",
+     "flag": "🇵🇾",
+     "name": "Paraguay",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$262"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.20/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "74.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "MAR",
+     "flag": "🇲🇦",
+     "name": "Morocco",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$236"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.65/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "75.5 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "KOR",
+     "flag": "🇰🇷",
+     "name": "South Korea",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$162"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.04/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.6 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "KHM",
+     "flag": "🇰🇭",
+     "name": "Cambodia",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$273"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.46/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "70.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "COG",
+     "flag": "🇨🇬",
+     "name": "Congo",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$252"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.46/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "66.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "NGA",
+     "flag": "🇳🇬",
+     "name": "Nigeria",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$477"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.79/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "54.6 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "RUS",
+     "flag": "🇷🇺",
+     "name": "Russia",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$272"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.83/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "73.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BRA",
+     "flag": "🇧🇷",
+     "name": "Brazil",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$216"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.63/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "76.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ITA",
+     "flag": "🇮🇹",
+     "name": "Italy",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$137"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.57/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "84.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "NOR",
+     "flag": "🇳🇴",
+     "name": "Norway",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$104"
+      },
+      {
+       "label": "Happiness",
+       "text": "7.24/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.2 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "SLV",
+     "flag": "🇸🇻",
+     "name": "El Salvador",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$213"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.58/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "72.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "MEX",
+     "flag": "🇲🇽",
+     "name": "Mexico",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$170"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.97/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "75.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "CIV",
+     "flag": "🇨🇮",
+     "name": "Côte d'Ivoire",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$255"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.15/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "62.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ARM",
+     "flag": "🇦🇲",
+     "name": "Armenia",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$244"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.58/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "78.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "TGO",
+     "flag": "🇹🇬",
+     "name": "Togo",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$266"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.28/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "62.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "KAZ",
+     "flag": "🇰🇿",
+     "name": "Kazakhstan",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$273"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.63/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "74.5 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "HND",
+     "flag": "🇭🇳",
+     "name": "Honduras",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$206"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.10/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "73.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "MDG",
+     "flag": "🇲🇬",
+     "name": "Madagascar",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$344"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.17/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "63.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "SEN",
+     "flag": "🇸🇳",
+     "name": "Senegal",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$257"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.79/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "68.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "BEL",
+     "flag": "🇧🇪",
+     "name": "Belgium",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$115"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.93/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "82.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "IDN",
+     "flag": "🇮🇩",
+     "name": "Indonesia",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$325"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.62/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "71.3 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "JPN",
+     "flag": "🇯🇵",
+     "name": "Japan",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$145"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.13/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "84.0 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "LBN",
+     "flag": "🇱🇧",
+     "name": "Lebanon",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$153"
+      },
+      {
+       "label": "Happiness",
+       "text": "3.72/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "77.9 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "SWE",
+     "flag": "🇸🇪",
+     "name": "Sweden",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$110"
+      },
+      {
+       "label": "Happiness",
+       "text": "7.26/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "84.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "PAN",
+     "flag": "🇵🇦",
+     "name": "Panama",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$201"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.55/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "79.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "DEU",
+     "flag": "🇩🇪",
+     "name": "Germany",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$123"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.88/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "80.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "LBY",
+     "flag": "🇱🇾",
+     "name": "Libya",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$296"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.73/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "71.1 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "KEN",
+     "flag": "🇰🇪",
+     "name": "Kenya",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$287"
+      },
+      {
+       "label": "Happiness",
+       "text": "4.67/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "63.8 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "CHE",
+     "flag": "🇨🇭",
+     "name": "Switzerland",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$78.0"
+      },
+      {
+       "label": "Happiness",
+       "text": "7.02/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "84.4 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "LAO",
+     "flag": "🇱🇦",
+     "name": "Laos",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$348"
+      },
+      {
+       "label": "Happiness",
+       "text": "5.52/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "69.2 yrs"
+      }
+     ]
+    },
+    {
+     "iso3": "ESP",
+     "flag": "🇪🇸",
+     "name": "Spain",
+     "stats": [
+      {
+       "label": "$100 feels like",
+       "text": "$146"
+      },
+      {
+       "label": "Happiness",
+       "text": "6.54/10"
+      },
+      {
+       "label": "Life expectancy",
+       "text": "83.9 yrs"
+      }
+     ]
+    }
+   ],
+   "min": 10.3
+  },
+  {
+   "type": "cta",
+   "line": "Happy with your retirement?",
+   "sub": "Comment the country you landed on 👇",
+   "say": "Where did you land? Comment it, and try again!"
+  }
+ ],
+ "caption": "Stop the video: this is where you retire 🏖️\n\nPause the video and that's your country 🛑\n• $100 feels like\n• Happiness\n• Life expectancy — real data on every card.\n\nComment where you landed 👇 (and how many tries it took 😅)\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#stopthevideo #geography #countries #game #theplanetinnumbers",
+ "id": "stop-retire",
+ "cover_ms": 2138
+}

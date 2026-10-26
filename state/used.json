@@ -136,6 +136,13 @@
     "text": "$234",
     "label": "Poorest countries per person"
    }
+  },
+  {
+   "at": "2026-10-26T16:53:32.005Z",
+   "id": "stop-retire",
+   "kind": "reel",
+   "title": "Where will you retire?",
+   "fact": null
   }
  ],
  "stat": [
@@ -152,7 +159,8 @@
   "gdp-pc"
  ],
  "stop": [
-  "live"
+  "live",
+  "retire"
  ],
  "guess": [
   "USA"
