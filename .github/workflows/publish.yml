@@ -165,14 +165,16 @@ jobs:
           else
             # Instagram with music: video slides published from here (waits until Instagram has processed each video).
             # If it fails, Make publishes the photo carousel instead.
+            # Its messages go to stderr: this block's stdout is payload.json.
             IGDONE=false
             if [ -d out/cvids ]; then
               jq -r .caption item.json > caption.txt
-              IG_TOKEN="$IG_TOKEN" IG_USER="$IG_USER" node tools/ig-carousel.mjs caption.txt $(for i in 1 2 3 4 5 6 7; do echo "$BASE/c0$i.mp4"; done) && IGDONE=true || echo "::warning::Carousel with music failed: Make will publish the photo carousel"
+              IG_TOKEN="$IG_TOKEN" IG_USER="$IG_USER" node tools/ig-carousel.mjs caption.txt $(for i in 1 2 3 4 5 6 7; do echo "$BASE/c0$i.mp4"; done) >&2 && IGDONE=true || IGFAIL=true
             fi
             jq -n --arg base "$BASE" --rawfile caption item.json --arg title "$(jq -r .title item.json)" --argjson igdone "$IGDONE" \
               '{status:"carousel", ig_done:$igdone, caption:($caption|fromjson|.caption), title:$title, images:[range(1;8) | "\($base)/0\(.).jpg"], videos:[]}'
           fi > payload.json
+          [ -z "${IGFAIL:-}" ] || echo "::warning::Carousel with music failed: Make will publish the photo carousel"
           cat payload.json | jq 'del(.caption)'
           [ -n "$MAKE_WEBHOOK_URL" ] || { echo "::error::Missing secret MAKE_WEBHOOK_URL"; exit 1; }
           curl -sS --fail -X POST -H 'Content-Type: application/json' --data @payload.json "$MAKE_WEBHOOK_URL"
