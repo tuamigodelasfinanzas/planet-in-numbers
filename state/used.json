@@ -1,7 +1,8 @@
 {
  "top10": [
   "gdp-pc",
-  "happiness-low"
+  "happiness-low",
+  "gdp-pc-low"
  ],
  "_topics": [
   {
@@ -27,6 +28,10 @@
   {
    "id": "beer",
    "at": "2026-10-25T04:53:53.341Z"
+  },
+  {
+   "id": "gdp-pc-low",
+   "at": "2026-10-26T04:54:11.509Z"
   }
  ],
  "_log": [
@@ -118,6 +123,19 @@
    "kind": "carousel",
    "title": "The week in numbers",
    "fact": null
+  },
+  {
+   "at": "2026-10-26T04:54:11.509Z",
+   "id": "top10-gdp-pc-low",
+   "kind": "reel",
+   "title": "Poorest countries per person",
+   "fact": {
+    "topic": "gdp-pc-low",
+    "flag": "🇧🇮",
+    "name": "Burundi",
+    "text": "$234",
+    "label": "Poorest countries per person"
+   }
   }
  ],
  "stat": [
