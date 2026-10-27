@@ -143,6 +143,18 @@
    "kind": "reel",
    "title": "Where will you retire?",
    "fact": null
+  },
+  {
+   "at": "2026-10-27T04:54:13.698Z",
+   "id": "dollar100-world-most",
+   "kind": "reel",
+   "title": "Where $100 goes the furthest",
+   "fact": {
+    "flag": "🇪🇬",
+    "name": "Egypt",
+    "text": "$638",
+    "label": "Where $100 goes the furthest"
+   }
   }
  ],
  "stat": [
@@ -193,5 +205,8 @@
  "cupPost": "🏆 Best country to live in · QUARTER-FINAL",
  "week": [
   "2026-10-25"
+ ],
+ "dollar100": [
+  "world-most"
  ]
 }

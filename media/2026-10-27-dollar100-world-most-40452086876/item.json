@@ -1,0 +1,802 @@
+{
+ "kind": "reel",
+ "series": "dollar100",
+ "episode": "world-most",
+ "music": "upbeat",
+ "title": "Where $100 goes the furthest",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "$100 = ?",
+   "title": "Where $100 goes the furthest 💵",
+   "sub": "Somewhere, $100 feels like $638 😳",
+   "say": "In one of these countries, one hundred dollars feels like 638. Guess where.",
+   "tight": true
+  },
+  {
+   "type": "rank",
+   "title": "Where $100 goes the furthest",
+   "metric": "Value of $100 in local prices · 2025",
+   "rows": [
+    {
+     "rank": 1,
+     "name": "Egypt",
+     "flag": "🇪🇬",
+     "iso3": "EGY",
+     "value": 637.5130186325132,
+     "text": "$638",
+     "v": 1
+    },
+    {
+     "rank": 2,
+     "name": "Nigeria",
+     "flag": "🇳🇬",
+     "iso3": "NGA",
+     "value": 477.3888456795778,
+     "text": "$477",
+     "v": 0.7488299559804957
+    },
+    {
+     "rank": 3,
+     "name": "India",
+     "flag": "🇮🇳",
+     "iso3": "IND",
+     "value": 439.3306976518842,
+     "text": "$439",
+     "v": 0.6891321193632457
+    },
+    {
+     "rank": 4,
+     "name": "Pakistan",
+     "flag": "🇵🇰",
+     "iso3": "PAK",
+     "value": 429.90759883344845,
+     "text": "$430",
+     "v": 0.6743510897324335
+    },
+    {
+     "rank": 5,
+     "name": "Bulgaria",
+     "flag": "🇧🇬",
+     "iso3": "BGR",
+     "value": 418.50476471739967,
+     "text": "$419",
+     "v": 0.6564646563847534
+    },
+    {
+     "rank": 6,
+     "name": "Nepal",
+     "flag": "🇳🇵",
+     "iso3": "NPL",
+     "value": 394.4263226462997,
+     "text": "$394",
+     "v": 0.6186953224772686
+    },
+    {
+     "rank": 7,
+     "name": "Rwanda",
+     "flag": "🇷🇼",
+     "iso3": "RWA",
+     "value": 383.2700204325336,
+     "text": "$383",
+     "v": 0.6011955979419222
+    },
+    {
+     "rank": 8,
+     "name": "Sri Lanka",
+     "flag": "🇱🇰",
+     "iso3": "LKA",
+     "value": 370.81640405319934,
+     "text": "$371",
+     "v": 0.5816609123506418
+    },
+    {
+     "rank": 9,
+     "name": "Belarus",
+     "flag": "🇧🇾",
+     "iso3": "BLR",
+     "value": 361.67260622387323,
+     "text": "$362",
+     "v": 0.5673179929716151
+    },
+    {
+     "rank": 10,
+     "name": "Uzbekistan",
+     "flag": "🇺🇿",
+     "iso3": "UZB",
+     "value": 352.0411605414156,
+     "text": "$352",
+     "v": 0.5522101514045246
+    }
+   ],
+   "min": 9,
+   "order": "countdown",
+   "parts": [
+    {
+     "say": "Top three. Comment where you think it is!"
+    },
+    {
+     "say": "Number three: India.",
+     "row": 2
+    },
+    {
+     "say": "Number two: Nigeria, where it feels like 477.",
+     "row": 1
+    },
+    {
+     "say": "And number one is… Egypt: there, one hundred dollars feels like 638!",
+     "row": 0
+    }
+   ],
+   "cues": {
+    "0": 12.404,
+    "1": 8,
+    "2": 5.827999999999999,
+    "rest": 17.990000000000002
+   }
+  },
+  {
+   "type": "cta",
+   "line": "Where would YOU take your $100?",
+   "sub": "Comment your country 👇 I'll reply with its value",
+   "say": "Where would you take your hundred dollars? Comment your country, and I'll tell you what it's worth there."
+  }
+ ],
+ "caption": "Where $100 goes the furthest 💵\n\nWith local prices, $100 feels like:\n🥇 ??? → $638 (watch until the end 👀)\n🥈 🇳🇬 Nigeria: $477\n\n(Based on the World Bank price level ratio: PPP conversion factor vs. market exchange rate.)\n\nWhere would you spend your $100? 👇\n\n📊 Source: World Bank open data, latest available (2025). Countries with 1M+ people.\n\n#travel #money #costofliving #worldrankings #theplanetinnumbers",
+ "rank": [
+  [
+   "EGY",
+   1,
+   "$638"
+  ],
+  [
+   "NGA",
+   2,
+   "$477"
+  ],
+  [
+   "IND",
+   3,
+   "$439"
+  ],
+  [
+   "PAK",
+   4,
+   "$430"
+  ],
+  [
+   "BGR",
+   5,
+   "$419"
+  ],
+  [
+   "NPL",
+   6,
+   "$394"
+  ],
+  [
+   "RWA",
+   7,
+   "$383"
+  ],
+  [
+   "LKA",
+   8,
+   "$371"
+  ],
+  [
+   "BLR",
+   9,
+   "$362"
+  ],
+  [
+   "UZB",
+   10,
+   "$352"
+  ],
+  [
+   "UKR",
+   11,
+   "$351"
+  ],
+  [
+   "BGD",
+   12,
+   "$349"
+  ],
+  [
+   "LAO",
+   13,
+   "$348"
+  ],
+  [
+   "MDG",
+   14,
+   "$344"
+  ],
+  [
+   "IDN",
+   15,
+   "$325"
+  ],
+  [
+   "DZA",
+   16,
+   "$315"
+  ],
+  [
+   "TJK",
+   17,
+   "$313"
+  ],
+  [
+   "AZE",
+   18,
+   "$313"
+  ],
+  [
+   "THA",
+   19,
+   "$310"
+  ],
+  [
+   "TUN",
+   20,
+   "$306"
+  ],
+  [
+   "BFA",
+   21,
+   "$301"
+  ],
+  [
+   "ZMB",
+   22,
+   "$301"
+  ],
+  [
+   "MLI",
+   23,
+   "$301"
+  ],
+  [
+   "MNG",
+   24,
+   "$300"
+  ],
+  [
+   "MYS",
+   25,
+   "$299"
+  ],
+  [
+   "KGZ",
+   26,
+   "$298"
+  ],
+  [
+   "BEN",
+   27,
+   "$297"
+  ],
+  [
+   "LBY",
+   28,
+   "$296"
+  ],
+  [
+   "NER",
+   29,
+   "$292"
+  ],
+  [
+   "KEN",
+   30,
+   "$287"
+  ],
+  [
+   "LSO",
+   31,
+   "$287"
+  ],
+  [
+   "PHL",
+   32,
+   "$280"
+  ],
+  [
+   "CMR",
+   33,
+   "$278"
+  ],
+  [
+   "KAZ",
+   34,
+   "$273"
+  ],
+  [
+   "KHM",
+   35,
+   "$273"
+  ],
+  [
+   "RUS",
+   36,
+   "$272"
+  ],
+  [
+   "NIC",
+   37,
+   "$271"
+  ],
+  [
+   "UGA",
+   38,
+   "$269"
+  ],
+  [
+   "TGO",
+   39,
+   "$266"
+  ],
+  [
+   "PRY",
+   40,
+   "$262"
+  ],
+  [
+   "TCD",
+   41,
+   "$261"
+  ],
+  [
+   "DOM",
+   42,
+   "$260"
+  ],
+  [
+   "GNB",
+   43,
+   "$259"
+  ],
+  [
+   "SEN",
+   44,
+   "$257"
+  ],
+  [
+   "BOL",
+   45,
+   "$256"
+  ],
+  [
+   "CIV",
+   46,
+   "$255"
+  ],
+  [
+   "BWA",
+   47,
+   "$254"
+  ],
+  [
+   "GEO",
+   48,
+   "$252"
+  ],
+  [
+   "COG",
+   49,
+   "$252"
+  ],
+  [
+   "AGO",
+   50,
+   "$250"
+  ],
+  [
+   "ARM",
+   51,
+   "$244"
+  ],
+  [
+   "MKD",
+   52,
+   "$244"
+  ],
+  [
+   "SDN",
+   53,
+   "$244"
+  ],
+  [
+   "COL",
+   54,
+   "$243"
+  ],
+  [
+   "NAM",
+   55,
+   "$242"
+  ],
+  [
+   "GHA",
+   56,
+   "$239"
+  ],
+  [
+   "IRQ",
+   57,
+   "$238"
+  ],
+  [
+   "MAR",
+   58,
+   "$236"
+  ],
+  [
+   "ZAF",
+   59,
+   "$231"
+  ],
+  [
+   "MUS",
+   60,
+   "$229"
+  ],
+  [
+   "ECU",
+   61,
+   "$226"
+  ],
+  [
+   "BIH",
+   62,
+   "$226"
+  ],
+  [
+   "CAF",
+   63,
+   "$225"
+  ],
+  [
+   "TLS",
+   64,
+   "$224"
+  ],
+  [
+   "GTM",
+   65,
+   "$224"
+  ],
+  [
+   "JOR",
+   66,
+   "$223"
+  ],
+  [
+   "TUR",
+   67,
+   "$222"
+  ],
+  [
+   "BDI",
+   68,
+   "$219"
+  ],
+  [
+   "BRA",
+   69,
+   "$216"
+  ],
+  [
+   "SLV",
+   70,
+   "$213"
+  ],
+  [
+   "OMN",
+   71,
+   "$211"
+  ],
+  [
+   "CHN",
+   72,
+   "$208"
+  ],
+  [
+   "GAB",
+   73,
+   "$207"
+  ],
+  [
+   "HND",
+   74,
+   "$206"
+  ],
+  [
+   "ROU",
+   75,
+   "$205"
+  ],
+  [
+   "BHR",
+   76,
+   "$205"
+  ],
+  [
+   "PAN",
+   77,
+   "$201"
+  ],
+  [
+   "DJI",
+   78,
+   "$201"
+  ],
+  [
+   "SAU",
+   79,
+   "$200"
+  ],
+  [
+   "MDA",
+   80,
+   "$198"
+  ],
+  [
+   "SRB",
+   81,
+   "$196"
+  ],
+  [
+   "CHL",
+   82,
+   "$195"
+  ],
+  [
+   "PER",
+   83,
+   "$185"
+  ],
+  [
+   "ALB",
+   84,
+   "$184"
+  ],
+  [
+   "POL",
+   85,
+   "$182"
+  ],
+  [
+   "TTO",
+   86,
+   "$176"
+  ],
+  [
+   "HUN",
+   87,
+   "$173"
+  ],
+  [
+   "MEX",
+   88,
+   "$170"
+  ],
+  [
+   "HRV",
+   89,
+   "$170"
+  ],
+  [
+   "KWT",
+   90,
+   "$167"
+  ],
+  [
+   "JAM",
+   91,
+   "$162"
+  ],
+  [
+   "KOR",
+   92,
+   "$162"
+  ],
+  [
+   "LTU",
+   93,
+   "$161"
+  ],
+  [
+   "LVA",
+   94,
+   "$160"
+  ],
+  [
+   "CRI",
+   95,
+   "$160"
+  ],
+  [
+   "SVK",
+   96,
+   "$156"
+  ],
+  [
+   "PRT",
+   97,
+   "$154"
+  ],
+  [
+   "LBN",
+   98,
+   "$153"
+  ],
+  [
+   "GRC",
+   99,
+   "$153"
+  ],
+  [
+   "CYP",
+   100,
+   "$149"
+  ],
+  [
+   "CZE",
+   101,
+   "$149"
+  ],
+  [
+   "SVN",
+   102,
+   "$149"
+  ],
+  [
+   "PNG",
+   103,
+   "$149"
+  ],
+  [
+   "ESP",
+   104,
+   "$146"
+  ],
+  [
+   "ARE",
+   105,
+   "$145"
+  ],
+  [
+   "JPN",
+   106,
+   "$145"
+  ],
+  [
+   "URY",
+   107,
+   "$138"
+  ],
+  [
+   "ITA",
+   108,
+   "$137"
+  ],
+  [
+   "HKG",
+   109,
+   "$135"
+  ],
+  [
+   "EST",
+   110,
+   "$132"
+  ],
+  [
+   "SGP",
+   111,
+   "$128"
+  ],
+  [
+   "DEU",
+   112,
+   "$123"
+  ],
+  [
+   "FRA",
+   113,
+   "$121"
+  ],
+  [
+   "AUT",
+   114,
+   "$118"
+  ],
+  [
+   "NLD",
+   115,
+   "$115"
+  ],
+  [
+   "BEL",
+   116,
+   "$115"
+  ],
+  [
+   "NZL",
+   117,
+   "$112"
+  ],
+  [
+   "CAN",
+   118,
+   "$111"
+  ],
+  [
+   "SWE",
+   119,
+   "$110"
+  ],
+  [
+   "FIN",
+   120,
+   "$110"
+  ],
+  [
+   "GBR",
+   121,
+   "$108"
+  ],
+  [
+   "AUS",
+   122,
+   "$106"
+  ],
+  [
+   "NOR",
+   123,
+   "$104"
+  ],
+  [
+   "USA",
+   124,
+   "$100"
+  ],
+  [
+   "IRL",
+   125,
+   "$98"
+  ],
+  [
+   "HTI",
+   126,
+   "$98"
+  ],
+  [
+   "DNK",
+   127,
+   "$96"
+  ],
+  [
+   "ISR",
+   128,
+   "$94"
+  ],
+  [
+   "CHE",
+   129,
+   "$78"
+  ]
+ ],
+ "metricName": "what $100 feels like",
+ "id": "dollar100-world-most",
+ "fact": {
+  "flag": "🇪🇬",
+  "name": "Egypt",
+  "text": "$638",
+  "label": "Where $100 goes the furthest"
+ },
+ "cover_ms": 2200
+}
