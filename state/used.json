@@ -32,6 +32,10 @@
   {
    "id": "gdp-pc-low",
    "at": "2026-10-26T04:54:11.509Z"
+  },
+  {
+   "id": "spirits",
+   "at": "2026-10-27T10:35:50.183Z"
   }
  ],
  "_log": [
@@ -155,6 +159,13 @@
     "text": "$638",
     "label": "Where $100 goes the furthest"
    }
+  },
+  {
+   "at": "2026-10-27T10:35:50.183Z",
+   "id": "top20-spirits",
+   "kind": "carousel",
+   "title": "Biggest spirits drinkers",
+   "fact": null
   }
  ],
  "stat": [
@@ -168,7 +179,8 @@
   "USA-CHN"
  ],
  "top20": [
-  "gdp-pc"
+  "gdp-pc",
+  "spirits"
  ],
  "stop": [
   "live",

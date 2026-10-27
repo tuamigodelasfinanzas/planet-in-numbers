@@ -1,0 +1,1017 @@
+{
+ "kind": "carousel",
+ "series": "top20",
+ "episode": "spirits",
+ "topic": "spirits",
+ "title": "Biggest spirits drinkers",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "TOP 20 · COUNTDOWN",
+   "title": "Biggest spirits drinkers",
+   "sub": "Spirits per adult per year (≈40% ABV) · 2022",
+   "flags": [
+    "❓",
+    "❓",
+    "❓"
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Biggest spirits drinkers",
+   "range": "#20 → #17",
+   "rows": [
+    {
+     "rank": 20,
+     "name": "India",
+     "flag": "🇮🇳",
+     "iso3": "IND",
+     "value": 7.1829730000000005,
+     "text": "7.2 L",
+     "v": 0.48288894117647063
+    },
+    {
+     "rank": 19,
+     "name": "Kyrgyzstan",
+     "flag": "🇰🇬",
+     "iso3": "KGZ",
+     "value": 7.425000000000001,
+     "text": "7.4 L",
+     "v": 0.4991596638655463
+    },
+    {
+     "rank": 18,
+     "name": "Romania",
+     "flag": "🇷🇴",
+     "iso3": "ROU",
+     "value": 8.025,
+     "text": "8.0 L",
+     "v": 0.5394957983193277
+    },
+    {
+     "rank": 17,
+     "name": "Russia",
+     "flag": "🇷🇺",
+     "iso3": "RUS",
+     "value": 8.55,
+     "text": "8.6 L",
+     "v": 0.5747899159663866
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Biggest spirits drinkers",
+   "range": "#16 → #13",
+   "rows": [
+    {
+     "rank": 16,
+     "name": "Mongolia",
+     "flag": "🇲🇳",
+     "iso3": "MNG",
+     "value": 8.725000000000001,
+     "text": "8.7 L",
+     "v": 0.5865546218487396
+    },
+    {
+     "rank": 15,
+     "name": "Czechia",
+     "flag": "🇨🇿",
+     "iso3": "CZE",
+     "value": 8.946817,
+     "text": "8.9 L",
+     "v": 0.6014666890756302
+    },
+    {
+     "rank": 14,
+     "name": "Laos",
+     "flag": "🇱🇦",
+     "iso3": "LAO",
+     "value": 9.42482175,
+     "text": "9.4 L",
+     "v": 0.6336014621848739
+    },
+    {
+     "rank": 13,
+     "name": "Philippines",
+     "flag": "🇵🇭",
+     "iso3": "PHL",
+     "value": 9.519645,
+     "text": "9.5 L",
+     "v": 0.6399761344537815
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Biggest spirits drinkers",
+   "range": "#12 → #9",
+   "rows": [
+    {
+     "rank": 12,
+     "name": "United States",
+     "flag": "🇺🇸",
+     "iso3": "USA",
+     "value": 10.024999999999999,
+     "text": "10.0 L",
+     "v": 0.6739495798319327
+    },
+    {
+     "rank": 11,
+     "name": "Poland",
+     "flag": "🇵🇱",
+     "iso3": "POL",
+     "value": 10.3,
+     "text": "10.3 L",
+     "v": 0.6924369747899161
+    },
+    {
+     "rank": 10,
+     "name": "Mauritius",
+     "flag": "🇲🇺",
+     "iso3": "MUS",
+     "value": 10.450014999999999,
+     "text": "10.5 L",
+     "v": 0.7025220168067225
+    },
+    {
+     "rank": 9,
+     "name": "Hungary",
+     "flag": "🇭🇺",
+     "iso3": "HUN",
+     "value": 10.525,
+     "text": "10.5 L",
+     "v": 0.7075630252100841
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Biggest spirits drinkers",
+   "range": "#8 → #5",
+   "rows": [
+    {
+     "rank": 8,
+     "name": "Thailand",
+     "flag": "🇹🇭",
+     "iso3": "THA",
+     "value": 11.25,
+     "text": "11.3 L",
+     "v": 0.7563025210084033
+    },
+    {
+     "rank": 7,
+     "name": "Belarus",
+     "flag": "🇧🇾",
+     "iso3": "BLR",
+     "value": 11.274999999999999,
+     "text": "11.3 L",
+     "v": 0.7579831932773108
+    },
+    {
+     "rank": 6,
+     "name": "North Korea",
+     "flag": "🇰🇵",
+     "iso3": "PRK",
+     "value": 12.643635,
+     "text": "12.6 L",
+     "v": 0.849992268907563
+    },
+    {
+     "rank": 5,
+     "name": "Bulgaria",
+     "flag": "🇧🇬",
+     "iso3": "BGR",
+     "value": 12.671779999999998,
+     "text": "12.7 L",
+     "v": 0.851884369747899
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Biggest spirits drinkers",
+   "range": "#4 → #1",
+   "rows": [
+    {
+     "rank": 4,
+     "name": "Slovakia",
+     "flag": "🇸🇰",
+     "iso3": "SVK",
+     "value": 12.75,
+     "text": "12.8 L",
+     "v": 0.8571428571428571
+    },
+    {
+     "rank": 3,
+     "name": "Lithuania",
+     "flag": "🇱🇹",
+     "iso3": "LTU",
+     "value": 13.375,
+     "text": "13.4 L",
+     "v": 0.8991596638655462
+    },
+    {
+     "rank": 2,
+     "name": "Estonia",
+     "flag": "🇪🇪",
+     "iso3": "EST",
+     "value": 14.625,
+     "text": "14.6 L",
+     "v": 0.9831932773109243
+    },
+    {
+     "rank": 1,
+     "name": "Latvia",
+     "flag": "🇱🇻",
+     "iso3": "LVA",
+     "value": 14.875,
+     "text": "14.9 L",
+     "v": 1
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "Is your country on the list?",
+   "sub": "Save this post and share it with someone who should see it",
+   "note": "Source: Our World in Data (WHO), latest available (2022). Countries with 1M+ people."
+  }
+ ],
+ "rank": [
+  [
+   "LVA",
+   1,
+   "14.9 L"
+  ],
+  [
+   "EST",
+   2,
+   "14.6 L"
+  ],
+  [
+   "LTU",
+   3,
+   "13.4 L"
+  ],
+  [
+   "SVK",
+   4,
+   "12.8 L"
+  ],
+  [
+   "BGR",
+   5,
+   "12.7 L"
+  ],
+  [
+   "PRK",
+   6,
+   "12.6 L"
+  ],
+  [
+   "BLR",
+   7,
+   "11.3 L"
+  ],
+  [
+   "THA",
+   8,
+   "11.3 L"
+  ],
+  [
+   "HUN",
+   9,
+   "10.5 L"
+  ],
+  [
+   "MUS",
+   10,
+   "10.5 L"
+  ],
+  [
+   "POL",
+   11,
+   "10.3 L"
+  ],
+  [
+   "USA",
+   12,
+   "10.0 L"
+  ],
+  [
+   "PHL",
+   13,
+   "9.5 L"
+  ],
+  [
+   "LAO",
+   14,
+   "9.4 L"
+  ],
+  [
+   "CZE",
+   15,
+   "8.9 L"
+  ],
+  [
+   "MNG",
+   16,
+   "8.7 L"
+  ],
+  [
+   "RUS",
+   17,
+   "8.6 L"
+  ],
+  [
+   "ROU",
+   18,
+   "8.0 L"
+  ],
+  [
+   "KGZ",
+   19,
+   "7.4 L"
+  ],
+  [
+   "IND",
+   20,
+   "7.2 L"
+  ],
+  [
+   "KAZ",
+   21,
+   "7.0 L"
+  ],
+  [
+   "BRA",
+   22,
+   "6.9 L"
+  ],
+  [
+   "SRB",
+   23,
+   "6.8 L"
+  ],
+  [
+   "GBR",
+   24,
+   "6.5 L"
+  ],
+  [
+   "MDA",
+   25,
+   "6.4 L"
+  ],
+  [
+   "LBR",
+   26,
+   "6.2 L"
+  ],
+  [
+   "DEU",
+   27,
+   "6.2 L"
+  ],
+  [
+   "ESP",
+   28,
+   "6.2 L"
+  ],
+  [
+   "IRL",
+   29,
+   "6.1 L"
+  ],
+  [
+   "HTI",
+   30,
+   "5.9 L"
+  ],
+  [
+   "ZWE",
+   31,
+   "5.9 L"
+  ],
+  [
+   "CHN",
+   32,
+   "5.7 L"
+  ],
+  [
+   "FRA",
+   33,
+   "5.7 L"
+  ],
+  [
+   "CUB",
+   34,
+   "5.6 L"
+  ],
+  [
+   "TTO",
+   35,
+   "5.6 L"
+  ],
+  [
+   "CAN",
+   36,
+   "5.5 L"
+  ],
+  [
+   "NIC",
+   37,
+   "5.4 L"
+  ],
+  [
+   "LKA",
+   38,
+   "5.2 L"
+  ],
+  [
+   "GEO",
+   39,
+   "5.2 L"
+  ],
+  [
+   "NPL",
+   40,
+   "5.1 L"
+  ],
+  [
+   "PRY",
+   41,
+   "5.1 L"
+  ],
+  [
+   "DOM",
+   42,
+   "5.1 L"
+  ],
+  [
+   "JAM",
+   43,
+   "5.0 L"
+  ],
+  [
+   "PER",
+   44,
+   "4.5 L"
+  ],
+  [
+   "DNK",
+   45,
+   "4.5 L"
+  ],
+  [
+   "ARM",
+   46,
+   "4.5 L"
+  ],
+  [
+   "CHL",
+   47,
+   "4.5 L"
+  ],
+  [
+   "AUS",
+   48,
+   "4.3 L"
+  ],
+  [
+   "AUT",
+   49,
+   "4.1 L"
+  ],
+  [
+   "HRV",
+   50,
+   "4.0 L"
+  ],
+  [
+   "NZL",
+   51,
+   "4.0 L"
+  ],
+  [
+   "GRC",
+   52,
+   "3.9 L"
+  ],
+  [
+   "CHE",
+   53,
+   "3.8 L"
+  ],
+  [
+   "SLV",
+   54,
+   "3.8 L"
+  ],
+  [
+   "NLD",
+   55,
+   "3.8 L"
+  ],
+  [
+   "CYP",
+   56,
+   "3.7 L"
+  ],
+  [
+   "CIV",
+   57,
+   "3.7 L"
+  ],
+  [
+   "UZB",
+   58,
+   "3.6 L"
+  ],
+  [
+   "BWA",
+   59,
+   "3.5 L"
+  ],
+  [
+   "ZAF",
+   60,
+   "3.5 L"
+  ],
+  [
+   "SVN",
+   61,
+   "3.5 L"
+  ],
+  [
+   "PRT",
+   62,
+   "3.4 L"
+  ],
+  [
+   "VEN",
+   63,
+   "3.3 L"
+  ],
+  [
+   "ISR",
+   64,
+   "3.3 L"
+  ],
+  [
+   "MMR",
+   65,
+   "3.1 L"
+  ],
+  [
+   "SWE",
+   66,
+   "3.1 L"
+  ],
+  [
+   "JPN",
+   67,
+   "3.0 L"
+  ],
+  [
+   "NOR",
+   68,
+   "2.8 L"
+  ],
+  [
+   "ALB",
+   69,
+   "2.8 L"
+  ],
+  [
+   "HND",
+   70,
+   "2.8 L"
+  ],
+  [
+   "BEL",
+   71,
+   "2.6 L"
+  ],
+  [
+   "AGO",
+   72,
+   "2.5 L"
+  ],
+  [
+   "PAN",
+   73,
+   "2.5 L"
+  ],
+  [
+   "ARG",
+   74,
+   "2.5 L"
+  ],
+  [
+   "FIN",
+   75,
+   "2.5 L"
+  ],
+  [
+   "URY",
+   76,
+   "2.4 L"
+  ],
+  [
+   "MKD",
+   77,
+   "2.4 L"
+  ],
+  [
+   "QAT",
+   78,
+   "2.3 L"
+  ],
+  [
+   "GNQ",
+   79,
+   "2.2 L"
+  ],
+  [
+   "UKR",
+   80,
+   "2.2 L"
+  ],
+  [
+   "TKM",
+   81,
+   "2.2 L"
+  ],
+  [
+   "BHR",
+   82,
+   "2.1 L"
+  ],
+  [
+   "GTM",
+   83,
+   "2.0 L"
+  ],
+  [
+   "COL",
+   84,
+   "1.6 L"
+  ],
+  [
+   "LBN",
+   85,
+   "1.6 L"
+  ],
+  [
+   "BIH",
+   86,
+   "1.5 L"
+  ],
+  [
+   "ECU",
+   87,
+   "1.4 L"
+  ],
+  [
+   "MEX",
+   88,
+   "1.4 L"
+  ],
+  [
+   "NAM",
+   89,
+   "1.4 L"
+  ],
+  [
+   "SWZ",
+   90,
+   "1.4 L"
+  ],
+  [
+   "TUR",
+   91,
+   "1.4 L"
+  ],
+  [
+   "NGA",
+   92,
+   "1.4 L"
+  ],
+  [
+   "AZE",
+   93,
+   "1.4 L"
+  ],
+  [
+   "BOL",
+   94,
+   "1.3 L"
+  ],
+  [
+   "CMR",
+   95,
+   "1.2 L"
+  ],
+  [
+   "ITA",
+   96,
+   "1.2 L"
+  ],
+  [
+   "LSO",
+   97,
+   "1.1 L"
+  ],
+  [
+   "UGA",
+   98,
+   "1.1 L"
+  ],
+  [
+   "GNB",
+   99,
+   "1.1 L"
+  ],
+  [
+   "COG",
+   100,
+   "1.0 L"
+  ],
+  [
+   "ZMB",
+   101,
+   "1.0 L"
+  ],
+  [
+   "TZA",
+   102,
+   "1.0 L"
+  ],
+  [
+   "GAB",
+   103,
+   "1.0 L"
+  ],
+  [
+   "TJK",
+   104,
+   "1.0 L"
+  ],
+  [
+   "IRQ",
+   105,
+   "1.0 L"
+  ],
+  [
+   "SGP",
+   106,
+   "1.0 L"
+  ],
+  [
+   "GHA",
+   107,
+   "0.9 L"
+  ],
+  [
+   "KHM",
+   108,
+   "0.9 L"
+  ],
+  [
+   "CRI",
+   109,
+   "0.8 L"
+  ],
+  [
+   "ARE",
+   110,
+   "0.8 L"
+  ],
+  [
+   "KOR",
+   111,
+   "0.8 L"
+  ],
+  [
+   "KEN",
+   112,
+   "0.7 L"
+  ],
+  [
+   "OMN",
+   113,
+   "0.7 L"
+  ],
+  [
+   "RWA",
+   114,
+   "0.7 L"
+  ],
+  [
+   "PNG",
+   115,
+   "0.7 L"
+  ],
+  [
+   "TGO",
+   116,
+   "0.6 L"
+  ],
+  [
+   "MOZ",
+   117,
+   "0.5 L"
+  ],
+  [
+   "VNM",
+   118,
+   "0.5 L"
+  ],
+  [
+   "DJI",
+   119,
+   "0.5 L"
+  ],
+  [
+   "BFA",
+   120,
+   "0.4 L"
+  ],
+  [
+   "JOR",
+   121,
+   "0.4 L"
+  ],
+  [
+   "MWI",
+   122,
+   "0.4 L"
+  ],
+  [
+   "ETH",
+   123,
+   "0.4 L"
+  ],
+  [
+   "TUN",
+   124,
+   "0.3 L"
+  ],
+  [
+   "MYS",
+   125,
+   "0.3 L"
+  ],
+  [
+   "BEN",
+   126,
+   "0.3 L"
+  ],
+  [
+   "MAR",
+   127,
+   "0.3 L"
+  ],
+  [
+   "MLI",
+   128,
+   "0.2 L"
+  ],
+  [
+   "TLS",
+   129,
+   "0.2 L"
+  ],
+  [
+   "SLE",
+   130,
+   "0.2 L"
+  ],
+  [
+   "SYR",
+   131,
+   "0.1 L"
+  ],
+  [
+   "GIN",
+   132,
+   "0.1 L"
+  ],
+  [
+   "DZA",
+   133,
+   "0.1 L"
+  ],
+  [
+   "COD",
+   134,
+   "0.1 L"
+  ],
+  [
+   "NER",
+   135,
+   "0.1 L"
+  ],
+  [
+   "KWT",
+   136,
+   "0.1 L"
+  ],
+  [
+   "MDG",
+   137,
+   "0.1 L"
+  ],
+  [
+   "EGY",
+   138,
+   "0.1 L"
+  ],
+  [
+   "PAK",
+   139,
+   "0.1 L"
+  ],
+  [
+   "SEN",
+   140,
+   "0.1 L"
+  ],
+  [
+   "IDN",
+   141,
+   "0.0 L"
+  ],
+  [
+   "CAF",
+   142,
+   "0.0 L"
+  ],
+  [
+   "GMB",
+   143,
+   "0.0 L"
+  ],
+  [
+   "TCD",
+   144,
+   "0.0 L"
+  ],
+  [
+   "BGD",
+   145,
+   "0.0 L"
+  ],
+  [
+   "AFG",
+   146,
+   "0.0 L"
+  ],
+  [
+   "BDI",
+   147,
+   "0.0 L"
+  ],
+  [
+   "ERI",
+   148,
+   "0.0 L"
+  ],
+  [
+   "IRN",
+   149,
+   "0.0 L"
+  ],
+  [
+   "LBY",
+   150,
+   "0.0 L"
+  ],
+  [
+   "MRT",
+   151,
+   "0.0 L"
+  ],
+  [
+   "SOM",
+   152,
+   "0.0 L"
+  ],
+  [
+   "SDN",
+   153,
+   "0.0 L"
+  ],
+  [
+   "YEM",
+   154,
+   "0.0 L"
+  ]
+ ],
+ "metricName": "spirits consumption",
+ "caption": "Biggest spirits drinkers: the full Top 20 🌍\n\nCounting down from 20 to number one. Swipe to the end ➡️ Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n📊 Source: Our World in Data (WHO), latest available (2022). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "top20-spirits",
+ "videoCaption": "Biggest spirits drinkers: the full Top 20 🌍\n\nCounting down from 20 to number one. Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n📊 Source: Our World in Data (WHO), latest available (2022). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers"
+}
