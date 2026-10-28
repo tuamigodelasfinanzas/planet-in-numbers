@@ -36,6 +36,10 @@
   {
    "id": "spirits",
    "at": "2026-10-27T10:35:50.183Z"
+  },
+  {
+   "id": "gdp",
+   "at": "2026-10-28T04:54:04.970Z"
   }
  ],
  "_log": [
@@ -166,6 +170,13 @@
    "kind": "carousel",
    "title": "Biggest spirits drinkers",
    "fact": null
+  },
+  {
+   "at": "2026-10-28T04:54:04.970Z",
+   "id": "race-gdp",
+   "kind": "reel",
+   "title": "Biggest economies on Earth: 1980 vs 2025",
+   "fact": null
   }
  ],
  "stat": [
@@ -220,5 +231,8 @@
  ],
  "dollar100": [
   "world-most"
+ ],
+ "race": [
+  "gdp"
  ]
 }
