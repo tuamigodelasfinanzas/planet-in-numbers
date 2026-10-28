@@ -48,7 +48,7 @@
   function rowHTML(r, h, big) {
     return `<div class="row" style="position:absolute;left:0;right:0;height:${h}px;display:flex;align-items:center;gap:20px">
       <div style="width:78px;text-align:right;font-size:${big ? 46 : 42}px;font-weight:700;color:${r.rank === 1 ? C.accent : C.muted}">${r.rank}</div>
-      <div style="width:76px;font-size:62px;line-height:1;${EM}">${r.flag}</div>
+      ${r.img ? `<img src="${r.img}" style="width:76px;height:76px;border-radius:14px;object-fit:cover;flex:none">` : `<div style="width:76px;font-size:62px;line-height:1;${EM}">${r.flag}</div>`}
       <div style="flex:1;position:relative;height:${h - 22}px">
         <div class="bar" style="position:absolute;left:0;top:0;bottom:0;width:0;border-radius:16px;background:${r.rank === 1 ? C.accent : C.card}"></div>
         <div style="position:absolute;left:26px;top:0;bottom:0;display:flex;align-items:center;font-size:${r.name.length > 16 ? 34 : 40}px;font-weight:700;color:${r.rank === 1 ? C.bg : C.text};white-space:nowrap">${esc(r.name)}</div>

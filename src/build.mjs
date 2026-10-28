@@ -5,6 +5,8 @@ import { latest, countries, bigCountries, latestOf, historyOf } from './wb.mjs';
 import { show, speak, pickNext } from './fmt.mjs';
 import { HANDLE } from './brand.mjs';
 import { everyday, gapWords, sentence, top10Claim, NO_RATIO } from './hooks.mjs';
+import { isWorld, worldRows } from './sources.mjs';
+const T_WORLD = JSON.parse(fs.readFileSync(new URL('../content/topics-world.json', import.meta.url)));
 
 const T_WB = JSON.parse(fs.readFileSync(new URL('../content/topics.json', import.meta.url)));
 const T_OWID = JSON.parse(fs.readFileSync(new URL('../content/topics-owid.json', import.meta.url)));
@@ -52,11 +54,11 @@ const usedOf = s => state[s] || [];
 const recentTopics = (state._topics || []).filter(t => Date.now() - Date.parse(t.at) < 7 * 864e5).map(t => t.id);
 
 const TAGS = '#worldrankings #countries #geography #dataviz #theplanetinnumbers';
-const SRCNAME = t => (t && t.src === 'owid' ? `Our World in Data${t.via ? ` (${t.via})` : ''}` : 'World Bank open data');
-const SRC = (y, t) => `📊 Source: ${SRCNAME(t)}, latest available (${t && t.yearLabel ? YL(t, y) : y}).${t && t.minPop === 0 ? '' : ' Countries with 1M+ people.'}`;
+const SRCNAME = t => (t && t.liveVia ? t.liveVia : t && t.src === 'owid' ? `Our World in Data${t.via ? ` (${t.via})` : ''}` : 'World Bank open data');
+const SRC = (y, t) => isWorld(t) ? `📊 Source: ${t.liveVia}, ${y}.` : `📊 Source: ${SRCNAME(t)}, latest available (${t && t.yearLabel ? YL(t, y) : y}).${t && t.minPop === 0 ? '' : ' Countries with 1M+ people.'}`;
 const YL = (t, y) => (t.yearLabel ? t.yearLabel.replace('{y}', y) : String(y));
 // the whole ranking, kept with the post so comment replies can tell anyone where their country stands
-const fullRank = (rows, fmt) => rows.slice(0, 220).map((r, i) => [r.iso3, i + 1, show(r.value, fmt)]);
+const fullRank = (rows, fmt) => rows.slice(0, 220).map((r, i) => [r.iso3 || r.name, i + 1, show(r.value, fmt)]);
 const ordinal = n => ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'][n] || String(n);
 
 function pickTopic(filter) {
@@ -74,6 +76,12 @@ function fresh(rows, topic) {
 }
 
 async function ranking(topic, n) {
+  if (isWorld(topic)) {
+    // live world data (already sorted): trends, games, crypto, earthquakes, weather, buildings, prices
+    const w = await worldRows(topic);
+    topic.liveVia = w.via;
+    return { rows: w.rows, top: w.rows.slice(0, n), year: w.date };
+  }
   const big = topic.minPop === 0 ? null : await bigCountries(1e6);
   let rows = (await latestOf(topic)).filter(r => !big || big.has(r.iso3));
   rows = fresh(rows, topic);
@@ -88,7 +96,7 @@ const barScale = (top, dir) => {
   // for "lowest first" lists the best (smallest) gets the longest bar
   return v => (dir === 'asc' ? Math.max(0.18, (max - v) / (max - min || 1) * 0.82 + 0.18) : Math.max(0.12, v / (max || 1)));
 };
-const rowOut = (r, i, fmt, sc) => ({ rank: i + 1, name: r.name, flag: r.flag, iso3: r.iso3, value: r.value, text: show(r.value, fmt), v: sc(r.value) });
+const rowOut = (r, i, fmt, sc) => ({ rank: i + 1, name: r.name, flag: r.flag, iso3: r.iso3, img: r.img || undefined, value: r.value, text: show(r.value, fmt), v: sc(r.value) });
 
 const RANK_SAY = "Comment your country, and I'll tell you its rank.";
 const cta = (line = 'Where does YOUR country rank?', say = RANK_SAY, sub = "Comment your country 👇 I'll reply with its rank") => ({ type: 'cta', line, sub, say });
@@ -96,7 +104,8 @@ const cta = (line = 'Where does YOUR country rank?', say = RANK_SAY, sub = "Comm
 const builders = {
   // 🎬 Top 10 ranking (countdown)
   async top10() {
-    const t = pickTopic(x => !x.raceOnly);
+    const world = series === 'world';
+    const t = world ? (forced ? T_WORLD.find(x => x.id === forced) : pickNext(T_WORLD.filter(x => !recentTopics.includes(x.id)).length ? T_WORLD.filter(x => !recentTopics.includes(x.id)) : T_WORLD, usedOf(series))) : pickTopic(x => !x.raceOnly);
     const { rows: all, top, year } = await ranking(t, 10);
     const sc = barScale(top, t.dir);
     const rows = top.map((r, i) => rowOut(r, i, t.fmt, sc));
@@ -105,20 +114,22 @@ const builders = {
     return {
       kind: 'reel', series, episode: t.id, topic: t.id, music: 'upbeat', title: t.title, rank: fullRank(all, t.fmt), metricName: t.say,
       scenes: [
-        { type: 'hook', kicker: 'TOP 10 · ' + year, title: t.hook, sub: claim.show, say: `${sentence(t.hook)} ${claim.say}`, tight: true },
+        { type: 'hook', kicker: 'TOP 10 · ' + (world ? t.when || year : year), title: t.hook, sub: claim.show, say: `${sentence(t.hook)} ${claim.say}`, tight: true },
         { type: 'rank', title: t.title, metric: `${t.metric} · ${YL(t, year)}`, rows, min: 9, order: 'countdown', parts: [
           { say: 'Top three. Comment your guess for number one!' },
           { say: `Number three: ${c.name}.`, row: 2 },
           { say: `Number two: ${b.name}.`, row: 1 },
-          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}${e1 ? `${t.fmt === 'usd' ? ' a year' : ''}. That's ${e1.say}` : ''}!`, row: 0 },
+          { say: `And number one is… ${a.name}, with ${speak(a.value, t.fmt)}${t.unit ? ' ' + t.unit : ''}${e1 ? `${t.fmt === 'usd' ? ' a year' : ''}. That's ${e1.say}` : ''}!`, row: 0 },
         ] },
-        cta(),
+        world ? cta('Did you guess number one?', 'Did you guess number one? Comment it!', 'Comment your guess 👇') : cta(),
       ],
-      caption: `${t.hook}\n\n🥇 ??? → watch until the end 👀\n🥈 ${b.flag} ${b.name}: ${b.text}\n🥉 ${c.flag} ${c.name}: ${c.text}\n\nGuess number one in the comments 👇 Comment your country and we'll tell you its rank.\n\n${SRC(year, t)}\n\n${TAGS}`,
+      caption: `${t.hook}\n\n🥇 ??? → watch until the end 👀\n🥈 ${b.flag} ${b.name}: ${b.text}\n🥉 ${c.flag} ${c.name}: ${c.text}\n\n${world ? 'Guess number one in the comments 👇' : "Guess number one in the comments 👇 Comment your country and we'll tell you its rank."}\n\n${SRC(year, t)}\n\n${world ? '#top10 #rankings #trending #didyouknow #theplanetinnumbers' : TAGS}`,
     };
   },
 
   // 🖼️ Full Top 20 (carousel, 7 slides)
+  async world() { return builders.top10(); },
+
   async top20() {
     const t = pickTopic(x => !x.raceOnly);
     const { rows: all, top, year } = await ranking(t, 20);

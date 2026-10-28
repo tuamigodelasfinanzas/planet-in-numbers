@@ -15,7 +15,7 @@ const Q = {
   guess: 'Can you guess the country? 🤔', top10: 'Is your country in the Top 10?', dollar100: 'How far does YOUR $100 go?',
   race: 'Did your country go up or down?', map: 'Find your country on the map 👀', stat: 'Did you expect this gap? 🤯',
   top20: 'Is your country on the list?', versus: 'Who wins? Pick a side 🥊', week: 'The week in numbers 🌍',
-  stop: 'Stop the video! Where did you land? 🎰', hl: 'Higher or lower? Can you get 5/5? ⬆️⬇️', cup: 'World Cup of countries: VOTE 🏆',
+  stop: 'Stop the video! Where did you land? 🎰', world: 'Can you guess number one? 👀', hl: 'Higher or lower? Can you get 5/5? ⬆️⬇️', cup: 'World Cup of countries: VOTE 🏆',
 }[item.series] || 'New ranking just dropped';
 const emo = s => esc(s).replace(/(\p{Extended_Pictographic}[\u{FE0F}\u{200D}\p{Extended_Pictographic}]*)/gu, `<span style="font-family:${EMOJI}">$1</span>`);
 const cw = isReel ? 560 : 720, ch = isReel ? Math.round(cw * 16 / 9) : Math.round(cw * 1.25);

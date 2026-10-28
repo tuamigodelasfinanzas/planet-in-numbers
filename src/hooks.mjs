@@ -32,7 +32,7 @@ export function everyday(topic, v) {
 
 // ratio between two values, as words ("39 times more" / "half")
 // scores and indexes can't be multiplied ("6 times happier" is not what a 0-10 score means)
-export const NO_RATIO = new Set(['score10', 'score100', 'dec3', 'cm', 'years']);
+export const NO_RATIO = new Set(['score10', 'score100', 'dec3', 'cm', 'years', 'temp', 'mag', 'pctchg', 'meters']);
 export function gapWords(hi, lo, fmt) {
   if (!(hi > 0) || !(lo > 0) || NO_RATIO.has(fmt)) return null;
   const r = hi / lo;

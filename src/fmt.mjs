@@ -15,6 +15,11 @@ const dBig = n => (n >= 100 ? 0 : 1);
 export function show(v, fmt) {
   switch (fmt) {
     case 'usd': return '$' + nf(v < 100 ? 1 : 0).format(v);
+    case 'usd2': return '$' + nf(2).format(v);
+    case 'pctchg': return (v > 0 ? '+' : '') + nf(Math.abs(v) < 10 ? 1 : 0).format(v) + '%';
+    case 'mag': return 'M ' + nf(1).format(v);
+    case 'temp': return nf(1).format(v) + ' °C';
+    case 'meters': return nf(0).format(v) + ' m';
     case 'usd_big': { const b = big(v); return '$' + nf(dBig(b.n)).format(b.n) + b.s; }
     case 'num_big': { const b = big(v); return b.s ? nf(dBig(b.n)).format(b.n) + b.s : nf(0).format(v); }
     case 'pct': return nf(v < 10 ? 1 : 0).format(v) + '%';
@@ -46,6 +51,11 @@ export function show(v, fmt) {
 export function speak(v, fmt) {
   switch (fmt) {
     case 'usd': return `${nf(0).format(Math.round(v / (v >= 10000 ? 100 : 1)) * (v >= 10000 ? 100 : 1))} dollars`;
+    case 'usd2': return `${nf(2).format(v)} dollars`;
+    case 'pctchg': return `${v > 0 ? 'up' : 'down'} ${nf(Math.abs(v) < 10 ? 1 : 0).format(Math.abs(v))} percent`;
+    case 'mag': return `magnitude ${nf(1).format(v)}`;
+    case 'temp': return `${nf(0).format(v)} degrees`;
+    case 'meters': return `${nf(0).format(v)} meters`;
     case 'usd_big': { const b = big(v); return `${nf(1).format(b.n)} ${b.w} dollars`; }
     case 'num_big': { const b = big(v); return b.w ? `${nf(1).format(b.n)} ${b.w}` : nf(0).format(v); }
     case 'pct': return `${nf(v < 10 ? 1 : 0).format(v)} percent`;

@@ -151,7 +151,7 @@ async function buildings() {
   if (!t) throw new Error('Buildings table not found');
   const cs = await countries(), byName = new Map([...cs.values()].map(c => [c.name.toLowerCase(), c]));
   const alias = { 'united states': 'united states', 'turkey': 'türkiye', 'south korea': 'south korea', 'taiwan': 'taiwan' };
-  const rows = [], seen = new Set();
+  const rows = [], seen = new Set(); let lastC = null;
   for (const r of t.rows) {
     const tx = r.map(c => c.t);
     // the height in metres is the number followed by the same height in feet (rowspans shift columns, so look for the pair)
@@ -162,6 +162,8 @@ async function buildings() {
     if (!name || seen.has(name)) continue; seen.add(name);
     let c = null, city = '';
     for (let n = k + 2; n < tx.length; n++) { const hit = byName.get((alias[tx[n].toLowerCase()] || tx[n]).toLowerCase()); if (hit) { c = hit; city = tx[n + 1] && isNaN(num(tx[n + 1])) ? tx[n + 1] : (tx[n - 1] && isNaN(num(tx[n - 1])) ? tx[n - 1] : ''); break; } }
+    if (!c) { c = lastC; city = city || tx.slice(k + 2).find(x => x && isNaN(num(x))) || ''; }   // country cell spanning several rows
+    lastC = c;
     rows.push({ name, value: num(tx[k]), flag: c?.flag || '🏙️', sub: [city, c?.name].filter(Boolean).join(', '), iso3: c?.iso3 });
   }
   rows.sort((a, b) => b.value - a.value);

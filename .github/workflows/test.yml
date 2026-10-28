@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - id: r
         run: |
-          S=$(sed -n 1p .github/test-request | tr -d '[:space:]'); case "$S" in top10|top20|dollar100|race|map|stat|guess|versus|week|stop|hl|cup) ;; *) S=top10;; esac
+          S=$(sed -n 1p .github/test-request | tr -d '[:space:]'); case "$S" in top10|top20|dollar100|race|map|stat|guess|versus|week|stop|hl|cup|world) ;; *) S=top10;; esac
           echo "series=$S" >> "$GITHUB_OUTPUT"
           echo "episode=$(sed -n 2p .github/test-request | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
   test:
