@@ -20,7 +20,7 @@
   "dir": "desc",
   "fmt": "num_big",
   "title": "Most viewed YouTube videos ever",
-  "metric": "Total views, live count",
+  "metric": "Total views",
   "say": "YouTube views",
   "hook": "The most watched videos in YouTube history ▶️",
   "unit": "views",
