@@ -1,0 +1,449 @@
+{
+ "kind": "reel",
+ "series": "world",
+ "episode": "quakes",
+ "topic": "quakes",
+ "music": "upbeat",
+ "title": "Strongest earthquakes this year",
+ "rank": [
+  [
+   "Near Ende, Indonesia",
+   1,
+   "M 7.8"
+  ],
+  [
+   "Near Kablalan, Philippines",
+   2,
+   "M 7.8"
+  ],
+  [
+   "Near Pitaloza Arriba, Panama",
+   3,
+   "M 7.7"
+  ],
+  [
+   "Near Catia La Mar, Venezuela",
+   4,
+   "M 7.5"
+  ],
+  [
+   "Near Neiafu, Tonga",
+   5,
+   "M 7.5"
+  ],
+  [
+   "Near San José del Palmar, Colombia",
+   6,
+   "M 7.4"
+  ],
+  [
+   "Near Miyako, Japan",
+   7,
+   "M 7.4"
+  ],
+  [
+   "Near Bitung, Indonesia",
+   8,
+   "M 7.4"
+  ],
+  [
+   "Near Puerto Madero, Mexico",
+   9,
+   "M 7.3"
+  ],
+  [
+   "Near Luganville, Vanuatu",
+   10,
+   "M 7.3"
+  ],
+  [
+   "Near San Felipe, Venezuela",
+   11,
+   "M 7.2"
+  ],
+  [
+   "Near Kota Belud, Malaysia",
+   12,
+   "M 7.1"
+  ],
+  [
+   "Near Nagqu, China",
+   13,
+   "M 7.0"
+  ],
+  [
+   "Near Port-Olry, Vanuatu",
+   14,
+   "M 6.9"
+  ],
+  [
+   "Near Ozernovskiy, Russia",
+   15,
+   "M 6.9"
+  ],
+  [
+   "Near Pematangsiantar, Indonesia",
+   16,
+   "M 6.9"
+  ],
+  [
+   "Near Noda, Japan",
+   17,
+   "M 6.9"
+  ],
+  [
+   "Near Calama, Chile",
+   18,
+   "M 6.9"
+  ],
+  [
+   "central Mid-Atlantic Ridge",
+   19,
+   "M 6.8"
+  ],
+  [
+   "The 2026 Kumamoto Region, Japan E…",
+   20,
+   "M 6.8"
+  ],
+  [
+   "central Mid-Atlantic Ridge",
+   21,
+   "M 6.7"
+  ],
+  [
+   "Near Tadine, New Caledonia",
+   22,
+   "M 6.7"
+  ],
+  [
+   "Near Tambo, Peru",
+   23,
+   "M 6.7"
+  ],
+  [
+   "Near Palu, Indonesia",
+   24,
+   "M 6.7"
+  ],
+  [
+   "Near Ōfunato, Japan",
+   25,
+   "M 6.7"
+  ],
+  [
+   "Near Río Grande, Panama",
+   26,
+   "M 6.6"
+  ],
+  [
+   "Off Russia",
+   27,
+   "M 6.6"
+  ],
+  [
+   "central Mid-Atlantic Ridge",
+   28,
+   "M 6.6"
+  ],
+  [
+   "southern East Pacific Rise",
+   29,
+   "M 6.6"
+  ],
+  [
+   "northern Mid-Atlantic Ridge",
+   30,
+   "M 6.6"
+  ],
+  [
+   "Bonin Islands, Japan region",
+   31,
+   "M 6.5"
+  ],
+  [
+   "Near Nikolski, Alaska",
+   32,
+   "M 6.5"
+  ],
+  [
+   "Near Teluknaga, Indonesia",
+   33,
+   "M 6.5"
+  ],
+  [
+   "Near Balangonan, Philippines",
+   34,
+   "M 6.5"
+  ],
+  [
+   "Near Balangonan, Philippines",
+   35,
+   "M 6.5"
+  ],
+  [
+   "Near Yamada, Japan",
+   36,
+   "M 6.5"
+  ],
+  [
+   "South Shetland Islands",
+   37,
+   "M 6.5"
+  ],
+  [
+   "Near San Marcos, Mexico",
+   38,
+   "M 6.5"
+  ],
+  [
+   "Near Kainantu, Papua New Guinea",
+   39,
+   "M 6.4"
+  ],
+  [
+   "Near Puerto Madero, Mexico",
+   40,
+   "M 6.4"
+  ],
+  [
+   "Near Lorengau, Papua New Guinea",
+   41,
+   "M 6.4"
+  ],
+  [
+   "South Sandwich Islands region",
+   42,
+   "M 6.4"
+  ],
+  [
+   "Near Attu Station, Alaska",
+   43,
+   "M 6.4"
+  ],
+  [
+   "Near Port-Olry, Vanuatu",
+   44,
+   "M 6.4"
+  ],
+  [
+   "Near Sarangani, Philippines",
+   45,
+   "M 6.4"
+  ],
+  [
+   "Near Santiago, Philippines",
+   46,
+   "M 6.4"
+  ],
+  [
+   "Near Port-Olry, Vanuatu",
+   47,
+   "M 6.3"
+  ],
+  [
+   "Near Port-Olry, Vanuatu",
+   48,
+   "M 6.3"
+  ],
+  [
+   "Near Norsup, Vanuatu",
+   49,
+   "M 6.3"
+  ],
+  [
+   "Near Nikolski, Alaska",
+   50,
+   "M 6.3"
+  ],
+  [
+   "south of the Kermadec Islands",
+   51,
+   "M 6.3"
+  ],
+  [
+   "Near Sarangani, Philippines",
+   52,
+   "M 6.3"
+  ],
+  [
+   "southeast of the Loyalty Islands",
+   53,
+   "M 6.3"
+  ],
+  [
+   "Near Dunhuang, China",
+   54,
+   "M 6.3"
+  ],
+  [
+   "Near Ternate, Indonesia",
+   55,
+   "M 6.3"
+  ],
+  [
+   "Near Hihifo, Tonga",
+   56,
+   "M 6.3"
+  ],
+  [
+   "Fiji region",
+   57,
+   "M 6.3"
+  ],
+  [
+   "Near Panguna, Papua New Guinea",
+   58,
+   "M 6.2"
+  ],
+  [
+   "South Sandwich Islands region",
+   59,
+   "M 6.2"
+  ],
+  [
+   "Scotia Sea",
+   60,
+   "M 6.2"
+  ]
+ ],
+ "metricName": "magnitude",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "TOP 10 · THIS YEAR",
+   "title": "The strongest earthquakes of the year so far 🌋",
+   "sub": "Guess #1 before the end 👇",
+   "say": "The strongest earthquakes of the year so far. Guess number one before I say it.",
+   "tight": true
+  },
+  {
+   "type": "rank",
+   "title": "Strongest earthquakes this year",
+   "metric": "Magnitude · 2026",
+   "rows": [
+    {
+     "rank": 1,
+     "name": "Near Ende, Indonesia",
+     "flag": "🇮🇩",
+     "value": 7.8,
+     "text": "M 7.8",
+     "v": 1
+    },
+    {
+     "rank": 2,
+     "name": "Near Kablalan, Philippines",
+     "flag": "🇵🇭",
+     "value": 7.8,
+     "text": "M 7.8",
+     "v": 1
+    },
+    {
+     "rank": 3,
+     "name": "Near Pitaloza Arriba, Panama",
+     "flag": "🇵🇦",
+     "value": 7.7,
+     "text": "M 7.7",
+     "v": 0.9871794871794872
+    },
+    {
+     "rank": 4,
+     "name": "Near Catia La Mar, Venezuela",
+     "flag": "🇻🇪",
+     "value": 7.5,
+     "text": "M 7.5",
+     "v": 0.9615384615384616
+    },
+    {
+     "rank": 5,
+     "name": "Near Neiafu, Tonga",
+     "flag": "🇹🇴",
+     "value": 7.5,
+     "text": "M 7.5",
+     "v": 0.9615384615384616
+    },
+    {
+     "rank": 6,
+     "name": "Near San José del Palmar, Colombia",
+     "flag": "🇨🇴",
+     "value": 7.4,
+     "text": "M 7.4",
+     "v": 0.9487179487179488
+    },
+    {
+     "rank": 7,
+     "name": "Near Miyako, Japan",
+     "flag": "🇯🇵",
+     "value": 7.4,
+     "text": "M 7.4",
+     "v": 0.9487179487179488
+    },
+    {
+     "rank": 8,
+     "name": "Near Bitung, Indonesia",
+     "flag": "🇮🇩",
+     "value": 7.4,
+     "text": "M 7.4",
+     "v": 0.9487179487179488
+    },
+    {
+     "rank": 9,
+     "name": "Near Puerto Madero, Mexico",
+     "flag": "🇲🇽",
+     "value": 7.3,
+     "text": "M 7.3",
+     "v": 0.9358974358974359
+    },
+    {
+     "rank": 10,
+     "name": "Near Luganville, Vanuatu",
+     "flag": "🇻🇺",
+     "value": 7.3,
+     "text": "M 7.3",
+     "v": 0.9358974358974359
+    }
+   ],
+   "min": 9,
+   "order": "countdown",
+   "parts": [
+    {
+     "say": "Top three. Comment your guess for number one!"
+    },
+    {
+     "say": "Number three: Near Pitaloza Arriba, Panama.",
+     "row": 2
+    },
+    {
+     "say": "Number two: Near Kablalan, Philippines.",
+     "row": 1
+    },
+    {
+     "say": "And number one is… Near Ende, Indonesia, with magnitude 7.8!",
+     "row": 0
+    }
+   ],
+   "cues": {
+    "0": 12.884,
+    "1": 9.656,
+    "2": 6.116,
+    "rest": 18.134
+   }
+  },
+  {
+   "type": "cta",
+   "line": "Did you guess number one?",
+   "sub": "Comment your guess 👇",
+   "say": "Did you guess number one? Comment it!"
+  }
+ ],
+ "caption": "The strongest earthquakes of the year so far 🌋\n\n🥇 ??? → watch until the end 👀\n🥈 🇵🇭 Near Kablalan, Philippines: M 7.8\n🥉 🇵🇦 Near Pitaloza Arriba, Panama: M 7.7\n\nGuess number one in the comments 👇\n\n📊 Source: USGS earthquake catalog, 2026.\n\n#top10 #rankings #trending #didyouknow #theplanetinnumbers",
+ "id": "world-quakes",
+ "fact": {
+  "topic": "quakes",
+  "flag": "🇮🇩",
+  "name": "Near Ende, Indonesia",
+  "text": "M 7.8",
+  "label": "Strongest earthquakes this year"
+ },
+ "cover_ms": 2200
+}
