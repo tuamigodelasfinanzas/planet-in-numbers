@@ -23,6 +23,20 @@ export async function dataURI(url, max = 120000) {
 const today = () => new Date().toISOString().slice(0, 10);
 const nice = d => new Date(d).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
+
+// ---------- Wikipedia tables (sourced, frequently updated lists) ----------
+const strip = h => String(h).replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<br\s*\/?>/g, ' ').replace(/<[^>]+>/g, '').replace(/&nbsp;|&#160;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;|&#34;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, ' ').trim();
+async function wikiTables(title) {
+  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/html/${encodeURIComponent(title)}`, { headers: { 'user-agent': UA['user-agent'] } });
+  if (!r.ok) throw new Error(`Wikipedia ${title}: HTTP ${r.status}`);
+  const html = await r.text();
+  return [...html.matchAll(/<table[^>]*class="[^"]*wikitable[^"]*"[^>]*>([\s\S]*?)<\/table>/g)].map(m => {
+    const rows = [...m[1].matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)].map(tr => [...tr[1].matchAll(/<t([hd])[^>]*>([\s\S]*?)<\/t[hd]>/g)].map(c => ({ h: c[1] === 'h', t: strip(c[2]), raw: c[2] })));
+    return { head: (rows.find(r => r.every(c => c.h)) || []).map(c => c.t.toLowerCase()), rows: rows.filter(r => r.some(c => !c.h)) };
+  });
+}
+const num = t => { const m = String(t).replace(/,/g, '').match(/-?\d+(\.\d+)?/); return m ? Number(m[0]) : NaN; };
+
 // ---------- Wikipedia: most read articles of the last 7 days ----------
 const WIKI_SKIP = /^(Main_Page|Special:|Wikipedia:|File:|Portal:|Help:|Template:|Category:|Talk:|User:|Draft:|List_of|Lists_of|Deaths_in|Index_of|\d{4}_in_)|xxx|porn|sex|nude|onlyfans|murder|killing|shooting|suicide|massacre|terror|rape|stabbing|assassination|bomb|death_of|_attack|election|referendum|_war|invasion|conflict|genocide/i;
 async function wikiWeek() {
@@ -48,22 +62,22 @@ async function wikiWeek() {
   return { rows, date: nice(Date.now() - 864e5), via: 'Wikimedia pageviews (English Wikipedia, last 7 days)' };
 }
 
-// ---------- YouTube: most viewed videos of all time (through the Make bridge) ----------
+// ---------- YouTube: most viewed videos ever (Wikipedia's maintained list, views in billions) ----------
 async function ytMostViewed() {
-  const hook = process.env.MAKE_HOOK; if (!hook) throw new Error('No Make webhook for YouTube');
-  const api = async (url, query) => {
-    const r = await fetch(hook, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ status: 'yt_api', method: 'GET', url, query: new URLSearchParams(query).toString(), body_json: '' }) });
-    const j = JSON.parse(await r.text()); if (j.error) throw new Error(j.error.message || 'YouTube error'); return j;
-  };
-  const s = await api('/v3/search', { part: 'id', type: 'video', order: 'viewCount', maxResults: '25', safeSearch: 'strict' });
-  const ids = (s.items || []).map(x => x.id.videoId).filter(Boolean);
-  const v = await api('/v3/videos', { part: 'snippet,statistics', id: ids.join(',') });
+  const T = await wikiTables('List_of_most-viewed_YouTube_videos');
+  const t = T.find(x => x.head.some(h => /views/.test(h)) && x.rows.length >= 20);
+  if (!t) throw new Error('YouTube table not found');
+  const iName = t.head.findIndex(h => /video name|name/.test(h)), iUp = t.head.findIndex(h => /uploader|artist|channel/.test(h)), iV = t.head.findIndex(h => /views/.test(h));
   const rows = [];
-  for (const x of (v.items || []).sort((a, b) => b.statistics.viewCount - a.statistics.viewCount)) {
-    const title = x.snippet.title.replace(/\s*[\(\[].*?(official|video|mv|audio|lyrics).*?[\)\]]/gi, '').replace(/\s*\|.*$/, '').trim();
-    rows.push({ name: title.length > 38 ? title.slice(0, 36) + '…' : title, value: Number(x.statistics.viewCount), flag: '▶️', img: await dataURI(x.snippet.thumbnails?.medium?.url || x.snippet.thumbnails?.default?.url), sub: x.snippet.channelTitle });
+  for (const r of t.rows) {
+    const cells = r.length === t.head.length ? r : [{ t: '' }, ...r];
+    const v = num(cells[iV]?.t); const name = String(cells[iName]?.t || '').replace(/^"|"$/g, '').replace(/^\W+|\W+$/g, '');
+    if (!(v > 1 && v < 60) || !name) continue;
+    const id = (cells[iName]?.raw || '').match(/youtube\.com\/watch\?v=([\w-]{11})/)?.[1];
+    rows.push({ name: name.length > 34 ? name.slice(0, 33) + '…' : name, value: v * 1e9, flag: '▶️', sub: String(cells[iUp]?.t || ''), img: id ? await dataURI(`https://i.ytimg.com/vi/${id}/mqdefault.jpg`) : null });
   }
-  return { rows, date: nice(Date.now()), via: 'YouTube Data API (live view counts)' };
+  rows.sort((a, b) => b.value - a.value);
+  return { rows: rows.slice(0, 25), date: nice(Date.now()), via: 'Wikipedia, List of most-viewed YouTube videos' };
 }
 
 // ---------- Steam: most played games right now ----------
@@ -73,7 +87,7 @@ async function steamNow() {
   const rows = [];
   for (const r of ranks.slice(0, 25)) {
     let name = null, img = null;
-    try { const d = await getJSON(`https://store.steampowered.com/api/appdetails?appids=${r.appid}&filters=basic`); const g = d[r.appid]?.data; name = g?.type === 'game' ? g?.name : null; img = await dataURI(g?.header_image); } catch {}
+    try { const d = await getJSON(`https://store.steampowered.com/api/appdetails?appids=${r.appid}&filters=basic`); const g = d[r.appid]?.data; name = g?.type === 'game' && !/wallpaper engine|soundpad|steamvr|spacewar|banana$/i.test(g?.name || '') ? g?.name : null; img = await dataURI(g?.header_image); } catch {}
     if (!name) continue;
     rows.push({ name, value: r.concurrent_in_game, flag: '🎮', img });
   }
@@ -130,18 +144,26 @@ async function weather(dir) {
   return { rows: rows.slice(0, 25), date: `${nice(now)}, ${now.toISOString().slice(11, 16)} UTC`, via: 'Open-Meteo (temperature right now in every capital city)' };
 }
 
-// ---------- Wikidata: tallest buildings ----------
+// ---------- Tallest buildings (Wikipedia: List of tallest buildings) ----------
 async function buildings() {
-  const q = `SELECT ?b ?bLabel ?h ?iso WHERE { ?b wdt:P31 wd:Q11303; wdt:P2048 ?h; wdt:P17 ?c. ?c wdt:P298 ?iso. FILTER(?h > 330) MINUS { ?b wdt:P5817 wd:Q12377751 } SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } } ORDER BY DESC(?h) LIMIT 80`;
-  const j = await getJSON('https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(q), { headers: { ...UA, accept: 'application/sparql-results+json' } });
-  const cs = await countries(), seen = new Set(), rows = [];
-  for (const b of j.results.bindings) {
-    const name = b.bLabel.value; if (seen.has(b.b.value) || /^Q\d+$/.test(name)) continue;
-    seen.add(b.b.value);
-    const c = cs.get(b.iso.value);
-    rows.push({ name, value: Number(b.h.value), flag: c?.flag || '🏙️', sub: c?.name || '', iso3: b.iso.value });
+  const T = await wikiTables('List_of_tallest_buildings');
+  const t = T.find(x => x.head.some(h => /height/.test(h)) && x.head.some(h => /name|building/.test(h)) && x.rows.length >= 20);
+  if (!t) throw new Error('Buildings table not found');
+  const iN = t.head.findIndex(h => /^name|building/.test(h)), iH = t.head.findIndex(h => /height/.test(h) && /m|metre|meter/.test(h)) >= 0 ? t.head.findIndex(h => /height/.test(h) && /m|metre|meter/.test(h)) : t.head.findIndex(h => /height/.test(h)), iC = t.head.findIndex(h => /country/.test(h)), iCity = t.head.findIndex(h => /city/.test(h));
+  const cs = await countries(), byName = new Map([...cs.values()].map(c => [c.name.toLowerCase(), c]));
+  const alias = { 'united states': 'United States', 'china': 'China', 'south korea': 'South Korea', 'russia': 'Russia', 'vietnam': 'Vietnam', 'turkey': 'Türkiye', 'taiwan': 'Taiwan' };
+  const rows = [];
+  for (const r of t.rows) {
+    if (r.length < t.head.length - 1) continue;
+    const off = t.head.length - r.length;   // rowspans shift the cells
+    const cell = k => r[k - off];
+    const name = String(cell(iN)?.t || '').replace(/\s*\(.*\)$/, ''), h = num(cell(iH)?.t);
+    if (!name || !(h > 200 && h < 1200)) continue;
+    const cn = String(cell(iC)?.t || ''); const c = byName.get((alias[cn.toLowerCase()] || cn).toLowerCase());
+    rows.push({ name, value: h, flag: c?.flag || '🏙️', sub: [cell(iCity)?.t, c?.name || cn].filter(Boolean).join(', '), iso3: c?.iso3 });
   }
-  return { rows: rows.slice(0, 25), date: nice(Date.now()), via: 'Wikidata (completed buildings, architectural height)' };
+  rows.sort((a, b) => b.value - a.value);
+  return { rows: rows.slice(0, 25), date: nice(Date.now()), via: 'Wikipedia, List of tallest buildings' };
 }
 
 // ---------- The Economist: Big Mac price in every country ----------
