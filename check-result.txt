@@ -1,0 +1,9 @@
+token type: Facebook Login (EAA…)
+permissions: pages_show_list, business_management, instagram_basic, instagram_manage_comments, instagram_manage_insights, instagram_content_publish, instagram_manage_messages, pages_read_engagement, instagram_manage_contents, public_profile
+page: Planet in Numbers · page token: YES
+reels read: 3 ok
+comments read: 0 ok
+page token expires: never
+IG 2026-10-28T04:55:44+0000 VIDEO  · Biggest economies on Earth: 1980 vs 2025 📈
+IG 2026-10-27T10:38:57+0000 CAROUSEL_ALBUM VIDEO,VIDEO,VIDEO,VIDEO,VIDEO,VIDEO,VIDEO · Biggest spirits drinkers: the full Top 20 🌍
+IG 2026-10-27T04:56:03+0000 VIDEO  · Where $100 goes the furthest 💵
