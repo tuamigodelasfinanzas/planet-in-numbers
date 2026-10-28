@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import { worldRows } from '../src/sources.mjs';
 const T = JSON.parse(fs.readFileSync(new URL('../content/topics-world.json', import.meta.url)));
-const want = process.argv.slice(2);
+const want = process.argv.slice(2).filter(a => a !== 'world' && a !== 'all');
 for (const t of T.filter(x => !want.length || want.includes(x.id))) {
   try {
     const { rows, date, via } = await worldRows(t);
