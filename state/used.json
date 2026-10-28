@@ -48,6 +48,10 @@
   {
    "id": "steam-now",
    "at": "2026-10-28T12:18:02.427Z"
+  },
+  {
+   "id": "yt-views",
+   "at": "2026-10-28T19:56:24.177Z"
   }
  ],
  "_log": [
@@ -218,6 +222,19 @@
    "kind": "reel",
    "title": "Higher or Lower: countries",
    "fact": null
+  },
+  {
+   "at": "2026-10-28T19:56:24.177Z",
+   "id": "world-yt-views",
+   "kind": "reel",
+   "title": "Most viewed YouTube videos ever",
+   "fact": {
+    "topic": "yt-views",
+    "flag": "▶️",
+    "name": "Baby Shark Dance",
+    "text": "17.3B",
+    "label": "Most viewed YouTube videos ever"
+   }
   }
  ],
  "stat": [
@@ -278,7 +295,8 @@
  ],
  "world": [
   "steam-now",
-  "steam-now"
+  "steam-now",
+  "yt-views"
  ],
  "hl": [
   "2026-10-28"
