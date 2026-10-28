@@ -24,7 +24,7 @@ const today = () => new Date().toISOString().slice(0, 10);
 const nice = d => new Date(d).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
 // ---------- Wikipedia: most read articles of the last 7 days ----------
-const WIKI_SKIP = /^(Main_Page|Special:|Wikipedia:|File:|Portal:|Help:|Template:|Category:|Talk:|User:|Draft:|List_of|Lists_of|Deaths_in|Index_of|\d{4}_in_)|xxx|porn|sex|nude|onlyfans|murder|killing|shooting|suicide|massacre|terror|rape|stabbing|assassination|bomb|death_of|_attack/i;
+const WIKI_SKIP = /^(Main_Page|Special:|Wikipedia:|File:|Portal:|Help:|Template:|Category:|Talk:|User:|Draft:|List_of|Lists_of|Deaths_in|Index_of|\d{4}_in_)|xxx|porn|sex|nude|onlyfans|murder|killing|shooting|suicide|massacre|terror|rape|stabbing|assassination|bomb|death_of|_attack|election|referendum|_war|invasion|conflict|genocide/i;
 async function wikiWeek() {
   const sum = new Map();
   for (let d = 1; d <= 7; d++) {
@@ -42,7 +42,7 @@ async function wikiWeek() {
     try { s = await getJSON(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(art)}`); } catch {}
     if (s.type === 'disambiguation') continue;
     const desc = String(s.description || '');
-    if (/pornograph|adult film|murder|serial killer|terror|mass shooting/i.test(desc)) continue;   // keep it brand-safe
+    if (/pornograph|adult film|murder|serial killer|terror|mass shooting|politician|election|war /i.test(desc)) continue;   // keep it brand-safe
     rows.push({ name: String(s.title || art.replace(/_/g, ' ')).replace(/\s*\(.*\)$/, ''), value: views, flag: '📰', img: await dataURI(s.thumbnail?.source), sub: desc });
   }
   return { rows, date: nice(Date.now() - 864e5), via: 'Wikimedia pageviews (English Wikipedia, last 7 days)' };
@@ -73,7 +73,7 @@ async function steamNow() {
   const rows = [];
   for (const r of ranks.slice(0, 25)) {
     let name = null, img = null;
-    try { const d = await getJSON(`https://store.steampowered.com/api/appdetails?appids=${r.appid}&filters=basic`); const g = d[r.appid]?.data; name = g?.name; img = await dataURI(g?.header_image); } catch {}
+    try { const d = await getJSON(`https://store.steampowered.com/api/appdetails?appids=${r.appid}&filters=basic`); const g = d[r.appid]?.data; name = g?.type === 'game' ? g?.name : null; img = await dataURI(g?.header_image); } catch {}
     if (!name) continue;
     rows.push({ name, value: r.concurrent_in_game, flag: '🎮', img });
   }
@@ -132,7 +132,7 @@ async function weather(dir) {
 
 // ---------- Wikidata: tallest buildings ----------
 async function buildings() {
-  const q = `SELECT ?b ?bLabel ?h ?iso WHERE { ?b wdt:P31 wd:Q11303; wdt:P2048 ?h; wdt:P17 ?c. ?c wdt:P298 ?iso. FILTER(?h > 330) FILTER NOT EXISTS { ?b wdt:P576 [] } FILTER NOT EXISTS { ?b wdt:P729 ?x . FILTER(YEAR(?x) > YEAR(NOW())) } SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } } ORDER BY DESC(?h) LIMIT 80`;
+  const q = `SELECT ?b ?bLabel ?h ?iso WHERE { ?b wdt:P31 wd:Q11303; wdt:P2048 ?h; wdt:P17 ?c. ?c wdt:P298 ?iso. FILTER(?h > 330) MINUS { ?b wdt:P5817 wd:Q12377751 } SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } } ORDER BY DESC(?h) LIMIT 80`;
   const j = await getJSON('https://query.wikidata.org/sparql?format=json&query=' + encodeURIComponent(q), { headers: { ...UA, accept: 'application/sparql-results+json' } });
   const cs = await countries(), seen = new Set(), rows = [];
   for (const b of j.results.bindings) {
