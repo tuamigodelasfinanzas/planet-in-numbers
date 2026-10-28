@@ -1,0 +1,274 @@
+{
+ "kind": "reel",
+ "series": "world",
+ "episode": "yt-views",
+ "topic": "yt-views",
+ "music": "upbeat",
+ "title": "Most viewed YouTube videos ever",
+ "rank": [
+  [
+   "Baby Shark Dance",
+   1,
+   "17.3B"
+  ],
+  [
+   "Wheels on the Bus",
+   2,
+   "9.3B"
+  ],
+  [
+   "Despacito",
+   3,
+   "9.1B"
+  ],
+  [
+   "Bath Song",
+   4,
+   "7.6B"
+  ],
+  [
+   "Johny Johny Yes Papa",
+   5,
+   "7.2B"
+  ],
+  [
+   "Phonics Song with Two Words",
+   6,
+   "7.1B"
+  ],
+  [
+   "See You Again",
+   7,
+   "7.1B"
+  ],
+  [
+   "Shape of You",
+   8,
+   "6.8B"
+  ],
+  [
+   "Axel F",
+   9,
+   "6.1B"
+  ],
+  [
+   "Gangnam Style",
+   10,
+   "6.1B"
+  ],
+  [
+   "Uptown Funk",
+   11,
+   "5.9B"
+  ],
+  [
+   "Shree Hanuman Chalisa",
+   12,
+   "5.7B"
+  ],
+  [
+   "Dame Tu Cosita",
+   13,
+   "5.6B"
+  ],
+  [
+   "Learning Colors – Colorful Eggs o…",
+   14,
+   "5.5B"
+  ],
+  [
+   "Baa Baa Black Sheep",
+   15,
+   "4.9B"
+  ],
+  [
+   "Temu's Big Game Ad",
+   16,
+   "4.7B"
+  ],
+  [
+   "Waka Waka (This Time for Africa",
+   17,
+   "4.7B"
+  ],
+  [
+   "Masha and the Bear – Recipe for D…",
+   18,
+   "4.7B"
+  ],
+  [
+   "Lakdi Ki Kathi",
+   19,
+   "4.7B"
+  ],
+  [
+   "Humpty the train on a fruits ride",
+   20,
+   "4.4B"
+  ],
+  [
+   "Counting Stars",
+   21,
+   "4.4B"
+  ],
+  [
+   "Baby Shark",
+   22,
+   "4.4B"
+  ],
+  [
+   "Sugar",
+   23,
+   "4.4B"
+  ],
+  [
+   "Roar",
+   24,
+   "4.3B"
+  ],
+  [
+   "Dark Horse",
+   25,
+   "4.2B"
+  ]
+ ],
+ "metricName": "YouTube views",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "TOP 10 · ALL TIME",
+   "title": "The most watched videos in YouTube history ▶️",
+   "sub": "#1 is 3× #10 😳",
+   "say": "The most watched videos in YouTube history. Number one is 3 times higher than number ten.",
+   "tight": true
+  },
+  {
+   "type": "rank",
+   "title": "Most viewed YouTube videos ever",
+   "metric": "Total views, live count · Oct 28, 2026",
+   "rows": [
+    {
+     "rank": 1,
+     "name": "Baby Shark Dance",
+     "flag": "▶️",
+     "value": 17280000000,
+     "text": "17.3B",
+     "v": 1
+    },
+    {
+     "rank": 2,
+     "name": "Wheels on the Bus",
+     "flag": "▶️",
+     "value": 9340000000,
+     "text": "9.3B",
+     "v": 0.5405092592592593
+    },
+    {
+     "rank": 3,
+     "name": "Despacito",
+     "flag": "▶️",
+     "value": 9110000000,
+     "text": "9.1B",
+     "v": 0.5271990740740741
+    },
+    {
+     "rank": 4,
+     "name": "Bath Song",
+     "flag": "▶️",
+     "value": 7610000000,
+     "text": "7.6B",
+     "v": 0.44039351851851855
+    },
+    {
+     "rank": 5,
+     "name": "Johny Johny Yes Papa",
+     "flag": "▶️",
+     "value": 7240000000,
+     "text": "7.2B",
+     "v": 0.41898148148148145
+    },
+    {
+     "rank": 6,
+     "name": "Phonics Song with Two Words",
+     "flag": "▶️",
+     "value": 7080000000,
+     "text": "7.1B",
+     "v": 0.4097222222222222
+    },
+    {
+     "rank": 7,
+     "name": "See You Again",
+     "flag": "▶️",
+     "value": 7080000000,
+     "text": "7.1B",
+     "v": 0.4097222222222222
+    },
+    {
+     "rank": 8,
+     "name": "Shape of You",
+     "flag": "▶️",
+     "value": 6790000000,
+     "text": "6.8B",
+     "v": 0.3929398148148148
+    },
+    {
+     "rank": 9,
+     "name": "Axel F",
+     "flag": "▶️",
+     "value": 6140000000,
+     "text": "6.1B",
+     "v": 0.35532407407407407
+    },
+    {
+     "rank": 10,
+     "name": "Gangnam Style",
+     "flag": "▶️",
+     "value": 6050000000,
+     "text": "6.1B",
+     "v": 0.35011574074074076
+    }
+   ],
+   "min": 9,
+   "order": "countdown",
+   "parts": [
+    {
+     "say": "Top three. Comment your guess for number one!"
+    },
+    {
+     "say": "Number three: Despacito.",
+     "row": 2
+    },
+    {
+     "say": "Number two: Wheels on the Bus.",
+     "row": 1
+    },
+    {
+     "say": "And number one is… Baby Shark Dance, with 17.3 billion views!",
+     "row": 0
+    }
+   ],
+   "cues": {
+    "0": 10.723999999999998,
+    "1": 8.36,
+    "2": 6.116,
+    "rest": 16.022
+   }
+  },
+  {
+   "type": "cta",
+   "line": "Did you guess number one?",
+   "sub": "Comment your guess 👇",
+   "say": "Did you guess number one? Comment it!"
+  }
+ ],
+ "caption": "The most watched videos in YouTube history ▶️\n\n🥇 ??? → watch until the end 👀\n🥈 ▶️ Wheels on the Bus: 9.3B\n🥉 ▶️ Despacito: 9.1B\n\nGuess number one in the comments 👇\n\n📊 Source: Wikipedia, List of most-viewed YouTube videos, Oct 28, 2026.\n\n#top10 #rankings #trending #didyouknow #theplanetinnumbers",
+ "id": "world-yt-views",
+ "fact": {
+  "topic": "yt-views",
+  "flag": "▶️",
+  "name": "Baby Shark Dance",
+  "text": "17.3B",
+  "label": "Most viewed YouTube videos ever"
+ },
+ "cover_ms": 2200
+}
