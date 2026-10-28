@@ -72,7 +72,7 @@ async function ytMostViewed() {
   for (const r of t.rows) {
     const cells = r.length === t.head.length ? r : [{ t: '' }, ...r];
     const v = num(cells[iV]?.t); const name = String(cells[iName]?.t || '').replace(/^"|"$/g, '').replace(/^\W+|\W+$/g, '');
-    if (!(v > 1 && v < 60) || !name) continue;
+    if (!(v > 1 && v < 60) || !name || /\d{3,}\s+\d{3,}|getinspired/i.test(name) || /^facebook$/i.test(String(cells[iUp]?.t || ''))) continue;
     const id = (cells[iName]?.raw || '').match(/youtube\.com\/watch\?v=([\w-]{11})/)?.[1];
     rows.push({ name: name.length > 34 ? name.slice(0, 33) + '…' : name, value: v * 1e9, flag: '▶️', sub: String(cells[iUp]?.t || ''), img: id ? await dataURI(`https://i.ytimg.com/vi/${id}/mqdefault.jpg`) : null });
   }
@@ -149,18 +149,20 @@ async function buildings() {
   const T = await wikiTables('List_of_tallest_buildings');
   const t = T.find(x => x.head.some(h => /height/.test(h)) && x.head.some(h => /name|building/.test(h)) && x.rows.length >= 20);
   if (!t) throw new Error('Buildings table not found');
-  const iN = t.head.findIndex(h => /^name|building/.test(h)), iH = t.head.findIndex(h => /height/.test(h) && /m|metre|meter/.test(h)) >= 0 ? t.head.findIndex(h => /height/.test(h) && /m|metre|meter/.test(h)) : t.head.findIndex(h => /height/.test(h)), iC = t.head.findIndex(h => /country/.test(h)), iCity = t.head.findIndex(h => /city/.test(h));
   const cs = await countries(), byName = new Map([...cs.values()].map(c => [c.name.toLowerCase(), c]));
-  const alias = { 'united states': 'United States', 'china': 'China', 'south korea': 'South Korea', 'russia': 'Russia', 'vietnam': 'Vietnam', 'turkey': 'Türkiye', 'taiwan': 'Taiwan' };
-  const rows = [];
+  const alias = { 'united states': 'united states', 'turkey': 'türkiye', 'south korea': 'south korea', 'taiwan': 'taiwan' };
+  const rows = [], seen = new Set();
   for (const r of t.rows) {
-    if (r.length < t.head.length - 1) continue;
-    const off = t.head.length - r.length;   // rowspans shift the cells
-    const cell = k => r[k - off];
-    const name = String(cell(iN)?.t || '').replace(/\s*\(.*\)$/, ''), h = num(cell(iH)?.t);
-    if (!name || !(h > 200 && h < 1200)) continue;
-    const cn = String(cell(iC)?.t || ''); const c = byName.get((alias[cn.toLowerCase()] || cn).toLowerCase());
-    rows.push({ name, value: h, flag: c?.flag || '🏙️', sub: [cell(iCity)?.t, c?.name || cn].filter(Boolean).join(', '), iso3: c?.iso3 });
+    const tx = r.map(c => c.t);
+    // the height in metres is the number followed by the same height in feet (rowspans shift columns, so look for the pair)
+    const k = tx.findIndex((x, n) => { const m = num(x), f = num(tx[n + 1]); return m > 200 && m < 1000 && Math.abs(f / m - 3.281) < 0.1; });
+    if (k < 1) continue;
+    let name = ''; for (let n = k - 1; n >= 0; n--) if (tx[n] && isNaN(num(tx[n])) ) { name = tx[n]; break; }
+    name = name.replace(/\s*\(.*\)$/, '').replace(/\s*\[.*\]$/, '');
+    if (!name || seen.has(name)) continue; seen.add(name);
+    let c = null, city = '';
+    for (let n = k + 2; n < tx.length; n++) { const hit = byName.get((alias[tx[n].toLowerCase()] || tx[n]).toLowerCase()); if (hit) { c = hit; city = tx[n + 1] && isNaN(num(tx[n + 1])) ? tx[n + 1] : (tx[n - 1] && isNaN(num(tx[n - 1])) ? tx[n - 1] : ''); break; } }
+    rows.push({ name, value: num(tx[k]), flag: c?.flag || '🏙️', sub: [city, c?.name].filter(Boolean).join(', '), iso3: c?.iso3 });
   }
   rows.sort((a, b) => b.value - a.value);
   return { rows: rows.slice(0, 25), date: nice(Date.now()), via: 'Wikipedia, List of tallest buildings' };
