@@ -44,6 +44,10 @@
   {
    "id": "steam-now",
    "at": "2026-10-28T11:54:19.370Z"
+  },
+  {
+   "id": "steam-now",
+   "at": "2026-10-28T12:18:02.427Z"
   }
  ],
  "_log": [
@@ -194,6 +198,19 @@
     "text": "962K",
     "label": "Most played games right now"
    }
+  },
+  {
+   "at": "2026-10-28T12:18:02.427Z",
+   "id": "world-steam-now",
+   "kind": "reel",
+   "title": "Most played games right now",
+   "fact": {
+    "topic": "steam-now",
+    "flag": "🎮",
+    "name": "Counter-Strike 2",
+    "text": "1.0M",
+    "label": "Most played games right now"
+   }
   }
  ],
  "stat": [
@@ -253,6 +270,7 @@
   "gdp"
  ],
  "world": [
+  "steam-now",
   "steam-now"
  ]
 }
