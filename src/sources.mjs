@@ -118,7 +118,10 @@ async function quakes() {
     const cname = alias[tail.toLowerCase()] || tail;
     const c = byName.get(cname.toLowerCase());
     const where = place.replace(/^\d+\s*km\s+[NSEW]{0,3}\s+of\s+/i, 'Near ');
-    rows.push({ name: where.length > 34 ? (c ? `Off ${c.name}` : where.slice(0, 33) + '…') : where, value: f.properties.mag, flag: c?.flag || '🌋', sub: new Date(f.properties.time).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) });
+    const when = new Date(f.properties.time).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+    // short, uniform labels (fit the row): 'Indonesia · Aug 14'
+    const region = c?.name || (tail.length <= 18 ? tail : where.replace(/^Near /, '').slice(0, 18));
+    rows.push({ name: `${region} · ${when}`, value: f.properties.mag, flag: c?.flag || '🌋', sub: where });
   }
   return { rows, date: String(y), via: 'USGS earthquake catalog' };
 }
