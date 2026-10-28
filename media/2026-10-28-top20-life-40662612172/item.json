@@ -1,0 +1,1048 @@
+{
+ "kind": "carousel",
+ "asReel": true,
+ "series": "top20",
+ "episode": "life",
+ "topic": "life",
+ "title": "Where people live the longest",
+ "slides": [
+  {
+   "type": "cover",
+   "kicker": "TOP 20 · COUNTDOWN",
+   "title": "Where people live the longest",
+   "sub": "Life expectancy at birth · 2024",
+   "flags": [
+    "❓",
+    "❓",
+    "❓"
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Where people live the longest",
+   "range": "#20 → #17",
+   "rows": [
+    {
+     "rank": 20,
+     "name": "Slovenia",
+     "flag": "🇸🇮",
+     "iso3": "SVN",
+     "value": 82.2853658536585,
+     "text": "82.3 yrs",
+     "v": 0.9636114364057004
+    },
+    {
+     "rank": 19,
+     "name": "Belgium",
+     "flag": "🇧🇪",
+     "iso3": "BEL",
+     "value": 82.3,
+     "text": "82.3 yrs",
+     "v": 0.9637828111165059
+    },
+    {
+     "rank": 18,
+     "name": "Finland",
+     "flag": "🇫🇮",
+     "iso3": "FIN",
+     "value": 82.3365853658537,
+     "text": "82.3 yrs",
+     "v": 0.9642112478935193
+    },
+    {
+     "rank": 17,
+     "name": "Portugal",
+     "flag": "🇵🇹",
+     "iso3": "PRT",
+     "value": 82.3829268292683,
+     "text": "82.4 yrs",
+     "v": 0.9647539344777354
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Where people live the longest",
+   "range": "#16 → #13",
+   "rows": [
+    {
+     "rank": 16,
+     "name": "Qatar",
+     "flag": "🇶🇦",
+     "iso3": "QAT",
+     "value": 82.522,
+     "text": "82.5 yrs",
+     "v": 0.9663825654794205
+    },
+    {
+     "rank": 15,
+     "name": "France",
+     "flag": "🇫🇷",
+     "iso3": "FRA",
+     "value": 82.9804878048781,
+     "text": "83.0 yrs",
+     "v": 0.9717517351689472
+    },
+    {
+     "rank": 14,
+     "name": "Ireland",
+     "flag": "🇮🇪",
+     "iso3": "IRL",
+     "value": 83.009756097561,
+     "text": "83.0 yrs",
+     "v": 0.9720944845905571
+    },
+    {
+     "rank": 13,
+     "name": "Australia",
+     "flag": "🇦🇺",
+     "iso3": "AUS",
+     "value": 83.0512195121951,
+     "text": "83.1 yrs",
+     "v": 0.9725800462711715
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Where people live the longest",
+   "range": "#12 → #9",
+   "rows": [
+    {
+     "rank": 12,
+     "name": "United Arab Emirates",
+     "flag": "🇦🇪",
+     "iso3": "ARE",
+     "value": 83.069,
+     "text": "83.1 yrs",
+     "v": 0.9727882665447999
+    },
+    {
+     "rank": 11,
+     "name": "Norway",
+     "flag": "🇳🇴",
+     "iso3": "NOR",
+     "value": 83.1609756097561,
+     "text": "83.2 yrs",
+     "v": 0.9738653566022104
+    },
+    {
+     "rank": 10,
+     "name": "Israel",
+     "flag": "🇮🇱",
+     "iso3": "ISR",
+     "value": 83.1975609756098,
+     "text": "83.2 yrs",
+     "v": 0.974293793379224
+    },
+    {
+     "rank": 9,
+     "name": "Singapore",
+     "flag": "🇸🇬",
+     "iso3": "SGP",
+     "value": 83.3463414634146,
+     "text": "83.3 yrs",
+     "v": 0.9760361029390756
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Where people live the longest",
+   "range": "#8 → #5",
+   "rows": [
+    {
+     "rank": 8,
+     "name": "South Korea",
+     "flag": "🇰🇷",
+     "iso3": "KOR",
+     "value": 83.6292682926829,
+     "text": "83.6 yrs",
+     "v": 0.9793493473479756
+    },
+    {
+     "rank": 7,
+     "name": "Spain",
+     "flag": "🇪🇸",
+     "iso3": "ESP",
+     "value": 83.8878048780488,
+     "text": "83.9 yrs",
+     "v": 0.9823769672388677
+    },
+    {
+     "rank": 6,
+     "name": "Italy",
+     "flag": "🇮🇹",
+     "iso3": "ITA",
+     "value": 83.9512195121951,
+     "text": "84.0 yrs",
+     "v": 0.9831195909856896
+    },
+    {
+     "rank": 5,
+     "name": "Japan",
+     "flag": "🇯🇵",
+     "iso3": "JPN",
+     "value": 84.0363414634146,
+     "text": "84.0 yrs",
+     "v": 0.9841164205535397
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "Where people live the longest",
+   "range": "#4 → #1",
+   "rows": [
+    {
+     "rank": 4,
+     "name": "Sweden",
+     "flag": "🇸🇪",
+     "iso3": "SWE",
+     "value": 84.0634146341463,
+     "text": "84.1 yrs",
+     "v": 0.984433463768529
+    },
+    {
+     "rank": 3,
+     "name": "Switzerland",
+     "flag": "🇨🇭",
+     "iso3": "CHE",
+     "value": 84.4073170731707,
+     "text": "84.4 yrs",
+     "v": 0.9884607694724509
+    },
+    {
+     "rank": 2,
+     "name": "Kuwait",
+     "flag": "🇰🇼",
+     "iso3": "KWT",
+     "value": 84.580487804878,
+     "text": "84.6 yrs",
+     "v": 0.9904887035503119
+    },
+    {
+     "rank": 1,
+     "name": "Hong Kong",
+     "flag": "🇭🇰",
+     "iso3": "HKG",
+     "value": 85.3926829268293,
+     "text": "85.4 yrs",
+     "v": 1
+    }
+   ]
+  },
+  {
+   "type": "end",
+   "title": "Is your country on the list?",
+   "sub": "Save this post and share it with someone who should see it",
+   "note": "Source: World Bank open data, latest available (2024). Countries with 1M+ people."
+  }
+ ],
+ "rank": [
+  [
+   "HKG",
+   1,
+   "85.4 yrs"
+  ],
+  [
+   "KWT",
+   2,
+   "84.6 yrs"
+  ],
+  [
+   "CHE",
+   3,
+   "84.4 yrs"
+  ],
+  [
+   "SWE",
+   4,
+   "84.1 yrs"
+  ],
+  [
+   "JPN",
+   5,
+   "84.0 yrs"
+  ],
+  [
+   "ITA",
+   6,
+   "84.0 yrs"
+  ],
+  [
+   "ESP",
+   7,
+   "83.9 yrs"
+  ],
+  [
+   "KOR",
+   8,
+   "83.6 yrs"
+  ],
+  [
+   "SGP",
+   9,
+   "83.3 yrs"
+  ],
+  [
+   "ISR",
+   10,
+   "83.2 yrs"
+  ],
+  [
+   "NOR",
+   11,
+   "83.2 yrs"
+  ],
+  [
+   "ARE",
+   12,
+   "83.1 yrs"
+  ],
+  [
+   "AUS",
+   13,
+   "83.1 yrs"
+  ],
+  [
+   "IRL",
+   14,
+   "83.0 yrs"
+  ],
+  [
+   "FRA",
+   15,
+   "83.0 yrs"
+  ],
+  [
+   "QAT",
+   16,
+   "82.5 yrs"
+  ],
+  [
+   "PRT",
+   17,
+   "82.4 yrs"
+  ],
+  [
+   "FIN",
+   18,
+   "82.3 yrs"
+  ],
+  [
+   "BEL",
+   19,
+   "82.3 yrs"
+  ],
+  [
+   "SVN",
+   20,
+   "82.3 yrs"
+  ],
+  [
+   "DNK",
+   21,
+   "82.3 yrs"
+  ],
+  [
+   "CAN",
+   22,
+   "82.1 yrs"
+  ],
+  [
+   "NZL",
+   23,
+   "82.0 yrs"
+  ],
+  [
+   "AUT",
+   24,
+   "82.0 yrs"
+  ],
+  [
+   "NLD",
+   25,
+   "82.0 yrs"
+  ],
+  [
+   "PRI",
+   26,
+   "81.9 yrs"
+  ],
+  [
+   "GRC",
+   27,
+   "81.8 yrs"
+  ],
+  [
+   "CYP",
+   28,
+   "81.8 yrs"
+  ],
+  [
+   "BHR",
+   29,
+   "81.4 yrs"
+  ],
+  [
+   "GBR",
+   30,
+   "81.4 yrs"
+  ],
+  [
+   "CHL",
+   31,
+   "81.4 yrs"
+  ],
+  [
+   "CRI",
+   32,
+   "81.0 yrs"
+  ],
+  [
+   "DEU",
+   33,
+   "80.8 yrs"
+  ],
+  [
+   "OMN",
+   34,
+   "80.2 yrs"
+  ],
+  [
+   "CZE",
+   35,
+   "80.0 yrs"
+  ],
+  [
+   "ALB",
+   36,
+   "79.8 yrs"
+  ],
+  [
+   "PAN",
+   37,
+   "79.8 yrs"
+  ],
+  [
+   "EST",
+   38,
+   "79.3 yrs"
+  ],
+  [
+   "SAU",
+   39,
+   "79.0 yrs"
+  ],
+  [
+   "HRV",
+   40,
+   "78.9 yrs"
+  ],
+  [
+   "USA",
+   41,
+   "78.9 yrs"
+  ],
+  [
+   "POL",
+   42,
+   "78.4 yrs"
+  ],
+  [
+   "SVK",
+   43,
+   "78.4 yrs"
+  ],
+  [
+   "ARM",
+   44,
+   "78.3 yrs"
+  ],
+  [
+   "URY",
+   45,
+   "78.3 yrs"
+  ],
+  [
+   "CUB",
+   46,
+   "78.3 yrs"
+  ],
+  [
+   "XKX",
+   47,
+   "78.2 yrs"
+  ],
+  [
+   "BIH",
+   48,
+   "78.0 yrs"
+  ],
+  [
+   "CHN",
+   49,
+   "78.0 yrs"
+  ],
+  [
+   "JOR",
+   50,
+   "78.0 yrs"
+  ],
+  [
+   "LBN",
+   51,
+   "77.9 yrs"
+  ],
+  [
+   "PER",
+   52,
+   "77.9 yrs"
+  ],
+  [
+   "COL",
+   53,
+   "77.9 yrs"
+  ],
+  [
+   "IRN",
+   54,
+   "77.9 yrs"
+  ],
+  [
+   "LKA",
+   55,
+   "77.7 yrs"
+  ],
+  [
+   "ECU",
+   56,
+   "77.6 yrs"
+  ],
+  [
+   "ARG",
+   57,
+   "77.5 yrs"
+  ],
+  [
+   "TUR",
+   58,
+   "77.4 yrs"
+  ],
+  [
+   "LTU",
+   59,
+   "77.2 yrs"
+  ],
+  [
+   "MYS",
+   60,
+   "76.8 yrs"
+  ],
+  [
+   "HUN",
+   61,
+   "76.7 yrs"
+  ],
+  [
+   "TUN",
+   62,
+   "76.7 yrs"
+  ],
+  [
+   "MKD",
+   63,
+   "76.6 yrs"
+  ],
+  [
+   "THA",
+   64,
+   "76.6 yrs"
+  ],
+  [
+   "DZA",
+   65,
+   "76.5 yrs"
+  ],
+  [
+   "ROU",
+   66,
+   "76.5 yrs"
+  ],
+  [
+   "LVA",
+   67,
+   "76.4 yrs"
+  ],
+  [
+   "BRA",
+   68,
+   "76.0 yrs"
+  ],
+  [
+   "SRB",
+   69,
+   "76.0 yrs"
+  ],
+  [
+   "BGR",
+   70,
+   "75.8 yrs"
+  ],
+  [
+   "MAR",
+   71,
+   "75.5 yrs"
+  ],
+  [
+   "MEX",
+   72,
+   "75.3 yrs"
+  ],
+  [
+   "NIC",
+   73,
+   "75.1 yrs"
+  ],
+  [
+   "BGD",
+   74,
+   "74.9 yrs"
+  ],
+  [
+   "VNM",
+   75,
+   "74.7 yrs"
+  ],
+  [
+   "UKR",
+   76,
+   "74.7 yrs"
+  ],
+  [
+   "GEO",
+   77,
+   "74.7 yrs"
+  ],
+  [
+   "AZE",
+   78,
+   "74.6 yrs"
+  ],
+  [
+   "KAZ",
+   79,
+   "74.5 yrs"
+  ],
+  [
+   "BLR",
+   80,
+   "74.4 yrs"
+  ],
+  [
+   "PRY",
+   81,
+   "74.0 yrs"
+  ],
+  [
+   "DOM",
+   82,
+   "73.9 yrs"
+  ],
+  [
+   "MUS",
+   83,
+   "73.8 yrs"
+  ],
+  [
+   "PRK",
+   84,
+   "73.7 yrs"
+  ],
+  [
+   "TTO",
+   85,
+   "73.6 yrs"
+  ],
+  [
+   "RUS",
+   86,
+   "73.4 yrs"
+  ],
+  [
+   "HND",
+   87,
+   "73.0 yrs"
+  ],
+  [
+   "GTM",
+   88,
+   "72.7 yrs"
+  ],
+  [
+   "VEN",
+   89,
+   "72.7 yrs"
+  ],
+  [
+   "SYR",
+   90,
+   "72.6 yrs"
+  ],
+  [
+   "UZB",
+   91,
+   "72.5 yrs"
+  ],
+  [
+   "IRQ",
+   92,
+   "72.4 yrs"
+  ],
+  [
+   "KGZ",
+   93,
+   "72.4 yrs"
+  ],
+  [
+   "MNG",
+   94,
+   "72.4 yrs"
+  ],
+  [
+   "SLV",
+   95,
+   "72.3 yrs"
+  ],
+  [
+   "IND",
+   96,
+   "72.2 yrs"
+  ],
+  [
+   "TJK",
+   97,
+   "71.9 yrs"
+  ],
+  [
+   "EGY",
+   98,
+   "71.8 yrs"
+  ],
+  [
+   "JAM",
+   99,
+   "71.6 yrs"
+  ],
+  [
+   "MDA",
+   100,
+   "71.3 yrs"
+  ],
+  [
+   "IDN",
+   101,
+   "71.3 yrs"
+  ],
+  [
+   "LBY",
+   102,
+   "71.1 yrs"
+  ],
+  [
+   "KHM",
+   103,
+   "70.8 yrs"
+  ],
+  [
+   "NPL",
+   104,
+   "70.6 yrs"
+  ],
+  [
+   "TKM",
+   105,
+   "70.2 yrs"
+  ],
+  [
+   "PHL",
+   106,
+   "69.9 yrs"
+  ],
+  [
+   "YEM",
+   107,
+   "69.4 yrs"
+  ],
+  [
+   "BWA",
+   108,
+   "69.3 yrs"
+  ],
+  [
+   "LAO",
+   109,
+   "69.2 yrs"
+  ],
+  [
+   "PSE",
+   110,
+   "69.2 yrs"
+  ],
+  [
+   "SEN",
+   111,
+   "68.9 yrs"
+  ],
+  [
+   "ERI",
+   112,
+   "68.9 yrs"
+  ],
+  [
+   "BOL",
+   113,
+   "68.7 yrs"
+  ],
+  [
+   "MRT",
+   114,
+   "68.7 yrs"
+  ],
+  [
+   "GAB",
+   115,
+   "68.5 yrs"
+  ],
+  [
+   "UGA",
+   116,
+   "68.5 yrs"
+  ],
+  [
+   "RWA",
+   117,
+   "68.0 yrs"
+  ],
+  [
+   "TLS",
+   118,
+   "67.9 yrs"
+  ],
+  [
+   "PAK",
+   119,
+   "67.8 yrs"
+  ],
+  [
+   "ETH",
+   120,
+   "67.6 yrs"
+  ],
+  [
+   "MWI",
+   121,
+   "67.6 yrs"
+  ],
+  [
+   "NAM",
+   122,
+   "67.5 yrs"
+  ],
+  [
+   "TZA",
+   123,
+   "67.2 yrs"
+  ],
+  [
+   "MMR",
+   124,
+   "67.1 yrs"
+  ],
+  [
+   "ZMB",
+   125,
+   "66.5 yrs"
+  ],
+  [
+   "SDN",
+   126,
+   "66.5 yrs"
+  ],
+  [
+   "ZAF",
+   127,
+   "66.3 yrs"
+  ],
+  [
+   "AFG",
+   128,
+   "66.3 yrs"
+  ],
+  [
+   "PNG",
+   129,
+   "66.3 yrs"
+  ],
+  [
+   "DJI",
+   130,
+   "66.2 yrs"
+  ],
+  [
+   "GMB",
+   131,
+   "66.1 yrs"
+  ],
+  [
+   "COG",
+   132,
+   "66.0 yrs"
+  ],
+  [
+   "GHA",
+   133,
+   "65.7 yrs"
+  ],
+  [
+   "HTI",
+   134,
+   "65.1 yrs"
+  ],
+  [
+   "AGO",
+   135,
+   "64.8 yrs"
+  ],
+  [
+   "SWZ",
+   136,
+   "64.3 yrs"
+  ],
+  [
+   "GNB",
+   137,
+   "64.3 yrs"
+  ],
+  [
+   "CMR",
+   138,
+   "64.0 yrs"
+  ],
+  [
+   "GNQ",
+   139,
+   "63.9 yrs"
+  ],
+  [
+   "MDG",
+   140,
+   "63.8 yrs"
+  ],
+  [
+   "KEN",
+   141,
+   "63.8 yrs"
+  ],
+  [
+   "BDI",
+   142,
+   "63.8 yrs"
+  ],
+  [
+   "MOZ",
+   143,
+   "63.8 yrs"
+  ],
+  [
+   "ZWE",
+   144,
+   "63.1 yrs"
+  ],
+  [
+   "TGO",
+   145,
+   "62.9 yrs"
+  ],
+  [
+   "LBR",
+   146,
+   "62.3 yrs"
+  ],
+  [
+   "CIV",
+   147,
+   "62.1 yrs"
+  ],
+  [
+   "COD",
+   148,
+   "62.1 yrs"
+  ],
+  [
+   "SLE",
+   149,
+   "62.0 yrs"
+  ],
+  [
+   "NER",
+   150,
+   "61.4 yrs"
+  ],
+  [
+   "BFA",
+   151,
+   "61.3 yrs"
+  ],
+  [
+   "BEN",
+   152,
+   "61.0 yrs"
+  ],
+  [
+   "GIN",
+   153,
+   "60.9 yrs"
+  ],
+  [
+   "MLI",
+   154,
+   "60.7 yrs"
+  ],
+  [
+   "SOM",
+   155,
+   "59.0 yrs"
+  ],
+  [
+   "LSO",
+   156,
+   "57.8 yrs"
+  ],
+  [
+   "SSD",
+   157,
+   "57.7 yrs"
+  ],
+  [
+   "CAF",
+   158,
+   "57.7 yrs"
+  ],
+  [
+   "TCD",
+   159,
+   "55.2 yrs"
+  ],
+  [
+   "NGA",
+   160,
+   "54.6 yrs"
+  ]
+ ],
+ "metricName": "life expectancy",
+ "caption": "Where people live the longest: the full Top 20 🌍\n\nCounting down from 20 to number one. Swipe to the end ➡️ Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n📊 Source: World Bank open data, latest available (2024). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "top20-life",
+ "videoCaption": "Where people live the longest: the full Top 20 🌍\n\nCounting down from 20 to number one. Is your country on the list? Comment it and we'll tell you its rank 👇\n\n💾 Save it for later.\n\n📊 Source: World Bank open data, latest available (2024). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers"
+}
