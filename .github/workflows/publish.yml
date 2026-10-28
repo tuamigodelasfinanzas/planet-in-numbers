@@ -120,14 +120,19 @@ jobs:
             [ "$(ls out/slides/*.jpg | wc -l)" = 7 ] || { echo "::error::Carousel must have 7 slides"; exit 1; }
             cp out/slides/*.jpg "site/media/$DIR/"
             COVER=out/slides/01.jpg
+            ASREEL=$(jq -r '.asReel // false' item.json)
             # Instagram: each slide as a short video with music + voice (the API can't add music to photos)
-            if node src/render-slide-videos.mjs item.json out/slides out/cvids; then
+            if [ "$ASREEL" = true ]; then echo "Published as a reel: no slide videos needed"
+            elif node src/render-slide-videos.mjs item.json out/slides out/cvids; then
               for f in out/cvids/*.mp4; do cp "$f" "site/media/$DIR/c$(basename "$f")"; done
             else echo "::warning::Slide videos failed: photo carousel"; rm -rf out/cvids; fi
             # the same carousel as a vertical video, for YouTube Shorts and TikTok (no "swipe" hints)
             if PIN_NOSWIPE=1 node src/render-carousel.mjs item.json out/vslides && node src/render-slideshow.mjs item.json out/vslides out/reel.mp4; then
               cp out/reel.mp4 "site/media/$DIR/"
             else echo "::warning::Video version of the carousel failed: carousel only"; rm -f out/reel.mp4; fi
+            # data (oct 2026): photo carousels reach ~1 person on Instagram, their video version does far better →
+            # series marked asReel go out as a REEL everywhere (Instagram, Facebook, YouTube, Telegram)
+            if [ "$ASREEL" = true ] && [ -f out/reel.mp4 ]; then KIND=reel; echo "Carousel published as a reel"; fi
           fi
           jq -r .caption item.json > "site/media/$DIR/caption.txt"
           cp item.json "site/media/$DIR/item.json"

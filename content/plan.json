@@ -14,19 +14,20 @@
   },
   "thu": {
     "A": "map",
-    "B": "versus"
+    "B": "top10"
   },
   "fri": {
     "A": "top10",
     "C": "stop"
   },
   "sat": {
-    "B": "guess",
+    "B": "map",
     "C": "cup"
   },
   "sun": {
-    "A": "stat",
-    "B": "week"
+    "A": "top10",
+    "B": "race"
   },
-  "_games": "Games: stop = 'Stop the video', hl = 'Higher or Lower', cup = 'World Cup of countries' (Saturday 18:00, one match per week; votes = comments on the previous match)."
+  "_games": "Games: stop = 'Stop the video', hl = 'Higher or Lower', cup = 'World Cup of countries' (Saturday 18:00, one match per week; votes = comments on the previous match).",
+  "_decision": "28 Oct 2026, from week-1 data: photo carousels reach ~1 person on Instagram -> versus and week removed, top20 goes out as a reel (video). Rankings (top10/top20), maps and races get the most views; 'stat' (big gap) and 'guess' were the weakest -> replaced. Review again after 2 more weeks."
 }
