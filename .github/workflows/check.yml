@@ -19,6 +19,7 @@ jobs:
       - env:
           IG_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER: ${{ secrets.IG_USER_ID }}
+          MAKE_HOOK: ${{ secrets.MAKE_WEBHOOK_URL }}
         run: |
           if [ "$(head -1 .github/check-request)" = "platforms" ]; then node tools/platforms-check.mjs > check-result.txt 2>&1 || true
           elif [ "$(head -1 .github/check-request | cut -d' ' -f1)" = "wb" ]; then node tools/check-wb.mjs $(head -1 .github/check-request | cut -d' ' -f2-) > check-result.txt 2>&1 || true
@@ -27,6 +28,7 @@ jobs:
             MODE=$(head -1 .github/check-request | cut -d' ' -f1)
             B="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/$(head -1 .github/check-request | cut -d' ' -f2)"
             curl -s "$B/caption.txt" > cap.txt; node tools/ig-carousel.mjs cap.txt $(for i in 1 2 3 4 5 6 7; do echo "$B/c0$i.mp4"; done) $([ "$MODE" = igtest ] && echo --dry) > check-result.txt 2>&1 || true
+          elif [ "$(head -1 .github/check-request | cut -d' ' -f1)" = "world" ]; then node tools/check-world.mjs $(head -1 .github/check-request | cut -d' ' -f2-) > check-result.txt 2>&1 || true
           elif [ "$(head -1 .github/check-request)" = "audit" ]; then node tools/audit-topics.mjs > check-result.txt 2>&1 || true
           else node tools/check-owid.mjs $(cat .github/check-request) | sed 's/^::notice:://' > check-result.txt; fi
           cat check-result.txt
