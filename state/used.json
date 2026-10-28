@@ -211,6 +211,13 @@
     "text": "1.0M",
     "label": "Most played games right now"
    }
+  },
+  {
+   "at": "2026-10-28T16:56:27.415Z",
+   "id": "hl-2026-10-28",
+   "kind": "reel",
+   "title": "Higher or Lower: countries",
+   "fact": null
   }
  ],
  "stat": [
@@ -272,5 +279,8 @@
  "world": [
   "steam-now",
   "steam-now"
+ ],
+ "hl": [
+  "2026-10-28"
  ]
 }

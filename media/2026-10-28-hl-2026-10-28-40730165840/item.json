@@ -1,0 +1,214 @@
+{
+ "kind": "reel",
+ "series": "hl",
+ "episode": "2026-10-28",
+ "music": "quiz",
+ "title": "Higher or Lower: countries",
+ "rounds": [
+  {
+   "q": "Who eats more fruit?",
+   "a": "Austria",
+   "b": "Malaysia",
+   "win": "a"
+  },
+  {
+   "q": "Which country is happier?",
+   "a": "Czechia",
+   "b": "Ghana",
+   "win": "a"
+  },
+  {
+   "q": "Which country is older?",
+   "a": "Canada",
+   "b": "Peru",
+   "win": "a"
+  },
+  {
+   "q": "Who drinks more beer?",
+   "a": "Hungary",
+   "b": "Mexico",
+   "win": "b"
+  },
+  {
+   "q": "Where are men taller?",
+   "a": "India",
+   "b": "South Korea",
+   "win": "b"
+  }
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "HIGHER OR LOWER · 5 ROUNDS",
+   "title": "Higher or lower? Country edition ⬆️⬇️",
+   "sub": "Keep score. Comment your result /5",
+   "say": "5 rounds. Each one harder. Keep score!",
+   "min": 2.2,
+   "tight": true
+  },
+  {
+   "type": "hl",
+   "stat": "fruit",
+   "n": 1,
+   "q": "Who eats more fruit?",
+   "a": {
+    "flag": "🇦🇹",
+    "name": "Austria",
+    "text": "117 kg"
+   },
+   "b": {
+    "flag": "🇲🇾",
+    "name": "Malaysia",
+    "text": "60 kg"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Round one. Who eats more fruit?"
+    },
+    {
+     "say": "Easy one. Austria: 117 kilos per person a year, against 60.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 10.208
+   },
+   "revealAt": 4.646
+  },
+  {
+   "type": "hl",
+   "stat": "happiness",
+   "n": 2,
+   "q": "Which country is happier?",
+   "a": {
+    "flag": "🇨🇿",
+    "name": "Czechia",
+    "text": "6.82/10"
+   },
+   "b": {
+    "flag": "🇬🇭",
+    "name": "Ghana",
+    "text": "4.55/10"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Which country is happier?"
+    },
+    {
+     "say": "Czechia: 6.8 out of ten, against 4.6.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 8.552
+   },
+   "revealAt": 4.1899999999999995
+  },
+  {
+   "type": "hl",
+   "stat": "median-age",
+   "n": 3,
+   "q": "Which country is older?",
+   "a": {
+    "flag": "🇨🇦",
+    "name": "Canada",
+    "text": "40.3 yrs"
+   },
+   "b": {
+    "flag": "🇵🇪",
+    "name": "Peru",
+    "text": "29.5 yrs"
+   },
+   "win": "a",
+   "parts": [
+    {
+     "say": "Which country is older, by median age?"
+    },
+    {
+     "say": "Canada: 40 years, against 29.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 8.36
+   },
+   "revealAt": 5.1739999999999995
+  },
+  {
+   "type": "hl",
+   "stat": "beer",
+   "n": 4,
+   "q": "Who drinks more beer?",
+   "a": {
+    "flag": "🇭🇺",
+    "name": "Hungary",
+    "text": "82 L"
+   },
+   "b": {
+    "flag": "🇲🇽",
+    "name": "Mexico",
+    "text": "91 L"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Who drinks more beer?"
+    },
+    {
+     "say": "So close! Mexico: about 91 liters of beer per adult, against 82.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 10.352
+   },
+   "revealAt": 4.622
+  },
+  {
+   "type": "hl",
+   "stat": "height-men",
+   "n": 5,
+   "q": "Where are men taller?",
+   "a": {
+    "flag": "🇮🇳",
+    "name": "India",
+    "text": "164.9 cm"
+   },
+   "b": {
+    "flag": "🇰🇷",
+    "name": "South Korea",
+    "text": "174.9 cm"
+   },
+   "win": "b",
+   "parts": [
+    {
+     "say": "Where are men taller?"
+    },
+    {
+     "say": "So close! South Korea: 174.9 centimeters, against 164.9.",
+     "reveal": true
+    }
+   ],
+   "total": 5,
+   "cues": {
+    "rest": 11.84
+   },
+   "revealAt": 4.622
+  },
+  {
+   "type": "cta",
+   "line": "What was YOUR score?",
+   "sub": "Comment your result out of 5 👇",
+   "say": "What was your score out of 5? Comment it!"
+  }
+ ],
+ "caption": "Higher or lower? Country edition ⬆️⬇️\n\n5 rounds, each one harder. How many did you get right?\n\nComment your score /5 👇\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#higherorlower #quiz #geography #countries #theplanetinnumbers",
+ "id": "hl-2026-10-28",
+ "cover_ms": 2200
+}
