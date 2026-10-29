@@ -52,6 +52,10 @@
   {
    "id": "yt-views",
    "at": "2026-10-28T19:56:24.177Z"
+  },
+  {
+   "id": "happiness",
+   "at": "2026-10-29T04:55:05.834Z"
   }
  ],
  "_log": [
@@ -235,6 +239,13 @@
     "text": "17.3B",
     "label": "Most viewed YouTube videos ever"
    }
+  },
+  {
+   "at": "2026-10-29T04:55:05.834Z",
+   "id": "map-happiness",
+   "kind": "reel",
+   "title": "World map: happiest countries on earth",
+   "fact": null
   }
  ],
  "stat": [
@@ -242,7 +253,8 @@
   "beer"
  ],
  "map": [
-  "alcohol"
+  "alcohol",
+  "happiness"
  ],
  "versus": [
   "USA-CHN"
