@@ -56,6 +56,10 @@
   {
    "id": "happiness",
    "at": "2026-10-29T04:55:05.834Z"
+  },
+  {
+   "id": "wiki-week",
+   "at": "2026-10-29T09:54:19.016Z"
   }
  ],
  "_log": [
@@ -246,6 +250,19 @@
    "kind": "reel",
    "title": "World map: happiest countries on earth",
    "fact": null
+  },
+  {
+   "at": "2026-10-29T09:54:19.016Z",
+   "id": "world-wiki-week",
+   "kind": "reel",
+   "title": "Most read on Wikipedia this week",
+   "fact": {
+    "topic": "wiki-week",
+    "flag": "📰",
+    "name": "Jailer 2",
+    "text": "905K",
+    "label": "Most read on Wikipedia this week"
+   }
   }
  ],
  "stat": [
@@ -308,7 +325,8 @@
  "world": [
   "steam-now",
   "steam-now",
-  "yt-views"
+  "yt-views",
+  "wiki-week"
  ],
  "hl": [
   "2026-10-28"
