@@ -1,0 +1,934 @@
+{
+ "kind": "reel",
+ "series": "top10",
+ "episode": "alcohol",
+ "topic": "alcohol",
+ "music": "upbeat",
+ "title": "Countries that drink the most",
+ "rank": [
+  [
+   "ROU",
+   1,
+   "16.8 L"
+  ],
+  [
+   "GEO",
+   2,
+   "14.4 L"
+  ],
+  [
+   "LVA",
+   3,
+   "12.9 L"
+  ],
+  [
+   "LTU",
+   4,
+   "12.1 L"
+  ],
+  [
+   "CZE",
+   5,
+   "12.0 L"
+  ],
+  [
+   "DEU",
+   6,
+   "11.8 L"
+  ],
+  [
+   "POL",
+   7,
+   "11.7 L"
+  ],
+  [
+   "BLR",
+   8,
+   "11.6 L"
+  ],
+  [
+   "BGR",
+   9,
+   "11.6 L"
+  ],
+  [
+   "AUT",
+   10,
+   "11.5 L"
+  ],
+  [
+   "UGA",
+   11,
+   "11.3 L"
+  ],
+  [
+   "BFA",
+   12,
+   "11.3 L"
+  ],
+  [
+   "MDA",
+   13,
+   "11.1 L"
+  ],
+  [
+   "TZA",
+   14,
+   "11.0 L"
+  ],
+  [
+   "LAO",
+   15,
+   "10.8 L"
+  ],
+  [
+   "IRL",
+   16,
+   "10.8 L"
+  ],
+  [
+   "GBR",
+   17,
+   "10.7 L"
+  ],
+  [
+   "EST",
+   18,
+   "10.7 L"
+  ],
+  [
+   "SVK",
+   19,
+   "10.7 L"
+  ],
+  [
+   "RUS",
+   20,
+   "10.5 L"
+  ],
+  [
+   "SVN",
+   21,
+   "10.4 L"
+  ],
+  [
+   "FRA",
+   22,
+   "10.3 L"
+  ],
+  [
+   "AUS",
+   23,
+   "10.3 L"
+  ],
+  [
+   "CHE",
+   24,
+   "10.1 L"
+  ],
+  [
+   "NZL",
+   25,
+   "10.0 L"
+  ],
+  [
+   "HUN",
+   26,
+   "9.9 L"
+  ],
+  [
+   "USA",
+   27,
+   "9.9 L"
+  ],
+  [
+   "CAN",
+   28,
+   "9.9 L"
+  ],
+  [
+   "CMR",
+   29,
+   "9.6 L"
+  ],
+  [
+   "SWE",
+   30,
+   "9.6 L"
+  ],
+  [
+   "DNK",
+   31,
+   "9.5 L"
+  ],
+  [
+   "BEL",
+   32,
+   "9.4 L"
+  ],
+  [
+   "UKR",
+   33,
+   "9.2 L"
+  ],
+  [
+   "ESP",
+   34,
+   "9.2 L"
+  ],
+  [
+   "FIN",
+   35,
+   "9.1 L"
+  ],
+  [
+   "PRT",
+   36,
+   "8.9 L"
+  ],
+  [
+   "BEN",
+   37,
+   "8.8 L"
+  ],
+  [
+   "NLD",
+   38,
+   "8.7 L"
+  ],
+  [
+   "GAB",
+   39,
+   "8.1 L"
+  ],
+  [
+   "ARG",
+   40,
+   "8.1 L"
+  ],
+  [
+   "VNM",
+   41,
+   "8.0 L"
+  ],
+  [
+   "THA",
+   42,
+   "8.0 L"
+  ],
+  [
+   "SRB",
+   43,
+   "7.9 L"
+  ],
+  [
+   "KOR",
+   44,
+   "7.8 L"
+  ],
+  [
+   "BRA",
+   45,
+   "7.7 L"
+  ],
+  [
+   "MNG",
+   46,
+   "7.7 L"
+  ],
+  [
+   "HRV",
+   47,
+   "7.7 L"
+  ],
+  [
+   "CHL",
+   48,
+   "7.6 L"
+  ],
+  [
+   "NOR",
+   49,
+   "7.4 L"
+  ],
+  [
+   "BWA",
+   50,
+   "7.3 L"
+  ],
+  [
+   "ZAF",
+   51,
+   "7.1 L"
+  ],
+  [
+   "ITA",
+   52,
+   "7.0 L"
+  ],
+  [
+   "MUS",
+   53,
+   "6.9 L"
+  ],
+  [
+   "SWZ",
+   54,
+   "6.8 L"
+  ],
+  [
+   "KHM",
+   55,
+   "6.7 L"
+  ],
+  [
+   "GNQ",
+   56,
+   "6.6 L"
+  ],
+  [
+   "DOM",
+   57,
+   "6.5 L"
+  ],
+  [
+   "PER",
+   58,
+   "6.5 L"
+  ],
+  [
+   "JPN",
+   59,
+   "6.4 L"
+  ],
+  [
+   "CYP",
+   60,
+   "6.4 L"
+  ],
+  [
+   "COG",
+   61,
+   "6.1 L"
+  ],
+  [
+   "TTO",
+   62,
+   "6.0 L"
+  ],
+  [
+   "BIH",
+   63,
+   "5.9 L"
+  ],
+  [
+   "GRC",
+   64,
+   "5.8 L"
+  ],
+  [
+   "PHL",
+   65,
+   "5.7 L"
+  ],
+  [
+   "PRY",
+   66,
+   "5.6 L"
+  ],
+  [
+   "URY",
+   67,
+   "5.6 L"
+  ],
+  [
+   "CUB",
+   68,
+   "5.4 L"
+  ],
+  [
+   "MLI",
+   69,
+   "5.3 L"
+  ],
+  [
+   "NAM",
+   70,
+   "5.1 L"
+  ],
+  [
+   "MEX",
+   71,
+   "4.8 L"
+  ],
+  [
+   "PAN",
+   72,
+   "4.7 L"
+  ],
+  [
+   "CHN",
+   73,
+   "4.6 L"
+  ],
+  [
+   "KAZ",
+   74,
+   "4.5 L"
+  ],
+  [
+   "ALB",
+   75,
+   "4.5 L"
+  ],
+  [
+   "MKD",
+   76,
+   "4.4 L"
+  ],
+  [
+   "LSO",
+   77,
+   "4.3 L"
+  ],
+  [
+   "ARM",
+   78,
+   "4.3 L"
+  ],
+  [
+   "GHA",
+   79,
+   "4.3 L"
+  ],
+  [
+   "COL",
+   80,
+   "4.2 L"
+  ],
+  [
+   "BDI",
+   81,
+   "4.2 L"
+  ],
+  [
+   "AGO",
+   82,
+   "4.1 L"
+  ],
+  [
+   "IND",
+   83,
+   "4.1 L"
+  ],
+  [
+   "PRK",
+   84,
+   "3.9 L"
+  ],
+  [
+   "NGA",
+   85,
+   "3.8 L"
+  ],
+  [
+   "GNB",
+   86,
+   "3.7 L"
+  ],
+  [
+   "NIC",
+   87,
+   "3.7 L"
+  ],
+  [
+   "KGZ",
+   88,
+   "3.6 L"
+  ],
+  [
+   "ZMB",
+   89,
+   "3.6 L"
+  ],
+  [
+   "MWI",
+   90,
+   "3.6 L"
+  ],
+  [
+   "BOL",
+   91,
+   "3.6 L"
+  ],
+  [
+   "CRI",
+   92,
+   "3.4 L"
+  ],
+  [
+   "SLV",
+   93,
+   "3.2 L"
+  ],
+  [
+   "HTI",
+   94,
+   "3.1 L"
+  ],
+  [
+   "JAM",
+   95,
+   "3.1 L"
+  ],
+  [
+   "HND",
+   96,
+   "3.1 L"
+  ],
+  [
+   "ETH",
+   97,
+   "3.1 L"
+  ],
+  [
+   "TCD",
+   98,
+   "2.9 L"
+  ],
+  [
+   "LKA",
+   99,
+   "2.9 L"
+  ],
+  [
+   "RWA",
+   100,
+   "2.9 L"
+  ],
+  [
+   "LBR",
+   101,
+   "2.9 L"
+  ],
+  [
+   "CIV",
+   102,
+   "2.9 L"
+  ],
+  [
+   "ISR",
+   103,
+   "2.8 L"
+  ],
+  [
+   "ZWE",
+   104,
+   "2.7 L"
+  ],
+  [
+   "TKM",
+   105,
+   "2.6 L"
+  ],
+  [
+   "ECU",
+   106,
+   "2.5 L"
+  ],
+  [
+   "AZE",
+   107,
+   "2.5 L"
+  ],
+  [
+   "KEN",
+   108,
+   "2.5 L"
+  ],
+  [
+   "UZB",
+   109,
+   "2.1 L"
+  ],
+  [
+   "ARE",
+   110,
+   "2.1 L"
+  ],
+  [
+   "VEN",
+   111,
+   "2.0 L"
+  ],
+  [
+   "MMR",
+   112,
+   "1.9 L"
+  ],
+  [
+   "COD",
+   113,
+   "1.9 L"
+  ],
+  [
+   "MOZ",
+   114,
+   "1.9 L"
+  ],
+  [
+   "SGP",
+   115,
+   "1.8 L"
+  ],
+  [
+   "CAF",
+   116,
+   "1.8 L"
+  ],
+  [
+   "TUN",
+   117,
+   "1.7 L"
+  ],
+  [
+   "TUR",
+   118,
+   "1.7 L"
+  ],
+  [
+   "GTM",
+   119,
+   "1.5 L"
+  ],
+  [
+   "TGO",
+   120,
+   "1.4 L"
+  ],
+  [
+   "LBN",
+   121,
+   "1.3 L"
+  ],
+  [
+   "BHR",
+   122,
+   "1.3 L"
+  ],
+  [
+   "PNG",
+   123,
+   "1.1 L"
+  ],
+  [
+   "ERI",
+   124,
+   "1.1 L"
+  ],
+  [
+   "NPL",
+   125,
+   "1.1 L"
+  ],
+  [
+   "QAT",
+   126,
+   "1.1 L"
+  ],
+  [
+   "MDG",
+   127,
+   "1.0 L"
+  ],
+  [
+   "MYS",
+   128,
+   "0.7 L"
+  ],
+  [
+   "TJK",
+   129,
+   "0.7 L"
+  ],
+  [
+   "GMB",
+   130,
+   "0.6 L"
+  ],
+  [
+   "DZA",
+   131,
+   "0.5 L"
+  ],
+  [
+   "GIN",
+   132,
+   "0.5 L"
+  ],
+  [
+   "IRN",
+   133,
+   "0.5 L"
+  ],
+  [
+   "OMN",
+   134,
+   "0.5 L"
+  ],
+  [
+   "MAR",
+   135,
+   "0.5 L"
+  ],
+  [
+   "DJI",
+   136,
+   "0.4 L"
+  ],
+  [
+   "SEN",
+   137,
+   "0.4 L"
+  ],
+  [
+   "SLE",
+   138,
+   "0.3 L"
+  ],
+  [
+   "IRQ",
+   139,
+   "0.2 L"
+  ],
+  [
+   "JOR",
+   140,
+   "0.2 L"
+  ],
+  [
+   "TLS",
+   141,
+   "0.2 L"
+  ],
+  [
+   "EGY",
+   142,
+   "0.1 L"
+  ],
+  [
+   "NER",
+   143,
+   "0.1 L"
+  ],
+  [
+   "BGD",
+   144,
+   "0.1 L"
+  ],
+  [
+   "SYR",
+   145,
+   "0.1 L"
+  ],
+  [
+   "PAK",
+   146,
+   "0.1 L"
+  ],
+  [
+   "IDN",
+   147,
+   "0.1 L"
+  ],
+  [
+   "YEM",
+   148,
+   "0.0 L"
+  ],
+  [
+   "LBY",
+   149,
+   "0.0 L"
+  ],
+  [
+   "AFG",
+   150,
+   "0.0 L"
+  ],
+  [
+   "SDN",
+   151,
+   "0.0 L"
+  ],
+  [
+   "KWT",
+   152,
+   "0.0 L"
+  ],
+  [
+   "MRT",
+   153,
+   "0.0 L"
+  ],
+  [
+   "SAU",
+   154,
+   "0.0 L"
+  ],
+  [
+   "SOM",
+   155,
+   "0.0 L"
+  ]
+ ],
+ "metricName": "alcohol consumption",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "TOP 10 · 2020",
+   "title": "The countries that drink the most alcohol 🍻",
+   "sub": "Guess #1 before the end 👇",
+   "say": "The countries that drink the most alcohol. Guess number one before I say it.",
+   "tight": true
+  },
+  {
+   "type": "rank",
+   "title": "Countries that drink the most",
+   "metric": "Pure alcohol per adult per year (all drinks) · 2020",
+   "rows": [
+    {
+     "rank": 1,
+     "name": "Romania",
+     "flag": "🇷🇴",
+     "iso3": "ROU",
+     "value": 16.8,
+     "text": "16.8 L",
+     "v": 1
+    },
+    {
+     "rank": 2,
+     "name": "Georgia",
+     "flag": "🇬🇪",
+     "iso3": "GEO",
+     "value": 14.41,
+     "text": "14.4 L",
+     "v": 0.8577380952380952
+    },
+    {
+     "rank": 3,
+     "name": "Latvia",
+     "flag": "🇱🇻",
+     "iso3": "LVA",
+     "value": 12.87,
+     "text": "12.9 L",
+     "v": 0.7660714285714285
+    },
+    {
+     "rank": 4,
+     "name": "Lithuania",
+     "flag": "🇱🇹",
+     "iso3": "LTU",
+     "value": 12.1,
+     "text": "12.1 L",
+     "v": 0.7202380952380952
+    },
+    {
+     "rank": 5,
+     "name": "Czechia",
+     "flag": "🇨🇿",
+     "iso3": "CZE",
+     "value": 11.99,
+     "text": "12.0 L",
+     "v": 0.7136904761904762
+    },
+    {
+     "rank": 6,
+     "name": "Germany",
+     "flag": "🇩🇪",
+     "iso3": "DEU",
+     "value": 11.84,
+     "text": "11.8 L",
+     "v": 0.7047619047619047
+    },
+    {
+     "rank": 7,
+     "name": "Poland",
+     "flag": "🇵🇱",
+     "iso3": "POL",
+     "value": 11.66,
+     "text": "11.7 L",
+     "v": 0.694047619047619
+    },
+    {
+     "rank": 8,
+     "name": "Belarus",
+     "flag": "🇧🇾",
+     "iso3": "BLR",
+     "value": 11.63,
+     "text": "11.6 L",
+     "v": 0.6922619047619047
+    },
+    {
+     "rank": 9,
+     "name": "Bulgaria",
+     "flag": "🇧🇬",
+     "iso3": "BGR",
+     "value": 11.62,
+     "text": "11.6 L",
+     "v": 0.6916666666666665
+    },
+    {
+     "rank": 10,
+     "name": "Austria",
+     "flag": "🇦🇹",
+     "iso3": "AUT",
+     "value": 11.51,
+     "text": "11.5 L",
+     "v": 0.6851190476190476
+    }
+   ],
+   "min": 9,
+   "order": "countdown",
+   "parts": [
+    {
+     "say": "Top three. Comment your guess for number one!"
+    },
+    {
+     "say": "Number three: Latvia.",
+     "row": 2
+    },
+    {
+     "say": "Number two: Georgia.",
+     "row": 1
+    },
+    {
+     "say": "And number one is… Romania, with 16.8 liters of pure alcohol per person!",
+     "row": 0
+    }
+   ],
+   "cues": {
+    "0": 10.292,
+    "1": 8.12,
+    "2": 6.116,
+    "rest": 15.95
+   }
+  },
+  {
+   "type": "cta",
+   "line": "Where does YOUR country rank?",
+   "sub": "Comment your country 👇 I'll reply with its rank",
+   "say": "Comment your country, and I'll tell you its rank."
+  }
+ ],
+ "caption": "The countries that drink the most alcohol 🍻\n\n🥇 ??? → watch until the end 👀\n🥈 🇬🇪 Georgia: 14.4 L\n🥉 🇱🇻 Latvia: 12.9 L\n\nGuess number one in the comments 👇 Comment your country and we'll tell you its rank.\n\n📊 Source: Our World in Data (WHO), latest available (2020). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "top10-alcohol",
+ "fact": {
+  "topic": "alcohol",
+  "flag": "🇷🇴",
+  "name": "Romania",
+  "text": "16.8 L",
+  "label": "Countries that drink the most"
+ },
+ "cover_ms": 2200
+}

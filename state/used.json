@@ -2,7 +2,8 @@
  "top10": [
   "gdp-pc",
   "happiness-low",
-  "gdp-pc-low"
+  "gdp-pc-low",
+  "alcohol"
  ],
  "_topics": [
   {
@@ -60,6 +61,10 @@
   {
    "id": "wiki-week",
    "at": "2026-10-29T09:54:19.016Z"
+  },
+  {
+   "id": "alcohol",
+   "at": "2026-10-30T04:53:52.163Z"
   }
  ],
  "_log": [
@@ -262,6 +267,19 @@
     "name": "Jailer 2",
     "text": "905K",
     "label": "Most read on Wikipedia this week"
+   }
+  },
+  {
+   "at": "2026-10-30T04:53:52.163Z",
+   "id": "top10-alcohol",
+   "kind": "reel",
+   "title": "Countries that drink the most",
+   "fact": {
+    "topic": "alcohol",
+    "flag": "🇷🇴",
+    "name": "Romania",
+    "text": "16.8 L",
+    "label": "Countries that drink the most"
    }
   }
  ],
