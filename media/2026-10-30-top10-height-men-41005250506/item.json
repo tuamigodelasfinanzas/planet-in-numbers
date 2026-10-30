@@ -1,0 +1,949 @@
+{
+ "kind": "reel",
+ "series": "top10",
+ "episode": "height-men",
+ "topic": "height-men",
+ "music": "upbeat",
+ "title": "Tallest men in the world",
+ "rank": [
+  [
+   "NLD",
+   1,
+   "182.5 cm"
+  ],
+  [
+   "BEL",
+   2,
+   "181.7 cm"
+  ],
+  [
+   "EST",
+   3,
+   "181.6 cm"
+  ],
+  [
+   "LVA",
+   4,
+   "181.4 cm"
+  ],
+  [
+   "DNK",
+   5,
+   "181.4 cm"
+  ],
+  [
+   "BIH",
+   6,
+   "180.9 cm"
+  ],
+  [
+   "HRV",
+   7,
+   "180.8 cm"
+  ],
+  [
+   "SRB",
+   8,
+   "180.6 cm"
+  ],
+  [
+   "CZE",
+   9,
+   "180.1 cm"
+  ],
+  [
+   "DEU",
+   10,
+   "179.9 cm"
+  ],
+  [
+   "SVN",
+   11,
+   "179.8 cm"
+  ],
+  [
+   "NOR",
+   12,
+   "179.7 cm"
+  ],
+  [
+   "FRA",
+   13,
+   "179.7 cm"
+  ],
+  [
+   "SWE",
+   14,
+   "179.7 cm"
+  ],
+  [
+   "FIN",
+   15,
+   "179.6 cm"
+  ],
+  [
+   "SVK",
+   16,
+   "179.5 cm"
+  ],
+  [
+   "AUS",
+   17,
+   "179.2 cm"
+  ],
+  [
+   "LTU",
+   18,
+   "179.0 cm"
+  ],
+  [
+   "IRL",
+   19,
+   "178.9 cm"
+  ],
+  [
+   "UKR",
+   20,
+   "178.5 cm"
+  ],
+  [
+   "BLR",
+   21,
+   "178.4 cm"
+  ],
+  [
+   "CHE",
+   22,
+   "178.4 cm"
+  ],
+  [
+   "MKD",
+   23,
+   "178.3 cm"
+  ],
+  [
+   "BGR",
+   24,
+   "178.2 cm"
+  ],
+  [
+   "CAN",
+   25,
+   "178.1 cm"
+  ],
+  [
+   "ITA",
+   26,
+   "177.8 cm"
+  ],
+  [
+   "NZL",
+   27,
+   "177.7 cm"
+  ],
+  [
+   "GBR",
+   28,
+   "177.5 cm"
+  ],
+  [
+   "AUT",
+   29,
+   "177.4 cm"
+  ],
+  [
+   "POL",
+   30,
+   "177.3 cm"
+  ],
+  [
+   "GRC",
+   31,
+   "177.3 cm"
+  ],
+  [
+   "HUN",
+   32,
+   "177.3 cm"
+  ],
+  [
+   "USA",
+   33,
+   "177.1 cm"
+  ],
+  [
+   "ISR",
+   34,
+   "176.9 cm"
+  ],
+  [
+   "ESP",
+   35,
+   "176.6 cm"
+  ],
+  [
+   "RUS",
+   36,
+   "176.5 cm"
+  ],
+  [
+   "MDA",
+   37,
+   "175.5 cm"
+  ],
+  [
+   "CYP",
+   38,
+   "175.0 cm"
+  ],
+  [
+   "KOR",
+   39,
+   "174.9 cm"
+  ],
+  [
+   "ROU",
+   40,
+   "174.7 cm"
+  ],
+  [
+   "ARG",
+   41,
+   "174.6 cm"
+  ],
+  [
+   "JAM",
+   42,
+   "174.5 cm"
+  ],
+  [
+   "LBN",
+   43,
+   "174.4 cm"
+  ],
+  [
+   "GEO",
+   44,
+   "174.3 cm"
+  ],
+  [
+   "TUR",
+   45,
+   "174.2 cm"
+  ],
+  [
+   "TUN",
+   46,
+   "174.0 cm"
+  ],
+  [
+   "TTO",
+   47,
+   "173.7 cm"
+  ],
+  [
+   "HKG",
+   48,
+   "173.6 cm"
+  ],
+  [
+   "IRN",
+   49,
+   "173.6 cm"
+  ],
+  [
+   "BRA",
+   50,
+   "173.6 cm"
+  ],
+  [
+   "LBY",
+   51,
+   "173.5 cm"
+  ],
+  [
+   "URY",
+   52,
+   "173.4 cm"
+  ],
+  [
+   "ALB",
+   53,
+   "173.4 cm"
+  ],
+  [
+   "SEN",
+   54,
+   "173.1 cm"
+  ],
+  [
+   "PRT",
+   55,
+   "172.9 cm"
+  ],
+  [
+   "PRY",
+   56,
+   "172.8 cm"
+  ],
+  [
+   "DOM",
+   57,
+   "172.7 cm"
+  ],
+  [
+   "HTI",
+   58,
+   "172.6 cm"
+  ],
+  [
+   "SGP",
+   59,
+   "172.6 cm"
+  ],
+  [
+   "PSE",
+   60,
+   "172.1 cm"
+  ],
+  [
+   "PRI",
+   61,
+   "172.1 cm"
+  ],
+  [
+   "KWT",
+   62,
+   "172.1 cm"
+  ],
+  [
+   "ARM",
+   63,
+   "172.0 cm"
+  ],
+  [
+   "CUB",
+   64,
+   "172.0 cm"
+  ],
+  [
+   "PRK",
+   65,
+   "172.0 cm"
+  ],
+  [
+   "TKM",
+   66,
+   "172.0 cm"
+  ],
+  [
+   "CHN",
+   67,
+   "171.8 cm"
+  ],
+  [
+   "CHL",
+   68,
+   "171.8 cm"
+  ],
+  [
+   "BWA",
+   69,
+   "171.6 cm"
+  ],
+  [
+   "VEN",
+   70,
+   "171.6 cm"
+  ],
+  [
+   "TJK",
+   71,
+   "171.3 cm"
+  ],
+  [
+   "KGZ",
+   72,
+   "171.2 cm"
+  ],
+  [
+   "KAZ",
+   73,
+   "171.1 cm"
+  ],
+  [
+   "MLI",
+   74,
+   "171.1 cm"
+  ],
+  [
+   "JOR",
+   75,
+   "171.0 cm"
+  ],
+  [
+   "JPN",
+   76,
+   "170.8 cm"
+  ],
+  [
+   "MUS",
+   77,
+   "170.5 cm"
+  ],
+  [
+   "QAT",
+   78,
+   "170.5 cm"
+  ],
+  [
+   "ARE",
+   79,
+   "170.5 cm"
+  ],
+  [
+   "TCD",
+   80,
+   "170.4 cm"
+  ],
+  [
+   "IRQ",
+   81,
+   "170.4 cm"
+  ],
+  [
+   "SYR",
+   82,
+   "170.4 cm"
+  ],
+  [
+   "MAR",
+   83,
+   "170.4 cm"
+  ],
+  [
+   "DZA",
+   84,
+   "170.1 cm"
+  ],
+  [
+   "SLV",
+   85,
+   "169.8 cm"
+  ],
+  [
+   "AZE",
+   86,
+   "169.7 cm"
+  ],
+  [
+   "KEN",
+   87,
+   "169.6 cm"
+  ],
+  [
+   "COL",
+   88,
+   "169.5 cm"
+  ],
+  [
+   "UZB",
+   89,
+   "169.4 cm"
+  ],
+  [
+   "BFA",
+   90,
+   "169.3 cm"
+  ],
+  [
+   "THA",
+   91,
+   "169.2 cm"
+  ],
+  [
+   "OMN",
+   92,
+   "169.2 cm"
+  ],
+  [
+   "MNG",
+   93,
+   "169.1 cm"
+  ],
+  [
+   "MEX",
+   94,
+   "169.0 cm"
+  ],
+  [
+   "CRI",
+   95,
+   "168.9 cm"
+  ],
+  [
+   "GHA",
+   96,
+   "168.8 cm"
+  ],
+  [
+   "ZWE",
+   97,
+   "168.6 cm"
+  ],
+  [
+   "PAN",
+   98,
+   "168.5 cm"
+  ],
+  [
+   "ERI",
+   99,
+   "168.4 cm"
+  ],
+  [
+   "TGO",
+   100,
+   "168.3 cm"
+  ],
+  [
+   "SWZ",
+   101,
+   "168.1 cm"
+  ],
+  [
+   "GAB",
+   102,
+   "167.9 cm"
+  ],
+  [
+   "GNB",
+   103,
+   "167.9 cm"
+  ],
+  [
+   "MYS",
+   104,
+   "167.9 cm"
+  ],
+  [
+   "CMR",
+   105,
+   "167.8 cm"
+  ],
+  [
+   "BHR",
+   106,
+   "167.7 cm"
+  ],
+  [
+   "NER",
+   107,
+   "167.7 cm"
+  ],
+  [
+   "SAU",
+   108,
+   "167.7 cm"
+  ],
+  [
+   "GIN",
+   109,
+   "167.5 cm"
+  ],
+  [
+   "COG",
+   110,
+   "167.4 cm"
+  ],
+  [
+   "GNQ",
+   111,
+   "167.4 cm"
+  ],
+  [
+   "AGO",
+   112,
+   "167.3 cm"
+  ],
+  [
+   "ECU",
+   113,
+   "167.1 cm"
+  ],
+  [
+   "BEN",
+   114,
+   "167.1 cm"
+  ],
+  [
+   "NAM",
+   115,
+   "167.0 cm"
+  ],
+  [
+   "PAK",
+   116,
+   "166.9 cm"
+  ],
+  [
+   "BOL",
+   117,
+   "166.8 cm"
+  ],
+  [
+   "COD",
+   118,
+   "166.8 cm"
+  ],
+  [
+   "NIC",
+   119,
+   "166.7 cm"
+  ],
+  [
+   "EGY",
+   120,
+   "166.7 cm"
+  ],
+  [
+   "ZAF",
+   121,
+   "166.7 cm"
+  ],
+  [
+   "CAF",
+   122,
+   "166.7 cm"
+  ],
+  [
+   "BDI",
+   123,
+   "166.6 cm"
+  ],
+  [
+   "SDN",
+   124,
+   "166.6 cm"
+  ],
+  [
+   "SOM",
+   125,
+   "166.6 cm"
+  ],
+  [
+   "DJI",
+   126,
+   "166.6 cm"
+  ],
+  [
+   "CIV",
+   127,
+   "166.5 cm"
+  ],
+  [
+   "ZMB",
+   128,
+   "166.5 cm"
+  ],
+  [
+   "HND",
+   129,
+   "166.4 cm"
+  ],
+  [
+   "ETH",
+   130,
+   "166.2 cm"
+  ],
+  [
+   "NGA",
+   131,
+   "165.9 cm"
+  ],
+  [
+   "LKA",
+   132,
+   "165.7 cm"
+  ],
+  [
+   "UGA",
+   133,
+   "165.6 cm"
+  ],
+  [
+   "LSO",
+   134,
+   "165.6 cm"
+  ],
+  [
+   "GMB",
+   135,
+   "165.4 cm"
+  ],
+  [
+   "AFG",
+   136,
+   "165.3 cm"
+  ],
+  [
+   "PER",
+   137,
+   "165.2 cm"
+  ],
+  [
+   "IND",
+   138,
+   "164.9 cm"
+  ],
+  [
+   "TZA",
+   139,
+   "164.8 cm"
+  ],
+  [
+   "MOZ",
+   140,
+   "164.8 cm"
+  ],
+  [
+   "MMR",
+   141,
+   "164.7 cm"
+  ],
+  [
+   "VNM",
+   142,
+   "164.4 cm"
+  ],
+  [
+   "SLE",
+   143,
+   "164.4 cm"
+  ],
+  [
+   "BGD",
+   144,
+   "163.8 cm"
+  ],
+  [
+   "LBR",
+   145,
+   "163.7 cm"
+  ],
+  [
+   "PNG",
+   146,
+   "163.6 cm"
+  ],
+  [
+   "IDN",
+   147,
+   "163.6 cm"
+  ],
+  [
+   "GTM",
+   148,
+   "163.4 cm"
+  ],
+  [
+   "KHM",
+   149,
+   "163.3 cm"
+  ],
+  [
+   "MRT",
+   150,
+   "163.3 cm"
+  ],
+  [
+   "PHL",
+   151,
+   "163.2 cm"
+  ],
+  [
+   "RWA",
+   152,
+   "162.7 cm"
+  ],
+  [
+   "NPL",
+   153,
+   "162.3 cm"
+  ],
+  [
+   "MWI",
+   154,
+   "162.2 cm"
+  ],
+  [
+   "MDG",
+   155,
+   "161.5 cm"
+  ],
+  [
+   "LAO",
+   156,
+   "160.5 cm"
+  ],
+  [
+   "YEM",
+   157,
+   "159.9 cm"
+  ],
+  [
+   "TLS",
+   158,
+   "159.8 cm"
+  ]
+ ],
+ "metricName": "average height",
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "TOP 10 · 1996",
+   "title": "Where are the tallest men in the world? 📏",
+   "sub": "Guess #1 before the end 👇",
+   "say": "Where are the tallest men in the world? Guess number one before I say it.",
+   "tight": true
+  },
+  {
+   "type": "rank",
+   "title": "Tallest men in the world",
+   "metric": "Average adult height, men · men born in 1996",
+   "rows": [
+    {
+     "rank": 1,
+     "name": "Netherlands",
+     "flag": "🇳🇱",
+     "iso3": "NLD",
+     "value": 182.53539,
+     "text": "182.5 cm",
+     "v": 1
+    },
+    {
+     "rank": 2,
+     "name": "Belgium",
+     "flag": "🇧🇪",
+     "iso3": "BEL",
+     "value": 181.6988,
+     "text": "181.7 cm",
+     "v": 0.9954168339629921
+    },
+    {
+     "rank": 3,
+     "name": "Estonia",
+     "flag": "🇪🇪",
+     "iso3": "EST",
+     "value": 181.59348,
+     "text": "181.6 cm",
+     "v": 0.9948398499600543
+    },
+    {
+     "rank": 4,
+     "name": "Latvia",
+     "flag": "🇱🇻",
+     "iso3": "LVA",
+     "value": 181.42238,
+     "text": "181.4 cm",
+     "v": 0.9939024974828169
+    },
+    {
+     "rank": 5,
+     "name": "Denmark",
+     "flag": "🇩🇰",
+     "iso3": "DNK",
+     "value": 181.38509,
+     "text": "181.4 cm",
+     "v": 0.9936982083309981
+    },
+    {
+     "rank": 6,
+     "name": "Bosnia & Herzegovina",
+     "flag": "🇧🇦",
+     "iso3": "BIH",
+     "value": 180.86917,
+     "text": "180.9 cm",
+     "v": 0.9908717975182785
+    },
+    {
+     "rank": 7,
+     "name": "Croatia",
+     "flag": "🇭🇷",
+     "iso3": "HRV",
+     "value": 180.78186,
+     "text": "180.8 cm",
+     "v": 0.9903934793137922
+    },
+    {
+     "rank": 8,
+     "name": "Serbia",
+     "flag": "🇷🇸",
+     "iso3": "SRB",
+     "value": 180.56741,
+     "text": "180.6 cm",
+     "v": 0.9892186386431694
+    },
+    {
+     "rank": 9,
+     "name": "Czechia",
+     "flag": "🇨🇿",
+     "iso3": "CZE",
+     "value": 180.10374,
+     "text": "180.1 cm",
+     "v": 0.9866784736921426
+    },
+    {
+     "rank": 10,
+     "name": "Germany",
+     "flag": "🇩🇪",
+     "iso3": "DEU",
+     "value": 179.88118,
+     "text": "179.9 cm",
+     "v": 0.9854592032810733
+    }
+   ],
+   "min": 9,
+   "order": "countdown",
+   "parts": [
+    {
+     "say": "Top three. Comment your guess for number one!"
+    },
+    {
+     "say": "Number three: Estonia.",
+     "row": 2
+    },
+    {
+     "say": "Number two: Belgium.",
+     "row": 1
+    },
+    {
+     "say": "And number one is… Netherlands, with 182.5 centimeters!",
+     "row": 0
+    }
+   ],
+   "cues": {
+    "0": 10.46,
+    "1": 8.288,
+    "2": 6.116,
+    "rest": 15.902000000000001
+   }
+  },
+  {
+   "type": "cta",
+   "line": "Where does YOUR country rank?",
+   "sub": "Comment your country 👇 I'll reply with its rank",
+   "say": "Comment your country, and I'll tell you its rank."
+  }
+ ],
+ "caption": "Where are the tallest men in the world? 📏\n\n🥇 ??? → watch until the end 👀\n🥈 🇧🇪 Belgium: 181.7 cm\n🥉 🇪🇪 Estonia: 181.6 cm\n\nGuess number one in the comments 👇 Comment your country and we'll tell you its rank.\n\n📊 Source: Our World in Data (NCD-RisC), latest available (men born in 1996). Countries with 1M+ people.\n\n#worldrankings #countries #geography #dataviz #theplanetinnumbers",
+ "id": "top10-height-men",
+ "fact": {
+  "topic": "height-men",
+  "flag": "🇳🇱",
+  "name": "Netherlands",
+  "text": "182.5 cm",
+  "label": "Tallest men in the world"
+ },
+ "cover_ms": 2200
+}
