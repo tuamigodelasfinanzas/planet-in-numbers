@@ -299,6 +299,13 @@
     "text": "182.5 cm",
     "label": "Tallest men in the world"
    }
+  },
+  {
+   "at": "2026-10-30T16:53:38.381Z",
+   "id": "stop-work",
+   "kind": "reel",
+   "title": "Where will you work?",
+   "fact": null
   }
  ],
  "stat": [
@@ -318,7 +325,8 @@
  ],
  "stop": [
   "live",
-  "retire"
+  "retire",
+  "work"
  ],
  "guess": [
   "USA"

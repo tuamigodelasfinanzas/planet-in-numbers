@@ -1,0 +1,1048 @@
+{
+ "kind": "reel",
+ "series": "stop",
+ "episode": "work",
+ "music": "quiz",
+ "title": "Where will you work?",
+ "cards": [
+  [
+   "SVK",
+   "1,621 h · $28,544 · 5.4%"
+  ],
+  [
+   "ARM",
+   "1,976 h · $9,474 · 13%"
+  ],
+  [
+   "ZAF",
+   "2,181 h · $6,598 · 32%"
+  ],
+  [
+   "GHA",
+   "1,656 h · $3,257 · 3.0%"
+  ],
+  [
+   "BGR",
+   "1,659 h · $20,328 · 3.5%"
+  ],
+  [
+   "ZMB",
+   "2,200 h · $1,318 · 5.9%"
+  ],
+  [
+   "DOM",
+   "2,072 h · $11,059 · 5.1%"
+  ],
+  [
+   "SGP",
+   "2,283 h · $98,814 · 2.8%"
+  ],
+  [
+   "IND",
+   "2,383 h · $2,702 · 4.2%"
+  ],
+  [
+   "MAR",
+   "2,174 h · $4,672 · 9.0%"
+  ],
+  [
+   "SWE",
+   "1,432 h · $63,133 · 8.7%"
+  ],
+  [
+   "MDG",
+   "1,799 h · $599 · 3.0%"
+  ],
+  [
+   "UGA",
+   "2,128 h · $1,206 · 2.7%"
+  ],
+  [
+   "COL",
+   "2,471 h · $8,562 · 8.3%"
+  ],
+  [
+   "NZL",
+   "1,708 h · $49,591 · 5.1%"
+  ],
+  [
+   "CZE",
+   "1,774 h · $35,917 · 2.8%"
+  ],
+  [
+   "CIV",
+   "2,103 h · $3,050 · 2.3%"
+  ],
+  [
+   "SRB",
+   "1,995 h · $15,262 · 7.1%"
+  ],
+  [
+   "GTM",
+   "2,151 h · $6,598 · 2.6%"
+  ],
+  [
+   "NGA",
+   "2,062 h · $1,224 · 3.1%"
+  ],
+  [
+   "COG",
+   "2,534 h · $2,515 · 20%"
+  ],
+  [
+   "AZE",
+   "1,791 h · $7,411 · 5.5%"
+  ],
+  [
+   "KHM",
+   "2,389 h · $2,872 · 0.3%"
+  ],
+  [
+   "PHL",
+   "2,096 h · $4,171 · 2.2%"
+  ],
+  [
+   "BGD",
+   "2,383 h · $2,597 · 3.8%"
+  ],
+  [
+   "JOR",
+   "2,483 h · $5,348 · 17%"
+  ],
+  [
+   "KWT",
+   "2,318 h · $32,312 · 2.2%"
+  ],
+  [
+   "UZB",
+   "2,099 h · $3,968 · 4.6%"
+  ],
+  [
+   "IDN",
+   "1,958 h · $5,060 · 3.2%"
+  ],
+  [
+   "SAU",
+   "2,125 h · $34,537 · 3.0%"
+  ],
+  [
+   "RUS",
+   "2,087 h · $17,547 · 2.1%"
+  ],
+  [
+   "FIN",
+   "1,497 h · $56,149 · 9.5%"
+  ],
+  [
+   "IRL",
+   "1,654 h · $131,592 · 4.6%"
+  ],
+  [
+   "CHE",
+   "1,529 h · $114,769 · 4.9%"
+  ],
+  [
+   "LBN",
+   "2,412 h · $4,473 · 11%"
+  ],
+  [
+   "MEX",
+   "1,629 h · $13,889 · 2.7%"
+  ],
+  [
+   "CAN",
+   "1,731 h · $55,698 · 6.9%"
+  ],
+  [
+   "MYS",
+   "2,308 h · $13,125 · 3.8%"
+  ],
+  [
+   "HUN",
+   "1,668 h · $25,907 · 4.5%"
+  ],
+  [
+   "PRT",
+   "1,735 h · $32,082 · 6.2%"
+  ],
+  [
+   "PER",
+   "2,143 h · $9,684 · 5.1%"
+  ],
+  [
+   "JPN",
+   "1,654 h · $35,951 · 2.5%"
+  ],
+  [
+   "BIH",
+   "2,122 h · $10,382 · 11%"
+  ],
+  [
+   "POL",
+   "1,807 h · $28,420 · 3.0%"
+  ]
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "kicker": "STOP THE VIDEO",
+   "title": "Stop the video: this is where you'll work 💼",
+   "sub": "Pause anytime. No cheating 👀",
+   "say": "Stop the video. This is where you will work.",
+   "min": 2.2,
+   "tight": true
+  },
+  {
+   "type": "spin",
+   "title": "Where will you work?",
+   "cards": [
+    {
+     "iso3": "SVK",
+     "flag": "🇸🇰",
+     "name": "Slovakia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,621 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$28,544"
+      },
+      {
+       "label": "Unemployment",
+       "text": "5.4%"
+      }
+     ]
+    },
+    {
+     "iso3": "ARM",
+     "flag": "🇦🇲",
+     "name": "Armenia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,976 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$9,474"
+      },
+      {
+       "label": "Unemployment",
+       "text": "13%"
+      }
+     ]
+    },
+    {
+     "iso3": "ZAF",
+     "flag": "🇿🇦",
+     "name": "South Africa",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,181 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$6,598"
+      },
+      {
+       "label": "Unemployment",
+       "text": "32%"
+      }
+     ]
+    },
+    {
+     "iso3": "GHA",
+     "flag": "🇬🇭",
+     "name": "Ghana",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,656 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$3,257"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.0%"
+      }
+     ]
+    },
+    {
+     "iso3": "BGR",
+     "flag": "🇧🇬",
+     "name": "Bulgaria",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,659 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$20,328"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.5%"
+      }
+     ]
+    },
+    {
+     "iso3": "ZMB",
+     "flag": "🇿🇲",
+     "name": "Zambia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,200 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$1,318"
+      },
+      {
+       "label": "Unemployment",
+       "text": "5.9%"
+      }
+     ]
+    },
+    {
+     "iso3": "DOM",
+     "flag": "🇩🇴",
+     "name": "Dominican Republic",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,072 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$11,059"
+      },
+      {
+       "label": "Unemployment",
+       "text": "5.1%"
+      }
+     ]
+    },
+    {
+     "iso3": "SGP",
+     "flag": "🇸🇬",
+     "name": "Singapore",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,283 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$98,814"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.8%"
+      }
+     ]
+    },
+    {
+     "iso3": "IND",
+     "flag": "🇮🇳",
+     "name": "India",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,383 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$2,702"
+      },
+      {
+       "label": "Unemployment",
+       "text": "4.2%"
+      }
+     ]
+    },
+    {
+     "iso3": "MAR",
+     "flag": "🇲🇦",
+     "name": "Morocco",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,174 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$4,672"
+      },
+      {
+       "label": "Unemployment",
+       "text": "9.0%"
+      }
+     ]
+    },
+    {
+     "iso3": "SWE",
+     "flag": "🇸🇪",
+     "name": "Sweden",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,432 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$63,133"
+      },
+      {
+       "label": "Unemployment",
+       "text": "8.7%"
+      }
+     ]
+    },
+    {
+     "iso3": "MDG",
+     "flag": "🇲🇬",
+     "name": "Madagascar",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,799 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$599"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.0%"
+      }
+     ]
+    },
+    {
+     "iso3": "UGA",
+     "flag": "🇺🇬",
+     "name": "Uganda",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,128 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$1,206"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.7%"
+      }
+     ]
+    },
+    {
+     "iso3": "COL",
+     "flag": "🇨🇴",
+     "name": "Colombia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,471 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$8,562"
+      },
+      {
+       "label": "Unemployment",
+       "text": "8.3%"
+      }
+     ]
+    },
+    {
+     "iso3": "NZL",
+     "flag": "🇳🇿",
+     "name": "New Zealand",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,708 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$49,591"
+      },
+      {
+       "label": "Unemployment",
+       "text": "5.1%"
+      }
+     ]
+    },
+    {
+     "iso3": "CZE",
+     "flag": "🇨🇿",
+     "name": "Czechia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,774 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$35,917"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.8%"
+      }
+     ]
+    },
+    {
+     "iso3": "CIV",
+     "flag": "🇨🇮",
+     "name": "Côte d'Ivoire",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,103 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$3,050"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.3%"
+      }
+     ]
+    },
+    {
+     "iso3": "SRB",
+     "flag": "🇷🇸",
+     "name": "Serbia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,995 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$15,262"
+      },
+      {
+       "label": "Unemployment",
+       "text": "7.1%"
+      }
+     ]
+    },
+    {
+     "iso3": "GTM",
+     "flag": "🇬🇹",
+     "name": "Guatemala",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,151 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$6,598"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.6%"
+      }
+     ]
+    },
+    {
+     "iso3": "NGA",
+     "flag": "🇳🇬",
+     "name": "Nigeria",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,062 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$1,224"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.1%"
+      }
+     ]
+    },
+    {
+     "iso3": "COG",
+     "flag": "🇨🇬",
+     "name": "Congo",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,534 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$2,515"
+      },
+      {
+       "label": "Unemployment",
+       "text": "20%"
+      }
+     ]
+    },
+    {
+     "iso3": "AZE",
+     "flag": "🇦🇿",
+     "name": "Azerbaijan",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,791 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$7,411"
+      },
+      {
+       "label": "Unemployment",
+       "text": "5.5%"
+      }
+     ]
+    },
+    {
+     "iso3": "KHM",
+     "flag": "🇰🇭",
+     "name": "Cambodia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,389 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$2,872"
+      },
+      {
+       "label": "Unemployment",
+       "text": "0.3%"
+      }
+     ]
+    },
+    {
+     "iso3": "PHL",
+     "flag": "🇵🇭",
+     "name": "Philippines",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,096 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$4,171"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.2%"
+      }
+     ]
+    },
+    {
+     "iso3": "BGD",
+     "flag": "🇧🇩",
+     "name": "Bangladesh",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,383 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$2,597"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.8%"
+      }
+     ]
+    },
+    {
+     "iso3": "JOR",
+     "flag": "🇯🇴",
+     "name": "Jordan",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,483 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$5,348"
+      },
+      {
+       "label": "Unemployment",
+       "text": "17%"
+      }
+     ]
+    },
+    {
+     "iso3": "KWT",
+     "flag": "🇰🇼",
+     "name": "Kuwait",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,318 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$32,312"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.2%"
+      }
+     ]
+    },
+    {
+     "iso3": "UZB",
+     "flag": "🇺🇿",
+     "name": "Uzbekistan",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,099 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$3,968"
+      },
+      {
+       "label": "Unemployment",
+       "text": "4.6%"
+      }
+     ]
+    },
+    {
+     "iso3": "IDN",
+     "flag": "🇮🇩",
+     "name": "Indonesia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,958 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$5,060"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.2%"
+      }
+     ]
+    },
+    {
+     "iso3": "SAU",
+     "flag": "🇸🇦",
+     "name": "Saudi Arabia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,125 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$34,537"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.0%"
+      }
+     ]
+    },
+    {
+     "iso3": "RUS",
+     "flag": "🇷🇺",
+     "name": "Russia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,087 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$17,547"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.1%"
+      }
+     ]
+    },
+    {
+     "iso3": "FIN",
+     "flag": "🇫🇮",
+     "name": "Finland",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,497 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$56,149"
+      },
+      {
+       "label": "Unemployment",
+       "text": "9.5%"
+      }
+     ]
+    },
+    {
+     "iso3": "IRL",
+     "flag": "🇮🇪",
+     "name": "Ireland",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,654 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$131,592"
+      },
+      {
+       "label": "Unemployment",
+       "text": "4.6%"
+      }
+     ]
+    },
+    {
+     "iso3": "CHE",
+     "flag": "🇨🇭",
+     "name": "Switzerland",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,529 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$114,769"
+      },
+      {
+       "label": "Unemployment",
+       "text": "4.9%"
+      }
+     ]
+    },
+    {
+     "iso3": "LBN",
+     "flag": "🇱🇧",
+     "name": "Lebanon",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,412 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$4,473"
+      },
+      {
+       "label": "Unemployment",
+       "text": "11%"
+      }
+     ]
+    },
+    {
+     "iso3": "MEX",
+     "flag": "🇲🇽",
+     "name": "Mexico",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,629 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$13,889"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.7%"
+      }
+     ]
+    },
+    {
+     "iso3": "CAN",
+     "flag": "🇨🇦",
+     "name": "Canada",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,731 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$55,698"
+      },
+      {
+       "label": "Unemployment",
+       "text": "6.9%"
+      }
+     ]
+    },
+    {
+     "iso3": "MYS",
+     "flag": "🇲🇾",
+     "name": "Malaysia",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,308 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$13,125"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.8%"
+      }
+     ]
+    },
+    {
+     "iso3": "HUN",
+     "flag": "🇭🇺",
+     "name": "Hungary",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,668 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$25,907"
+      },
+      {
+       "label": "Unemployment",
+       "text": "4.5%"
+      }
+     ]
+    },
+    {
+     "iso3": "PRT",
+     "flag": "🇵🇹",
+     "name": "Portugal",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,735 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$32,082"
+      },
+      {
+       "label": "Unemployment",
+       "text": "6.2%"
+      }
+     ]
+    },
+    {
+     "iso3": "PER",
+     "flag": "🇵🇪",
+     "name": "Peru",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,143 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$9,684"
+      },
+      {
+       "label": "Unemployment",
+       "text": "5.1%"
+      }
+     ]
+    },
+    {
+     "iso3": "JPN",
+     "flag": "🇯🇵",
+     "name": "Japan",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,654 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$35,951"
+      },
+      {
+       "label": "Unemployment",
+       "text": "2.5%"
+      }
+     ]
+    },
+    {
+     "iso3": "BIH",
+     "flag": "🇧🇦",
+     "name": "Bosnia & Herzegovina",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "2,122 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$10,382"
+      },
+      {
+       "label": "Unemployment",
+       "text": "11%"
+      }
+     ]
+    },
+    {
+     "iso3": "POL",
+     "flag": "🇵🇱",
+     "name": "Poland",
+     "stats": [
+      {
+       "label": "Work hours a year",
+       "text": "1,807 h"
+      },
+      {
+       "label": "Income per person",
+       "text": "$28,420"
+      },
+      {
+       "label": "Unemployment",
+       "text": "3.0%"
+      }
+     ]
+    }
+   ],
+   "min": 10.3
+  },
+  {
+   "type": "cta",
+   "line": "Good job or bad luck?",
+   "sub": "Comment the country you landed on 👇",
+   "say": "Where did you land? Comment it, and try again!"
+  }
+ ],
+ "caption": "Stop the video: this is where you'll work 💼\n\nPause the video and that's your country 🛑\n• Work hours a year\n• Income per person\n• Unemployment — real data on every card.\n\nComment where you landed 👇 (and how many tries it took 😅)\n\n📊 Data: World Bank & Our World in Data, latest available.\n\n#stopthevideo #geography #countries #game #theplanetinnumbers",
+ "id": "stop-work",
+ "cover_ms": 2066
+}
