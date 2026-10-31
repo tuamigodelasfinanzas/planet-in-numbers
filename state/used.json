@@ -70,6 +70,10 @@
   {
    "id": "height-men",
    "at": "2026-10-30T07:29:53.953Z"
+  },
+  {
+   "id": "gdp-pc",
+   "at": "2026-10-31T09:53:56.521Z"
   }
  ],
  "_log": [
@@ -306,6 +310,13 @@
    "kind": "reel",
    "title": "Where will you work?",
    "fact": null
+  },
+  {
+   "at": "2026-10-31T09:53:56.521Z",
+   "id": "map-gdp-pc",
+   "kind": "reel",
+   "title": "World map: richest countries per person",
+   "fact": null
   }
  ],
  "stat": [
@@ -314,7 +325,8 @@
  ],
  "map": [
   "alcohol",
-  "happiness"
+  "happiness",
+  "gdp-pc"
  ],
  "versus": [
   "USA-CHN"
